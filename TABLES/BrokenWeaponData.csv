@@ -1,0 +1,10 @@
+.structBrokenWeaponEntry 0,HolyRank,ARank,BRank,CRank
+Sword,BrokenHolySword,BrokenSwordA,BrokenSwordB,BrokenSwordC
+Lance,BrokenHolyLance,BrokenLanceA,BrokenLanceB,BrokenLanceC
+Axe,BrokenAxeA,BrokenAxeA,BrokenAxeB,BrokenAxeC
+Bow,BrokenHolyBow,BrokenBowA,BrokenBowB,BrokenBowC
+Staff,BrokenHolyStaff,BrokenStaffA,BrokenStaffB,BrokenStaffC
+Fire,BrokenFireTomeA,BrokenFireTomeA,BrokenFireTomeB,BrokenFireTomeC
+Thunder,BrokenThunderTomeA,BrokenThunderTomeA,BrokenThunderTomeB,BrokenThunderTomeC
+Wind,BrokenHolyWindTome,BrokenWindTomeA,BrokenWindTomeB,BrokenWindTomeC
+Light,BrokenHolyLightTome,BrokenLightTomeA,BrokenLightTomeB,BrokenLightTomeC

@@ -1,0 +1,14 @@
+.structHolyBloodDataEntry 0,BoostedWeaponRank,Unknown,HPGrowth,StrGrowth,MagGrowth,SklGrowth,SpdGrowth,DefGrowth,ResGrowth,LuckGrowth,StrBoost,MagBoost,SklBoost,SpdBoost,DefBoost,ResBoost
+Baldr,WeaponTypeSword,$15,20,10,0,10,0,0,0,10,0,0,10,10,0,20
+Naga,WeaponTypeLight,$50,10,0,20,0,0,0,20,0,0,0,20,20,20,20
+Dainn,WeaponTypeLance,$23,20,0,0,0,30,0,0,0,10,0,0,10,10,0
+Njorun,WeaponTypeLance,$24,20,10,0,0,10,10,0,0,10,0,10,0,10,0
+Od,WeaponTypeSword,$16,20,0,0,30,0,0,0,0,0,0,10,20,0,0
+Ullr,WeaponTypeBow,$36,20,0,0,0,0,0,0,30,10,0,0,10,0,0
+Nal,WeaponTypeAxe,$2C,20,0,0,0,0,30,0,0,0,0,0,0,20,10
+Fjalar,WeaponTypeFire,$41,20,0,30,0,0,0,0,0,0,10,0,0,10,10
+Thrud,WeaponTypeThunder,$46,20,0,0,30,0,0,0,0,0,0,20,10,0,0
+Forseti,WeaponTypeWind,$4B,20,0,0,0,30,0,0,0,0,0,10,20,0,0
+Bragi,WeaponTypeStaff,$62,10,0,10,0,0,0,20,10,0,0,0,0,0,0
+Hothr,WeaponTypeSword,$14,20,30,0,0,0,0,0,0,0,0,20,0,0,10
+Loptous,WeaponTypeDark,$54,10,0,20,0,0,0,20,0,0,0,0,0,0,5

@@ -1,0 +1,3 @@
+.structTerrainAvoidOffset 0,Offset
+TerrainAvoidGround,aTerrainAvoid.GroundTerrainAvoidEntry
+TerrainAvoidFlying,aTerrainAvoid.FlyingTerrainAvoidEntry

@@ -1,0 +1,26 @@
+
+    .word $02FF
+    .word $02FF
+    .word $0200
+    .word $020C
+    .word $020F
+    .word $0209
+    .word $0215
+    .word $0203
+    .word $0206
+    .word $0206
+    .word $020C
+    .word $0215
+    .word $02FF
+    .word $0212
+    .word $020F
+    .word $0209
+    .word $0203
+    .word $0200
+    .word $02FF
+    .word $02FF
+    .word $02FF
+    .word $02FF
+    .word $02FF
+    .word $02FF
+    .word $02FF

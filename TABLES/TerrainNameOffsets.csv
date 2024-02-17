@@ -1,0 +1,27 @@
+.structTerrainNameOffset 0,Offset
+PeakName,aTerrainNames.Peak
+ThicketName,aTerrainNames.Thicket
+CliffName,aTerrainNames.Cliff
+PlainsName,aTerrainNames.Plains
+ForestName,aTerrainNames.Forest
+SeaName,aTerrainNames.Sea
+RiverName,aTerrainNames.River
+MountainName,aTerrainNames.Mountain
+DesertName,aTerrainNames.Desert
+BlankName,aTerrainNames.Blank
+CastleName,aTerrainNames.Castle
+VillageName,aTerrainNames.Village
+CastleGate1Name,aTerrainNames.CastleGate1
+CastleWallName,aTerrainNames.CastleWall
+SandName,aTerrainNames.Sand
+BridgeName,aTerrainNames.Bridge
+SwampName,aTerrainNames.Swamp
+CastleGate2Name,aTerrainNames.CastleGate2
+UnknownName,aTerrainNames.Unknown
+Ruins1Name,aTerrainNames.Ruins1
+SupplyName,aTerrainNames.Supply
+Ruins2Name,aTerrainNames.Ruins2
+ChurchName,aTerrainNames.Church
+ShrineName,aTerrainNames.Shrine
+BragiTowerName,aTerrainNames.BragiTower
+RoadName,aTerrainNames.Road
