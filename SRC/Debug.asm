@@ -35,9 +35,9 @@
         jsl rlDrawMenuTextNumber
 
         lda $0304,b ; menu tab index
-        asl
-        asl
-        asl
+        asl a
+        asl a
+        asl a
         clc
         adc $7F8402
         sta $7F8410
@@ -50,7 +50,7 @@
           bra -
 
         +
-        asl
+        asl a
         tax
         jsr (aDebugMenuPagePointers,x)
         rts
@@ -332,7 +332,7 @@
         sta $24
 
         lda $1E
-        asl
+        asl a
         tax
         lda aDebugMenuTab2Coordinates,x
         tax
@@ -352,7 +352,7 @@
         ldx $1E
         jsl rlUnknown84C15F
         sta $1C
-        asl
+        asl a
         clc
         adc $1C
         tax
@@ -362,7 +362,7 @@
         sta $24
 
         lda $1E
-        asl
+        asl a
         tax
         lda aDebugMenuTab2Coordinates,x
         clc
@@ -890,7 +890,7 @@
 
         lda $7F8428
         sta $00
-        asl
+        asl a
         clc
         adc $00
         tax
@@ -1191,7 +1191,7 @@
         
         -
         sta $7F8410
-        asl
+        asl a
         tax
         lda $7F8430,x
         beq +
@@ -1200,7 +1200,7 @@
           jsl rlGetSelectedUnitNamePointer
 
           lda $7F8410
-          asl
+          asl a
           clc
           adc #7
           and #$00FF
@@ -1222,7 +1222,7 @@
         +
         pha
         lda $7F8410
-        asl
+        asl a
         tax
         pla
         sta $7F8450,x
@@ -1239,7 +1239,7 @@
 
         _Loop
         sta $7F8410
-        asl
+        asl a
         tax
         lda $7F8450,x
         bpl +
@@ -1253,13 +1253,13 @@
 
           pha
           lda $7F8410
-          asl
+          asl a
           clc
           adc #7
           and #$00FF
           xba
-          lsr
-          lsr
+          lsr a
+          lsr a
           clc
           adc #18
           tax
@@ -1276,13 +1276,13 @@
         inc a
         pha
         lda $7F8410
-        asl
+        asl a
         clc
         adc #7
         and #$00FF
         xba
-        lsr
-        lsr
+        lsr a
+        lsr a
         clc
         adc #18
         tax
@@ -1298,7 +1298,7 @@
         sta $7F842E
 
         lda $7F8410
-        asl
+        asl a
         tax
         lda $7F8450,x
         sta $0574,b
@@ -1318,13 +1318,13 @@
 
           pha
           lda $7F8410
-          asl
+          asl a
           clc
           adc #7
           and #$00FF
           xba
-          lsr
-          lsr
+          lsr a
+          lsr a
           clc
           adc #38
           tax
@@ -1342,13 +1342,13 @@
         inc a
         pha
         lda $7F8410
-        asl
+        asl a
         clc
         adc #7
         and #$00FF
         xba
-        lsr
-        lsr
+        lsr a
+        lsr a
         clc
         adc #38
         tax
@@ -1461,7 +1461,7 @@
         
         -
         sta $7F8410
-        asl
+        asl a
         tax
         lda $7F8430,x
         beq +
@@ -1472,7 +1472,7 @@
         lda $7F8410
         sec
         sbc #9
-        asl
+        asl a
         clc
         adc #7
         and #$00FF
@@ -1493,7 +1493,7 @@
         +
         pha
         lda $7F8410
-        asl
+        asl a
         tax
         pla
         sta $7F8450,x
@@ -1509,7 +1509,7 @@
 
         _Loop
         sta $7F8410
-        asl
+        asl a
         tax
         lda $7F8450,x
         bpl +
@@ -1525,13 +1525,13 @@
         lda $7F8410
         sec
         sbc #9
-        asl
+        asl a
         clc
         adc #7
         and #$00FF
         xba
-        lsr
-        lsr
+        lsr a
+        lsr a
         clc
         adc #18
         tax
@@ -1550,13 +1550,13 @@
         lda $7F8410
         sec
         sbc #9
-        asl
+        asl a
         clc
         adc #7
         and #$00FF
         xba
-        lsr
-        lsr
+        lsr a
+        lsr a
         clc
         adc #18
         tax
@@ -1572,7 +1572,7 @@
         sta $7F842E
 
         lda $7F8410
-        asl
+        asl a
         tax
         lda $7F8450,x
         sta $0574,b
@@ -1593,13 +1593,13 @@
           lda $7F8410
           sec
           sbc #9
-          asl
+          asl a
           clc
           adc #7
           and #$00FF
           xba
-          lsr
-          lsr
+          lsr a
+          lsr a
           clc
           adc #38
           tax
@@ -1619,13 +1619,13 @@
         lda $7F8410
         sec
         sbc #9
-        asl
+        asl a
         clc
         adc #7
         and #$00FF
         xba
-        lsr
-        lsr
+        lsr a
+        lsr a
         clc
         adc #38
         tax
@@ -1680,7 +1680,7 @@
 
         lda $0574,b
         dec a
-        asl
+        asl a
         tax
         lda wSelectedUnitDataRAMPointer,b
         sta $7F8430,x
@@ -1868,7 +1868,7 @@
         
         -
         sta $00
-        asl
+        asl a
         clc
         adc $00
         tax
@@ -1879,7 +1879,7 @@
         sta $24
 
         lda $00
-        asl
+        asl a
         tax
         lda aDebugTerrainTextCoordinates,x
         tax
@@ -1921,7 +1921,7 @@
 
         tay
         lda $7F8414
-        asl
+        asl a
         tax
         lda aDebugTerrainNumberCoordinates,x
         tax
@@ -1941,7 +1941,7 @@
         sta $24
 
         lda $7F8414
-        asl
+        asl a
         tax
         lda aDebugTerrainTextCoordinates,x
         clc
@@ -1959,7 +1959,7 @@
         tay
 
         lda $7F8414
-        asl
+        asl a
         tax
         lda aDebugTerrainNumberCoordinates,x
         clc
@@ -2238,7 +2238,7 @@
 
           lda $1E
           sta $00
-          asl
+          asl a
           clc
           adc $00
           tax
@@ -2248,7 +2248,7 @@
           sta $24
 
           lda $1A
-          asl
+          asl a
           clc
           adc #5
           and #$00FF
@@ -2518,7 +2518,7 @@
         lda aActionStructUnit2.Gender
         inc a
         sta $00
-        asl
+        asl a
         clc
         adc $00
         tax
@@ -2533,7 +2533,7 @@
         lda aActionStructUnit1.Gender
         inc a
         sta $00
-        asl
+        asl a
         clc
         adc $00
         tax
@@ -2861,7 +2861,7 @@
         beq +
 
           sta $00
-          asl
+          asl a
           clc
           adc $00
           tax
@@ -2885,7 +2885,7 @@
         beq +
 
           sta $00
-          asl
+          asl a
           clc
           adc $00
           tax
@@ -3052,7 +3052,7 @@
 
             _InnerLoop
             lda $7F8410
-            asl
+            asl a
             tax
             lda $7F8414
             and aDebugCombatRoundFlagMasks1,x
@@ -3068,14 +3068,14 @@
             adc #5
             and #$00FF
             xba
-            lsr
-            lsr
+            lsr a
+            lsr a
             sta $00
 
             lda $7F8410
             clc
             adc #10
-            asl
+            asl a
             clc
             adc $00
             tax
@@ -3115,8 +3115,8 @@
           adc #5
           and #$00FF
           xba
-          lsr
-          lsr
+          lsr a
+          lsr a
           clc
           adc #40
           tax
@@ -3182,7 +3182,7 @@
           
             _InnerLoop
             lda $7F8410
-            asl
+            asl a
             tax
             lda $7F8414
             and aDebugCombatRoundFlagMasks2,x
@@ -3198,13 +3198,13 @@
             adc #5
             and #$00FF
             xba
-            lsr
-            lsr
+            lsr a
+            lsr a
             sta $00
             lda $7F8410
             clc
             adc #10
-            asl
+            asl a
             clc
             adc $00
             tax
@@ -3244,8 +3244,8 @@
           adc #5
           and #$00FF
           xba
-          lsr
-          lsr
+          lsr a
+          lsr a
           clc
           adc #40
           tax
@@ -3315,7 +3315,7 @@
           
             _InnerLoop
             lda $7F8410
-            asl
+            asl a
             tax
             lda $7F8414
             and aDebugCombatRoundFlagMasks3,x
@@ -3331,13 +3331,13 @@
             adc #5
             and #$00FF
             xba
-            lsr
-            lsr
+            lsr a
+            lsr a
             sta $00
             lda $7F8410
             clc
             adc #10
-            asl
+            asl a
             clc
             adc $00
             tax
@@ -3377,8 +3377,8 @@
           adc #5
           and #$00FF
           xba
-          lsr
-          lsr
+          lsr a
+          lsr a
           clc
           adc #40
           tax
@@ -3472,9 +3472,9 @@
         jsl $88A704
 
         lda $7F840A
-        lsr
-        lsr
-        lsr
+        lsr a
+        lsr a
+        lsr a
         inc a
         ldx #$3120
         stx $0A
@@ -3484,9 +3484,9 @@
         jsl rlDrawMenuTextNumber
 
         lda $7F840C
-        lsr
-        lsr
-        lsr
+        lsr a
+        lsr a
+        lsr a
         ldx #$3120
         stx $0A
         ldx #3
@@ -3532,7 +3532,7 @@
           bra -
 
         +
-        asl
+        asl a
         tax
         jsr (aDebugMenuInputRoutines,x)
         plp
@@ -3767,7 +3767,7 @@
         lda $EC+1
         ora $EE+1
         and #(JOY_Right | JOY_Left)>>8
-        asl
+        asl a
         tax
         lda aDebugRightLeftCoordinateInputs,x
         clc
@@ -3777,7 +3777,7 @@
         lda $ED
         ora $EF
         and #(JOY_Down | JOY_Up)>>8
-        lsr
+        lsr a
         tax
         lda aDebugUpDownCoordinateInputs,x
         clc
@@ -3789,16 +3789,16 @@
         ; by the drawing routine
         _XPress
         lda $7F840A
-        lsr
-        lsr
-        lsr
+        lsr a
+        lsr a
+        lsr a
         inc a
         sta $00
 
         lda $7F840C
-        lsr
-        lsr
-        lsr
+        lsr a
+        lsr a
+        lsr a
         sta $02
 
         lda $7F8402
@@ -3811,16 +3811,16 @@
 
         _E974
         lda $7F840A
-        lsr
-        lsr
-        lsr
+        lsr a
+        lsr a
+        lsr a
         inc a
         sta $00
 
         lda $7F840C
-        lsr
-        lsr
-        lsr
+        lsr a
+        lsr a
+        lsr a
         sta $02
 
         lda $7F8402
@@ -3902,7 +3902,7 @@
         ; Start song
         _APress
         lda $7F8408
-        asl
+        asl a
         tax
         lda aDebugSongList,x
         sta $04BA,b

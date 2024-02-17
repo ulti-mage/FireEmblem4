@@ -128,7 +128,7 @@
         stz HDMAEN,b
         stz bBufferHDMAEN
 
-        lda #MEMSEL_Setting(True)
+        lda #MEMSEL_Setting(true)
         sta MEMSEL,b
         sta bBufferMEMSEL
 
@@ -473,7 +473,7 @@
 
           phx
           dec a
-          asl
+          asl a
           tax
           lda aUnknown80A8A8,x
           plx
@@ -1372,12 +1372,12 @@
 
         +
         lda wStructSize,b
-        asl
+        asl a
         bra _End
         
         +
         lda wStructSize,b
-        asl
+        asl a
         clc
         adc wStructSize,b
         bra _End
@@ -1394,7 +1394,7 @@
         ldx #8
 
         -
-        asl
+        asl a
         asl $0558,b
         bcc +
 
@@ -2290,8 +2290,8 @@
         beq _End
 
           sta $06
-          asl
-          asl
+          asl a
+          asl a
           clc
           adc #3
           sta $00
@@ -2428,7 +2428,7 @@
           bra ++
 
         +
-        lsr
+        lsr a
         dec a
         pha
         sta $02
@@ -2442,7 +2442,7 @@
         bne -
 
         pla
-        asl
+        asl a
         
         +
         clc
@@ -2504,7 +2504,7 @@
         phy
 
         dec a
-        asl
+        asl a
         clc
         adc $24
         tay
@@ -2840,7 +2840,7 @@
         tay
         lda structCharacterROMEntry.Type,b,y
         and #$00FF
-        asl
+        asl a
         tax
         jsr (aUnitCreationRoutinesByType,x)
         plb
@@ -2940,11 +2940,11 @@
         bcs _Next
 
         lda $04
-        asl
-        asl
-        asl
-        asl
-        asl
+        asl a
+        asl a
+        asl a
+        asl a
+        asl a
         clc
         adc $02
         clc
@@ -2989,7 +2989,7 @@
         tax
 
         pla
-        asl
+        asl a
         cmp aMainDataOffsets,x
         bcs +
 
@@ -3042,7 +3042,7 @@
 
         lda aUnitRAMPointers._Header.CurrentStructCount
         and #$00FF
-        asl
+        asl a
         sta $4E
 
         ldx #0
@@ -3093,7 +3093,7 @@
         dec a
         bmi +
 
-        asl
+        asl a
         clc
         adc aMainDataOffsets.CharacterNameOffsets
         tax
@@ -3150,7 +3150,7 @@
         phx
 
         dec a
-        asl
+        asl a
         tax
         lda $8B9A88,x
         plx
@@ -3208,7 +3208,7 @@
         
         lda aUnitRAMPointers
         and #$00FF
-        asl
+        asl a
         sta $00
 
         ldx #0
@@ -3231,7 +3231,7 @@
         +
         jsl rlGetSelectedUnitNumber
         dec a
-        asl
+        asl a
         tay
         lda wSelectedUnitDataRAMPointer,b
         sta $2000,b,y
@@ -6122,13 +6122,13 @@
         ora #0
         beq +
 
-        asl
+        asl a
         ora #1
         bra ++  
         
         +
         jsl rlGetSelectedUnitCharacterID
-        asl
+        asl a
         
         +
         rtl
@@ -6290,7 +6290,7 @@
         sta $4C
 
         tya
-        asl
+        asl a
         tax
         lda aHolyBloodGrowthBoostsOffsets,x
         tax
@@ -6367,7 +6367,7 @@
         phx
         jsl rlGetSelectedUnitClassDataPointer
         jsl rlGetClassMovementType
-        asl
+        asl a
         clc
         adc aMainDataOffsets.MovementCostOffsets
         tax
@@ -6395,7 +6395,7 @@
         phx
         jsl rlGetSelectedUnitClassDataPointer
         jsl rlGetClassTerrainBonusType
-        asl
+        asl a
         clc
         adc aMainDataOffsets.TerrainAvoidOffsets
         tax
@@ -6424,7 +6424,7 @@
         sta $0574,b
 
         lda #0
-        asl
+        asl a
         clc
         adc aMainDataOffsets.TerrainAvoidOffsets
         tax
@@ -6742,7 +6742,7 @@
           -
           pha
 
-          asl
+          asl a
           clc
           adc aMainDataOffsets.CharacterNameOffsets
           tax
@@ -6841,7 +6841,7 @@
         ; Is child
         +
         tya
-        lsr
+        lsr a
         clc
         adc #$0010 ; start of female character IDs
         bra -
@@ -7234,7 +7234,7 @@
         txy
 
         lda $00
-        asl
+        asl a
         tax
 
         tya
@@ -7243,7 +7243,7 @@
         tay
 
         lda aHolyBloodBitfieldTable,x
-        lsr
+        lsr a
         ora aHolyBloodBitfieldTable,x
         and $0000,b,y
         beq _End
@@ -7346,7 +7346,7 @@
         sta $00
 
         tya
-        asl
+        asl a
         tax
         lda aHolyBloodGrowthBoostsOffsets,x
         adc $0574,b
@@ -7366,7 +7366,7 @@
         beq +
 
           ; Double bonus if major
-          asl
+          asl a
         
         +
         clc
@@ -7405,7 +7405,7 @@
         plb
         phx
 
-        asl
+        asl a
         tax
         lda aHolyBloodGrowthBoostsOffsets,x
         tax
@@ -7447,7 +7447,7 @@
         bcs +
 
         dec a
-        asl
+        asl a
         tax
         lda aHolyBloodGrowthBoostsOffsets,x
         clc
@@ -8362,7 +8362,7 @@
               dec a
               clc
               adc $0574,b
-              asl
+              asl a
               tax
               lda $7E3D23,x
               inc a
@@ -9021,7 +9021,7 @@
         bcs +
 
           pha
-          asl
+          asl a
           tax
           lda aArenaMoneyRewards,x
           sta $0574,b
@@ -9268,11 +9268,11 @@
 
           sec
           sbc #Deirdre
-          asl
+          asl a
           tax
 
           lda $04
-          asl
+          asl a
           clc
           adc aChildrenDataOffsets,x
           tax
@@ -9384,7 +9384,7 @@
         cmp #7
         bcs +
 
-          asl
+          asl a
           tax
           lda aFactionArea,x
           clc
@@ -9437,7 +9437,7 @@
         cmp #$00FF
         beq _NPC
 
-        asl
+        asl a
         clc
         adc aMainDataOffsets.FactionNameOffsets
         tax
@@ -9513,9 +9513,9 @@
         phx
         lda $0574,b
         dec a
-        asl
+        asl a
         clc
-        adc #1,S
+        adc #1,s
         plx
         tax
         lda $7E0000+5,x
@@ -9664,7 +9664,7 @@
         plb
         phx
         phy
-        cmp #3,S
+        cmp #3,s
         beq _Player
 
           txy
@@ -9804,11 +9804,11 @@
         tax
         lda aDeploymentTable._YPosition[0],x
         xba
-        lsr
-        lsr
+        lsr a
+        lsr a
         clc
         adc aDeploymentTable._XPosition[0],x
-        asl
+        asl a
         tax
         lda $7F2400,x
         and #$03FF
@@ -9916,12 +9916,12 @@
         sbc $7E492D
         clc
         adc #$0020
-        asl
-        asl
-        asl
-        asl
-        asl
-        asl
+        asl a
+        asl a
+        asl a
+        asl a
+        asl a
+        asl a
         clc
         adc $04
         tax
@@ -11725,7 +11725,7 @@
         ; 0 = player
         ; 1 = enemy
 
-        asl
+        asl a
         tax
         lda aUnknown84DF35,x
         sta wActionStructAttacker
@@ -12181,7 +12181,7 @@
         bcc _CLC
 
         lda structActionStructEntry.MaxHP,b,x
-        lsr
+        lsr a
         cmp structActionStructEntry.CurrentHP,b,x
         bcc _CLC
 
@@ -12341,7 +12341,7 @@
         lda @l wBattleStatus
         and #$0001
         sta @l $7ECCE8
-        asl
+        asl a
         tax
         lda aUnknown84E35E,x
         sta @l wActionStructAttacker
@@ -12432,7 +12432,7 @@
           lda @l wBattleStatus
           and #$0001
           sta @l $7ECCE8
-          asl
+          asl a
           tax
           lda aUnknown84E3F2,x
           sta @l wActionStructAttacker
@@ -12505,7 +12505,7 @@
               cmp #25
               bcc _CLC
 
-                lsr
+                lsr a
                 clc
                 adc structActionStructEntry.BattleAttackSpeed,b,x
                 sec
@@ -12574,14 +12574,14 @@
         bne +
 
         jsl rlGetItemWeaponTraits
-        asl
+        asl a
         tax
         jsr (aActionStructWeaponTraitEffects,x)
         bra _End
         
         +
         jsl rlGetItemStaffEffect
-        asl
+        asl a
         tax
         jsr (aActionStructStaffEffects,x)
         
@@ -12933,7 +12933,7 @@
           jsl rlGetSelectedUnitCurrentHP
           sta $7ECCE8
           lda structActionStructEntry.MaxHP,b,x
-          lsr
+          lsr a
           inc a
           cmp $7ECCE8
           bcc +
@@ -12980,7 +12980,7 @@
         tsb bBattleRoundFlags
 
         lda $0574,b
-        asl
+        asl a
         clc
         adc structActionStructEntry.BattleMight,b,x
         sta $0574,b
@@ -13169,7 +13169,7 @@
         lda structActionStructEntry.Level,b,y
         sec
         sbc structActionStructEntry.Level,b,x
-        asl
+        asl a
         clc
         adc #30
         bra +
@@ -13775,11 +13775,11 @@
         phx
         lda @l $7E4F79
         xba
-        lsr
-        lsr
+        lsr a
+        lsr a
         clc
         adc @l $7E4F77
-        asl
+        asl a
         tax
 
         lda $7F2400,x
@@ -14088,7 +14088,7 @@
         
         +
         asl structActionStructEntry.GainedExperience,b,x
-        
+
         +
         lda structActionStructEntry.GainedExperience,b,x
         bmi +
@@ -14148,7 +14148,7 @@
 
         pha
         jsl rlUnknown80A73A
-        cmp #1,S
+        cmp #1,s
         pla
         rtl
 
@@ -14317,7 +14317,7 @@
         phx
 
         jsl rlGetUnitType
-        asl
+        asl a
         tax
         jsr (aUnitTypeItemGivingPointers,x)
 
@@ -14645,7 +14645,7 @@
         beq +
         bcs _End
 
-          asl
+          asl a
           sep #$20
           sta structInventoryDataRAM.EquippedWeaponBitfield,b,x
           rep #$20
@@ -15039,7 +15039,7 @@
         dec y
         beq +
 
-        lsr
+        lsr a
         bra -
 
         +
@@ -15268,7 +15268,7 @@
         .autsiz
         .databank `aWeaponRangeFlags
 
-        asl
+        asl a
         tay
         lda aWeaponRangeFlags,y
         rts
@@ -15474,7 +15474,7 @@
         .databank ?
 
         phx
-        asl
+        asl a
         clc
         adc aMainDataOffsets.ItemDataOffsets
         tax
@@ -15873,7 +15873,7 @@
         pha
         xba
         and #$00FF
-        asl
+        asl a
         tax
         lda aWeaponDisadvantageOffsets,x
         tax
@@ -16296,7 +16296,7 @@
         sta $0574,b
 
         jsl rlGetSelectedUnitTotalSkill
-        asl
+        asl a
         clc
         adc $0574,b
         cmp #0
@@ -16372,7 +16372,7 @@
 
         +
         jsl rlGetSelectedUnitBattleAttackSpeed
-        asl
+        asl a
         clc
         adc $0574,b
 
@@ -16603,9 +16603,9 @@
         phk
         plb
         pha
-        asl
+        asl a
         clc
-        adc #1,S
+        adc #1,s
         tax
         pla
 
@@ -16735,7 +16735,7 @@
         sta $0574,b
 
         lda $0574,b
-        asl
+        asl a
         clc
         adc $0574,b
         tax
@@ -16750,7 +16750,7 @@
         bne +
 
         lda $0574,b
-        asl
+        asl a
         tax
         jsl rlGetSelectedUnitClassDataPointer
         jsl rlGetClassSkills
@@ -16898,7 +16898,7 @@
 
         sta $0574,b
         lda $0574,b
-        asl
+        asl a
         clc
         adc $0574,b
         tax
@@ -16940,7 +16940,7 @@
         phx
         phy
 
-        asl
+        asl a
         tax
         ldy #1
 
@@ -17283,7 +17283,7 @@
         plb
 
         phx
-        asl
+        asl a
         clc
         adc aMainDataOffsets.ClassDataOffsets
         tax
@@ -17312,7 +17312,7 @@
         plb
         phx
 
-        asl
+        asl a
         clc
         adc aMainDataOffsets.ClassNameOffsets
         tax
@@ -18241,7 +18241,7 @@
         sbc #Seliph
         sta $06
 
-        asl
+        asl a
         clc
         adc $06
         tax
@@ -18342,7 +18342,7 @@
         lda $00
         clc
         adc $02
-        lsr
+        lsr a
         rts
 
         .databank 0
@@ -18359,7 +18359,7 @@
         lda $00
         clc
         adc #$5555
-        lsr
+        lsr a
         and #$5555
         sta $00
 
@@ -18581,7 +18581,7 @@
 
         phx
         jsl rlGetItemEquipmentType
-        asl
+        asl a
         tax
         jsr (aItemObtainChecksByType,x)
         plx
@@ -18739,14 +18739,14 @@
           lda $0574,b
           sta wSelectedUnitDataRAMPointer,b
           jsl rlGetSelectedUnitLoverID
-          asl
+          asl a
           sta $02
           bra ++
 
           ; female unit
           +
           jsl rlGetSelectedUnitLoverID
-          asl
+          asl a
           sta $02
           lda $0574,b
           sta wSelectedUnitDataRAMPointer,b
@@ -18767,10 +18767,10 @@
         cmp #$00FE
         beq +
 
-        asl
+        asl a
         sta $00
-        asl
-        asl
+        asl a
+        asl a
         clc
         adc $00
         bra _End
@@ -18925,14 +18925,14 @@
         lda $0574,b
         sta wSelectedUnitDataRAMPointer,b
         jsl rlGetSelectedUnitLoverID
-        asl
+        asl a
         sta $02
         bra ++
 
 
         +
         jsl rlGetSelectedUnitLoverID
-        asl
+        asl a
         sta $02
         lda $0574,b
         sta wSelectedUnitDataRAMPointer,b
@@ -18992,7 +18992,7 @@
         phx
 
         dec a
-        asl
+        asl a
         sta $0574,b
         jsl rlGetSelectedUnitLoverData
         cpx #0
@@ -19164,11 +19164,11 @@
         sbc $02
         clc
         adc #16
-        asl
-        asl
-        asl
-        asl
-        asl
+        asl a
+        asl a
+        asl a
+        asl a
+        asl a
         clc
         adc $00
         tax
@@ -19551,9 +19551,9 @@
         ldx $16
         phx
 
-        asl
-        asl
-        asl
+        asl a
+        asl a
+        asl a
         sta $14
         stz $18
 
@@ -19749,9 +19749,9 @@
         pla
         and #$0003
         xba
-        lsr
-        lsr
-        lsr
+        lsr a
+        lsr a
+        lsr a
         ora $0D70,b
         sta $0D70,b
         plp
@@ -20426,7 +20426,7 @@
         sta $0585,b
 
         jsl rlGetItemWeaponType
-        asl
+        asl a
         tax
 
         lda aBrokenWeaponOffsets,x
@@ -20473,7 +20473,7 @@
         cmp #0
         bmi +
 
-          asl
+          asl a
           clc
           adc aMainDataOffsets.ItemDataOffsets
           tax
@@ -20515,7 +20515,7 @@
 
           lda structItemROMEntry.Name,b,x
           and #$00FF
-          asl
+          asl a
           clc
           adc aMainDataOffsets.ItemNameOffsets
           tax
@@ -21127,7 +21127,7 @@
         bra -
 
         +
-        asl
+        asl a
         tax
         lda #>`aWeaponEffectivenessTextPointers
         sta $0571+1,b
@@ -21269,7 +21269,7 @@
         bcc +
 
         lda $4E
-        asl
+        asl a
         clc
         adc $4C
         tax
@@ -21640,7 +21640,7 @@
         pha
         lda $7F82BD
         dec a
-        asl
+        asl a
         tax
         lda $899109,x
         tax
@@ -21736,7 +21736,7 @@
         ; but regardless of the index, the code is always the same 
 
         lda $0756,b
-        asl
+        asl a
         tax
         jsr (aUnknown899FEB,x)
         lda #0
@@ -21874,7 +21874,7 @@
         sta $00
 
         txa
-        asl
+        asl a
         tay
         lda #$6200
         sta $02
@@ -22063,7 +22063,7 @@
         lda $078C,b
         jsl $84852E
         phx
-        asl
+        asl a
         tax
         lda $8B9FF8,x
         plx

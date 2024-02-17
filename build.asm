@@ -1,16 +1,16 @@
 
 .cpu "65816"
 
-.include "asm/BaseRom.asm"
-.include "lib/FE4Macros.inc"
-.include "lib/FE4Constants.inc"
-.include "lib/MenuText.inc"
-.include "lib/LibraryHelpers.h"
-.include "lib/IORegisters.h"
-.include "lib/WRAM.inc"
+.include "SRC/BaseRom.asm"
+.include "LIB/FE4Macros.inc"
+.include "LIB/FE4Constants.inc"
+.include "LIB/MenuText.inc"
+.include "LIB/LibraryHelpers.h"
+.include "LIB/IORegisters.h"
+.include "LIB/WRAM.inc"
 
-.include "asm/Debug.asm"
-.include "asm/Stuff.asm"
+.include "SRC/Debug.asm"
+.include "SRC/Stuff.asm"
 
 
 

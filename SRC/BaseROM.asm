@@ -14,7 +14,7 @@ GUARD_FE4_BASEROM :?= false
 
   .for bank in range($000000, $400000, $8000)
     * := bank
-    .binary "../base_rom/fe4.sfc", bank, $8000
+    .binary "../fe4.sfc", bank, $8000
   .endfor
 
 .endif ; GUARD_FE4_BASEROM
