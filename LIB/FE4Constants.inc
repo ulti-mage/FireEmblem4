@@ -21,7 +21,7 @@
   UnitSkill1Adept         = $04
   UnitSkill1Dismount      = $08
   UnitSkill1Charm         = $10
-  UnitSkill1Unknown2      = $20
+  UnitSkill1Unknown2      = $20 ; leave temporarily when klled?
   UnitSkill1Nihil         = $40
   UnitSkill1Miracle       = $80
 
@@ -36,7 +36,7 @@
 
   UnitSkill3Renewal       = $01
   UnitSkill3Paragon       = $02
-  UnitSkill3Unknown1      = $04
+  UnitSkill3Unknown1      = $04 ; leave permanently when killed?
   UnitSkill3Recover       = $08
   UnitSkill3Bargain       = $10
   UnitSkill3Return        = $20
@@ -62,6 +62,7 @@
   MajorNalBlood     = $2000
   MinorFjalarBlood  = $4000
   MajorFjalarBlood  = $8000
+  
   MinorThrudBlood   = $0001
   MajorThrudBlood   = $0002
   MinorForsetiBlood = $0004
@@ -129,6 +130,8 @@
 
 ; items
 
+  NoItem         = $FF
+
   EquipTypeWeapon = 0
   EquipTypeStaff  = 1
   EquipTypeRing   = 2
@@ -154,6 +157,31 @@
   WeaponTraitNegateHalveAttack    = $08
   WeaponTraitHelEffect            = $09
   WeaponTraitFemaleOnly           = $0A
+
+  TyrfingStatBoost      = $01
+  NagaStatBoost         = $02
+  GungnirStatBoost      = $03
+  GaeBolgStatBoost      = $04
+  BalmungStatBoost      = $05
+  YewfelleStatBoost     = $06
+  HelswathStatBoost     = $07
+  ValflameStatBoost     = $08
+  MjolnirStatBoost      = $09
+  ForsetiStatBoost      = $0A
+
+  MystletainnStatBoost  = $0C
+  LoptousStatBoost      = $0D
+  SafeguardStatBoost    = $0E
+  BarrierBladeStatBoost = $0F
+
+  SpeedRingStatBoost    = $01
+  MagicRingStatBoost    = $02
+  PowerRingStatBoost    = $03
+  ShieldRingStatBoost   = $04
+  BarrierRingStatBoost  = $05
+  LegRingStatBoost      = $06
+  SkillRingStatBoost    = $07
+
 
   CavalierEffectiveness = bits($01)
   FlierEffectiveness    = bits($02)

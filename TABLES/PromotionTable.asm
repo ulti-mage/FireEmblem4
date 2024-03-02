@@ -1,64 +1,64 @@
 
   Sigurd    .byte $FF
-  Naoise    .byte PaladinClass
-  Alec      .byte PaladinClass
-  Arden     .byte GeneralClass
-  Finn      .byte DukeKnightClass
+  Naoise    .byte Paladin
+  Alec      .byte Paladin
+  Arden     .byte General
+  Finn      .byte DukeKnight
   Quan      .byte $FF
-  Midayle   .byte ArchKnightClass
-  Lewyn     .byte SageClass
-  Chulainn  .byte HeroClass
-  Azelle    .byte MageKnightClass
-  Jamke     .byte SniperClass
+  Midayle   .byte ArchKnight
+  Lewyn     .byte Sage
+  Chulainn  .byte Hero
+  Azelle    .byte MageKnight
+  Jamke     .byte Sniper
   Claud     .byte $FF
-  Beowulf   .byte RangerClass
-  Lex       .byte GreatKnightClass
-  Dew       .byte RogueClass
+  Beowulf   .byte Ranger
+  Lex       .byte GreatKnight
+  Dew       .byte Rogue
   Deirdre   .byte $FF
-  Ethlyn    .byte PaladinFClass
-  Lachesis  .byte MasterKnightClass
-  Ayra      .byte SwordmasterClass
-  Erinys    .byte FalconKnightClass
-  Tailtiu   .byte WarMageFClass
+  Ethlyn    .byte PaladinF
+  Lachesis  .byte MasterKnight
+  Ayra      .byte Swordmaster
+  Erinys    .byte FalconKnight
+  Tailtiu   .byte WarMageF
   Silvia    .byte $FF
-  Edainn    .byte HighPriestClass
+  Edainn    .byte HighPriest
   Brigid    .byte $FF
-  Seliph    .byte KnightLordClass
+  Seliph    .byte KnightLord
   Shannan   .byte $FF
-  Dalvin    .byte HeroClass
-  Asaello   .byte SniperClass
-  Leif      .byte MasterKnightClass
-  Iuchar    .byte GreatKnightClass
-  Charlot   .byte HighPriestClass
+  Dalvin    .byte Hero
+  Asaello   .byte Sniper
+  Leif      .byte MasterKnight
+  Iuchar    .byte GreatKnight
+  Charlot   .byte HighPriest
   Hawk      .byte $FF
-  Tristan   .byte RangerClass
-  OldFinn   .byte DukeKnightClass
-  Deimne    .byte ArchKnightClass
+  Tristan   .byte Ranger
+  OldFinn   .byte DukeKnight
+  Deimne    .byte ArchKnight
   Hannibal  .byte $FF
-  Ares      .byte PaladinClass
-  Amid      .byte WarMageClass
-  Oifey     .byte PaladinClass
-  Daisy     .byte RogueClass
-  Creidne   .byte HeroClass
-  Muirne    .byte HighPriestClass
-  Julia     .byte SageClass
-  Altena    .byte DragonmasterClass
-  Hermina   .byte FalconKnightClass
-  Linda     .byte WarMageFClass
+  Ares      .byte Paladin
+  Amid      .byte WarMage
+  Oifey     .byte Paladin
+  Daisy     .byte Rogue
+  Creidne   .byte Hero
+  Muirne    .byte HighPriest
+  Julia     .byte Sage
+  Altena    .byte Dragonmaster
+  Hermina   .byte FalconKnight
+  Linda     .byte WarMageF
   Laylea    .byte $FF
-  Jeanne    .byte PaladinFClass
-  Iucharba  .byte WarriorClass
-  Scathach  .byte HeroClass
-  Febail    .byte SniperClass
-  Coirpre   .byte HighPriestClass
+  Jeanne    .byte PaladinF
+  Iucharba  .byte Warrior
+  Scathach  .byte Hero
+  Febail    .byte Sniper
+  Coirpre   .byte HighPriest
   Ced       .byte $FF
-  Diarmuid  .byte RangerClass
-  Lester    .byte ArchKnightClass
-  Arthur    .byte MageKnightClass
-  Patty     .byte RogueClass
-  Larcei    .byte SwordmasterClass
-  Lana      .byte HighPriestClass
-  Fee       .byte FalconKnightClass
-  Tine      .byte WarMageFClass
+  Diarmuid  .byte Ranger
+  Lester    .byte ArchKnight
+  Arthur    .byte MageKnight
+  Patty     .byte Rogue
+  Larcei    .byte Swordmaster
+  Lana      .byte HighPriest
+  Fee       .byte FalconKnight
+  Tine      .byte WarMageF
   Lene      .byte $FF
-  Nanna     .byte PaladinFClass
+  Nanna     .byte PaladinF

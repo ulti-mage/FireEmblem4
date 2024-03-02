@@ -1,0 +1,2 @@
+.structWeaponStaffROMEntry,Name,EquipmentType,Durability,Cost,StatBonuses,StaffEffect,WeaponRank,Skills,WeaponType,Might,Accuracy,Weight,MinRange,MaxRange,Effectiveness,Traits,AlternateID
+.structItemROMEntry,Name,EquipmentType,Durability,Cost,StatBonuses,StaffEffect,WeaponRank,Skills

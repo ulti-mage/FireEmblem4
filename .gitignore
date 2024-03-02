@@ -15,7 +15,8 @@ BIN/*.*
 *.~lock*
 *.csv.asm
 
-TOOLS/**
+TOOLS/64tass.exe
+TOOLS/c2a.py
 
 *.sublime*
 

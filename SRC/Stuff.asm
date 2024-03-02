@@ -2639,7 +2639,7 @@
       aCharacterNameOffsets .include "../tables/CharacterNameOffsets.csv.asm"           ; 83/9A59
       aCharacterNames .binclude "../tables/CharacterNames.asm"                          ; 83/9ECD
       aCharacterDataOffsets .include "../tables/CharacterDataOffsets.csv.asm"           ; 83/ADF5
-      aCharacterData .binclude "../tables/CharacterData.asm"                            ; 83/B267
+      aCharacterData .binclude "../tables/CharacterData.csv.asm"                        ; 83/B267
       aUnknown83D8E6 .word 0                                                            ; 83/D8E6
       aFactionNameOffsets .include "../tables/FactionNameOffsets.csv.asm"               ; 83/D8E8
       aFactionNames .binclude "../tables/FactionNames.asm"                              ; 83/D956
@@ -2648,7 +2648,7 @@
       aItemDescriptionOffsets .include "../tables/ItemDescriptionOffsets.csv.asm"       ; 83/E2E8
       aItemDescriptions .binclude "../tables/ItemDescriptions.asm"                      ; 83/E3FC
       aItemDataOffsets .include "../tables/ItemDataOffsets.csv.asm"                     ; 83/E9D0
-      aItemData .binclude "../tables/ItemData.asm"                                      ; 83/EAE4
+      aItemData .binclude "../tables/ItemData.csv.asm"                                   ; 83/EAE4
       aPlayerItemTable .include "../tables/PlayerItemTable.csv.asm"                     ; 83/F489
       .sint -1
       aCastleNameOffsets .include "../tables/CastleNameOffsets.csv.asm"                 ; 83/F517
@@ -5485,7 +5485,7 @@
         sta $4C
 
         jsl rlGetActiveWeaponStatBonus
-        cmp #$000E
+        cmp #SafeguardStatBoost
         bne +
 
           lda $4C
@@ -5562,7 +5562,7 @@
         sta $4C
 
         jsl rlGetActiveWeaponStatBonus
-        cmp #$000F
+        cmp #BarrierBladeStatBoost
         bne +
 
           lda $4C
@@ -8787,6 +8787,43 @@
 
 
 
+    * = $04B1C8
+    .logical $84B1C8
+
+      rlUnknown84B1C8 ; 84/B1C8
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl rlUnknown84966B
+        jsl rlUnknown84CC11
+
+        lda #1
+        sta $0D81,b
+        jsl rlGetSelectedUnitFaction
+        cmp #7
+        bcs +
+
+          jsl rlUnknown84C02B
+
+        +
+        rtl
+
+        .databank 0
+
+        ; 84/B1E4
+
+    .here
+
+
+
+
+
+
+
+
+
 
     * = $04B23C
     .logical $84B23C
@@ -8945,7 +8982,8 @@
         .databank ?
 
         jsl rlUnknown84966B
-        jsl $84CC11
+        jsl rlUnknown84CC11
+
         lda #2
         sta $0D81,b
         lda #(2 | 1)
@@ -9110,6 +9148,7 @@
         bit #$0010
         beq _B916
 
+        ; check if arena battle
         lda wBattleType
         and #$00FF
         cmp #1
@@ -9125,11 +9164,13 @@
         jsl rlUnknown84B492
         jml $84B997
 
+        ; regular battle
         _B916
         lda #$0800
         jsl rlUnsetSelectedUnitStates
         lda #0
         jsl rlUnknown8497A4
+
         lda #SkillIDUnknown7
         jsl rlCheckIfUnitHasSpecifiedPersonalOrClassSkill
         bcs _B94A
@@ -9145,13 +9186,13 @@
         jsl rlUnknown84B47C
         bra ++
         
-        ; is final chapter
+        ; no skill 6 or 7 or is final chapter
         +
         jsl rlUnknown84A982
         bra +
 
         _B94A
-        jsl $84B1C8
+        jsl rlUnknown84B1C8
         
         +
         jsl rlGetSelectedUnitCharacterID
@@ -9644,6 +9685,127 @@
 
 
 
+    * = $04C02B
+    .logical $84C02B
+
+      rlUnknown84C02B ; 84/C02B
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; remove unit from faction
+
+        ; A = faction ID
+
+        phb
+        php
+        phk
+        plb
+        phx
+        phy
+
+        ldx $0574,b
+        phx
+        ldx $00
+        phx
+        ldx $24
+        phx
+        ldx $25
+        phx
+
+        sta $0574,b
+        jsr rsGetFactionOffset
+        bcs _End
+
+        sep #$20
+        lda #$7E
+        pha
+        rep #$20
+        plb
+
+        lda structFactionHeader.UnitCount,b,x
+        and #$00FF
+        beq _End
+
+        ; loop through all the units in the faction
+        phx
+        sta $02
+        txy
+        
+        -
+        lda $0005,b,x
+        cmp wSelectedUnitDataRAMPointer,b
+        bne +
+
+          inc y
+          inc y
+
+        +
+        lda $0005,b,y
+        sta $0005,b,x
+        inc y
+        inc y
+        inc x
+        inc x
+        dec $02
+        bne -
+
+        plx
+        phk
+        plb
+        lda $7E0000 + structFactionHeader.UnitCount,x
+        and #$00FF
+        dec a
+        sep #$20
+        sta $7E0000 + structFactionHeader.UnitCount,x
+        rep #$20
+
+        asl a
+        clc
+        adc #5
+        sta $00
+        lda #(`aFactionArea)<<8
+        sta $24+1
+        lda #<>aFactionArea
+        sta $24
+        stz $27+1
+        stz $27
+
+        lda $0574,b
+        inc a
+        jsl $82F6F3
+
+        lda $0574,b
+        bne _End
+
+          jsl $8BCDF2
+
+        _End
+        pla
+        sta $24+1
+        pla
+        sta $24
+        pla
+        sta $00
+        pla
+        sta $0574,b
+        ply
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 84/C0BD
+
+    .here
+
+
+
+
+
     * = $04C15F
     .logical $84C15F
 
@@ -10104,6 +10266,36 @@
 
 
     .here
+
+
+
+    * = $04CC11
+    .logical $84CC11
+
+      rlUnknown84CC11 ; 84/CC11
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        sta $0D7F,b
+        tax
+        lda $7E489B,x
+        ora #$0020
+        sta $7E489B,x
+        sta aDeploymentTable._Status[0],x
+        plx
+        rtl
+
+        .databank 0
+
+        ; 84/CC27
+
+    .here
+
+
+
 
 
 
@@ -13115,7 +13307,7 @@
 
         lda structActionStructEntry.UnitRAMPointer,b,y
         sta wSelectedUnitDataRAMPointer,b
-        jsl rlGetUniqueEquipmentOrDrops
+        jsl rlGetUniqueEquipment
         cmp #$00FF
         beq _E7CC
 
@@ -14269,7 +14461,7 @@
           cmp #$00FF
           beq _End
 
-            jsl rlCheckForValidUniqueItemOrDrops
+            jsl rlCheckForValidUniqueItem
             ora #0
             bne _End
 
@@ -15719,7 +15911,7 @@
 
         .databank 0 
 
-      rlGetUniqueEquipmentOrDrops ; 84/FA23
+      rlGetUniqueEquipment ; 84/FA23
 
         .al
         .autsiz
@@ -15751,7 +15943,7 @@
         bra _End
 
         +
-        lda structEnemyCharacterROMEntry.Drops,b,y
+        lda structEnemyCharacterROMEntry.UniqueEquipment,b,y
 
         _End
         and #$00FF
@@ -15766,7 +15958,7 @@
 
         .databank 0
 
-      rlCheckForValidUniqueItemOrDrops ; 84/FA62
+      rlCheckForValidUniqueItem ; 84/FA62
 
         .al
         .autsiz
@@ -15785,7 +15977,7 @@
         phx
 
         ldx #0
-        jsl rlGetUniqueEquipmentOrDrops
+        jsl rlGetUniqueEquipment
         cmp #$00FF
         beq _FAB1
 
@@ -19830,7 +20022,7 @@
 
         ; Break Tyrfing from the get go
         +
-        lda #PlayerItem27
+        lda #PI_Tyrfing
         jsl rlGetItemRAMStructEntryByPlayerItemIndex
         bcs +
 

@@ -189,7 +189,7 @@
       MajorInfluence    .byte \MajorInfluence     ; $0B
     .endstruct
 
-    structEnemyCharacterROMEntry .struct Type, CharacterID, CharacterName, Class, Gender, Level, LeadershipStars, UnitNumber, Equipment1, Equipment2, Drops
+    structEnemyCharacterROMEntry .struct Type, CharacterID, CharacterName, Class, Gender, Level, LeadershipStars, UnitNumber, Equipment1, Equipment2, UniqueEquipment
       .dstruct structCharacterROMEntry            ; $00
       CharacterID       .word \CharacterID        ; $01
       CharacterName     .word \CharacterName      ; $03
@@ -199,7 +199,7 @@
       LeadershipStars   .byte \LeadershipStars    ; $08
       UnitNumber        .byte \UnitNumber         ; $09
       .dstruct structCharacterEquipmentROMEntry   ; $0A - $0B
-      Drops             .byte \Drops              ; $0C
+      UniqueEquipment   .byte \UniqueEquipment    ; $0C
     .endstruct
 
 
