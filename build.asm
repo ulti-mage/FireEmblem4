@@ -14,12 +14,6 @@
 
 
 
-
-
-
-
-
-
 ; 01AD1D > 2BE4
 
 ; mainloop $809B00 > 89E7EA, 89E7BD, 89E7CC

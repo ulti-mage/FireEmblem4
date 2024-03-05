@@ -76,7 +76,7 @@ if __name__ == "__main__":
             if c != "":
                 counter += 1
                 name = c
-                command = row1[i]
+                command = row1[i].split()[0]
         if counter == 0 or counter > 1:
             raise ValueError(f"Multiple structs defined for: {name}")
 
@@ -98,6 +98,7 @@ if __name__ == "__main__":
                     field = (" " * indent) + name + fields[i]
                     add_def(field, item)
                     usedFields.append(fields[i])
+
 
         definitions.append("\n")
 

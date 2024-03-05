@@ -159,7 +159,7 @@
     .endstruct
 
     structStaticCharacterROMEntry .struct Type, HP, Strength, Magic, Skill, Speed, Defense, Resistance, Luck, Class, Level, LeadershipStars, Money, CharacterID, CharacterName, UnitNumber, Gender, FatherID, HPGrowth, StrengthGrowth, MagicGrowth, SkillGrowth, SpeedGrowth, DefenseGrowth, ResistanceGrowth, LuckGrowth, Skills1, Skills2, Skills3, HolyBlood1, HolyBlood2, Equipment1, Equipment2, UniqueEquipment
-      .dstruct structCharacterROMEntry            ; $00
+      .dstruct structCharacterROMEntry, \Type     ; $00
       HP                .byte \HP                 ; $01
       Strength          .byte \Strength           ; $02
       Magic             .byte \Magic              ; $03
@@ -172,25 +172,25 @@
       Level             .byte \Level              ; $0A
       LeadershipStars   .byte \LeadershipStars    ; $0B
       Money             .byte \Money              ; $0C
-      .dstruct structCharacterConstantData        ; $0D - $21
-      .dstruct structCharacterEquipmentROMEntry   ; $23 - $24
+      .dstruct structCharacterConstantData, \CharacterID, \CharacterName, \UnitNumber, \Gender, \FatherID, \HPGrowth, \StrengthGrowth, \MagicGrowth, \SkillGrowth, \SpeedGrowth, \DefenseGrowth, \ResistanceGrowth, \LuckGrowth, \Skills1, \Skills2, \Skills3, \HolyBlood1, \HolyBlood2        ; $0D - $21
+      .dstruct structCharacterEquipmentROMEntry, \Equipment1, \Equipment2 ; $23 - $24
       UniqueEquipment   .byte \UniqueEquipment    ; $25
     .endstruct
 
     structDynamicCharacterROMEntry .struct Type, Class, Level, CharacterID, CharacterName, UnitNumber, Gender, Equipment1, Equipment2, MajorInfluence
-      .dstruct structCharacterROMEntry            ; $00
+      .dstruct structCharacterROMEntry, \Type     ; $00
       Class             .byte \Class              ; $01
       Level             .byte \Level              ; $02
       CharacterID       .word \CharacterID        ; $03
       CharacterName     .word \CharacterName      ; $05
       UnitNumber        .byte \UnitNumber         ; $07
       Gender            .byte \Gender             ; $08
-      .dstruct structCharacterEquipmentROMEntry   ; $09 - $0A
+      .dstruct structCharacterEquipmentROMEntry, \Equipment1, \Equipment2 ; $09 - $0A
       MajorInfluence    .byte \MajorInfluence     ; $0B
     .endstruct
 
-    structEnemyCharacterROMEntry .struct Type, CharacterID, CharacterName, Class, Gender, Level, LeadershipStars, UnitNumber, Equipment1, Equipment2, UniqueEquipment
-      .dstruct structCharacterROMEntry            ; $00
+    structEnemyCharacterROMEntry .struct Type, CharacterID, CharacterName, Class, Gender, Level, LeadershipStars, UnitNumber, Equipment1, Equipment2, Drops
+      .dstruct structCharacterROMEntry, \Type     ; $00
       CharacterID       .word \CharacterID        ; $01
       CharacterName     .word \CharacterName      ; $03
       Class             .byte \Class              ; $05
@@ -198,8 +198,8 @@
       Level             .byte \Level              ; $07
       LeadershipStars   .byte \LeadershipStars    ; $08
       UnitNumber        .byte \UnitNumber         ; $09
-      .dstruct structCharacterEquipmentROMEntry   ; $0A - $0B
-      UniqueEquipment   .byte \UniqueEquipment    ; $0C
+      .dstruct structCharacterEquipmentROMEntry, \Equipment1, \Equipment2 ; $0A - $0B
+      Drops             .byte \Drops              ; $0C
     .endstruct
 
 
