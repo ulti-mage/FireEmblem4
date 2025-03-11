@@ -1,0 +1,143 @@
+
+  aEventChapter05PhinoraSeized ; 9D/C468
+
+    RUN_EVENT_CONDITION
+      REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter05Velthomer
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $7C
+    YIELD
+
+    FADE_OUT_BY_TIMER 2
+    YIELD
+
+    RUN_EVENT_CONDITION
+      UNDEPLOY_UNIT Quan
+
+    RUN_EVENT_CONDITION
+      UNDEPLOY_UNIT Ethlyn
+
+    RUN_EVENT_CONDITION
+      DELETE_FACTIONS_AI FS_Ch05Leonster, 1
+
+    RUN_EVENT_CONDITION
+      DEPLOY_UNIT_GROUP UNITGroupChapter05Velthomer
+
+    DIALOGUE_WITH_BG dialogueChapter05PhinoraSeized1, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    RUN_ASM $81B1ED
+    YIELD
+
+    PAUSE 25
+    YIELD
+
+    TEST_FLAG_IN_CHAPTER_SET Chapter05, FlagChapter05_EthlynDied
+    JUMP_FALSE _EthlynAlive
+
+      TEST_FLAG_IN_CHAPTER_SET Chapter05, FlagChapter05_QuanAndEthlynDead
+      JUMP_TRUE _TravantLeftAlready
+
+    _EthlynAlive ; 9D/C4A4
+    FILL_EVENT_UNIT_SLOT Travant, EventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
+    YIELD
+
+    DIALOGUE dialogueChapter05QuanAndEthlynDead
+    YIELD
+
+    RUN_EVENT_CONDITION
+      macroSetFactionsEnemies [FS_Ch05Thracia, FS_Player]
+
+    FILL_EVENT_UNIT_SLOT Travant, EventUnitSlot1
+    MOVE_TEMPORARY_TO_COORDS Travant, [-1, -1], [57, 63], 4, EventUnitSlot1, MAP_SPRITE_RED, true
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    RUN_EVENT_CONDITION
+      REMOVE_UNIT Travant
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    _TravantLeftAlready ; 9D/C4CA
+    SET_FLAG_IF_IN_CHAPTER Chapter05, FlagChapter05_VelthomerRampart
+
+    RUN_EVENT_CONDITION
+      UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS
+
+    RUN_EVENT_CONDITION
+      REMOVE_AREA_RESTRICTION 2
+
+    PLAY_SFX_WORD $00E2
+    MOVE_TEMPORARY_BY_SCRIPT Aida, [25, 42], 4, MAP_SPRITE_RED, _ScriptedMovementAida
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    MAP_SCROLL [17, 35], 4
+    YIELD
+
+    PLAY_SONG $63
+    YIELD
+
+    PAUSE 15
+    YIELD
+
+    DIALOGUE dialogueChapter05PhinoraSeized2
+    YIELD
+
+    PAUSE 15
+    YIELD
+
+    MAP_SCROLL [15, 33], 1
+    CONTINUE_FORM_MAP_SPRITE_HALT
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PAUSE 25
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter05PhinoraSeized3, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    MAP_SCROLL [17, 35], 2
+    PAUSE 20
+    YIELD
+
+    DIALOGUE dialogueChapter05PhinoraSeized4
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT Sigurd, EventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT
+
+    _ScriptedMovementAida ; 9D/C531
+      MAP_FACE_DOWN
+      MAP_HALT
+
+      MAP_LEFT_MULTIPLE 3
+      MAP_UP_MULTIPLE 1
+      MAP_FACE_UP
+      MAP_PAUSE 10
+      MAP_END

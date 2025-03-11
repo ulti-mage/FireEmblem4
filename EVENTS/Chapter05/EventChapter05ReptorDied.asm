@@ -1,0 +1,37 @@
+
+  aEventChapter05ReptorDied ; 9D/CAA6
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    FACTION_UNIT_DEATH FS_Ch05Friege
+    YIELD
+
+    RUN_EVENT_CONDITION
+      DELETE_FACTIONS_AI FS_Ch05Friege, 1
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Claud, None
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Tailtiu, None
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Erinys, None
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Silvia, None
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Lachesis, None
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Ayra, None
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Brigid, None
+
+    END_EVENT

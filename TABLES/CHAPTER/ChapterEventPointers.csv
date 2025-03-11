@@ -1,0 +1,14 @@
+.long 0,Pointer
+ChapterPrologue,aChapterPrologueEventHeader
+Chapter01,aChapter01EventHeader
+Chapter02,aChapter02EventHeader
+Chapter03,aChapter03EventHeader
+Chapter04,aChapter04EventHeader
+Chapter05,aChapter05EventHeader
+Chapter06,aChapter06EventHeader
+Chapter07,aChapter07EventHeader
+Chapter08,aChapter08EventHeader
+Chapter09,aChapter09EventHeader
+Chapter10,aChapter10EventHeader
+ChapterFinal,aChapterFinalEventHeader
+ChapterEpilogue,aChapterEpilogueEventHeader

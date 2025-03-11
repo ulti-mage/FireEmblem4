@@ -5,7 +5,7 @@
   Arden     .byte General
   Finn      .byte DukeKnight
   Quan      .byte $FF
-  Midayle   .byte ArchKnight
+  Midir     .byte ArchKnight
   Lewyn     .byte Sage
   Chulainn  .byte Hero
   Azelle    .byte MageKnight
@@ -21,7 +21,7 @@
   Erinys    .byte FalconKnight
   Tailtiu   .byte WarMageF
   Silvia    .byte $FF
-  Edainn    .byte HighPriest
+  Edain     .byte HighPriest
   Brigid    .byte $FF
   Seliph    .byte KnightLord
   Shannan   .byte $FF

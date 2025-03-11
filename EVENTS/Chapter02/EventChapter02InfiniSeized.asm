@@ -1,0 +1,79 @@
+
+  aEventChapter02InfiniSeized ; 8E/887A
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $76
+    YIELD
+
+    MAP_SCROLL [5, 7], 3
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_UNIT_IN_CASTLE Sigurd, Ch02_Evans
+
+    PAUSE 20
+    YIELD
+
+    MOVE_TEMPORARY_BY_SCRIPT EldiganCh01, [11, 22], 4, MAP_SPRITE_GREEN, _ScriptedMovementEldigan
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    MOVE_TEMPORARY_BY_SCRIPT CrossKnight2, [11, 22], 4, MAP_SPRITE_GREEN, _ScriptedMovementCrossKnight
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    PAUSE 150
+    YIELD
+
+    MAP_SCROLL [5, 0], 1
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    FADE_OUT_BY_TIMER 2
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_UNIT_POSITION Sigurd, $FF, [12, 5]
+
+    DIALOGUE_WITH_BG dialogueChapter02InfiniSeized, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT Sigurd, EventUnitSlot1
+    SET_CAMERA_TO_EVENT_UNIT_SLOT_1
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET_IF_UNMARRIED Beowulf, Lachesis
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET_IF_UNMARRIED Alec, Silvia
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Silvia, Sigurd
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT
+
+    _ScriptedMovementCrossKnight ; 8E/88E8
+      MAP_PAUSE 22
+
+    _ScriptedMovementEldigan ; 8E/88EA
+      MAP_UP_MULTIPLE 4
+      MAP_RIGHT_MULTIPLE 3
+      MAP_UP_MULTIPLE 6
+      MAP_LEFT_MULTIPLE 1
+      MAP_UP_MULTIPLE 4
+      MAP_LEFT_MULTIPLE 1
+      MAP_UP_MULTIPLE 3
+      MAP_PAUSE 10
+      MAP_END

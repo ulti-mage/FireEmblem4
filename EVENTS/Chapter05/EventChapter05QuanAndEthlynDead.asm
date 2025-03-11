@@ -1,0 +1,41 @@
+
+  aEventChapter05QuanAndEthlynDead ; 9D/C429
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $85
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT Travant, EventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
+    YIELD
+
+    DIALOGUE dialogueChapter05QuanAndEthlynDead
+    YIELD
+
+    RUN_EVENT_CONDITION
+      macroSetFactionsEnemies [FS_Ch05Thracia, FS_Player]
+
+    RUN_ASM rlASMCUnknown9DC421
+
+    FILL_EVENT_UNIT_SLOT Travant, EventUnitSlot1
+    MOVE_TEMPORARY_TO_COORDS Travant, [-1, -1], [57, 63], 4, EventUnitSlot1, MAP_SPRITE_RED, true
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    RUN_EVENT_CONDITION
+      REMOVE_UNIT Travant
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

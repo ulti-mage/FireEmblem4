@@ -28,10 +28,10 @@
 
         ; Draw the page number in the top right
         ldx #$2120
-        stx $0A
-        ldx #2      ; digit count
-        stx $0C
-        ldx #$0034  ; coords
+        stx wR5
+        ldx #2
+        stx wR6
+        ldx #$0034
         jsl rlDrawMenuTextNumber
 
         lda $0304,b ; menu tab index
@@ -104,13 +104,13 @@
         .databank ?
 
         lda #$2000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b 
         jsl rlGetSelectedUnitNamePointer
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([1, 0])
         jsl rlDrawMenuTextLine
 
@@ -147,82 +147,82 @@
         .databank ?
 
         lda #$3C00
-        sta $053A,b
-        lda #(`aUnknown89C850)<<8
-        sta $24+1
-        lda #<>aUnknown89C850
-        sta $24
+        sta aCurrentTilemapInfo.wBaseTile,b
+
+        lda #(`aDebugGenerationID)<<8
+        sta lR18+1
+        lda #<>aDebugGenerationID
+        sta lR18
         ldx #pack([13, 16])
         jsl rlDrawMenuTextLine
 
-        jsl rlGetSelectedUnitNumber
+        jsl rlGetSelectedUnitGenerationID
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(19+(16*$20))*2
+        stx wR6
+        ldx #C2I((19, 16), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        lda #(`aUnknown89C858)<<8
-        sta $24+1
-        lda #<>aUnknown89C858
-        sta $24
+        lda #(`aDebugDeploymentOffset)<<8
+        sta lR18+1
+        lda #<>aDebugDeploymentOffset
+        sta lR18
         ldx #pack([11, 20])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugUnitXPosition)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugUnitXPosition
-        sta $24
+        sta lR18
         ldx #pack([11, 22])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugUnitYPosition)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugUnitYPosition
-        sta $24
+        sta lR18
         ldx #pack([11, 24])
         jsl rlDrawMenuTextLine
 
-        jsl rlUnknown84966B
+        jsl rlGetSelectedUnitDeploymentOffset
+
         pha
-
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(19+(20*$20))*2
+        stx wR6
+        ldx #C2I((19, 20), 32) * size(word)
         jsl rlDrawMenuTextNumber
-
         plx
+
         phx
-
-        lda aDeploymentTable._XPosition[0],x
+        lda aDeploymentTable._XTilePosition,x
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(19+(22*$20))*2
+        stx wR6
+        ldx #C2I((19, 22), 32) * size(word)
         jsl rlDrawMenuTextNumber
-
         plx
 
-        lda aDeploymentTable._YPosition[0],x
+        lda aDeploymentTable._YTilePosition,x
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(19+(24*$20))*2
+        stx wR6
+        ldx #C2I((19, 24), 32) * size(word)
         jsl rlDrawMenuTextNumber
         rts
 
         .databank 0
 
-      aUnknown89C850 ; 89/C850
+      aDebugGenerationID ; 89/C850
 
+        .enc "SJIS"
         .text "ＢＯＸ\n"
 
-      aUnknown89C858 ; 89/C858
+      aDebugDeploymentOffset ; 89/C858
 
         .text "インデクス\n"
 
@@ -299,91 +299,91 @@
         ; who is friendly, aggressive or neutral to each other
 
         lda wDebugMenuScreenIndex
-        cmp $0589,b
+        cmp wLoadedFactionCount,b
         bmi +
 
           jml _Absent
 
         +
         lda #$2000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda wDebugMenuScreenIndex
-        jsl rlGetFactionNamePointer
+        jsl rlGetFactionSlotNamePointer
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([1, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #0
 
-        -
-        sta $1E
-        jsl rlGetFactionNamePointer
+          _Loop1
+          sta wR15
+          jsl rlGetFactionSlotNamePointer
 
-        lda $0571+1,b
-        sta $24+1
-        lda $0571,b
-        sta $24
+          lda lRoutineVariable+1,b
+          sta lR18+1
+          lda lRoutineVariable,b
+          sta lR18
 
-        lda $1E
-        asl a
-        tax
-        lda aDebugMenuTab2Coordinates,x
-        tax
-        jsl rlDrawMenuTextLine
+          lda wR15
+          asl a
+          tax
+          lda aDebugMenuTab2Coordinates,x
+          tax
+          jsl rlDrawMenuTextLine
 
-        lda $1E
-        inc a
-        cmp $0589,b
-        bne -
+          lda wR15
+          inc a
+          cmp wLoadedFactionCount,b
+          bne _Loop1
 
         lda #$3800
-        sta $053A,b
-        stz $1E
+        sta aCurrentTilemapInfo.wBaseTile,b
+        stz wR15
         
-        -
-        lda wDebugMenuScreenIndex
-        ldx $1E
-        jsl rlUnknown84C15F
-        sta $1C
-        asl a
-        clc
-        adc $1C
-        tax
-        lda aUnknown89C948+1,x
-        sta $24+1
-        lda aUnknown89C948,x
-        sta $24
+          _Loop2
+          lda wDebugMenuScreenIndex
+          ldx wR15
+          jsl rlGetFactionRelation
+          sta wR14
+          asl a
+          clc
+          adc wR14
+          tax
+          lda aDebugFactionRelations+1,x
+          sta lR18+1
+          lda aDebugFactionRelations,x
+          sta lR18
 
-        lda $1E
-        asl a
-        tax
-        lda aDebugMenuTab2Coordinates,x
-        clc
-        adc #8
-        tax
-        jsl rlDrawMenuTextLine
+          lda wR15
+          asl a
+          tax
+          lda aDebugMenuTab2Coordinates,x
+          clc
+          adc #8
+          tax
+          jsl rlDrawMenuTextLine
 
-        inc $1E
-        lda $1E
-        cmp $0589,b
-        bne -
+          inc wR15
+          lda wR15
+          cmp wLoadedFactionCount,b
+          bne _Loop2
 
         rts
 
         _Absent
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #(`aDebugAbsentText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugAbsentText
-        sta $24
+        sta lR18
         ldx #pack([10, 12])
         jsl rlDrawMenuTextLine
         rts
@@ -405,26 +405,26 @@
         .word pack([2, 19]) 
         .word pack([2, 21]) 
 
-      aUnknown89C948 ; 89/C948
+      aDebugFactionRelations ; 89/C948
 
-        .long aUnknown89C954
-        .long aUnknown89C95C
-        .long aUnknown89C962
-        .long aUnknown89C968
+        .long aDebugFactionRelationOwn
+        .long aDebugFactionRelationEnemy
+        .long aDebugFactionRelationNeutral
+        .long aDebugFactionRelationOther
 
-      aUnknown89C954 ; 89/C954
+      aDebugFactionRelationOwn ; 89/C954
 
         .text "じぐん\n"
 
-      aUnknown89C95C ; 89/C95C
+      aDebugFactionRelationEnemy ; 89/C95C
 
         .text "てき\n"
 
-      aUnknown89C962 ; 89/C962
+      aDebugFactionRelationNeutral ; 89/C962
 
         .text "どう\n"
 
-      aUnknown89C968 ; 89/C968
+      aDebugFactionRelationOther ; 89/C968
 
         .text "ちゅう\n"
 
@@ -435,31 +435,32 @@
         .databank ?
 
         pha
-        lda $053A,b
+        lda aCurrentTilemapInfo.wBaseTile,b
         sta $7F8410
         lda #$3800
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         pla
 
-        beq +
+        beq _Off
 
+        ; On
         lda #(`aDebugBitflagOnText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugBitflagOnText
-        sta $24
-        bra ++
-        
-        +
+        sta lR18
+        bra +
+
+        _Off
         lda #(`aDebugBitflagOffText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugBitflagOffText
-        sta $24
-        
+        sta lR18
+
         +
         jsl rlDrawMenuTextLine
 
         lda $7F8410
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         rts
 
         .databank 0
@@ -479,134 +480,134 @@
         .databank ?
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #(`aDebugGrowthsText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugGrowthsText
-        sta $24
+        sta lR18
         ldx #pack([2, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #(`aDebugHPText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugHPText
-        sta $24
+        sta lR18
         ldx #pack([7, 5])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalHPGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(5 *$20))*2
+        stx wR6
+        ldx #C2I((11, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugStrengthText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugStrengthText
-        sta $24
+        sta lR18
         ldx #pack([6, 7])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalStrGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(7 *$20))*2
+        stx wR6
+        ldx #C2I((11, 7), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugMagicText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugMagicText
-        sta $24
+        sta lR18
         ldx #pack([6, 9])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalMagGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(9 *$20))*2
+        stx wR6
+        ldx #C2I((11, 9), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugSkillText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugSkillText
-        sta $24
+        sta lR18
         ldx #pack([7, 11])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalSklGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(11 *$20))*2
+        stx wR6
+        ldx #C2I((11, 11), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugSpeedText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugSpeedText
-        sta $24
+        sta lR18
         ldx #pack([6, 13])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalSpdGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(13 *$20))*2
+        stx wR6
+        ldx #C2I((11, 13), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugLuckText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugLuckText
-        sta $24
+        sta lR18
         ldx #pack([7, 15])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalLuckGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(15 *$20))*2
+        stx wR6
+        ldx #C2I((11, 15), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugDefenseText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugDefenseText
-        sta $24
+        sta lR18
         ldx #pack([6, 17])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalDefGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(17 *$20))*2
+        stx wR6
+        ldx #C2I((11, 17), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugResistanceText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugResistanceText
-        sta $24
+        sta lR18
         ldx #pack([6, 19])
         jsl rlDrawMenuTextLine
 
         jsl rlGetSelectedUnitTotalResGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
-        ldx #(11+(19 *$20))*2
+        stx wR6
+        ldx #C2I((11, 19), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetUnitType
@@ -617,33 +618,33 @@
         
         +
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #(`aDebugFatherText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugFatherText
-        sta $24
+        sta lR18
         ldx #pack([18, 6])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugMotherText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugMotherText
-        sta $24
+        sta lR18
         ldx #pack([18, 10])
         jsl rlDrawMenuTextLine
 
         lda #$2000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         jsl rlGetSelectedUnitFatherID
         cmp #0
         beq +
 
           jsl rlGetCharacterNamePointer
 
-          lda $0571,b
-          sta $24
-          lda $0571+1,b
-          sta $24+1
+          lda lRoutineVariable,b
+          sta lR18
+          lda lRoutineVariable+1,b
+          sta lR18+1
           ldx #pack([19, 8])
           jsl rlDrawMenuTextLine
 
@@ -654,10 +655,10 @@
 
           jsl rlGetCharacterNamePointer
 
-          lda $0571,b
-          sta $24
-          lda $0571+1,b
-          sta $24+1
+          lda lRoutineVariable,b
+          sta lR18
+          lda lRoutineVariable+1,b
+          sta lR18+1
           ldx #pack([19, 12])
           jsl rlDrawMenuTextLine
         
@@ -729,13 +730,13 @@
         and #UnitStateGuardingCastle
         sta $7F8414
         txa
-        and #$1000
+        and #UnitState1000
         sta $7F8416
         txa
-        and #$0800
+        and #UnitStateCanto
         sta $7F8418
         txa
-        and #$0400
+        and #UnitState0400
         sta $7F841A
         txa
         and #UnitStateDead
@@ -750,24 +751,24 @@
         jsl rlGetUnitType
         sta $7F8428
 
-        jsl rlUnknown84973F
+        jsl rlGetSelectedUnitAI
         sta $7F842A
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #(`aUnknown89CD8A)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89CD8A
-        sta $24
+        sta lR18
         ldx #pack([2, 3])
         jsl rlDrawMenuTextLine
         
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #(`aUnknown89CD96)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89CD96
-        sta $24
+        sta lR18
         ldx #pack([5, 5])
         jsl rlDrawMenuTextLine
 
@@ -776,9 +777,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugMovedBit)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugMovedBit
-        sta $24
+        sta lR18
         ldx #pack([6, 7])
         jsl rlDrawMenuTextLine
 
@@ -787,9 +788,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugDefendingCastleBit)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugDefendingCastleBit
-        sta $24
+        sta lR18
         ldx #pack([6, 9])
         jsl rlDrawMenuTextLine
 
@@ -798,9 +799,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aUnknown89CDB0)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89CDB0
-        sta $24
+        sta lR18
         ldx #pack([6, 11])
         jsl rlDrawMenuTextLine
 
@@ -809,9 +810,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aUnknown89CDB8)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89CDB8
-        sta $24
+        sta lR18
         ldx #pack([4, 13])
         jsl rlDrawMenuTextLine
 
@@ -820,9 +821,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aUnknown89CDC2)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89CDC2
-        sta $24
+        sta lR18
         ldx #pack([6, 15])
         jsl rlDrawMenuTextLine
 
@@ -831,9 +832,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugDeadBit)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugDeadBit
-        sta $24
+        sta lR18
         ldx #pack([6, 17])
         jsl rlDrawMenuTextLine
 
@@ -842,9 +843,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugGroupLeaderBit)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugGroupLeaderBit
-        sta $24
+        sta lR18
         ldx #pack([4, 19])
         jsl rlDrawMenuTextLine
 
@@ -853,9 +854,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugIndividualAnimationBit)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugIndividualAnimationBit
-        sta $24
+        sta lR18
         ldx #pack([6, 21])
         jsl rlDrawMenuTextLine
 
@@ -864,40 +865,40 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aUnknown89CDEE)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89CDEE
-        sta $24
+        sta lR18
         ldx #pack([19, 21])
         jsl rlDrawMenuTextLine
 
         lda $7F842A
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(25+(21 *$20))*2
+        stx wR6
+        ldx #C2I((25, 21), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda #(`aDebugUnitType)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugUnitType
-        sta $24
+        sta lR18
         ldx #pack([19, 19])
         jsl rlDrawMenuTextLine
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda $7F8428
-        sta $00
+        sta wR0
         asl a
         clc
-        adc $00
+        adc wR0
         tax
         lda aDebugUnitTypePointers+1,x
-        sta $24+1
+        sta lR18+1
         lda aDebugUnitTypePointers,x
-        sta $24
+        sta lR18
         ldx #pack([25, 19])
         jsl rlDrawMenuTextLine
         rts
@@ -988,17 +989,17 @@
         ; Ring stat boost display
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aUnknown89CF0E)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89CF0E
-        sta $24
+        sta lR18
         ldx #pack([2, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         jsl rlGetActiveRingStatBonusBitfield
         tax
@@ -1021,9 +1022,9 @@
         sta $7F841A
 
         lda #(`aDebugRingPowerText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugRingPowerText
-        sta $24
+        sta lR18
         ldx #pack([10, 5])
         jsl rlDrawMenuTextLine
 
@@ -1032,9 +1033,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugRingMagicText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugRingMagicText
-        sta $24
+        sta lR18
         ldx #pack([10, 7])
         jsl rlDrawMenuTextLine
 
@@ -1043,9 +1044,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugRingSkillText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugRingSkillText
-        sta $24
+        sta lR18
         ldx #pack([11, 9])
         jsl rlDrawMenuTextLine
 
@@ -1054,9 +1055,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugRingSpeedText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugRingSpeedText
-        sta $24
+        sta lR18
         ldx #pack([10, 11])
         jsl rlDrawMenuTextLine
 
@@ -1065,9 +1066,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugRingDefenseText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugRingDefenseText
-        sta $24
+        sta lR18
         ldx #pack([10, 13])
         jsl rlDrawMenuTextLine
 
@@ -1076,9 +1077,9 @@
         jsr rsDebugDrawBitOnOrOff
 
         lda #(`aDebugRingResistanceText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugRingResistanceText
-        sta $24
+        sta lR18
         ldx #pack([10, 15])
         jsl rlDrawMenuTextLine
 
@@ -1123,42 +1124,41 @@
         .autsiz
         .databank ?
 
-        ; Lover points display, only for females
+        ; Lover points display, only for women
         ; Shows unknown number in top left, lover name, base and growth
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aUnknown89D133)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89D133
-        sta $24
+        sta lR18
         ldx #pack([2, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda $7F840E
         beq +
 
           lda #(`aUnknown89D15D)<<8
-          sta $24+1
+          sta lR18+1
           lda #<>aUnknown89D15D
-          sta $24
+          sta lR18
           ldx #pack([10, 10])
           jsl rlDrawMenuTextLine
           rts
 
-        ; most ppl have 0, sigurd $16, ayra $14, lex $19, edain $07, ...?
         +
-        jsl rlUnknown849635
+        jsl rlGetSelectedUnitLoverGenerationID
 
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(7 +(3 *$20))*2
+        stx wR6
+        ldx #C2I((7, 3), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetSelectedUnitGender
@@ -1166,19 +1166,19 @@
         bne +
 
           jml _Man
-        
+
         +
         lda #(`aUnknown89D13D)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89D13D
-        sta $24
+        sta lR18
         ldx #pack([9, 5])
         jsl rlDrawMenuTextLine
 
         lda #(`aUnknown89D149)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89D149
-        sta $24
+        sta lR18
         ldx #pack([19, 5])
         jsl rlDrawMenuTextLine
 
@@ -1207,13 +1207,13 @@
           xba
           ora #2
           tax
-          lda $0571,b
-          sta $24
-          lda $0571+1,b
-          sta $24+1
+          lda lRoutineVariable,b
+          sta lR18
+          lda lRoutineVariable+1,b
+          sta lR18+1
           jsl rlDrawMenuTextLine
 
-          jsl rlGetSelectedUnitNumber
+          jsl rlGetSelectedUnitGenerationID
           bcc ++
 
         +
@@ -1264,9 +1264,9 @@
           adc #18
           tax
           lda #$3920
-          sta $0A
+          sta wR5
           lda #5
-          sta $0C
+          sta wR6
           pla
           jsl rlDrawMenuTextNumber
           bra ++
@@ -1287,9 +1287,9 @@
         adc #18
         tax
         lda #$3D20
-        sta $0A
+        sta wR5
         lda #5
-        sta $0C
+        sta wR6
         pla
         jsl rlDrawMenuTextNumber
         
@@ -1301,13 +1301,13 @@
         asl a
         tax
         lda $7F8450,x
-        sta $0574,b
+        sta wRoutineVariable1,b
 
         lda #0
-        jsl rlUnknown84BF67
+        jsl rlFindGenerationIDInFactionSlotData
 
         lda wSelectedUnitDataRAMPointer,b
-        sta $0574,b
+        sta wRoutineVariable1,b
 
         lda $7F842E
         sta wSelectedUnitDataRAMPointer,b
@@ -1329,9 +1329,9 @@
           adc #38
           tax
           lda #$3920
-          sta $0A
+          sta wR5
           lda #5
-          sta $0C
+          sta wR6
           pla
           jsl rlDrawMenuTextNumber
           jml _Next
@@ -1353,9 +1353,9 @@
         adc #38
         tax
         lda #$3D20
-        sta $0A
+        sta wR5
         lda #5
-        sta $0C
+        sta wR6
         pla
         jsl rlDrawMenuTextNumber
 
@@ -1372,9 +1372,9 @@
 
         _Man
         lda #(`aUnknown89D155)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89D155
-        sta $24
+        sta lR18
         ldx #pack([10, 10])
         jsl rlDrawMenuTextLine
         rts
@@ -1413,17 +1413,17 @@
         .databank ?
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugLoversPart2Text)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugLoversPart2Text
-        sta $24
+        sta lR18
         ldx #pack([2, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda $7F840E
         beq +
@@ -1436,19 +1436,19 @@
         bne +
 
           jml _End
-        
+
         +
         lda #(`aUnknown89D334)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89D334
-        sta $24
+        sta lR18
         ldx #pack([9, 5])
         jsl rlDrawMenuTextLine
 
         lda #(`aUnknown89D340)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aUnknown89D340
-        sta $24
+        sta lR18
         ldx #pack([19, 5])
         jsl rlDrawMenuTextLine
 
@@ -1479,12 +1479,12 @@
         xba
         ora #2
         tax
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         jsl rlDrawMenuTextLine
-        jsl rlGetSelectedUnitNumber
+        jsl rlGetSelectedUnitGenerationID
         bcc ++
 
           +
@@ -1536,9 +1536,9 @@
         adc #18
         tax
         lda #$3920
-        sta $0A
+        sta wR5
         lda #5
-        sta $0C
+        sta wR6
         pla
         jsl rlDrawMenuTextNumber
         bra ++
@@ -1561,9 +1561,9 @@
         adc #18
         tax
         lda #$3D20
-        sta $0A
+        sta wR5
         lda #5
-        sta $0C
+        sta wR6
         pla
         jsl rlDrawMenuTextNumber
         
@@ -1575,13 +1575,13 @@
         asl a
         tax
         lda $7F8450,x
-        sta $0574,b
+        sta wRoutineVariable1,b
 
         lda #0
-        jsl rlUnknown84BF67
+        jsl rlFindGenerationIDInFactionSlotData
 
         lda wSelectedUnitDataRAMPointer,b
-        sta $0574,b
+        sta wRoutineVariable1,b
         lda $7F842E
         sta wSelectedUnitDataRAMPointer,b
 
@@ -1604,9 +1604,9 @@
           adc #38
           tax
           lda #$3920
-          sta $0A
+          sta wR5
           lda #5
-          sta $0C
+          sta wR6
           pla
           jsl rlDrawMenuTextNumber
           jml _Next
@@ -1630,9 +1630,9 @@
         adc #38
         tax
         lda #$3D20
-        sta $0A
+        sta wR5
         lda #5
-        sta $0C  
+        sta wR6
         pla
         jsl rlDrawMenuTextNumber
         
@@ -1643,7 +1643,7 @@
         beq _End
 
           jml _Loop
-        
+
         _End
         rts
 
@@ -1670,25 +1670,25 @@
 
         ; Fills a table with unit pointers for lover data
 
-        lda #1 ; sigurd character numer
+        lda #1
 
-        -
-        sta $0574,b
+        _Loop
+        sta wRoutineVariable1,b
 
         lda #0
-        jsl rlUnknown84BF67
+        jsl rlFindGenerationIDInFactionSlotData
 
-        lda $0574,b
+        lda wRoutineVariable1,b
         dec a
         asl a
         tax
         lda wSelectedUnitDataRAMPointer,b
         sta $7F8430,x
 
-        lda $0574,b
+        lda wRoutineVariable1,b
         inc a
         cmp #16 ; all males, dew = 15 +1
-        bne -
+        bne _Loop
 
         rts
 
@@ -1701,120 +1701,120 @@
         .databank ?
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugEnemyName)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemyName
-        sta $24
+        sta lR18
         ldx #pack([1, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
         lda #(`aDebugEnemyHPText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemyHPText
-        sta $24
+        sta lR18
         ldx #pack([2, 5])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugEnemyStrengthText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemyStrengthText
-        sta $24
+        sta lR18
         ldx #pack([2, 7])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugEnemyMagicText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemyMagicText
-        sta $24
+        sta lR18
         ldx #pack([2, 9])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugEnemySkillText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemySkillText
-        sta $24
+        sta lR18
         ldx #pack([2, 11])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugEnemySpeedText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemySpeedText
-        sta $24
+        sta lR18
         ldx #pack([2, 13])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugEnemyDefenseText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemyDefenseText
-        sta $24
+        sta lR18
         ldx #pack([2, 15])
         jsl rlDrawMenuTextLine
 
         lda #(`aDebugEnemyResistanceText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugEnemyResistanceText
-        sta $24
+        sta lR18
         ldx #pack([2, 17])
         jsl rlDrawMenuTextLine
 
         jsl rlGetEnemyClassHPGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(5 *$20))*2
+        stx wR6
+        ldx #C2I((10, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetEnemyClassStrGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(7 *$20))*2
+        stx wR6
+        ldx #C2I((10, 7), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetEnemyClassMagGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(9 *$20))*2
+        stx wR6
+        ldx #C2I((10, 9), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetEnemyClassSklGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(11 *$20))*2
+        stx wR6
+        ldx #C2I((10, 11), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetEnemyClassSpdGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(13 *$20))*2
+        stx wR6
+        ldx #C2I((10, 13), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetEnemyClassDefGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(15 *$20))*2
+        stx wR6
+        ldx #C2I((10, 15), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         jsl rlGetEnemyClassResGrowth
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(17 *$20))*2
+        stx wR6
+        ldx #C2I((10, 17), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         rts
@@ -1862,41 +1862,41 @@
         ; Terrain avoid and movement cost data
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #0
         
         -
-        sta $00
+        sta wR0
         asl a
         clc
-        adc $00
+        adc wR0
         tax
 
         lda aDebugTerrainNamePointers+1,x
-        sta $24+1
+        sta lR18+1
         lda aDebugTerrainNamePointers,x
-        sta $24
+        sta lR18
 
-        lda $00
+        lda wR0
         asl a
         tax
         lda aDebugTerrainTextCoordinates,x
         tax
         jsl rlDrawMenuTextLine
 
-        lda $00
+        lda wR0
         inc a
         cmp #size(aDebugTerrainNamePointers) / 3
         bne -
 
         lda #$3800
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugTerrainCostAvoidText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugTerrainCostAvoidText
-        sta $24
+        sta lR18
         ldx #pack([4, 3])
         jsl rlDrawMenuTextLine
 
@@ -1908,7 +1908,7 @@
 
         lda #0
         sta $7F8414
-        
+
         _D53D
         lda $7F8410
         clc
@@ -1927,18 +1927,18 @@
         tax
 
         lda #$3920
-        sta $0A
+        sta wR5
         lda #1
-        sta $0C
+        sta wR6
         tya
         jsl rlDrawMenuTextNumber
         bra +
 
         _Untraversable
         lda #(`aDebugDashText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugDashText
-        sta $24
+        sta lR18
 
         lda $7F8414
         asl a
@@ -1966,9 +1966,9 @@
         adc #4
         tax
         lda #$3920
-        sta $0A
+        sta wR5
         lda #2
-        sta $0C
+        sta wR6
         tya
         jsl rlDrawMenuTextNumber
 
@@ -1979,7 +1979,7 @@
         beq +
 
           jml _D53D
-        
+
         +
         rts
 
@@ -1987,32 +1987,32 @@
 
       aDebugTerrainNumberCoordinates ; 89/D5D0
 
-        .word ( 5+( 5 *$20))*2
-        .word ( 5+( 7 *$20))*2
-        .word ( 5+( 9 *$20))*2
-        .word ( 5+(11 *$20))*2
-        .word ( 5+(13 *$20))*2
-        .word ( 5+(15 *$20))*2
-        .word ( 5+(17 *$20))*2
-        .word ( 5+(19 *$20))*2
-        .word ( 5+(21 *$20))*2
-        .word ( 5+(23 *$20))*2
-        .word ( 5+(25 *$20))*2
-        .word (16+( 5 *$20))*2
-        .word (16+( 7 *$20))*2
-        .word (16+( 9 *$20))*2
-        .word (16+(11 *$20))*2
-        .word (16+(13 *$20))*2
-        .word (16+(15 *$20))*2
-        .word (16+(17 *$20))*2
-        .word (16+(19 *$20))*2
-        .word (16+(21 *$20))*2
-        .word (16+(23 *$20))*2
-        .word (16+(25 *$20))*2
-        .word (26+( 5 *$20))*2
-        .word (26+( 7 *$20))*2
-        .word (26+( 9 *$20))*2
-        .word (26+(11 *$20))*2
+        .word C2I(( 5,  5), 32) * size(word)
+        .word C2I(( 5,  7), 32) * size(word)
+        .word C2I(( 5,  9), 32) * size(word)
+        .word C2I(( 5, 11), 32) * size(word)
+        .word C2I(( 5, 13), 32) * size(word)
+        .word C2I(( 5, 15), 32) * size(word)
+        .word C2I(( 5, 17), 32) * size(word)
+        .word C2I(( 5, 19), 32) * size(word)
+        .word C2I(( 5, 21), 32) * size(word)
+        .word C2I(( 5, 23), 32) * size(word)
+        .word C2I(( 5, 25), 32) * size(word)
+        .word C2I((16,  5), 32) * size(word)
+        .word C2I((16,  7), 32) * size(word)
+        .word C2I((16,  9), 32) * size(word)
+        .word C2I((16, 11), 32) * size(word)
+        .word C2I((16, 13), 32) * size(word)
+        .word C2I((16, 15), 32) * size(word)
+        .word C2I((16, 17), 32) * size(word)
+        .word C2I((16, 19), 32) * size(word)
+        .word C2I((16, 21), 32) * size(word)
+        .word C2I((16, 23), 32) * size(word)
+        .word C2I((16, 25), 32) * size(word)
+        .word C2I((26,  5), 32) * size(word)
+        .word C2I((26,  7), 32) * size(word)
+        .word C2I((26,  9), 32) * size(word)
+        .word C2I((26, 11), 32) * size(word)
 
       aDebugTerrainTextCoordinates ; 89/D604
 
@@ -2226,28 +2226,28 @@
         beq _End
 
         lda #0
-        sta $1A
+        sta wR13
         
         -
-        sta $1E
+        sta wR15
         tax
         lda aDebugMenuSkillFlags,x
         and #$00FF
-        sta $1C
+        sta wR14
         beq +
 
-          lda $1E
-          sta $00
+          lda wR15
+          sta wR0
           asl a
           clc
-          adc $00
+          adc wR0
           tax
           lda aDebugSkillNamePointers+1,x
-          sta $24+1
+          sta lR18+1
           lda aDebugSkillNamePointers,x
-          sta $24
+          sta lR18
 
-          lda $1A
+          lda wR13
           asl a
           clc
           adc #5
@@ -2256,10 +2256,10 @@
           ora #5
           tax
           jsl rlDrawMenuTextLine
-          inc $1A
+          inc wR13
 
         +
-        lda $1E
+        lda wR15
         inc a
         cmp #size(aDebugSkillNamePointers) /3
         bne -
@@ -2298,7 +2298,7 @@
         .long 0                       ; Unknown4
         .long aDebugSkillDismount
         .long aDebugSkillCharm
-        .long aUnknown89D861          ; Unknown6
+        .long aDebugSkillPoW
         .long aDebugSkillNihil
         .long aDebugSkillMiracle
 
@@ -2313,7 +2313,7 @@
 
         .long aDebugSkillRenewal
         .long aDebugSkillParagon
-        .long aUnknown89D8D3          ; Unknown7
+        .long aDebugSkillEscape       ; Unknown7
         .long 0                       ; Recover
         .long aDebugSkillBargain
         .long aDebugSkillReturn
@@ -2358,9 +2358,9 @@
 
         .text "カリスマ\n"
 
-      aUnknown89D861 ; 89/D861
+      aDebugSkillPoW ; 89/D861
 
-        ; captured?
+        ; on deirdre and julia
         .text "ほりょ\n"
 
       aDebugSkillNihil ; 89/D869
@@ -2404,9 +2404,8 @@
 
         .text "エリート\n"
 
-      aUnknown89D8D3 ; 89/D8D3
+      aDebugSkillEscape ; 89/D8D3
 
-        ; escape?
         .text "だっしゅつ\n"
 
       aDebugSkillBargain ; 89/D8DF
@@ -2431,7 +2430,7 @@
         plb
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         _PointerList  := [(aDebugCombatUnitText  , pack([4,  5]))]
         _PointerList ..= [(aDebugCombatClassText , pack([5,  7]))]
@@ -2448,155 +2447,155 @@
         .for _Pointer, _Coordinates in _PointerList
 
           lda #(`_Pointer)<<8
-          sta $24+1
+          sta lR18+1
           lda #<>_Pointer
-          sta $24
+          sta lR18
           ldx #_Coordinates
           jsl rlDrawMenuTextLine
 
         .endfor
 
         lda #$3800
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda aActionStructUnit2.CharacterID
         jsl rlGetCharacterNamePointer
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([10, 5])
         jsl rlDrawMenuTextLine
 
         lda aActionStructUnit1.CharacterID
         jsl rlGetCharacterNamePointer
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([21, 5])
         jsl rlDrawMenuTextLine
 
         lda aActionStructUnit2.DeploymentNumber
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #$0162
+        stx wR6
+        ldx #C2I((17, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit1.DeploymentNumber
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #$0178
+        stx wR6
+        ldx #C2I((28, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit2.ClassID
         jsl rlGetClassNamePointer
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([10, 7])
         jsl rlDrawMenuTextLine
 
         lda aActionStructUnit1.ClassID
         jsl rlGetClassNamePointer
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([21, 7])
         jsl rlDrawMenuTextLine
 
         lda aActionStructUnit2.Gender
         inc a
-        sta $00
+        sta wR0
         asl a
         clc
-        adc $00
+        adc wR0
         tax
         lda aDebugCombatGenderTextPointers+1,x
-        sta $24+1
+        sta lR18+1
         lda aDebugCombatGenderTextPointers,x
-        sta $24
+        sta lR18
 
         ldx #pack([10, 9])
         jsl rlDrawMenuTextLine
 
         lda aActionStructUnit1.Gender
         inc a
-        sta $00
+        sta wR0
         asl a
         clc
-        adc $00
+        adc wR0
         tax
         lda aDebugCombatGenderTextPointers+1,x
-        sta $24+1
+        sta lR18+1
         lda aDebugCombatGenderTextPointers,x
-        sta $24
+        sta lR18
 
         ldx #pack([21, 9])
         jsl rlDrawMenuTextLine
 
         lda aActionStructUnit2.WeaponID
-        jsl $87E314
+        jsl rlGetItemNamePointerByItemID
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([10, 11])
         jsl rlDrawMenuTextLine
 
         lda aActionStructUnit1.WeaponID
-        jsl $87E314
+        jsl rlGetItemNamePointerByItemID
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([21, 11])
         jsl rlDrawMenuTextLine
 
-        _ValueList  := [(aActionStructUnit2.WeaponInventorySlot,  1, (18+(11*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.WeaponInventorySlot,  1, (29+(11*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.WeaponMinRange,       1, (10+(13*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.WeaponMinRange,       1, (21+(13*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.WeaponMaxRange,       0, (12+(13*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.WeaponMaxRange,       0, (23+(13*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.Level,                0, (10+(15*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.Level,                0, (21+(15*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.CurrentHP,            2, (10+(17*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.CurrentHP,            2, (21+(17*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.MaxHP,                0, (13+(17*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.MaxHP,                0, (24+(17*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.BattleMight,          2, (10+(19*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.BattleMight,          2, (21+(19*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.BattleDefense,        0, (13+(19*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.BattleDefense,        0, (24+(19*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.BattleAdjustedHit,    2, (10+(21*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.BattleAdjustedHit,    2, (21+(21*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.BattleAvoid,          0, (13+(21*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.BattleAvoid,          0, (24+(21*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.BattleCrit,           0, (10+(23*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.BattleCrit,           0, (21+(23*$20))*2)]
-        _ValueList ..= [(aActionStructUnit2.BattleAttackSpeed,    0, (10+(25*$20))*2)]
-        _ValueList ..= [(aActionStructUnit1.BattleAttackSpeed,    0, (21+(25*$20))*2)]
+        _ValueList  := [(aActionStructUnit2.WeaponInventorySlot,  1, C2I((18, 11), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.WeaponInventorySlot,  1, C2I((29, 11), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.WeaponMinRange,       1, C2I((10, 13), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.WeaponMinRange,       1, C2I((21, 13), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.WeaponMaxRange,       0, C2I((12, 13), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.WeaponMaxRange,       0, C2I((23, 13), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.Level,                0, C2I((10, 15), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.Level,                0, C2I((21, 15), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.CurrentHP,            2, C2I((10, 17), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.CurrentHP,            2, C2I((21, 17), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.MaxHP,                0, C2I((13, 17), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.MaxHP,                0, C2I((24, 17), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.BattleMight,          2, C2I((10, 19), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.BattleMight,          2, C2I((21, 19), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.BattleDefense,        0, C2I((13, 19), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.BattleDefense,        0, C2I((24, 19), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.BattleAdjustedHit,    2, C2I((10, 21), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.BattleAdjustedHit,    2, C2I((21, 21), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.BattleAvoid,          0, C2I((13, 21), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.BattleAvoid,          0, C2I((24, 21), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.BattleCrit,           0, C2I((10, 23), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.BattleCrit,           0, C2I((21, 23), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit2.BattleAttackSpeed,    0, C2I((10, 25), 32) * size(word))]
+        _ValueList ..= [(aActionStructUnit1.BattleAttackSpeed,    0, C2I((21, 25), 32) * size(word))]
 
         .for _Address, _Size, _Coordinates in _ValueList
 
           lda _Address
           ldx #$3920
-          stx $0A
+          stx wR5
           ldx #_Size
-          stx $0C
+          stx wR6
           ldx #_Coordinates
           jsl rlDrawMenuTextNumber
 
@@ -2641,7 +2640,7 @@
         plb
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         _PointerList  := [(aDebugCombatCoordinatesText, pack([1,  5]))]
         _PointerList ..= [(aDebugCombatUnknown1Text   , pack([5,  7]))]
@@ -2654,100 +2653,99 @@
         .for _Pointer, _Coordinates in _PointerList
 
           lda #(`_Pointer)<<8
-          sta $24+1
+          sta lR18+1
           lda #<>_Pointer
-          sta $24
+          sta lR18
           ldx #_Coordinates
           jsl rlDrawMenuTextLine
 
         .endfor
 
         lda #$3800
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda aActionStructUnit2.XPosition
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(11+(5*$20))*2
+        stx wR6
+        ldx #C2I((11, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit1.XPosition
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(22+(5*$20))*2
+        stx wR6
+        ldx #C2I((22, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit2.YPosition
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(15+(5*$20))*2
+        stx wR6
+        ldx #C2I((15, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit1.YPosition
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(26+(5*$20))*2
+        stx wR6
+        ldx #C2I((26, 5), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        lda aActionStructUnit2.TerrainID
+        lda aActionStructUnit2.TerrainType
         jsl $848EFB
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([10, 7])
         jsl rlDrawMenuTextLine
 
-        lda aActionStructUnit2.TerrainID
+        lda aActionStructUnit2.TerrainType
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(16+(7*$20))*2
+        stx wR6
+        ldx #C2I((16, 7), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        lda aActionStructUnit1.TerrainID
+        lda aActionStructUnit1.TerrainType
         jsl $848EFB
 
-        lda $0571,b
-        sta $24
-        lda $0571+1,b
-        sta $24+1
+        lda lRoutineVariable,b
+        sta lR18
+        lda lRoutineVariable+1,b
+        sta lR18+1
         ldx #pack([21, 7])
         jsl rlDrawMenuTextLine
 
-        lda aActionStructUnit1.TerrainID
+        lda aActionStructUnit1.TerrainType
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(27+(7*$20))*2
+        stx wR6
+        ldx #C2I((27, 7), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        ; gained lvls?
-        lda $4F2B,b
+        lda aActionStructUnit2.GainedLevels
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(9*$20))*2
+        stx wR6
+        ldx #C2I((10, 9), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        lda $4ECB,b
+        lda aActionStructUnit1.GainedLevels
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(21+(9*$20))*2
+        stx wR6
+        ldx #C2I((21, 9), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit2.StartingExperience
@@ -2755,13 +2753,13 @@
         bne +
 
           lda #0
-        
+
         +
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(11*$20))*2
+        stx wR6
+        ldx #C2I((10, 11), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit1.StartingExperience
@@ -2769,144 +2767,142 @@
         bne +
 
           lda #0
-        
+
         +
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(21+(11*$20))*2
+        stx wR6
+        ldx #C2I((21, 11), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit2.GainedExperience
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(16+(11*$20))*2
+        stx wR6
+        ldx #C2I((16, 11), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
         lda aActionStructUnit1.GainedExperience
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(27+(11*$20))*2
+        stx wR6
+        ldx #C2I((27, 11), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        ; obtained items?
-        lda $4F31,b
+        lda aActionStructUnit2.ObtainedItem
         cmp #$FFFF
         beq +
 
-          jsl $87E314
+          jsl rlGetItemNamePointerByItemID
 
-          lda $0571,b
-          sta $24
-          lda $0571+1,b
-          sta $24+1
+          lda lRoutineVariable,b
+          sta lR18
+          lda lRoutineVariable+1,b
+          sta lR18+1
           ldx #pack([10, 13])
           jsl rlDrawMenuTextLine
 
-          lda $4F31,b
+          lda aActionStructUnit2.ObtainedItem
           ldx #$3920  
-          stx $0A
+          stx wR5
           ldx #0
-          stx $0C
-          ldx #(18+(13*$20))*2
+          stx wR6
+          ldx #C2I((18, 13), 32) * size(word)
           jsl rlDrawMenuTextNumber
 
         +
-        lda $4ED1,b  
+        lda aActionStructUnit1.ObtainedItem
         cmp #$FFFF
         beq +
 
-          jsl $87E314
+          jsl rlGetItemNamePointerByItemID
 
-          lda $0571,b
-          sta $24
-          lda $0571+1,b
-          sta $24+1
+          lda lRoutineVariable,b
+          sta lR18
+          lda lRoutineVariable+1,b
+          sta lR18+1
           ldx #pack([21, 13])
           jsl rlDrawMenuTextLine
 
-          lda $4ED1,b
+          lda aActionStructUnit1.ObtainedItem
           ldx #$3920
-          stx $0A
+          stx wR5
           ldx #0
-          stx $0C
-          ldx #(29+(13*$20))*2
+          stx wR6
+          ldx #C2I((29, 13), 32) * size(word)
           jsl rlDrawMenuTextNumber
 
         +
-        ; ?
-        lda $4F33,b  
+        lda aActionStructUnit2.ObtainedStealMoney
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(10+(15*$20))*2
+        stx wR6
+        ldx #C2I((10, 15), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        lda $4ED3,b
+        lda aActionStructUnit1.ObtainedStealMoney
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(21+(15*$20))*2
+        stx wR6
+        ldx #C2I((21, 15), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        ; ?
-        lda $4F37,b
+        lda aActionStructUnit2.Unknown
         beq +
 
-          sta $00
+          sta wR0
           asl a
           clc
-          adc $00
+          adc wR0
           tax
-          lda $89D7AE+1,x
-          sta $24+1
-          lda $89D7AE,x
-          sta $24
+          lda aDebugSkillNamePointers+1,x
+          sta lR18+1
+          lda aDebugSkillNamePointers,x
+          sta lR18
           ldx #pack([10, 17])
           jsl rlDrawMenuTextLine
         
         +
-        lda $4F37,b
+        lda aActionStructUnit2.Unknown
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(18+(17*$20))*2
+        stx wR6
+        ldx #C2I((18, 17), 32) * size(word)
         jsl rlDrawMenuTextNumber
 
-        lda $4ED7,b
+        lda aActionStructUnit1.Unknown
         beq +
 
-          sta $00
+          sta wR0
           asl a
           clc
-          adc $00
+          adc wR0
           tax
-          lda $89D7AE+1,x
-          sta $0571+1,b
-          lda $89D7AE,x
-          sta $0571,b
-          lda $0571,b
-          sta $24
-          lda $0571+1,b
-          sta $24+1
+          lda aDebugSkillNamePointers+1,x
+          sta lRoutineVariable+1,b
+          lda aDebugSkillNamePointers,x
+          sta lRoutineVariable,b
+
+          lda lRoutineVariable,b
+          sta lR18
+          lda lRoutineVariable+1,b
+          sta lR18+1
           ldx #pack([21, 17])
           jsl rlDrawMenuTextLine
 
         +
-        lda $4ED7,b
+        lda aActionStructUnit1.Unknown
         ldx #$3920
-        stx $0A
+        stx wR5
         ldx #0
-        stx $0C
-        ldx #(29+(17*$20))*2
+        stx wR6
+        ldx #C2I((29, 17), 32) * size(word)
         jsl rlDrawMenuTextNumber
         rts
 
@@ -2933,17 +2929,17 @@
         plb
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugCombatLVUPPageText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugCombatLVUPPageText
-        sta $24
+        sta lR18
         ldx #pack([1, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3C00
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         _PointerList  := [(aDebugCombatHPGainText  , pack([1,  5]))]
         _PointerList ..= [(aDebugCombatSTRGainText , pack([1,  7]))]
@@ -2957,41 +2953,41 @@
         .for _Pointer, _Coordinates in _PointerList
 
           lda #(`_Pointer)<<8
-          sta $24+1
+          sta lR18+1
           lda #<>_Pointer
-          sta $24
+          sta lR18
           ldx #_Coordinates
           jsl rlDrawMenuTextLine
 
         .endfor
 
         lda #$3800
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
-        _ValueList  := [(<>aActionStructUnit2.LevelUpData.HPGain,         0, (10+( 5*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.HPGain,         0, (21+( 5*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.StrengthGain,   0, (10+( 7*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.StrengthGain,   0, (21+( 7*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.MagicGain,      0, (10+( 9*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.MagicGain,      0, (21+( 9*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.SkillGain,      0, (10+(11*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.SkillGain,      0, (21+(11*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.SpeedGain,      0, (10+(13*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.SpeedGain,      0, (21+(13*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.DefenseGain,    0, (10+(15*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.DefenseGain,    0, (21+(15*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.ResistanceGain, 0, (10+(17*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.ResistanceGain, 0, (21+(17*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.LuckGain,       0, (10+(19*$20))*2)]
-        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.LuckGain,       0, (21+(19*$20))*2)]
+        _ValueList  := [(<>aActionStructUnit2.LevelUpData.HPGain,         0, C2I((10,  5), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.HPGain,         0, C2I((21,  5), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.StrengthGain,   0, C2I((10,  7), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.StrengthGain,   0, C2I((21,  7), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.MagicGain,      0, C2I((10,  9), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.MagicGain,      0, C2I((21,  9), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.SkillGain,      0, C2I((10, 11), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.SkillGain,      0, C2I((21, 11), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.SpeedGain,      0, C2I((10, 13), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.SpeedGain,      0, C2I((21, 13), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.DefenseGain,    0, C2I((10, 15), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.DefenseGain,    0, C2I((21, 15), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.ResistanceGain, 0, C2I((10, 17), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.ResistanceGain, 0, C2I((21, 17), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit2.LevelUpData.LuckGain,       0, C2I((10, 19), 32) * size(word))]
+        _ValueList ..= [(<>aActionStructUnit1.LevelUpData.LuckGain,       0, C2I((21, 19), 32) * size(word))]
 
         .for _Address, _Size, _Coordinates in _ValueList
 
           lda _Address,b
           ldx #$3920
-          stx $0A
+          stx wR5
           ldx #_Size
-          stx $0C
+          stx wR6
           ldx #_Coordinates
           jsl rlDrawMenuTextNumber
 
@@ -3029,12 +3025,12 @@
         .databank ?
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugCombatFlagsTitleText1)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugCombatFlagsTitleText1
-        sta $24
+        sta lR18
         ldx #pack([1, 3])
         jsl rlDrawMenuTextLine
 
@@ -3059,7 +3055,7 @@
             beq +
 
               lda #1
-            
+
             +
             pha
 
@@ -3070,20 +3066,20 @@
             xba
             lsr a
             lsr a
-            sta $00
+            sta wR0
 
             lda $7F8410
             clc
             adc #10
             asl a
             clc
-            adc $00
+            adc wR0
             tax
 
             lda #$3920
-            sta $0A
+            sta wR5
             lda #1
-            sta $0C
+            sta wR6
 
             pla
             jsl rlDrawMenuTextNumber
@@ -3121,9 +3117,9 @@
           adc #40
           tax
           lda #$3920
-          sta $0A
+          sta wR5
           lda #3
-          sta $0C
+          sta wR6
 
           pla
           jsl rlDrawMenuTextNumber
@@ -3160,12 +3156,12 @@
         .databank ?
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugCombatFlagsTitleText2)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugCombatFlagsTitleText2
-        sta $24
+        sta lR18
         ldx #pack([1, 3])
         jsl rlDrawMenuTextLine
 
@@ -3189,7 +3185,7 @@
             beq +
 
               lda #1
-            
+
             +
             pha
 
@@ -3200,19 +3196,19 @@
             xba
             lsr a
             lsr a
-            sta $00
+            sta wR0
             lda $7F8410
             clc
             adc #10
             asl a
             clc
-            adc $00
+            adc wR0
             tax
 
             lda #$3920
-            sta $0A
+            sta wR5
             lda #1
-            sta $0C
+            sta wR6
 
             pla
             jsl rlDrawMenuTextNumber
@@ -3251,9 +3247,9 @@
           tax
 
           lda #$3920
-          sta $0A
+          sta wR5
           lda #3
-          sta $0C
+          sta wR6
           
           pla
           jsl rlDrawMenuTextNumber
@@ -3290,17 +3286,17 @@
         .databank ?
 
         lda #$3000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugCombatFlagsTitleText3)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugCombatFlagsTitleText3
-        sta $24
+        sta lR18
         ldx #pack([1, 3])
         jsl rlDrawMenuTextLine
 
         lda #$3800
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #0
         sta $7F8412
@@ -3322,7 +3318,7 @@
             beq +
 
               lda #1
-            
+
             +
             pha
 
@@ -3333,19 +3329,19 @@
             xba
             lsr a
             lsr a
-            sta $00
+            sta wR0
             lda $7F8410
             clc
             adc #10
             asl a
             clc
-            adc $00
+            adc wR0
             tax
 
             lda #$3920
-            sta $0A
+            sta wR5
             lda #1
-            sta $0C
+            sta wR6
 
             pla
             jsl rlDrawMenuTextNumber
@@ -3384,9 +3380,9 @@
           tax
 
           lda #$3920
-          sta $0A
+          sta wR5
           lda #3
-          sta $0C
+          sta wR6
 
           pla
           jsl rlDrawMenuTextNumber
@@ -3433,20 +3429,20 @@
         .databank ?
 
         lda #$2000
-        sta $053A,b
+        sta aCurrentTilemapInfo.wBaseTile,b
 
         lda #(`aDebugSoundMenuText)<<8
-        sta $24+1
+        sta lR18+1
         lda #<>aDebugSoundMenuText
-        sta $24
+        sta lR18
         ldx #pack([10, 3])
         jsl rlDrawMenuTextLine
 
         lda $7F8408
         ldx #$3520
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
+        stx wR6
         ldx #pack([2, 2])
         jsl rlDrawMenuTextNumber
         rts
@@ -3463,11 +3459,11 @@
         .databank ?
 
         lda $7F840A
-        sta $00
+        sta wR0
         lda $7F840C
         clc
         adc #4
-        sta $02
+        sta wR1
         lda #1
         jsl $88A704
 
@@ -3477,9 +3473,9 @@
         lsr a
         inc a
         ldx #$3120
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
+        stx wR6
         ldx #$00B2
         jsl rlDrawMenuTextNumber
 
@@ -3488,9 +3484,9 @@
         lsr a
         lsr a
         ldx #$3120
-        stx $0A
+        stx wR5
         ldx #3
-        stx $0C
+        stx wR6
         ldx #$00B8
         jsl rlDrawMenuTextNumber
         rts
@@ -3507,8 +3503,8 @@
         jsr rlDrawDebugMenu
 
         sep #$20
-        lda #15
-        sta $70
+        lda #INIDISP_Setting(false, 15)
+        sta bBufferINIDISP
         rep #$20
         rtl
 
@@ -3527,7 +3523,7 @@
         lda $0304,b
         cmp #4
         bmi +
-        
+
           -
           bra -
 
@@ -3556,9 +3552,9 @@
 
         jsl rlDMAByStruct
 
-          .dstruct structDMAToVRAM, $7E8388, $0700, $80, $E000
+          .dstruct structDMAToVRAM, aBG3TilemapBuffer, $0700, $80, $E000
 
-        lda $E8
+        lda wJoy1New
         bit #JOY_B
         bne +
 
@@ -3570,9 +3566,10 @@
         +
         lda #6
         jsl $808FAD
+
         sep #$20
-        lda #$80
-        sta $70
+        lda #INIDISP_Setting(true, 0)
+        sta bBufferINIDISP
         rep #$20
 
         lda $0304,b
@@ -3584,14 +3581,14 @@
 
         cmp #2
         beq +
-        
+
         +
         lda #0
         sta $0304,b
         lda #1
         sta $0D77,b
         lda #$B122
-        sta $D7
+        sta wMainLoopPointer
         rtl
 
         +
@@ -3600,7 +3597,7 @@
         lda $7F8404
         sta $7F8183
         lda #$BBD9
-        sta $D7
+        sta wMainLoopPointer
         rtl
         
         _E84B
@@ -3611,8 +3608,8 @@
         cmp #4
         bne +
 
-        lda #0
-        
+          lda #0
+
         +
         sta $0304,b
         lda #0
@@ -3629,7 +3626,7 @@
         .autsiz
         .databank ?
 
-        lda $EC
+        lda wJoy1Repeated
         bit #JOY_Right
         bne _RightPress
 
@@ -3637,7 +3634,7 @@
         bne _LeftPress
 
         rts
-        
+
         _RightPress
         lda $7F8402
         inc a
@@ -3645,7 +3642,7 @@
         bne +
 
           lda #7
-        
+
         +
         sta $7F8402
         jsr rlDrawDebugMenu
@@ -3671,15 +3668,15 @@
         .autsiz
         .databank ?
 
-        lda $EC
+        lda wJoy1Repeated
         bit #JOY_Right
         bne _RightPress
 
         bit #JOY_Left
         bne _LeftPress
-        
+
         rts
-        
+
         _RightPress
         lda $7F8402
         inc a
@@ -3693,14 +3690,14 @@
         jsr rlDrawDebugMenu
 
         rts
-        
+
         _LeftPress
         lda $7F8402
         dec a
         bpl +
 
           lda #0
-        
+
         +
         sta $7F8402
         jsr rlDrawDebugMenu
@@ -3716,8 +3713,8 @@
 
         jsr rsDebugDrawCursorSpriteAndCoordinates
 
-        lda $EC
-        ora $EE
+        lda wJoy1Repeated
+        ora wJoy2Repeated
         bit #JOY_R
         bne _RPress
 
@@ -3745,7 +3742,7 @@
         bne +
 
           lda #6
-        
+
         +
         sta $7F8402
         jsr rlDrawDebugMenu
@@ -3757,15 +3754,15 @@
         bpl +
 
           lda #0
-        
+
         +
         sta $7F8402
         jsr rlDrawDebugMenu
         rts
 
         _DirectionalInput
-        lda $EC+1
-        ora $EE+1
+        lda wJoy1Repeated+1
+        ora wJoy2Repeated+1
         and #(JOY_Right | JOY_Left)>>8
         asl a
         tax
@@ -3774,8 +3771,8 @@
         adc $7F840A
         sta $7F840A
 
-        lda $ED
-        ora $EF
+        lda wJoy1Repeated+1
+        ora wJoy2Repeated+1
         and #(JOY_Down | JOY_Up)>>8
         lsr a
         tax
@@ -3793,19 +3790,19 @@
         lsr a
         lsr a
         inc a
-        sta $00
+        sta wR0
 
         lda $7F840C
         lsr a
         lsr a
         lsr a
-        sta $02
+        sta wR1
 
         lda $7F8402
         inc a
-        sta $04
+        sta wR2
         lda #1
-        sta $06
+        sta wR3
         jsr rlDrawDebugMenu
         rts
 
@@ -3815,19 +3812,19 @@
         lsr a
         lsr a
         inc a
-        sta $00
+        sta wR0
 
         lda $7F840C
         lsr a
         lsr a
         lsr a
-        sta $02
+        sta wR1
 
         lda $7F8402
         inc a
-        sta $04
+        sta wR2
         lda #$FFFF
-        sta $06
+        sta wR3
         jsr rlDrawDebugMenu
         rts
 
@@ -3853,14 +3850,14 @@
         .autsiz
         .databank ?
 
-        lda $EC
+        lda wJoy1Repeated
         bit #JOY_Up
         bne _UpPress
 
         bit #JOY_Down
         bne _DownPress
 
-        lda $E8
+        lda wJoy1New
         bit #JOY_A
         bne _APress
 

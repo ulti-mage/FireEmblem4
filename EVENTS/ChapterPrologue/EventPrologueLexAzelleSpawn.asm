@@ -1,0 +1,62 @@
+
+  aEventPrologueLexAzelleSpawn ; B1/8344
+
+    PLAY_SONG $73
+    YIELD
+
+    RUN_EVENT_CONDITION
+      REGISTER_CHARACTER_MAP_SPRITE Azelle
+
+    RUN_EVENT_CONDITION
+      REGISTER_CHARACTER_MAP_SPRITE Lex
+
+    MAP_SCROLL [36, 0], 4
+    YIELD
+
+    PAUSE 16
+    YIELD
+
+    LOAD_UNIT_DIRECT Azelle, FS_Player, [41, 0], [44, 3], 4, MAP_SPRITE_BLUE
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    LOAD_UNIT_DIRECT Lex, FS_Player, [41, 0], [43, 3], 4, MAP_SPRITE_BLUE
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PAUSE 15
+    YIELD
+
+    DIALOGUE dialogueChapterPrologueLexAzelleSpawn
+    YIELD
+
+    PAUSE 10
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Lex, Sigurd
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Azelle, Sigurd
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT
+
+    _UnusedMovementScript1 ; B1/8392
+      MAP_DOWN_MULTIPLE 3
+      MAP_RIGHT_MULTIPLE 3
+      MAP_HALT
+      MAP_END
+
+    _UnusedMovementScript2 ; B1/8398
+      MAP_DOWN_MULTIPLE 3
+      MAP_RIGHT_MULTIPLE 2
+      MAP_HALT
+      MAP_END

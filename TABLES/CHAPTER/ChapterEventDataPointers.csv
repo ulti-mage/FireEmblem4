@@ -1,0 +1,13 @@
+.long 0,Pointer
+ChapterPrologueData,aChapterPrologueEventData
+Chapter01Data,aChapter01EventData
+Chapter02Data,aChapter02EventData
+Chapter03Data,aChapter03EventData
+Chapter04Data,aChapter04EventData
+Chapter05Data,aChapter05EventData
+Chapter06Data,aChapter06EventData
+Chapter07Data,aChapter07EventData
+Chapter08Data,aChapter08EventData
+Chapter09Data,aChapter09EventData
+Chapter10Data,aChapter10EventData
+ChapterFinalData,aChapterFinalEventData

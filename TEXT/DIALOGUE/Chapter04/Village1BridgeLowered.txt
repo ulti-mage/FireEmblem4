@@ -1,0 +1,4 @@
+{DIALOGUE_SET_TEXT dialogueChapter04Village1Default}{DIALOGUE_SCROLL}
+{DIALOGUE_FONT_0}･･･なんだ､{DIALOGUE_NL}
+もう橋がかかってるじゃないか{DIALOGUE_NL}
+どうして分かったんだ？{DIALOGUE_WAIT_PRESS}{DIALOGUE_EOF}

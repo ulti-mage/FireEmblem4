@@ -1,0 +1,52 @@
+
+  aEventChapter04AndreyLeave ; 8E/95F6
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $19
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT AndreyCh04, EventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 3
+    YIELD
+
+    DIALOGUE dialogueChapter04AndreyLeave
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT AndreyCh04, EventUnitSlot1
+    MOVE_TEMPORARY_TO_COORDS AndreyCh04, [-1, -1], [63, 45], 4, EventUnitSlot1, MAP_SPRITE_RED, true, true
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    RUN_EVENT_CONDITION
+      REMOVE_UNIT AndreyCh04
+
+    .rept 8
+
+      FILL_EVENT_UNIT_SLOT Beigenritter1, EventUnitSlot1
+      MOVE_TEMPORARY_TO_COORDS Beigenritter1, [-1, -1], [63, 45], 4, EventUnitSlot1, MAP_SPRITE_RED, true, true
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+
+      RUN_EVENT_CONDITION
+        REMOVE_UNIT Beigenritter1
+
+    .endrept
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    RUN_EVENT_CONDITION
+      DELETE_FACTIONS_AI FS_Ch04Zaxon, 3
+
+    RUN_EVENT_CONDITION
+      REMOVE_AREA_RESTRICTION 2
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

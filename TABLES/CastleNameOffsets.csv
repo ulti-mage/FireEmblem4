@@ -1,47 +1,47 @@
-.structCastleNameOffset 0,Offset
-MadinoName,aCastleNames.Madino
-SylvaleName,aCastleNames.Sylvale
-InfiniName,aCastleNames.Infini
-AgustiName,aCastleNames.Agusti
-HeirheinName,aCastleNames.Heirhein
-MackilyName,aCastleNames.Mackily
-NordionName,aCastleNames.Nordion
-VelthomerName,aCastleNames.Velthomer
-FriegeName,aCastleNames.Friege
-BelhallaName,aCastleNames.Belhalla
-DozelName,aCastleNames.Dozel
-EddaName,aCastleNames.Edda
-ChalphyName,aCastleNames.Chalphy
-YngviName,aCastleNames.Yngvi
-LeonsterName,aCastleNames.Leonster
-ConnachtName,aCastleNames.Connacht
-MunsterName,aCastleNames.Munster
-MelgenName,aCastleNames.Melgen
-UlsterName,aCastleNames.Ulster
-OrgahilName,aCastleNames.Orgahil
-TofaName,aCastleNames.Tofa
-SailaneName,aCastleNames.Sailane
-ZaxonName,aCastleNames.Zaxon
-SilesseName,aCastleNames.Silesse
-LubeckName,aCastleNames.Lubeck
-TirnanogName,aCastleNames.Tirnanog
-GaneshireName,aCastleNames.Ganeshire
-SopharaName,aCastleNames.Sophara
-IsaachName,aCastleNames.Isaach
-RibautName,aCastleNames.Ribaut
-PhinoraName,aCastleNames.Phinora
-AedName,aCastleNames.Aed
-DahnaName,aCastleNames.Dahna
-VerdaneName,aCastleNames.Verdane
-EvansName,aCastleNames.Evans
-GenoaName,aCastleNames.Genoa
-MarphaName,aCastleNames.Marpha
-MiletosName,aCastleNames.Miletos
-PerlucosName,aCastleNames.Perlucos
-ChronosName,aCastleNames.Chronos
-RadosName,aCastleNames.Rados
-MeathName,aCastleNames.Meath
-KapathogiaName,aCastleNames.Kapathogia
-LutheciaName,aCastleNames.Luthecia
-ThraciaName,aCastleNames.Thracia
-GrutiaName,aCastleNames.Grutia
+.word 0,Offset
+MadinoName,aCastleNames.Madino - aCastleNameOffsets
+SylvaleName,aCastleNames.Sylvale - aCastleNameOffsets
+InfiniName,aCastleNames.Infini - aCastleNameOffsets
+AgustiName,aCastleNames.Agusti - aCastleNameOffsets
+HeirheinName,aCastleNames.Heirhein - aCastleNameOffsets
+MackilyName,aCastleNames.Mackily - aCastleNameOffsets
+NordionName,aCastleNames.Nordion - aCastleNameOffsets
+VelthomerName,aCastleNames.Velthomer - aCastleNameOffsets
+FriegeName,aCastleNames.Friege - aCastleNameOffsets
+BelhallaName,aCastleNames.Belhalla - aCastleNameOffsets
+DozelName,aCastleNames.Dozel - aCastleNameOffsets
+EddaName,aCastleNames.Edda - aCastleNameOffsets
+ChalphyName,aCastleNames.Chalphy - aCastleNameOffsets
+YngviName,aCastleNames.Yngvi - aCastleNameOffsets
+LeonsterName,aCastleNames.Leonster - aCastleNameOffsets
+ConnachtName,aCastleNames.Connacht - aCastleNameOffsets
+MunsterName,aCastleNames.Munster - aCastleNameOffsets
+MelgenName,aCastleNames.Melgen - aCastleNameOffsets
+UlsterName,aCastleNames.Ulster - aCastleNameOffsets
+OrgahilName,aCastleNames.Orgahil - aCastleNameOffsets
+TofaName,aCastleNames.Tofa - aCastleNameOffsets
+SailaneName,aCastleNames.Sailane - aCastleNameOffsets
+ZaxonName,aCastleNames.Zaxon - aCastleNameOffsets
+SilesseName,aCastleNames.Silesse - aCastleNameOffsets
+LubeckName,aCastleNames.Lubeck - aCastleNameOffsets
+TirnanogName,aCastleNames.Tirnanog - aCastleNameOffsets
+GaneshireName,aCastleNames.Ganeshire - aCastleNameOffsets
+SofalaName,aCastleNames.Sofala - aCastleNameOffsets
+IsaachName,aCastleNames.Isaach - aCastleNameOffsets
+RibautName,aCastleNames.Ribaut - aCastleNameOffsets
+PhinoraName,aCastleNames.Phinora - aCastleNameOffsets
+AedName,aCastleNames.Aed - aCastleNameOffsets
+DahnaName,aCastleNames.Dahna - aCastleNameOffsets
+VerdaneName,aCastleNames.Verdane - aCastleNameOffsets
+EvansName,aCastleNames.Evans - aCastleNameOffsets
+GenoaName,aCastleNames.Genoa - aCastleNameOffsets
+MarphaName,aCastleNames.Marpha - aCastleNameOffsets
+MiletosName,aCastleNames.Miletos - aCastleNameOffsets
+PerlucosName,aCastleNames.Perlucos - aCastleNameOffsets
+ChronosName,aCastleNames.Chronos - aCastleNameOffsets
+RadosName,aCastleNames.Rados - aCastleNameOffsets
+MeathName,aCastleNames.Meath - aCastleNameOffsets
+KapathogiaName,aCastleNames.Kapathogia - aCastleNameOffsets
+LutheciaName,aCastleNames.Luthecia - aCastleNameOffsets
+ThraciaName,aCastleNames.Thracia - aCastleNameOffsets
+GrutiaName,aCastleNames.Grutia - aCastleNameOffsets

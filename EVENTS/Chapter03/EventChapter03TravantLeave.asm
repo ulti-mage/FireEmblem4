@@ -1,0 +1,36 @@
+
+  aEventChapter03TravantLeave ; 9D/8C1F
+
+    PLAY_SONG $28
+    YIELD
+
+    MAP_SCROLL [1, 36], 4
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter03TravantLeave, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    MOVE_TEMPORARY_BY_SCRIPT Travant2, [7, 45], 4, MAP_SPRITE_RED, _ScriptedMovementTravant
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT
+
+    _ScriptedMovementTravant ; 9D/8C4F
+      MAP_DOWN_MULTIPLE 12
+      MAP_END

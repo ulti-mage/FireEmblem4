@@ -1,0 +1,26 @@
+.structUNITEntry 1,Character,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,Unknown3
+ID_01,Harold,$38,$0E,$01,$01,$01,$00
+ID_02,GaneishireArmy1,$38,$11,$00,$01,$01,$01
+ID_03,GaneishireArmy1,$37,$10,$00,$01,$01,$02
+ID_04,GaneishireArmy1,$39,$10,$00,$01,$01,$03
+ID_05,GaneishireArmy4,$33,$10,$00,$02,$01,$00
+ID_06,GaneishireArmy2,$34,$11,$00,$02,$01,$00
+ID_07,GaneishireArmy2,$35,$0E,$00,$02,$01,$00
+ID_08,GaneishireArmy2,$35,$10,$00,$02,$01,$00
+ID_09,GaneishireArmy4,$35,$12,$00,$02,$01,$00
+ID_10,GaneishireArmy3,$36,$0D,$00,$02,$01,$00
+ID_11,GaneishireArmy2,$36,$11,$00,$02,$01,$00
+ID_12,GaneishireArmy2,$36,$12,$00,$02,$01,$00
+ID_13,GaneishireArmy3,$26,$10,$00,$03,$01,$0C
+ID_14,GaneishireArmy4,$25,$0C,$00,$03,$01,$00
+ID_15,GaneishireArmy2,$24,$0E,$00,$03,$01,$00
+ID_16,GaneishireArmy3,$21,$0B,$00,$03,$01,$00
+ID_17,GaneishireArmy2,$1F,$0A,$00,$03,$01,$00
+ID_18,GaneishireArmy2,$1F,$0C,$00,$03,$01,$00
+ID_19,GaneishireArmy2,$1E,$0B,$00,$03,$01,$00
+ID_20,GaneishireArmy4,$1D,$0D,$00,$03,$01,$00
+ID_21,GaneishireArmy3,$18,$06,$00,$03,$01,$00
+ID_22,GaneishireArmy2,$16,$08,$00,$03,$01,$00
+ID_23,GaneishireArmy2,$14,$02,$00,$03,$01,$00
+ID_24,GaneishireArmy2,$10,$09,$00,$03,$01,$00
+ID_25,$FFFF,0,0,0,0,0,0

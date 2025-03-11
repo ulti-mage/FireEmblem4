@@ -1,0 +1,3 @@
+{DIALOGUE_FONT_0}パメラ隊にも{DIALOGUE_NL}
+シグルド軍を追撃せよと伝えよ{DIALOGUE_NL}
+こうなれば総力戦しかあるまい！{DIALOGUE_WAIT_PRESS}{DIALOGUE_EOF}

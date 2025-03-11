@@ -1,0 +1,17 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,Magorn,$3A,$3D,1,1,FS_Ch05Thracia,0
+ID_02,ThraciaArmy2,$39,$3D,0,1,FS_Ch05Thracia,1
+ID_03,ThraciaArmy2,$3B,$3D,0,1,FS_Ch05Thracia,2
+ID_04,ThraciaArmy2,$3A,$3C,0,1,FS_Ch05Thracia,3
+ID_05,ThraciaArmy2,$39,$3C,0,1,FS_Ch05Thracia,4
+ID_06,ThraciaArmy2,$3B,$3C,0,1,FS_Ch05Thracia,5
+ID_07,ThraciaArmy2,$38,$3D,0,1,FS_Ch05Thracia,6
+ID_08,ThraciaArmy2,$3C,$3D,0,1,FS_Ch05Thracia,7
+ID_09,ThraciaArmy2,$38,$3C,0,1,FS_Ch05Thracia,8
+ID_10,ThraciaArmy2,$3C,$3C,0,1,FS_Ch05Thracia,9
+ID_11,ThraciaArmy2,$37,$3D,0,1,FS_Ch05Thracia,10
+ID_12,ThraciaArmy2,$3D,$3D,0,1,FS_Ch05Thracia,11
+ID_13,ThraciaArmy2,$37,$3C,0,1,FS_Ch05Thracia,12
+ID_14,ThraciaArmy2,$3D,$3C,0,1,FS_Ch05Thracia,13
+ID_15,Travant,$3A,$3E,1,2,FS_Ch05Thracia,0
+ID_16,$FFFF,0,0,0,0,0,0

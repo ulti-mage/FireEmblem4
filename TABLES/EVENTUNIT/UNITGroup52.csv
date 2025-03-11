@@ -1,0 +1,20 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,Scipio,$03,$3C,$01,$01,$04,$00
+ID_02,Beigenritter4,$03,$3B,$00,$01,$04,$01
+ID_03,Beigenritter4,$02,$3C,$00,$01,$04,$02
+ID_04,Beigenritter4,$04,$3C,$00,$01,$04,$03
+ID_05,Beigenritter3,$03,$3A,$00,$01,$04,$04
+ID_06,Beigenritter3,$02,$3B,$00,$01,$04,$05
+ID_07,Beigenritter3,$04,$3B,$00,$01,$04,$06
+ID_08,Beigenritter3,$01,$3B,$00,$01,$04,$07
+ID_09,Beigenritter3,$05,$3B,$00,$01,$04,$08
+ID_10,Beigenritter3,$01,$3A,$00,$01,$04,$09
+ID_11,Beigenritter3,$05,$3A,$00,$01,$04,$0A
+ID_12,Beigenritter3,$02,$3A,$00,$01,$04,$0B
+ID_13,Beigenritter3,$04,$3A,$00,$01,$04,$0C
+ID_14,Beigenritter3,$03,$39,$00,$01,$04,$0D
+ID_15,Beigenritter3,$02,$39,$00,$01,$04,$0E
+ID_16,Beigenritter3,$04,$39,$00,$01,$04,$0F
+ID_17,Beigenritter3,$01,$39,$00,$01,$04,$10
+ID_18,Beigenritter3,$05,$39,$00,$01,$04,$11
+ID_19,$FFFF,0,0,0,0,0,0

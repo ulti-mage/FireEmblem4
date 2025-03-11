@@ -1,0 +1,8 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,Bandit5,$02,$22,$00,$08,$04,$00
+ID_02,Bandit5,$26,$2C,$00,$06,$04,$00
+ID_03,Bandit5,$27,$2D,$00,$06,$04,$00
+ID_04,Bandit5,$39,$2B,$00,$06,$04,$00
+ID_05,Bandit5,$3A,$2B,$00,$06,$04,$00
+ID_06,Bandit5,$3B,$2C,$00,$06,$04,$00
+ID_07,$FFFF,0,0,0,0,0,0

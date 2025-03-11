@@ -1,0 +1,9 @@
+半年がすぎる間に{DIALOGUE_NL}
+グランベルから派遣された役人たちが､{DIALOGUE_WAIT_PRESS}{DIALOGUE_SCROLL}
+アグストリアの国土を{DIALOGUE_NL}
+わがもの顔にのし歩くようになった｡{DIALOGUE_WAIT_PRESS}{DIALOGUE_SCROLL}
+アグストリアの民の不満は､{DIALOGUE_NL}
+少しずつふくれあがっていった｡{DIALOGUE_WAIT_PRESS}{DIALOGUE_SCROLL}
+やがて､シグルドが恐れていた{DIALOGUE_NL}
+あらたな戦いが始まった｡{DIALOGUE_WAIT_PRESS}{DIALOGUE_SCROLL}
+{DIALOGUE_EOF}

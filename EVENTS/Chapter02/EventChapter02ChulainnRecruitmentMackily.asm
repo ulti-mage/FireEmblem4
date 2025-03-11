@@ -1,0 +1,30 @@
+
+  aEventChapter02ChulainnRecruitmentMackily ; 8E/877C
+
+    RUN_EVENT_CONDITION
+      REGISTER_CHARACTER_MAP_SPRITE Chulainn
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $73
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter02ChulainnRecruitment, DIALOGUE_BG_ALLEY, 3, 1
+    YIELD
+
+    LOAD_UNIT_DIRECT Chulainn, FS_Player, [43, 31], [43, 31], 4, MAP_SPRITE_BLUE
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

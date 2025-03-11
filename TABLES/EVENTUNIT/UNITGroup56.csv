@@ -1,0 +1,8 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,Arion2,$3D,$3A,$01,$01,$01,$00
+ID_02,DragonKnight3,$3C,$3A,$00,$01,$01,$01
+ID_03,DragonKnight3,$3C,$3B,$00,$01,$01,$02
+ID_04,DragonKnight3,$3C,$39,$00,$01,$01,$03
+ID_05,DragonKnight3,$3C,$3C,$00,$01,$01,$04
+ID_06,DragonKnight3,$3C,$38,$00,$01,$01,$05
+ID_07,$FFFF,0,0,0,0,0,0

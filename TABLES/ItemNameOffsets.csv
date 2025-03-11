@@ -1,139 +1,139 @@
-.structItemNameOffset 0,Offset
-IronSwordName,aItemNames.IronSword
-SteelSwordName,aItemNames.SteelSword
-SilverSwordName,aItemNames.SilverSword
-IronBladeName,aItemNames.IronBlade
-SteelBladeName,aItemNames.SteelBlade
-SilverBladeName,aItemNames.SilverBlade
-MiracleSwordName,aItemNames.MiracleSword
-ThiefSwordName,aItemNames.ThiefSword
-BarrierBladeName,aItemNames.BarrierBlade
-BerserkSwordName,aItemNames.BerserkSword
-BraveSwordName,aItemNames.BraveSword
-SilenceSwordName,aItemNames.SilenceSword
-SleepSwordName,aItemNames.SleepSword
-SlimSwordName,aItemNames.SlimSword
-SafeguardName,aItemNames.Safeguard
-FireSwordName,aItemNames.FireSword
-EarthSwordName,aItemNames.EarthSword
-ThunderSwordName,aItemNames.ThunderSword
-WindSwordName,aItemNames.WindSword
-LightBrandName,aItemNames.LightBrand
-MystletainnName,aItemNames.Mystletainn
-TyrfingName,aItemNames.Tyrfing
-BalmungName,aItemNames.Balmung
-ArmorslayerName,aItemNames.Armorslayer
-WingclipperName,aItemNames.Wingclipper
-BrokenSwordAName,aItemNames.BrokenSword
-BrokenSwordBName,aItemNames.BrokenSword
-BrokenSwordCName,aItemNames.BrokenSword
-IronLanceName,aItemNames.IronLance
-SteelLanceName,aItemNames.SteelLance
-SilverLanceName,aItemNames.SilverLance
-JavelinName,aItemNames.Javelin
-RidersbaneName,aItemNames.Ridersbane
-BraveLanceName,aItemNames.BraveLance
-SlimLanceName,aItemNames.SlimLance
-GungnirName,aItemNames.Gungnir
-GaeBolgName,aItemNames.GaeBolg
-BrokenLanceAName,aItemNames.BrokenLance
-BrokenLanceBName,aItemNames.BrokenLance
-BrokenLanceCName,aItemNames.BrokenLance
-IronAxeName,aItemNames.IronAxe
-SteelAxeName,aItemNames.SteelAxe
-SilverAxeName,aItemNames.SilverAxe
-BraveAxeName,aItemNames.BraveAxe
-HelswathName,aItemNames.Helswath
-HandAxeName,aItemNames.HandAxe
-BrokenAxeAName,aItemNames.BrokenAxe
-BrokenAxeBName,aItemNames.BrokenAxe
-BrokenAxeCName,aItemNames.BrokenAxe
-IronBowName,aItemNames.IronBow
-SteelBowName,aItemNames.SteelBow
-SilverBowName,aItemNames.SilverBow
-BraveBowName,aItemNames.BraveBow
-KillerBowName,aItemNames.KillerBow
-YewfelleName,aItemNames.Yewfelle
-BrokenBowAName,aItemNames.BrokenBow
-BrokenBowBName,aItemNames.BrokenBow
-BrokenBowCName,aItemNames.BrokenBow
-BallistaName,aItemNames.Ballista
-IronBallistaName,aItemNames.IronBallista
-KillerBallistaName,aItemNames.KillerBallista
-GreatBallistaName,aItemNames.GreatBallista
-FireName,aItemNames.Fire
-ElfireName,aItemNames.Elfire
-BolganoneName,aItemNames.Bolganone
-ValflameName,aItemNames.Valflame
-MeteorName,aItemNames.Meteor
-ThunderName,aItemNames.Thunder
-ElthunderName,aItemNames.Elthunder
-ThoronName,aItemNames.Thoron
-MjolnirName,aItemNames.Mjolnir
-BoltingName,aItemNames.Bolting
-WindName,aItemNames.Wind
-ElwindName,aItemNames.Elwind
-TornadoName,aItemNames.Tornado
-ForsetiName,aItemNames.Forseti
-BlizzardName,aItemNames.Blizzard
-LightName,aItemNames.Light
-NosferatuName,aItemNames.Nosferatu
-AuraName,aItemNames.Aura
-NagaName,aItemNames.Naga
-JormungandrName,aItemNames.Jormungandr
-FenrirName,aItemNames.Fenrir
-HelName,aItemNames.Hel
-LoptousName,aItemNames.Loptous
-BrokenFireTomeAName,aItemNames.BrokenTome
-BrokenFireTomeBName,aItemNames.BrokenTome
-BrokenFireTomeCName,aItemNames.BrokenTome
-HealStaffName,aItemNames.HealStaff
-MendStaffName,aItemNames.MendStaff
-RecoverStaffName,aItemNames.RecoverStaff
-PhysicStaffName,aItemNames.PhysicStaff
-FortifyName,aItemNames.Fortify
-ReturnStaffName,aItemNames.ReturnStaff
-WarpStaffName,aItemNames.WarpStaff
-RescueStaffName,aItemNames.RescueStaff
-CharmStaffName,aItemNames.CharmStaff
-RestoreStaffName,aItemNames.RestoreStaff
-ValkyrieStaffName,aItemNames.ValkyrieStaff
-SilenceStaffName,aItemNames.SilenceStaff
-SleepStaffName,aItemNames.SleepStaff
-BerserkStaffName,aItemNames.BerserkStaff
-ThiefStaffName,aItemNames.ThiefStaff
-BrokenStaffAName,aItemNames.BrokenStaff
-BrokenStaffBName,aItemNames.BrokenStaff
-BrokenStaffCName,aItemNames.BrokenStaff
-RenewalBandName,aItemNames.RenewalBand
-ParagonBandName,aItemNames.ParagonBand
-ThiefBandName,aItemNames.ThiefBand
-MiracleBandName,aItemNames.MiracleBand
-PursuitRingName,aItemNames.PursuitRing
-RecoverRingName,aItemNames.RecoverRing
-BargainBandName,aItemNames.BargainBand
-KnightRingName,aItemNames.KnightRing
-ReturnBandName,aItemNames.ReturnBand
-SpeedRingName,aItemNames.SpeedRing
-MagicRingName,aItemNames.MagicRing
-PowerRingName,aItemNames.PowerRing
-ShieldRingName,aItemNames.ShieldRing
-BarrierRingName,aItemNames.BarrierRing
-LegRingName,aItemNames.LegRing
-SkillRingName,aItemNames.SkillRing
-BrokenHolySwordName,aItemNames.BrokenSword
-BrokenHolyLanceName,aItemNames.BrokenLance
-BrokenHolyBowName,aItemNames.BrokenBow
-BrokenThunderTomeAName,aItemNames.BrokenTome
-BrokenThunderTomeBName,aItemNames.BrokenTome
-BrokenThunderTomeCName,aItemNames.BrokenTome
-BrokenHolyWindTomeName,aItemNames.BrokenTome
-BrokenWindTomeAName,aItemNames.BrokenTome
-BrokenWindTomeBName,aItemNames.BrokenTome
-BrokenWindTomeCName,aItemNames.BrokenTome
-BrokenHolyLightTomeName,aItemNames.BrokenTome
-BrokenLightTomeAName,aItemNames.BrokenTome
-BrokenLightTomeBName,aItemNames.BrokenTome
-BrokenLightTomeCName,aItemNames.BrokenTome
-BrokenHolyStaffName,aItemNames.BrokenStaff
-CircletName,aItemNames.Circlet
+.word 0,Offset
+IronSwordName,aItemNames.IronSword - aItemNameOffsets
+SteelSwordName,aItemNames.SteelSword - aItemNameOffsets
+SilverSwordName,aItemNames.SilverSword - aItemNameOffsets
+IronBladeName,aItemNames.IronBlade - aItemNameOffsets
+SteelBladeName,aItemNames.SteelBlade - aItemNameOffsets
+SilverBladeName,aItemNames.SilverBlade - aItemNameOffsets
+MiracleSwordName,aItemNames.MiracleSword - aItemNameOffsets
+ThiefSwordName,aItemNames.ThiefSword - aItemNameOffsets
+BarrierBladeName,aItemNames.BarrierBlade - aItemNameOffsets
+BerserkSwordName,aItemNames.BerserkSword - aItemNameOffsets
+BraveSwordName,aItemNames.BraveSword - aItemNameOffsets
+SilenceSwordName,aItemNames.SilenceSword - aItemNameOffsets
+SleepSwordName,aItemNames.SleepSword - aItemNameOffsets
+SlimSwordName,aItemNames.SlimSword - aItemNameOffsets
+SafeguardName,aItemNames.Safeguard - aItemNameOffsets
+FireSwordName,aItemNames.FireSword - aItemNameOffsets
+EarthSwordName,aItemNames.EarthSword - aItemNameOffsets
+ThunderSwordName,aItemNames.ThunderSword - aItemNameOffsets
+WindSwordName,aItemNames.WindSword - aItemNameOffsets
+LightBrandName,aItemNames.LightBrand - aItemNameOffsets
+MystletainnName,aItemNames.Mystletainn - aItemNameOffsets
+TyrfingName,aItemNames.Tyrfing - aItemNameOffsets
+BalmungName,aItemNames.Balmung - aItemNameOffsets
+ArmorslayerName,aItemNames.Armorslayer - aItemNameOffsets
+WingclipperName,aItemNames.Wingclipper - aItemNameOffsets
+BrokenSwordAName,aItemNames.BrokenSword - aItemNameOffsets
+BrokenSwordBName,aItemNames.BrokenSword - aItemNameOffsets
+BrokenSwordCName,aItemNames.BrokenSword - aItemNameOffsets
+IronLanceName,aItemNames.IronLance - aItemNameOffsets
+SteelLanceName,aItemNames.SteelLance - aItemNameOffsets
+SilverLanceName,aItemNames.SilverLance - aItemNameOffsets
+JavelinName,aItemNames.Javelin - aItemNameOffsets
+RidersbaneName,aItemNames.Ridersbane - aItemNameOffsets
+BraveLanceName,aItemNames.BraveLance - aItemNameOffsets
+SlimLanceName,aItemNames.SlimLance - aItemNameOffsets
+GungnirName,aItemNames.Gungnir - aItemNameOffsets
+GaeBolgName,aItemNames.GaeBolg - aItemNameOffsets
+BrokenLanceAName,aItemNames.BrokenLance - aItemNameOffsets
+BrokenLanceBName,aItemNames.BrokenLance - aItemNameOffsets
+BrokenLanceCName,aItemNames.BrokenLance - aItemNameOffsets
+IronAxeName,aItemNames.IronAxe - aItemNameOffsets
+SteelAxeName,aItemNames.SteelAxe - aItemNameOffsets
+SilverAxeName,aItemNames.SilverAxe - aItemNameOffsets
+BraveAxeName,aItemNames.BraveAxe - aItemNameOffsets
+HelswathName,aItemNames.Helswath - aItemNameOffsets
+HandAxeName,aItemNames.HandAxe - aItemNameOffsets
+BrokenAxeAName,aItemNames.BrokenAxe - aItemNameOffsets
+BrokenAxeBName,aItemNames.BrokenAxe - aItemNameOffsets
+BrokenAxeCName,aItemNames.BrokenAxe - aItemNameOffsets
+IronBowName,aItemNames.IronBow - aItemNameOffsets
+SteelBowName,aItemNames.SteelBow - aItemNameOffsets
+SilverBowName,aItemNames.SilverBow - aItemNameOffsets
+BraveBowName,aItemNames.BraveBow - aItemNameOffsets
+KillerBowName,aItemNames.KillerBow - aItemNameOffsets
+YewfelleName,aItemNames.Yewfelle - aItemNameOffsets
+BrokenBowAName,aItemNames.BrokenBow - aItemNameOffsets
+BrokenBowBName,aItemNames.BrokenBow - aItemNameOffsets
+BrokenBowCName,aItemNames.BrokenBow - aItemNameOffsets
+BallistaName,aItemNames.Ballista - aItemNameOffsets
+IronBallistaName,aItemNames.IronBallista - aItemNameOffsets
+KillerBallistaName,aItemNames.KillerBallista - aItemNameOffsets
+GreatBallistaName,aItemNames.GreatBallista - aItemNameOffsets
+FireName,aItemNames.Fire - aItemNameOffsets
+ElfireName,aItemNames.Elfire - aItemNameOffsets
+BolganoneName,aItemNames.Bolganone - aItemNameOffsets
+ValflameName,aItemNames.Valflame - aItemNameOffsets
+MeteorName,aItemNames.Meteor - aItemNameOffsets
+ThunderName,aItemNames.Thunder - aItemNameOffsets
+ElthunderName,aItemNames.Elthunder - aItemNameOffsets
+ThoronName,aItemNames.Thoron - aItemNameOffsets
+MjolnirName,aItemNames.Mjolnir - aItemNameOffsets
+BoltingName,aItemNames.Bolting - aItemNameOffsets
+WindName,aItemNames.Wind - aItemNameOffsets
+ElwindName,aItemNames.Elwind - aItemNameOffsets
+TornadoName,aItemNames.Tornado - aItemNameOffsets
+ForsetiName,aItemNames.Forseti - aItemNameOffsets
+BlizzardName,aItemNames.Blizzard - aItemNameOffsets
+LightName,aItemNames.Light - aItemNameOffsets
+NosferatuName,aItemNames.Nosferatu - aItemNameOffsets
+AuraName,aItemNames.Aura - aItemNameOffsets
+NagaName,aItemNames.Naga - aItemNameOffsets
+JormungandrName,aItemNames.Jormungandr - aItemNameOffsets
+FenrirName,aItemNames.Fenrir - aItemNameOffsets
+HelName,aItemNames.Hel - aItemNameOffsets
+LoptousName,aItemNames.Loptous - aItemNameOffsets
+BrokenFireTomeAName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenFireTomeBName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenFireTomeCName,aItemNames.BrokenTome - aItemNameOffsets
+HealStaffName,aItemNames.HealStaff - aItemNameOffsets
+MendStaffName,aItemNames.MendStaff - aItemNameOffsets
+RecoverStaffName,aItemNames.RecoverStaff - aItemNameOffsets
+PhysicStaffName,aItemNames.PhysicStaff - aItemNameOffsets
+FortifyName,aItemNames.Fortify - aItemNameOffsets
+ReturnStaffName,aItemNames.ReturnStaff - aItemNameOffsets
+WarpStaffName,aItemNames.WarpStaff - aItemNameOffsets
+RescueStaffName,aItemNames.RescueStaff - aItemNameOffsets
+CharmStaffName,aItemNames.CharmStaff - aItemNameOffsets
+RestoreStaffName,aItemNames.RestoreStaff - aItemNameOffsets
+ValkyrieStaffName,aItemNames.ValkyrieStaff - aItemNameOffsets
+SilenceStaffName,aItemNames.SilenceStaff - aItemNameOffsets
+SleepStaffName,aItemNames.SleepStaff - aItemNameOffsets
+BerserkStaffName,aItemNames.BerserkStaff - aItemNameOffsets
+ThiefStaffName,aItemNames.ThiefStaff - aItemNameOffsets
+BrokenStaffAName,aItemNames.BrokenStaff - aItemNameOffsets
+BrokenStaffBName,aItemNames.BrokenStaff - aItemNameOffsets
+BrokenStaffCName,aItemNames.BrokenStaff - aItemNameOffsets
+RenewalBandName,aItemNames.RenewalBand - aItemNameOffsets
+ParagonBandName,aItemNames.ParagonBand - aItemNameOffsets
+ThiefBandName,aItemNames.ThiefBand - aItemNameOffsets
+MiracleBandName,aItemNames.MiracleBand - aItemNameOffsets
+PursuitRingName,aItemNames.PursuitRing - aItemNameOffsets
+RecoverRingName,aItemNames.RecoverRing - aItemNameOffsets
+BargainBandName,aItemNames.BargainBand - aItemNameOffsets
+KnightRingName,aItemNames.KnightRing - aItemNameOffsets
+ReturnBandName,aItemNames.ReturnBand - aItemNameOffsets
+SpeedRingName,aItemNames.SpeedRing - aItemNameOffsets
+MagicRingName,aItemNames.MagicRing - aItemNameOffsets
+PowerRingName,aItemNames.PowerRing - aItemNameOffsets
+ShieldRingName,aItemNames.ShieldRing - aItemNameOffsets
+BarrierRingName,aItemNames.BarrierRing - aItemNameOffsets
+LegRingName,aItemNames.LegRing - aItemNameOffsets
+SkillRingName,aItemNames.SkillRing - aItemNameOffsets
+BrokenHolySwordName,aItemNames.BrokenSword - aItemNameOffsets
+BrokenHolyLanceName,aItemNames.BrokenLance - aItemNameOffsets
+BrokenHolyBowName,aItemNames.BrokenBow - aItemNameOffsets
+BrokenThunderTomeAName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenThunderTomeBName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenThunderTomeCName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenHolyWindTomeName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenWindTomeAName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenWindTomeBName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenWindTomeCName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenHolyLightTomeName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenLightTomeAName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenLightTomeBName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenLightTomeCName,aItemNames.BrokenTome - aItemNameOffsets
+BrokenHolyStaffName,aItemNames.BrokenStaff - aItemNameOffsets
+CircletName,aItemNames.Circlet - aItemNameOffsets

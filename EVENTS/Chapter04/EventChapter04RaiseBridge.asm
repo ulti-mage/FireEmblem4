@@ -1,0 +1,35 @@
+
+  aEventChapter04RaiseBridge ; 8E/9349
+
+    PLAY_SONG $6C
+    YIELD
+
+    MAP_SCROLL [48, 2], 4
+    YIELD
+
+    PAUSE 15
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter04RaiseBridge, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    SET_FLAG_IF_IN_CHAPTER Chapter04, FlagChapter04_RaiseBridge
+
+    RUN_EVENT_CONDITION
+      UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS
+
+    PLAY_SFX_BYTE $6A
+    PAUSE 50
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

@@ -1,73 +1,73 @@
-.structClassDataOffset 0,Offset
-Cavalier,aClassData.CavalierClassDataEntry
-LanceKnight,aClassData.LanceKnightClassDataEntry
-BowKnight,aClassData.BowKnightClassDataEntry
-AxeKnight,aClassData.AxeKnightClassDataEntry
-FreeKnight,aClassData.FreeKnightClassDataEntry
-Troubadour,aClassData.TroubadourClassDataEntry
-KnightLord,aClassData.KnightLordClassDataEntry
-DukeKnight,aClassData.DukeKnightClassDataEntry
-MasterKnight,aClassData.MasterKnightClassDataEntry
-Paladin,aClassData.PaladinClassDataEntry
-PaladinF,aClassData.PaladinFClassDataEntry
-ArchKnight,aClassData.ArchKnightClassDataEntry
-Ranger,aClassData.RangerClassDataEntry
-MageKnight,aClassData.MageKnightClassDataEntry
-GreatKnight,aClassData.GreatKnightClassDataEntry
-PegasusRider,aClassData.PegasusRiderClassDataEntry
-PegasusKnight,aClassData.PegasusKnightClassDataEntry
-FalconKnight,aClassData.FalconKnightClassDataEntry
-Dragonrider,aClassData.DragonriderClassDataEntry
-Dragonknight,aClassData.DragonknightClassDataEntry
-Dragonmaster,aClassData.DragonmasterClassDataEntry
-Archer,aClassData.ArcherClassDataEntry
-Myrmidon,aClassData.MyrmidonClassDataEntry
-Swordmaster,aClassData.SwordmasterClassDataEntry
-Sniper,aClassData.SniperClassDataEntry
-Hero,aClassData.HeroClassDataEntry
-General,aClassData.GeneralClassDataEntry
-Emperor,aClassData.EmperorClassDataEntry
-Baron,aClassData.BaronClassDataEntry
-Soldier,aClassData.SoldierClassDataEntry
-SpearSoldier,aClassData.SpearSoldierClassDataEntry
-AxeSoldier,aClassData.AxeSoldierClassDataEntry
-BowSoldier,aClassData.BowSoldierClassDataEntry
-SwordSoldier,aClassData.SwordSoldierClassDataEntry
-LanceArmor,aClassData.LanceArmorClassDataEntry
-AxeArmor,aClassData.AxeArmorClassDataEntry
-BowArmor,aClassData.BowArmorClassDataEntry
-SwordArmor,aClassData.SwordArmorClassDataEntry
-Barbarian,aClassData.BarbarianClassDataEntry
-Fighter,aClassData.FighterClassDataEntry
-Brigand,aClassData.BrigandClassDataEntry
-Warrior,aClassData.WarriorClassDataEntry
-Hunter,aClassData.HunterClassDataEntry
-Pirate,aClassData.PirateClassDataEntry
-JuniorLord,aClassData.JuniorLordClassDataEntry
-WarMage,aClassData.WarMageClassDataEntry
-Prince,aClassData.PrinceClassDataEntry
-Princess,aClassData.PrincessClassDataEntry
-WarMageF,aClassData.WarMageFClassDataEntry
-Queen,aClassData.QueenClassDataEntry
-Dancer,aClassData.DancerClassDataEntry
-Priest,aClassData.PriestClassDataEntry
-Mage,aClassData.MageClassDataEntry
-FireMage,aClassData.FireMageClassDataEntry
-ThunderMage,aClassData.ThunderMageClassDataEntry
-WindMage,aClassData.WindMageClassDataEntry
-HighPriest,aClassData.HighPriestClassDataEntry
-Bishop,aClassData.BishopClassDataEntry
-Sage,aClassData.SageClassDataEntry
-Bard,aClassData.BardClassDataEntry
-Priestess,aClassData.PriestessClassDataEntry
-DarkMage,aClassData.DarkMageClassDataEntry
-DarkBishop,aClassData.DarkBishopClassDataEntry
-Thief,aClassData.ThiefClassDataEntry
-Rogue,aClassData.RogueClassDataEntry
-Civilian,aClassData.CivilianClassDataEntry
-Child,aClassData.ChildClassDataEntry
-Ballistician,aClassData.BallisticianClassDataEntry
-IronBallistician,aClassData.IronBallisticianClassDataEntry
-KillerBallistician,aClassData.KillerBallisticianClassDataEntry
-GreatBallistician,aClassData.GreatBallisticianClassDataEntry
-DarkPrince,aClassData.DarkPrinceClassDataEntry
+.word 0,Offset
+Cavalier,aClassData.CavalierClassDataEntry - aClassDataOffsets
+LanceKnight,aClassData.LanceKnightClassDataEntry - aClassDataOffsets
+BowKnight,aClassData.BowKnightClassDataEntry - aClassDataOffsets
+AxeKnight,aClassData.AxeKnightClassDataEntry - aClassDataOffsets
+FreeKnight,aClassData.FreeKnightClassDataEntry - aClassDataOffsets
+Troubadour,aClassData.TroubadourClassDataEntry - aClassDataOffsets
+KnightLord,aClassData.KnightLordClassDataEntry - aClassDataOffsets
+DukeKnight,aClassData.DukeKnightClassDataEntry - aClassDataOffsets
+MasterKnight,aClassData.MasterKnightClassDataEntry - aClassDataOffsets
+Paladin,aClassData.PaladinClassDataEntry - aClassDataOffsets
+PaladinF,aClassData.PaladinFClassDataEntry - aClassDataOffsets
+ArchKnight,aClassData.ArchKnightClassDataEntry - aClassDataOffsets
+Ranger,aClassData.RangerClassDataEntry - aClassDataOffsets
+MageKnight,aClassData.MageKnightClassDataEntry - aClassDataOffsets
+GreatKnight,aClassData.GreatKnightClassDataEntry - aClassDataOffsets
+PegasusRider,aClassData.PegasusRiderClassDataEntry - aClassDataOffsets
+PegasusKnight,aClassData.PegasusKnightClassDataEntry - aClassDataOffsets
+FalconKnight,aClassData.FalconKnightClassDataEntry - aClassDataOffsets
+Dragonrider,aClassData.DragonriderClassDataEntry - aClassDataOffsets
+Dragonknight,aClassData.DragonknightClassDataEntry - aClassDataOffsets
+Dragonmaster,aClassData.DragonmasterClassDataEntry - aClassDataOffsets
+Archer,aClassData.ArcherClassDataEntry - aClassDataOffsets
+Myrmidon,aClassData.MyrmidonClassDataEntry - aClassDataOffsets
+Swordmaster,aClassData.SwordmasterClassDataEntry - aClassDataOffsets
+Sniper,aClassData.SniperClassDataEntry - aClassDataOffsets
+Hero,aClassData.HeroClassDataEntry - aClassDataOffsets
+General,aClassData.GeneralClassDataEntry - aClassDataOffsets
+Emperor,aClassData.EmperorClassDataEntry - aClassDataOffsets
+Baron,aClassData.BaronClassDataEntry - aClassDataOffsets
+Soldier,aClassData.SoldierClassDataEntry - aClassDataOffsets
+SpearSoldier,aClassData.SpearSoldierClassDataEntry - aClassDataOffsets
+AxeSoldier,aClassData.AxeSoldierClassDataEntry - aClassDataOffsets
+BowSoldier,aClassData.BowSoldierClassDataEntry - aClassDataOffsets
+SwordSoldier,aClassData.SwordSoldierClassDataEntry - aClassDataOffsets
+LanceArmor,aClassData.LanceArmorClassDataEntry - aClassDataOffsets
+AxeArmor,aClassData.AxeArmorClassDataEntry - aClassDataOffsets
+BowArmor,aClassData.BowArmorClassDataEntry - aClassDataOffsets
+SwordArmor,aClassData.SwordArmorClassDataEntry - aClassDataOffsets
+Barbarian,aClassData.BarbarianClassDataEntry - aClassDataOffsets
+Fighter,aClassData.FighterClassDataEntry - aClassDataOffsets
+Brigand,aClassData.BrigandClassDataEntry - aClassDataOffsets
+Warrior,aClassData.WarriorClassDataEntry - aClassDataOffsets
+Hunter,aClassData.HunterClassDataEntry - aClassDataOffsets
+Pirate,aClassData.PirateClassDataEntry - aClassDataOffsets
+JuniorLord,aClassData.JuniorLordClassDataEntry - aClassDataOffsets
+WarMage,aClassData.WarMageClassDataEntry - aClassDataOffsets
+Prince,aClassData.PrinceClassDataEntry - aClassDataOffsets
+Princess,aClassData.PrincessClassDataEntry - aClassDataOffsets
+WarMageF,aClassData.WarMageFClassDataEntry - aClassDataOffsets
+Queen,aClassData.QueenClassDataEntry - aClassDataOffsets
+Dancer,aClassData.DancerClassDataEntry - aClassDataOffsets
+Priest,aClassData.PriestClassDataEntry - aClassDataOffsets
+Mage,aClassData.MageClassDataEntry - aClassDataOffsets
+FireMage,aClassData.FireMageClassDataEntry - aClassDataOffsets
+ThunderMage,aClassData.ThunderMageClassDataEntry - aClassDataOffsets
+WindMage,aClassData.WindMageClassDataEntry - aClassDataOffsets
+HighPriest,aClassData.HighPriestClassDataEntry - aClassDataOffsets
+Bishop,aClassData.BishopClassDataEntry - aClassDataOffsets
+Sage,aClassData.SageClassDataEntry - aClassDataOffsets
+Bard,aClassData.BardClassDataEntry - aClassDataOffsets
+Priestess,aClassData.PriestessClassDataEntry - aClassDataOffsets
+DarkMage,aClassData.DarkMageClassDataEntry - aClassDataOffsets
+DarkBishop,aClassData.DarkBishopClassDataEntry - aClassDataOffsets
+Thief,aClassData.ThiefClassDataEntry - aClassDataOffsets
+Rogue,aClassData.RogueClassDataEntry - aClassDataOffsets
+Civilian,aClassData.CivilianClassDataEntry - aClassDataOffsets
+Child,aClassData.ChildClassDataEntry - aClassDataOffsets
+Ballistician,aClassData.BallisticianClassDataEntry - aClassDataOffsets
+IronBallistician,aClassData.IronBallisticianClassDataEntry - aClassDataOffsets
+KillerBallistician,aClassData.KillerBallisticianClassDataEntry - aClassDataOffsets
+GreatBallistician,aClassData.GreatBallisticianClassDataEntry - aClassDataOffsets
+DarkPrince,aClassData.DarkPrinceClassDataEntry - aClassDataOffsets

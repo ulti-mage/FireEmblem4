@@ -1,10 +1,10 @@
-.structChildrenDataOffset 0,Offset
-Deirdre,aChildrenData.DeirdreChildrenDataEntry
-Ethlyn,aChildrenData.EthlynChildrenDataEntry
-Lachesis,aChildrenData.LachesisChildrenDataEntry
-Ayra,aChildrenData.AyraChildrenDataEntry
-Erinys,aChildrenData.ErinysChildrenDataEntry
-Tailtiu,aChildrenData.TailtiuChildrenDataEntry
-Silvia,aChildrenData.SilviaChildrenDataEntry
-Edain,aChildrenData.EdainChildrenDataEntry
-Brigid,aChildrenData.BrigidChildrenDataEntry
+.word 0,Offset
+Deirdre,aChildrenData.DeirdreChildrenDataEntry - aChildrenDataOffsets
+Ethlyn,aChildrenData.EthlynChildrenDataEntry - aChildrenDataOffsets
+Lachesis,aChildrenData.LachesisChildrenDataEntry - aChildrenDataOffsets
+Ayra,aChildrenData.AyraChildrenDataEntry - aChildrenDataOffsets
+Erinys,aChildrenData.ErinysChildrenDataEntry - aChildrenDataOffsets
+Tailtiu,aChildrenData.TailtiuChildrenDataEntry - aChildrenDataOffsets
+Silvia,aChildrenData.SilviaChildrenDataEntry - aChildrenDataOffsets
+Edain,aChildrenData.EdainChildrenDataEntry - aChildrenDataOffsets
+Brigid,aChildrenData.BrigidChildrenDataEntry - aChildrenDataOffsets

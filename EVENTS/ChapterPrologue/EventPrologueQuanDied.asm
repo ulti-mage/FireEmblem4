@@ -1,0 +1,74 @@
+
+  aEventPrologueQuanDied ; B1/863A
+
+    PLAY_SFX_WORD $00E1
+    PAUSE 20
+    YIELD
+
+    FADE_OUT_BY_TIMER 3
+    YIELD
+
+    PLAY_SONG $6A
+    YIELD
+
+    RUN_EVENT_CONDITION
+      UNDEPLOY_UNIT Quan
+
+    RUN_EVENT_CONDITION
+      UNDEPLOY_UNIT Ethlyn
+
+    PAUSE 20
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueDeathQuoteGen1PlayerQuanLeave, DIALOGUE_BG_GATE, 3, 2
+    SET_CAMERA_POSITION [48, 4]
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    MOVE_TEMPORARY_BY_SCRIPT Ethlyn, [60, 12], 4, MAP_SPRITE_BLUE, _ScriptedMovementEthlyn
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    PAUSE 60
+    YIELD
+
+    MOVE_TEMPORARY_BY_SCRIPT Quan, [60, 12], 3, MAP_SPRITE_BLUE, _ScriptedMovementQuan
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_PERMANENT_FLAG PermanentFlagQuanEthlynDied
+
+    PAUSE 40
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT
+
+    _ScriptedMovementEthlyn ; B1/8690
+      MAP_DOWN_MULTIPLE 2
+      MAP_FACE_UP
+      MAP_PAUSE 100
+      MAP_SET_SPEED 2
+      MAP_RIGHT_MULTIPLE 1
+      MAP_SET_SPEED 3
+      MAP_RIGHT_MULTIPLE 2
+      MAP_END
+
+    _ScriptedMovementQuan ; B1/869E
+      MAP_DOWN_MULTIPLE 1
+      MAP_PAUSE 43
+      MAP_SET_SPEED 2
+      MAP_RIGHT_MULTIPLE 1
+      MAP_SET_SPEED 3
+      MAP_RIGHT_MULTIPLE 2
+      MAP_END

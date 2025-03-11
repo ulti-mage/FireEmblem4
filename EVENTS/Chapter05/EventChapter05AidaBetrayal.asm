@@ -1,0 +1,38 @@
+
+  aEventChapter05AidaBetrayal ; 9D/C54F
+
+    RUN_EVENT_CONDITION
+      REGISTER_CHARACTER_MAP_SPRITE Aida
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $63
+    YIELD
+
+    MAP_SCROLL [15, 33], 4
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter05AidaBetrayal, DIALOGUE_BG_HALLWAY, 3, 1
+    YIELD
+
+    RUN_EVENT_CONDITION
+      macroSetFactionsNeutral [FS_Player, FS_Ch05Velthomer]
+
+    RUN_EVENT_CONDITION
+      macroSetFactionsEnemies [FS_Ch05Friege, FS_Ch05Velthomer]
+
+    RUN_EVENT_CONDITION
+      UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS
+
+    LOAD_UNIT_DIRECT Aida, FS_Ch05Velthomer, [22, 39], [22, 39], 4, MAP_SPRITE_RED, false, 1
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    END_EVENT

@@ -117,16 +117,6 @@ GUARD_VOLTEDGE_LIBRARY_HELPERS :?= false
           .dint (\Value >> (size(dint) * 8))
         .endstruct
 
-      ; Created: 0.01
-      ; Updated: 0.01
-      ; Allegiances
-
-        Player = $00
-        Enemy  = $40
-        NPC    = $80
-
-        AllAllegiances = Player | Enemy | NPC
-
     .endweak
 
   ; Library helper macros

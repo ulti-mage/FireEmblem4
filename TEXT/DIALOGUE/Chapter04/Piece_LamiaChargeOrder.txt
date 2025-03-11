@@ -1,0 +1,3 @@
+{DIALOGUE_FONT_0}くそっ､やむをえん{DIALOGUE_NL}
+レイミアに出撃を命じよ{DIALOGUE_NL}
+ヤツらをこの城に近づけてはならんぞ！{DIALOGUE_WAIT_PRESS}{DIALOGUE_EOF}

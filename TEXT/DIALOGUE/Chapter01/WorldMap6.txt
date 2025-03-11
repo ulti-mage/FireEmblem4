@@ -1,0 +1,7 @@
+{DIALOGUE_FONT_0}エーディンは一体､どこにいるのか､{DIALOGUE_NL}
+バトゥ王はなぜ､戦いを望むのか･･･｡{DIALOGUE_WAIT_PRESS}{DIALOGUE_SCROLL}
+目の前にひろがるのは､{DIALOGUE_NL}
+昼なお暗い､ヴェルダンの大森林｡{DIALOGUE_WAIT_PRESS}{DIALOGUE_SCROLL}
+精霊が住むという森に､{DIALOGUE_NL}
+シグルドは足をふみいれようとしていた｡{DIALOGUE_WAIT_PRESS}{DIALOGUE_SCROLL}
+{DIALOGUE_EOF}

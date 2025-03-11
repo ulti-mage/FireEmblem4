@@ -1,0 +1,11 @@
+defaultfont file of dialogue ripper compared to FE5
+
+問 swaps with 間
+－changed to ー
+
+
+
+Dialouge.h
+
+探 swaps with 深
+

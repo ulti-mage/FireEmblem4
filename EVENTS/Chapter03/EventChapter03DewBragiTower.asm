@@ -1,0 +1,42 @@
+
+  aEventChapter03DewBragiTower ; 9D/933D
+
+    PLAY_SFX_WORD $7FF7
+    FILL_EVENT_UNIT_SLOT Dew, EventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT Dew, EventUnitSlot1
+    SET_CAMERA_TO_EVENT_UNIT_SLOT_1
+    DIALOGUE dialogueChapter03DewBragiTower1
+    YIELD
+
+    PLAY_SFX_WORD $00E1
+    PAUSE 15
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_UNIT_IN_CASTLE Dew, Ch03_Agusti
+
+    PAUSE 40
+    YIELD
+
+    DIALOGUE dialogueChapter03DewBragiTower2
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_UNIT_POSITION Dew, $FF, [7, 16]
+
+    PAUSE 3
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    DIALOGUE dialogueChapter03DewBragiTower3
+    YIELD
+
+    RUN_EVENT_CONDITION
+      GIVE_UNIT_PID Dew, PI_WindSword
+
+    END_EVENT

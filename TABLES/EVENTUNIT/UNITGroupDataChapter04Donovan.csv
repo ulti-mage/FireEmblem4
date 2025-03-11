@@ -1,0 +1,9 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,Donovan,$1C,$3A,1,4,FS_Ch04Zaxon,1
+ID_02,ZaxonArmy2,$1C,$3D,0,4,FS_Ch04Zaxon,1
+ID_03,ZaxonArmy2,$1B,$3C,0,4,FS_Ch04Zaxon,2
+ID_04,ZaxonArmy2,$1D,$3C,0,4,FS_Ch04Zaxon,3
+ID_05,ZaxonArmy3,$1C,$3E,0,4,FS_Ch04Zaxon,4
+ID_06,ZaxonArmy3,$1B,$3D,0,4,FS_Ch04Zaxon,5
+ID_07,ZaxonArmy3,$1D,$3D,0,4,FS_Ch04Zaxon,6
+ID_08,$FFFF,0,0,0,0,0,0

@@ -1,0 +1,3 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,Asaello,$2E,$0A,$01,$04,$01,$00
+ID_02,$FFFF,0,0,0,0,0,0

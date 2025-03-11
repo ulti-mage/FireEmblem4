@@ -1,0 +1,2 @@
+{DIALOGUE_SET_TEXT dialogueChapter04DaccarResponsePamelaDeadLamiaDead}{DIALOGUE_SCROLL}
+{DIALOGUE_SET_TEXT dialogueChapter04Piece_LamiaChargeOrder}{DIALOGUE_EOF}

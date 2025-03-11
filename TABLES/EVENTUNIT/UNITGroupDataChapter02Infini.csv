@@ -1,0 +1,26 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,MacBeth,12,3,1,3,FS_Ch02Infini,0
+ID_02,InfiniArmy2,12,6,0,3,FS_Ch02Infini,1
+ID_03,InfiniArmy2,11,5,0,3,FS_Ch02Infini,2
+ID_04,InfiniArmy2,13,5,0,3,FS_Ch02Infini,3
+ID_05,InfiniArmy3,12,7,0,3,FS_Ch02Infini,4
+ID_06,InfiniArmy3,11,6,0,3,FS_Ch02Infini,5
+ID_07,InfiniArmy3,13,6,0,3,FS_Ch02Infini,6
+ID_08,InfiniArmy4,10,5,0,3,FS_Ch02Infini,7
+ID_09,InfiniArmy4,14,5,0,3,FS_Ch02Infini,8
+ID_10,InfiniArmy4,10,6,0,3,FS_Ch02Infini,9
+ID_11,InfiniArmy4,14,6,0,3,FS_Ch02Infini,10
+ID_12,Waltz,35,1,1,2,FS_Ch02Infini,0
+ID_13,Mercenary1,35,2,0,2,FS_Ch02Infini,1
+ID_14,Mercenary1,36,2,0,2,FS_Ch02Infini,2
+ID_15,Mercenary1,34,2,0,2,FS_Ch02Infini,3
+ID_16,Mercenary1,37,2,0,2,FS_Ch02Infini,4
+ID_17,Mercenary1,33,2,0,2,FS_Ch02Infini,5
+ID_18,Mercenary1,38,2,0,2,FS_Ch02Infini,6
+ID_19,Mercenary1,32,2,0,2,FS_Ch02Infini,7
+ID_20,Mercenary1,39,2,0,2,FS_Ch02Infini,8
+ID_21,Mercenary1,31,2,0,2,FS_Ch02Infini,9
+ID_22,Mercenary1,40,2,0,2,FS_Ch02Infini,10
+ID_23,Mercenary1,30,2,0,2,FS_Ch02Infini,11
+ID_24,Beowulf,34,1,1,5,FS_Ch02Infini,18
+ID_25,$FFFF,0,0,0,0,0,0

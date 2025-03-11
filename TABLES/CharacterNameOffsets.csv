@@ -1,571 +1,571 @@
-.structCharacterNameOffset 0,Offset
-SigurdName,aCharacterNames.Sigurd
-NaoiseName,aCharacterNames.Naoise
-AlecName,aCharacterNames.Alec
-ArdenName,aCharacterNames.Arden
-FinnName,aCharacterNames.Finn
-QuanName,aCharacterNames.Quan
-MidayleName,aCharacterNames.Midayle
-LewynName,aCharacterNames.Lewyn
-ChulainnName,aCharacterNames.Chulainn
-AzelleName,aCharacterNames.Azelle
-JamkeName,aCharacterNames.Jamke
-ClaudName,aCharacterNames.Claud
-BeowulfName,aCharacterNames.Beowulf
-LexName,aCharacterNames.Lex
-DewName,aCharacterNames.Dew
-DeirdreName,aCharacterNames.Deirdre
-EthlynName,aCharacterNames.Ethlyn
-LachesisName,aCharacterNames.Lachesis
-AyraName,aCharacterNames.Ayra
-ErinysName,aCharacterNames.Erinys
-TailtiuName,aCharacterNames.Tailtiu
-SilviaName,aCharacterNames.Silvia
-EdainName,aCharacterNames.Edain
-BrigidName,aCharacterNames.Brigid
-SeliphName,aCharacterNames.Seliph
-ShannaName,aCharacterNames.Shanna
-DalvinName,aCharacterNames.Dalvin
-AsaelloName,aCharacterNames.Asaello
-LeifName,aCharacterNames.Leif
-IucharName,aCharacterNames.Iuchar
-CharlotName,aCharacterNames.Charlot
-HawkName,aCharacterNames.Hawk
-TristanName,aCharacterNames.Tristan
-OldFinnName,aCharacterNames.Finn
-DimnaName,aCharacterNames.Dimna
-HannibalName,aCharacterNames.Hannibal
-AresName,aCharacterNames.Ares
-AmidName,aCharacterNames.Amid
-OifeyName,aCharacterNames.Oifey
-DaisyName,aCharacterNames.Daisy
-RadneyName,aCharacterNames.Radney
-MuirneName,aCharacterNames.Muirne
-JuliaName,aCharacterNames.Julia
-AltenaName,aCharacterNames.Altena
-FeminaName,aCharacterNames.Femina
-LindaName,aCharacterNames.Linda
-LayleaName,aCharacterNames.Laylea
-JeanneName,aCharacterNames.Jeanne
-IucharbaName,aCharacterNames.Iucharba
-ScathachName,aCharacterNames.Scathach
-FebailName,aCharacterNames.Febail
-CoirpreName,aCharacterNames.Coirpre
-CedName,aCharacterNames.Ced
-DiarmuidName,aCharacterNames.Diarmuid
-LesterName,aCharacterNames.Lester
-ArthurName,aCharacterNames.Arthur
-PattyName,aCharacterNames.Patty
-LarceiName,aCharacterNames.Larcei
-LanaName,aCharacterNames.Lana
-FeeName,aCharacterNames.Fee
-TineName,aCharacterNames.Tine
-LeneName,aCharacterNames.Lene
-NannaName,aCharacterNames.Nanna
-GerrardName,aCharacterNames.Gerrard
-DiMaggioName,aCharacterNames.DiMaggio
-VerdaneArmy1Name,aCharacterNames.VerdaneArmy
-VerdaneArmy2Name,aCharacterNames.VerdaneArmy
-VerdaneArmy3Name,aCharacterNames.VerdaneArmy
-VerdaneArmy4Name,aCharacterNames.VerdaneArmy
-VerdaneArmy5Name,aCharacterNames.VerdaneArmy
-VerdaneArmy6Name,aCharacterNames.VerdaneArmy
-CimbaethName,aCharacterNames.Cimbaeth
-VerdaneArmy7Name,aCharacterNames.VerdaneArmy
-VerdaneArmy8Name,aCharacterNames.VerdaneArmy
-VerdaneArmy9Name,aCharacterNames.VerdaneArmy
-VerdaneArmy10Name,aCharacterNames.VerdaneArmy
-MunnirName,aCharacterNames.Munnir
-Commander1Name,aCharacterNames.Commander1
-VerdaneArmy11Name,aCharacterNames.VerdaneArmy
-VerdaneArmy12Name,aCharacterNames.VerdaneArmy
-VerdaneArmy13Name,aCharacterNames.VerdaneArmy
-SandimaName,aCharacterNames.Sandima
-VerdaneArmy14Name,aCharacterNames.VerdaneArmy
-VerdaneArmy15Name,aCharacterNames.VerdaneArmy
-Commander2Name,aCharacterNames.Commander1
-VerdaneArmy16Name,aCharacterNames.VerdaneArmy
-Bandit1Name,aCharacterNames.Bandit1
-Elliot1Name,aCharacterNames.Elliot1
-HeirheinArmy1Name,aCharacterNames.HeirheinArmy1
-Eldigan1Name,aCharacterNames.Eldigan1
-CrossKnight1Name,aCharacterNames.CrossKnight1
-Commander3Name,aCharacterNames.Commander1
-BordeauxName,aCharacterNames.Bordeaux
-HeirheinArmy2Name,aCharacterNames.HeirheinArmy2
-PhilipName,aCharacterNames.Philip
-HeirheinArmy3Name,aCharacterNames.HeirheinArmy2
-HeirheinArmy4Name,aCharacterNames.HeirheinArmy2
-HeirheinArmy5Name,aCharacterNames.HeirheinArmy2
-HeirheinArmy6Name,aCharacterNames.HeirheinArmy2
-HeirheinArmy7Name,aCharacterNames.HeirheinArmy2
-HeirheinArmy8Name,aCharacterNames.HeirheinArmy2
-Elliot2Name,aCharacterNames.Elliot2
-HeirheinArmy9Name,aCharacterNames.HeirheinArmy2
-HeirheinArmy10Name,aCharacterNames.HeirheinArmy2
-HeirheinArmy11Name,aCharacterNames.HeirheinArmy2
-Commander4Name,aCharacterNames.Commander2
-InfiniArmy1Name,aCharacterNames.InfiniArmy
-Bandit2Name,aCharacterNames.Bandit2
-MackilyArmy1Name,aCharacterNames.MackilyArmy
-EveName,aCharacterNames.Eve
-MacBethName,aCharacterNames.MacBeth
-InfiniArm2Name,aCharacterNames.InfiniArmy
-InfiniArm3Name,aCharacterNames.InfiniArmy
-InfiniArm4Name,aCharacterNames.InfiniArmy
-WaltzName,aCharacterNames.Waltz
-Mercenary1Name,aCharacterNames.Mercenary1
-ClementName,aCharacterNames.Clement
-MackilyArmy2Name,aCharacterNames.MackilyArmy
-MackilyArmy3Name,aCharacterNames.MackilyArmy
-MackilyArmy4Name,aCharacterNames.MackilyArmy
-Commander5Name,aCharacterNames.Commander2
-MackilyArmy5Name,aCharacterNames.MackilyArmy
-Chagall1Name,aCharacterNames.Chagall1
-AgustiArmy1Name,aCharacterNames.AgustiArmy2
-AgustiArmy2Name,aCharacterNames.AgustiArmy2
-Commander6Name,aCharacterNames.Commander2
-AgustiArmy3Name,aCharacterNames.AgustiArmy2
-Commander7Name,aCharacterNames.Commander2
-AgustiArmy4Name,aCharacterNames.AgustiArmy1
-ErinysSquadName,aCharacterNames.ErinysSquad
-ZaneName,aCharacterNames.Zane
-AgustiArmy5Name,aCharacterNames.AgustiArmy2
-AgustiArmy6Name,aCharacterNames.AgustiArmy2
-AgustiArmy7Name,aCharacterNames.AgustiArmy2
-AgustiArmy8Name,aCharacterNames.AgustiArmy2
-EvaName,aCharacterNames.Eva
-AlvaName,aCharacterNames.Alva
-JacobiName,aCharacterNames.Jacobi
-MadinoArmy1Name,aCharacterNames.MadinoArmy
-MadinoArmy2Name,aCharacterNames.MadinoArmy
-MadinoArmy3Name,aCharacterNames.MadinoArmy
-MadinoArmy4Name,aCharacterNames.MadinoArmy
-MadinoArmy5Name,aCharacterNames.MadinoArmy
-Commander8Name,aCharacterNames.Commander3
-MadinoArmy6Name,aCharacterNames.MadinoArmy
-Commander9Name,aCharacterNames.Commander3
-MadinoArmy7Name,aCharacterNames.MadinoArmy
-Commander10Name,aCharacterNames.Commander3
-MadinoArmy8Name,aCharacterNames.MadinoArmy
-Commander11Name,aCharacterNames.Commander3
-MadinoArmy9Name,aCharacterNames.MadinoArmy
-Commander12Name,aCharacterNames.Commander3
-MadinoArmy10Name,aCharacterNames.MadinoArmy
-Commander13Name,aCharacterNames.Commander3
-MadinoArmy11Name,aCharacterNames.MadinoArmy
-Pirate1Name,aCharacterNames.Pirate1
-Commander14Name,aCharacterNames.Commander4
-SylvaleArmy1Name,aCharacterNames.SylvaleArmy
-Eldigan2Name,aCharacterNames.Eldigan2
-CrossKnight2Name,aCharacterNames.CrossKnight2
-Chagall2Name,aCharacterNames.Chagall2
-SylvaleArmy2Name,aCharacterNames.SylvaleArmy
-SylvaleArmy3Name,aCharacterNames.SylvaleArmy
-PapilioName,aCharacterNames.Papilio
-ThraciaArmy1Name,aCharacterNames.ThraciaArmy1
-Pirate2Name,aCharacterNames.Pirate2
-Pirate3Name,aCharacterNames.Pirate2
-Pirate4Name,aCharacterNames.Pirate2
-Pirate5Name,aCharacterNames.Pirate2
-DuvallName,aCharacterNames.Duvall
-Pirate6Name,aCharacterNames.Pirate2
-PizareName,aCharacterNames.Pizare
-Pirate7Name,aCharacterNames.Pirate2
-Pirate8Name,aCharacterNames.Pirate2
-Pirate9Name,aCharacterNames.Pirate2
-Pirate10Name,aCharacterNames.Pirate2
-Arvis1Name,aCharacterNames.Arvis1
-Lombard1Name,aCharacterNames.Lombard1
-Grauenritter1Name,aCharacterNames.Grauenritter1
-Reptor1Name,aCharacterNames.Reptor1
-Gelbenritter1Name,aCharacterNames.Gelbenritter1
-Annand1Name,aCharacterNames.Annand1
-SilesseArmy1Name,aCharacterNames.SilesseArmy1
-MyosName,aCharacterNames.Myos
-TofaArmy1Name,aCharacterNames.TofaArmy
-TofaArmy2Name,aCharacterNames.TofaArmy
-Commander15Name,aCharacterNames.Commander5
-TofaArmy3Name,aCharacterNames.TofaArmy
-CuvuliName,aCharacterNames.Cuvuli
-TofaArmy4Name,aCharacterNames.TofaArmy
-Commander16Name,aCharacterNames.Commander5
-TofaArmy5Name,aCharacterNames.TofaArmy
-TofaArmy6Name,aCharacterNames.TofaArmy
-DithorbaName,aCharacterNames.Dithorba
-DithorbaSquadName,aCharacterNames.DithorbaSquad
-Pirate11Name,aCharacterNames.Pirate3
-SilesseArmy2Name,aCharacterNames.SilesseArmy2
-DaccarName,aCharacterNames.Daccar
-Annand2Name,aCharacterNames.Annand2
-AnnandSquadName,aCharacterNames.AnnandSquad
-PamelaName,aCharacterNames.Pamela
-PamelaSquadName,aCharacterNames.PamelaSquad
-Andrey1Name,aCharacterNames.Andrey1
-Beigenritter1Name,aCharacterNames.Beigenritter1
-Civilian1Name,aCharacterNames.Civilian1
-Civilian2Name,aCharacterNames.Civilian1
-DonovanName,aCharacterNames.Donovan
-ZaxonArmy1Name,aCharacterNames.ZaxonArmy1
-ZaxonArmy2Name,aCharacterNames.ZaxonArmy1
-ZaxonArmy3Name,aCharacterNames.ZaxonArmy1
-ZaxonArmy4Name,aCharacterNames.ZaxonArmy1
-ZaxonArmy5Name,aCharacterNames.ZaxonArmy2
-LamiaName,aCharacterNames.Lamia
-Mercenary2Name,aCharacterNames.Mercenary2
-Mercenary3Name,aCharacterNames.Mercenary3
-Mercenary4Name,aCharacterNames.Mercenary4
-Mercenary5Name,aCharacterNames.Mercenary5
-Mercenary6Name,aCharacterNames.Mercenary6
-Lombard2Name,aCharacterNames.Lombard2
-Child1Name,aCharacterNames.Child1
-LubeckArmy1Name,aCharacterNames.LubeckArmy
-SlayderName,aCharacterNames.Slayder
-LubeckArmy2Name,aCharacterNames.LubeckArmy
-Commander17Name,aCharacterNames.Commander6
-LubeckArmy3Name,aCharacterNames.LubeckArmy
-LubeckArmy4Name,aCharacterNames.LubeckArmy
-Bandit3Name,aCharacterNames.Bandit3
-Commander18Name,aCharacterNames.Commander7
-LubeckArmy5Name,aCharacterNames.LubeckArmy
-LubeckArmy6Name,aCharacterNames.LubeckArmy
-LubeckArmy7Name,aCharacterNames.LubeckArmy
-ByronName,aCharacterNames.Byron
-Andrey2Name,aCharacterNames.Andrey2
-Beigenritter2Name,aCharacterNames.Beigenritter2
-VajaName,aCharacterNames.Vaja
-VelthomerArmy1Name,aCharacterNames.VelthomerArmy
-PriestName,aCharacterNames.Priest
-VelthomerArmy2Name,aCharacterNames.VelthomerArmy
-Travant1Name,aCharacterNames.Travant1
-MagornName,aCharacterNames.Magorn
-ThraciaArmy2Name,aCharacterNames.ThraciaArmy2
-LeonsterArmyName,aCharacterNames.LeonsterArmy
-AidaName,aCharacterNames.Aida
-VelthomerArmy3Name,aCharacterNames.VelthomerArmy
-Reptor2Name,aCharacterNames.Reptor2
-FriegeArmy1Name,aCharacterNames.FriegeArmy
-FriegeArmy2Name,aCharacterNames.FriegeArmy
-FriegeArmy3Name,aCharacterNames.FriegeArmy
-FriegeArmy4Name,aCharacterNames.FriegeArmy
-FriegeArmy5Name,aCharacterNames.FriegeArmy
-FriegeArmy6Name,aCharacterNames.FriegeArmy
-FriegeArmy7Name,aCharacterNames.FriegeArmy
-FriegeArmy8Name,aCharacterNames.FriegeArmy
-Commander19Name,aCharacterNames.Commander8
-Rotenritter1Name,aCharacterNames.Rotenritter1
-Commander20Name,aCharacterNames.Commander8
-Rotenritter2Name,aCharacterNames.Rotenritter1
-Commander21Name,aCharacterNames.Commander8
-Rotenritter3Name,aCharacterNames.Rotenritter1
-Arvis2Name,aCharacterNames.Arvis2
-Commander22Name,aCharacterNames.Commander8
-Rotenritter4Name,aCharacterNames.Rotenritter1
-HaroldName,aCharacterNames.Harold
-GaneishireArmy1Name,aCharacterNames.GaneishireArmy
-GaneishireArmy2Name,aCharacterNames.GaneishireArmy
-Bandit4Name,aCharacterNames.Bandit4
-SopharaArmy1Name,aCharacterNames.SopharaArmy
-IsaachArmy1Name,aCharacterNames.IsaachArmy
-IsaachArmy2Name,aCharacterNames.IsaachArmy
-SopharaArmy2Name,aCharacterNames.SopharaArmy
-SchmidtName,aCharacterNames.Schmidt
-RibautArmyName,aCharacterNames.RibautArmy
-DanannName,aCharacterNames.Danann
-GaneishireArmy3Name,aCharacterNames.GaneishireArmy
-GaneishireArmy4Name,aCharacterNames.GaneishireArmy
-Kutuzov1Name,aCharacterNames.Kutuzov
-AedMage1Name,aCharacterNames.AedMage
-AedMage2Name,aCharacterNames.AedMage
-Mercenary7Name,aCharacterNames.Mercenary7
-AedMage3Name,aCharacterNames.AedMage
-Commander23Name,aCharacterNames.Commander9
-UlsterArmy1Name,aCharacterNames.UlsterArmy
-UlsterArmy2Name,aCharacterNames.UlsterArmy
-Bandit5Name,aCharacterNames.Bandit5
-Bloom1Name,aCharacterNames.Bloom1
-UlsterArmy3Name,aCharacterNames.UlsterArmy
-DahnaArmy1Name,aCharacterNames.DahnaArmy
-IshtoreName,aCharacterNames.Ishtore
-MelgenArmy1Name,aCharacterNames.MelgenArmy
-LizaName,aCharacterNames.Liza
-MelgenArmy2Name,aCharacterNames.MelgenArmy
-MelgenArmy3Name,aCharacterNames.MelgenArmy
-MelgenArmy4Name,aCharacterNames.MelgenArmy
-MelgenArmy5Name,aCharacterNames.MelgenArmy
-MelgenArmy6Name,aCharacterNames.MelgenArmy
-MelgenArmy7Name,aCharacterNames.MelgenArmy
-JavarroName,aCharacterNames.Javarro
-Mercenary8Name,aCharacterNames.Mercenary7
-Mercenary9Name,aCharacterNames.Mercenary7
-BramselName,aCharacterNames.Bramsel
-DahnaArmy2Name,aCharacterNames.DahnaArmy
-Commander24Name,aCharacterNames.Commander9
-UlsterArmy4Name,aCharacterNames.UlsterArmy
-UlsterArmy5Name,aCharacterNames.UlsterArmy
-Banba1Name,aCharacterNames.Banba1
-Fotla1Name,aCharacterNames.Fotla1
-Eriu1Name,aCharacterNames.Eriu1
-HighMage1Name,aCharacterNames.HighMage
-HighMage2Name,aCharacterNames.HighMage
-HighMage3Name,aCharacterNames.HighMage
-MuhammadName,aCharacterNames.Muhammad
-ConnachtArmy1Name,aCharacterNames.ConnachtArmy
-ConnachtArmy2Name,aCharacterNames.ConnachtArmy
-ConnachtArmy3Name,aCharacterNames.ConnachtArmy
-BishopName,aCharacterNames.Bishop
-OvoName,aCharacterNames.Ovo
-ConnachtArmy4Name,aCharacterNames.ConnachtArmy
-ConnachtArmy5Name,aCharacterNames.ConnachtArmy
-Bandit6Name,aCharacterNames.Bandit6
-Commander25Name,aCharacterNames.Commander10
-ConnachtArmy6Name,aCharacterNames.ConnachtArmy
-Ishtar1Name,aCharacterNames.Ishtar1
-Commander26Name,aCharacterNames.Commander10
-ConnachtArmy7Name,aCharacterNames.ConnachtArmy
-Bloom2Name,aCharacterNames.Bloom2
-ConnachtArmy8Name,aCharacterNames.ConnachtArmy
-Civilian3Name,aCharacterNames.Civilian2
-Civilian4Name,aCharacterNames.Civilian2
-Commander27Name,aCharacterNames.Commander10
-ThraciaArmy3Name,aCharacterNames.ThraciaArmy3
-CoulterName,aCharacterNames.Coulter
-ThraciaArmy4Name,aCharacterNames.ThraciaArmy3
-Commander28Name,aCharacterNames.Commander10
-ThraciaArmy5Name,aCharacterNames.ThraciaArmy3
-Commander29Name,aCharacterNames.Commander10
-ThraciaArmy6Name,aCharacterNames.ThraciaArmy3
-MaykovName,aCharacterNames.Maykov
-Banba2Name,aCharacterNames.Banba2
-Fotla2Name,aCharacterNames.Fotla2
-Eriu2Name,aCharacterNames.Eriu2
-KapathogiaArmy1Name,aCharacterNames.KapathogiaArmy
-KapathogiaArmy2Name,aCharacterNames.KapathogiaArmy
-KapathogiaArmy3Name,aCharacterNames.KapathogiaArmy
-KapathogiaArmy4Name,aCharacterNames.KapathogiaArmy
-ThraciaArmy7Name,aCharacterNames.ThraciaArmy4
-ThraciaArmy8Name,aCharacterNames.ThraciaArmy4
-Bandit7Name,aCharacterNames.Bandit8
-KanatzName,aCharacterNames.Kanatz
-DistlerName,aCharacterNames.Distler
-GrutiaArmy1Name,aCharacterNames.GrutiaArmy
-Mercenary10Name,aCharacterNames.Mercenary8
-Mercenary11Name,aCharacterNames.Mercenary8
-Travant2Name,aCharacterNames.Travant2
-ThraciaArmy9Name,aCharacterNames.ThraciaArmy4
-JudahName,aCharacterNames.Judah
-Commander30Name,aCharacterNames.Commander11
-GrutiaArmy2Name,aCharacterNames.GrutiaArmy
-Arion1Name,aCharacterNames.Arion1
-DragonKnight1Name,aCharacterNames.DragonKnight1
-DragonKnight2Name,aCharacterNames.DragonKnight1
-Commander31Name,aCharacterNames.Commander11
-ThraciaArmy10Name,aCharacterNames.ThraciaArmy4
-Commander32Name,aCharacterNames.Commander11
-ThraciaArmy11Name,aCharacterNames.ThraciaArmy4
-Commander33Name,aCharacterNames.Commander11
-ThraciaArmy12Name,aCharacterNames.ThraciaArmy4
-MusarName,aCharacterNames.Musar
-ImperialArmy1Name,aCharacterNames.ImperialArmy
-ImperialArmy2Name,aCharacterNames.ImperialArmy
-ImperialArmy3Name,aCharacterNames.ImperialArmy
-ImperialArmy4Name,aCharacterNames.ImperialArmy
-RiddellName,aCharacterNames.Riddell
-RiddellSquad1Name,aCharacterNames.RiddellSquad
-RiddellSquad2Name,aCharacterNames.RiddellSquad
-RiddellSquad3Name,aCharacterNames.RiddellSquad
-RiddellSquad4Name,aCharacterNames.RiddellSquad
-RiddellSquad5Name,aCharacterNames.RiddellSquad
-MorriganName,aCharacterNames.Morrigan
-DarkMage1Name,aCharacterNames.DarkMage1
-Pirate12Name,aCharacterNames.Pirate4
-Hilda1Name,aCharacterNames.Hilda1
-DarkBishop1Name,aCharacterNames.DarkBishop1
-DarkMage2Name,aCharacterNames.DarkMage1
-DarkMage3Name,aCharacterNames.DarkMage1
-Mercenary12Name,aCharacterNames.Mercenary9
-Mercenary13Name,aCharacterNames.Mercenary9
-Child2Name,aCharacterNames.Child2
-Child3Name,aCharacterNames.Child2
-ZagamName,aCharacterNames.Zagam
-DarkMage4Name,aCharacterNames.DarkMage1
-DarkMage5Name,aCharacterNames.DarkMage1
-DarkMage6Name,aCharacterNames.DarkMage1
-DarkMage7Name,aCharacterNames.DarkMage1
-DarkMage8Name,aCharacterNames.DarkMage1
-Mercenary14Name,aCharacterNames.Mercenary9
-Mercenary15Name,aCharacterNames.Mercenary9
-Mercenary16Name,aCharacterNames.Mercenary9
-Julius1Name,aCharacterNames.Julius1
-Ishtar2Name,aCharacterNames.Ishtar2
-Arvis3Name,aCharacterNames.Arvis3
-Rotenritter5Name,aCharacterNames.Rotenritter2
-Rotenritter6Name,aCharacterNames.Rotenritter2
-Rotenritter7Name,aCharacterNames.Rotenritter2
-DarkMage9Name,aCharacterNames.DarkMage1
-PalmarchName,aCharacterNames.Palmarch
-Child4Name,aCharacterNames.Child2
-Child5Name,aCharacterNames.Child2
-Commander34Name,aCharacterNames.Commander12
-Rotenritter8Name,aCharacterNames.Rotenritter2
-Rotenritter9Name,aCharacterNames.Rotenritter2
-Commander35Name,aCharacterNames.Commander12
-Rotenritter10Name,aCharacterNames.Rotenritter2
-Rotenritter11Name,aCharacterNames.Rotenritter2
-Commander36Name,aCharacterNames.Commander12
-Rotenritter12Name,aCharacterNames.Rotenritter2
-Rotenritter13Name,aCharacterNames.Rotenritter2
-Rotenritter14Name,aCharacterNames.Rotenritter2
-DarkMage10Name,aCharacterNames.DarkMage1
-DarkMage11Name,aCharacterNames.DarkMage1
-RobertoName,aCharacterNames.Roberto
-Mercenary17Name,aCharacterNames.Mercenary10
-Mercenary18Name,aCharacterNames.Mercenary10
-Mercenary19Name,aCharacterNames.Mercenary10
-Mercenary20Name,aCharacterNames.Mercenary10
-Mercenary21Name,aCharacterNames.Mercenary10
-BoyceName,aCharacterNames.Boyce
-Mercenary22Name,aCharacterNames.Mercenary10
-Mercenary23Name,aCharacterNames.Mercenary10
-RodanName,aCharacterNames.Rodan
-EddaArmy1Name,aCharacterNames.EddaArmy
-EddaArmy2Name,aCharacterNames.EddaArmy
-EddaArmy3Name,aCharacterNames.EddaArmy
-EddaArmy4Name,aCharacterNames.EddaArmy
-JuphielName,aCharacterNames.Juphiel
-DarkMage12Name,aCharacterNames.DarkMage2
-DarkMage13Name,aCharacterNames.DarkMage2
-FisherName,aCharacterNames.Fisher
-DozelArmy1Name,aCharacterNames.DozelArmy
-DozelArmy2Name,aCharacterNames.DozelArmy
-BrianName,aCharacterNames.Brian
-Grauenritter2Name,aCharacterNames.Grauenritter2
-Grauenritter3Name,aCharacterNames.Grauenritter2
-DagonName,aCharacterNames.Dagon
-ScipioName,aCharacterNames.Scipio
-Beigenritter3Name,aCharacterNames.Beigenritter3
-Beigenritter4Name,aCharacterNames.Beigenritter3
-Hilda2Name,aCharacterNames.Hilda2
-Gelbenritter2Name,aCharacterNames.Gelbenritter2
-Gelbenritter3Name,aCharacterNames.Gelbenritter2
-DarkBishop2Name,aCharacterNames.DarkBishop2
-DarkMage14Name,aCharacterNames.DarkMage2
-ManfroyName,aCharacterNames.Manfroy
-DarkMage15Name,aCharacterNames.DarkMage2
-Julius2Name,aCharacterNames.Julius2
-MusName,aCharacterNames.Mus
-BovisName,aCharacterNames.Bovis
-TigrisName,aCharacterNames.Tigris
-LepusName,aCharacterNames.Lepus
-DracoName,aCharacterNames.Draco
-AnguillaName,aCharacterNames.Anguilla
-EquusName,aCharacterNames.Equus
-OvisName,aCharacterNames.Ovis
-SimiaName,aCharacterNames.Simia
-GallusName,aCharacterNames.Gallus
-CanisName,aCharacterNames.Canis
-PorcusName,aCharacterNames.Porcus
-Arion2Name,aCharacterNames.Arion2
-DragonKnight3Name,aCharacterNames.DragonKnight2
-Ishtar3Name,aCharacterNames.Ishtar3
-MengName,aCharacterNames.Meng
-MabelName,aCharacterNames.Mabel
-BlegName,aCharacterNames.Bleg
-BelhallaArmy1Name,aCharacterNames.BelhallaArmy
-BelhallaArmy2Name,aCharacterNames.BelhallaArmy
-BelhallaArmy3Name,aCharacterNames.BelhallaArmy
-BelhallaArmy4Name,aCharacterNames.BelhallaArmy
-BaronName,aCharacterNames.Baron
-Kutuzov2Name,aCharacterNames.Kutuzov
-Bandit8Name,aCharacterNames.Bandit7
-GazackName,aCharacterNames.Gazack
-CrotorName,aCharacterNames.Crotor
-WisemanName,aCharacterNames.Wiseman
-SharkName,aCharacterNames.Shark
-HoodName,aCharacterNames.Hood
-BacchusName,aCharacterNames.Bacchus
-EmirName,aCharacterNames.Emir
-Dice1Name,aCharacterNames.Dice1
-ZeroName,aCharacterNames.Zero
-MahatmaName,aCharacterNames.Mahatma
-RowanName,aCharacterNames.Rowan
-BarcninName,aCharacterNames.Barcnin
-MilletName,aCharacterNames.Millet
-HeltsokName,aCharacterNames.Heltsok
-ChacofName,aCharacterNames.Chacof
-Keimos1Name,aCharacterNames.Keimos1
-Marilyn1Name,aCharacterNames.Marilyn1
-TylerName,aCharacterNames.Tyler
-Lipp1Name,aCharacterNames.Lipp1
-PelleoName,aCharacterNames.Pelleo
-TrevilleName,aCharacterNames.Treville
-GellerName,aCharacterNames.Geller
-PazanName,aCharacterNames.Pazan
-DomaName,aCharacterNames.Doma
-KellerName,aCharacterNames.Keller
-Thornton1Name,aCharacterNames.Thornton1
-Mario1Name,aCharacterNames.Mario1
-KemalName,aCharacterNames.Kemal
-KaledinName,aCharacterNames.Kaledin
-KeithName,aCharacterNames.Keith
-SenghorName,aCharacterNames.Senghor
-NikitaName,aCharacterNames.Nikita
-NeneName,aCharacterNames.Nene
-KraffName,aCharacterNames.Kraff
-NiklasName,aCharacterNames.Niklas
-Atlas1Name,aCharacterNames.Atlas1
-ShackalName,aCharacterNames.Shackal
-Lipp2Name,aCharacterNames.Lipp2
-GreiasName,aCharacterNames.Greias
-GeeseName,aCharacterNames.Geese
-LeeName,aCharacterNames.Lee
-ShisalName,aCharacterNames.Shisal
-HawksName,aCharacterNames.Hawks
-NazarlName,aCharacterNames.Nazarl
-ThiefName,aCharacterNames.Thief
-TolstoyName,aCharacterNames.Tolstoy
-BottsmanName,aCharacterNames.Bottsman
-KrugerName,aCharacterNames.Kruger
-MannsteinName,aCharacterNames.Mannstein
-CastorName,aCharacterNames.Castor
-HoepnerName,aCharacterNames.Hoepner
-RandochName,aCharacterNames.Randoch
-WolfenName,aCharacterNames.Wolfen
-DeweyName,aCharacterNames.Dewey
-FeteName,aCharacterNames.Fete
-MarshachName,aCharacterNames.Marshach
-LuisName,aCharacterNames.Luis
-HesterName,aCharacterNames.Hester
-MalderName,aCharacterNames.Malder
-GismotName,aCharacterNames.Gismot
-Xenon1Name,aCharacterNames.Xenon1
-Jackson1Name,aCharacterNames.Jackson1
-Indra1Name,aCharacterNames.Indra1
-NietzcheName,aCharacterNames.Nietzche
-ApostoleName,aCharacterNames.Apostole
-MillerName,aCharacterNames.Miller
-CilonName,aCharacterNames.Cilon
-KlainName,aCharacterNames.Klain
-SleightonName,aCharacterNames.Sleighton
-TriestaName,aCharacterNames.Triesta
-Canaan1Name,aCharacterNames.Canaan1
-HasmannName,aCharacterNames.Hasmann
-GrantsName,aCharacterNames.Grants
-ClosroiName,aCharacterNames.Closroi
-RolandName,aCharacterNames.Roland
-MassigliName,aCharacterNames.Massigli
-RivaName,aCharacterNames.Riva
-GloriaName,aCharacterNames.Gloria
-NotheName,aCharacterNames.Nothe
-Indra2Name,aCharacterNames.Indra2
-Dice2Name,aCharacterNames.Dice2
-Keimos2Name,aCharacterNames.Keimos2
-Marilyn2Name,aCharacterNames.Marilyn2
-Xenon2Name,aCharacterNames.Xenon2
-Jackson2Name,aCharacterNames.Jackson2
-Thornton2Name,aCharacterNames.Thornton2
-Mario2Name,aCharacterNames.Mario2
-Canaan2Name,aCharacterNames.Canaan2
-Atlas2Name,aCharacterNames.Atlas2
-ZeusName,aCharacterNames.Zeus
-ForsetiUnitName,aCharacterNames.ForsetiUnit
+.word 0,Offset
+SigurdName,aCharacterNames.Sigurd - aCharacterNameOffsets
+NaoiseName,aCharacterNames.Naoise - aCharacterNameOffsets
+AlecName,aCharacterNames.Alec - aCharacterNameOffsets
+ArdenName,aCharacterNames.Arden - aCharacterNameOffsets
+FinnName,aCharacterNames.Finn - aCharacterNameOffsets
+QuanName,aCharacterNames.Quan - aCharacterNameOffsets
+MidirName,aCharacterNames.Midir - aCharacterNameOffsets
+LewynName,aCharacterNames.Lewyn - aCharacterNameOffsets
+ChulainnName,aCharacterNames.Chulainn - aCharacterNameOffsets
+AzelleName,aCharacterNames.Azelle - aCharacterNameOffsets
+JamkeName,aCharacterNames.Jamke - aCharacterNameOffsets
+ClaudName,aCharacterNames.Claud - aCharacterNameOffsets
+BeowulfName,aCharacterNames.Beowulf - aCharacterNameOffsets
+LexName,aCharacterNames.Lex - aCharacterNameOffsets
+DewName,aCharacterNames.Dew - aCharacterNameOffsets
+DeirdreName,aCharacterNames.Deirdre - aCharacterNameOffsets
+EthlynName,aCharacterNames.Ethlyn - aCharacterNameOffsets
+LachesisName,aCharacterNames.Lachesis - aCharacterNameOffsets
+AyraName,aCharacterNames.Ayra - aCharacterNameOffsets
+ErinysName,aCharacterNames.Erinys - aCharacterNameOffsets
+TailtiuName,aCharacterNames.Tailtiu - aCharacterNameOffsets
+SilviaName,aCharacterNames.Silvia - aCharacterNameOffsets
+EdainName,aCharacterNames.Edain - aCharacterNameOffsets
+BrigidName,aCharacterNames.Brigid - aCharacterNameOffsets
+SeliphName,aCharacterNames.Seliph - aCharacterNameOffsets
+ShannaName,aCharacterNames.Shanna - aCharacterNameOffsets
+DalvinName,aCharacterNames.Dalvin - aCharacterNameOffsets
+AsaelloName,aCharacterNames.Asaello - aCharacterNameOffsets
+LeifName,aCharacterNames.Leif - aCharacterNameOffsets
+IucharName,aCharacterNames.Iuchar - aCharacterNameOffsets
+CharlotName,aCharacterNames.Charlot - aCharacterNameOffsets
+HawkName,aCharacterNames.Hawk - aCharacterNameOffsets
+TristanName,aCharacterNames.Tristan - aCharacterNameOffsets
+OldFinnName,aCharacterNames.Finn - aCharacterNameOffsets
+DimnaName,aCharacterNames.Dimna - aCharacterNameOffsets
+HannibalName,aCharacterNames.Hannibal - aCharacterNameOffsets
+AresName,aCharacterNames.Ares - aCharacterNameOffsets
+AmidName,aCharacterNames.Amid - aCharacterNameOffsets
+OifeyName,aCharacterNames.Oifey - aCharacterNameOffsets
+DaisyName,aCharacterNames.Daisy - aCharacterNameOffsets
+RadneyName,aCharacterNames.Radney - aCharacterNameOffsets
+MuirneName,aCharacterNames.Muirne - aCharacterNameOffsets
+JuliaName,aCharacterNames.Julia - aCharacterNameOffsets
+AltenaName,aCharacterNames.Altena - aCharacterNameOffsets
+FeminaName,aCharacterNames.Femina - aCharacterNameOffsets
+LindaName,aCharacterNames.Linda - aCharacterNameOffsets
+LayleaName,aCharacterNames.Laylea - aCharacterNameOffsets
+JeanneName,aCharacterNames.Jeanne - aCharacterNameOffsets
+IucharbaName,aCharacterNames.Iucharba - aCharacterNameOffsets
+ScathachName,aCharacterNames.Scathach - aCharacterNameOffsets
+FebailName,aCharacterNames.Febail - aCharacterNameOffsets
+CoirpreName,aCharacterNames.Coirpre - aCharacterNameOffsets
+CedName,aCharacterNames.Ced - aCharacterNameOffsets
+DiarmuidName,aCharacterNames.Diarmuid - aCharacterNameOffsets
+LesterName,aCharacterNames.Lester - aCharacterNameOffsets
+ArthurName,aCharacterNames.Arthur - aCharacterNameOffsets
+PattyName,aCharacterNames.Patty - aCharacterNameOffsets
+LarceiName,aCharacterNames.Larcei - aCharacterNameOffsets
+LanaName,aCharacterNames.Lana - aCharacterNameOffsets
+FeeName,aCharacterNames.Fee - aCharacterNameOffsets
+TineName,aCharacterNames.Tine - aCharacterNameOffsets
+LeneName,aCharacterNames.Lene - aCharacterNameOffsets
+NannaName,aCharacterNames.Nanna - aCharacterNameOffsets
+GerrardName,aCharacterNames.Gerrard - aCharacterNameOffsets
+DiMaggioName,aCharacterNames.DiMaggio - aCharacterNameOffsets
+VerdaneArmy1Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy2Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy3Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy4Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy5Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy6Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+CimbaethName,aCharacterNames.Cimbaeth - aCharacterNameOffsets
+VerdaneArmy7Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy8Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy9Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy10Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+MunnirName,aCharacterNames.Munnir - aCharacterNameOffsets
+Commander1Name,aCharacterNames.Commander1 - aCharacterNameOffsets
+VerdaneArmy11Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy12Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy13Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+SandimaName,aCharacterNames.Sandima - aCharacterNameOffsets
+VerdaneArmy14Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+VerdaneArmy15Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+Commander2Name,aCharacterNames.Commander1 - aCharacterNameOffsets
+VerdaneArmy16Name,aCharacterNames.VerdaneArmy - aCharacterNameOffsets
+Bandit1Name,aCharacterNames.Bandit1 - aCharacterNameOffsets
+ElliotCh01Name,aCharacterNames.ElliotCh01 - aCharacterNameOffsets
+HeirheinArmy1Name,aCharacterNames.HeirheinArmy1 - aCharacterNameOffsets
+EldiganCh01Name,aCharacterNames.EldiganCh01 - aCharacterNameOffsets
+CrossKnight1Name,aCharacterNames.CrossKnight1 - aCharacterNameOffsets
+Commander3Name,aCharacterNames.Commander1 - aCharacterNameOffsets
+BordeauxName,aCharacterNames.Bordeaux - aCharacterNameOffsets
+HeirheinArmy2Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+PhilipName,aCharacterNames.Philip - aCharacterNameOffsets
+HeirheinArmy3Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+HeirheinArmy4Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+HeirheinArmy5Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+HeirheinArmy6Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+HeirheinArmy7Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+HeirheinArmy8Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+ElliotCh02Name,aCharacterNames.ElliotCh02 - aCharacterNameOffsets
+HeirheinArmy9Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+HeirheinArmy10Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+HeirheinArmy11Name,aCharacterNames.HeirheinArmy2 - aCharacterNameOffsets
+Commander4Name,aCharacterNames.Commander2 - aCharacterNameOffsets
+InfiniArmy1Name,aCharacterNames.InfiniArmy - aCharacterNameOffsets
+Bandit2Name,aCharacterNames.Bandit2 - aCharacterNameOffsets
+MackilyArmy1Name,aCharacterNames.MackilyArmy - aCharacterNameOffsets
+EveName,aCharacterNames.Eve - aCharacterNameOffsets
+MacBethName,aCharacterNames.MacBeth - aCharacterNameOffsets
+InfiniArm2Name,aCharacterNames.InfiniArmy - aCharacterNameOffsets
+InfiniArm3Name,aCharacterNames.InfiniArmy - aCharacterNameOffsets
+InfiniArm4Name,aCharacterNames.InfiniArmy - aCharacterNameOffsets
+WaltzName,aCharacterNames.Waltz - aCharacterNameOffsets
+Mercenary1Name,aCharacterNames.Mercenary1 - aCharacterNameOffsets
+ClementName,aCharacterNames.Clement - aCharacterNameOffsets
+MackilyArmy2Name,aCharacterNames.MackilyArmy - aCharacterNameOffsets
+MackilyArmy3Name,aCharacterNames.MackilyArmy - aCharacterNameOffsets
+MackilyArmy4Name,aCharacterNames.MackilyArmy - aCharacterNameOffsets
+Commander5Name,aCharacterNames.Commander2 - aCharacterNameOffsets
+MackilyArmy5Name,aCharacterNames.MackilyArmy - aCharacterNameOffsets
+ChagallCh02Name,aCharacterNames.ChagallCh02 - aCharacterNameOffsets
+AgustiArmy1Name,aCharacterNames.AgustiArmy2 - aCharacterNameOffsets
+AgustiArmy2Name,aCharacterNames.AgustiArmy2 - aCharacterNameOffsets
+Commander6Name,aCharacterNames.Commander2 - aCharacterNameOffsets
+AgustiArmy3Name,aCharacterNames.AgustiArmy2 - aCharacterNameOffsets
+Commander7Name,aCharacterNames.Commander2 - aCharacterNameOffsets
+AgustiArmy4Name,aCharacterNames.AgustiArmy1 - aCharacterNameOffsets
+ErinysSquadName,aCharacterNames.ErinysSquad - aCharacterNameOffsets
+ZaneName,aCharacterNames.Zane - aCharacterNameOffsets
+AgustiArmy5Name,aCharacterNames.AgustiArmy2 - aCharacterNameOffsets
+AgustiArmy6Name,aCharacterNames.AgustiArmy2 - aCharacterNameOffsets
+AgustiArmy7Name,aCharacterNames.AgustiArmy2 - aCharacterNameOffsets
+AgustiArmy8Name,aCharacterNames.AgustiArmy2 - aCharacterNameOffsets
+EvaName,aCharacterNames.Eva - aCharacterNameOffsets
+AlvaName,aCharacterNames.Alva - aCharacterNameOffsets
+JacobiName,aCharacterNames.Jacobi - aCharacterNameOffsets
+MadinoArmy1Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+MadinoArmy2Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+MadinoArmy3Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+MadinoArmy4Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+MadinoArmy5Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+Commander8Name,aCharacterNames.Commander3 - aCharacterNameOffsets
+MadinoArmy6Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+Commander9Name,aCharacterNames.Commander3 - aCharacterNameOffsets
+MadinoArmy7Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+Commander10Name,aCharacterNames.Commander3 - aCharacterNameOffsets
+MadinoArmy8Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+Commander11Name,aCharacterNames.Commander3 - aCharacterNameOffsets
+MadinoArmy9Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+Commander12Name,aCharacterNames.Commander3 - aCharacterNameOffsets
+MadinoArmy10Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+Commander13Name,aCharacterNames.Commander3 - aCharacterNameOffsets
+MadinoArmy11Name,aCharacterNames.MadinoArmy - aCharacterNameOffsets
+Pirate1Name,aCharacterNames.Pirate1 - aCharacterNameOffsets
+Commander14Name,aCharacterNames.Commander4 - aCharacterNameOffsets
+SylvaleArmy1Name,aCharacterNames.SylvaleArmy - aCharacterNameOffsets
+EldiganCh03Name,aCharacterNames.EldiganCh03 - aCharacterNameOffsets
+CrossKnight2Name,aCharacterNames.CrossKnight2 - aCharacterNameOffsets
+ChagallCh03Name,aCharacterNames.ChagallCh03 - aCharacterNameOffsets
+SylvaleArmy2Name,aCharacterNames.SylvaleArmy - aCharacterNameOffsets
+SylvaleArmy3Name,aCharacterNames.SylvaleArmy - aCharacterNameOffsets
+PapilioName,aCharacterNames.Papilio - aCharacterNameOffsets
+ThraciaArmy1Name,aCharacterNames.ThraciaArmy1 - aCharacterNameOffsets
+Pirate2Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+Pirate3Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+Pirate4Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+Pirate5Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+DuvallName,aCharacterNames.Duvall - aCharacterNameOffsets
+Pirate6Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+PizareName,aCharacterNames.Pizare - aCharacterNameOffsets
+Pirate7Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+Pirate8Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+Pirate9Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+Pirate10Name,aCharacterNames.Pirate2 - aCharacterNameOffsets
+Arvis1Name,aCharacterNames.Arvis1 - aCharacterNameOffsets
+LombardCh03Name,aCharacterNames.LombardCh03 - aCharacterNameOffsets
+Grauenritter1Name,aCharacterNames.Grauenritter1 - aCharacterNameOffsets
+ReptorCh03Name,aCharacterNames.ReptorCh03 - aCharacterNameOffsets
+Gelbenritter1Name,aCharacterNames.Gelbenritter1 - aCharacterNameOffsets
+AnnandUnusedName,aCharacterNames.AnnandUnused - aCharacterNameOffsets
+SilesseArmy1Name,aCharacterNames.SilesseArmy1 - aCharacterNameOffsets
+MyosName,aCharacterNames.Myos - aCharacterNameOffsets
+TofaArmy1Name,aCharacterNames.TofaArmy - aCharacterNameOffsets
+TofaArmy2Name,aCharacterNames.TofaArmy - aCharacterNameOffsets
+Commander15Name,aCharacterNames.Commander5 - aCharacterNameOffsets
+TofaArmy3Name,aCharacterNames.TofaArmy - aCharacterNameOffsets
+CuvuliName,aCharacterNames.Cuvuli - aCharacterNameOffsets
+TofaArmy4Name,aCharacterNames.TofaArmy - aCharacterNameOffsets
+Commander16Name,aCharacterNames.Commander5 - aCharacterNameOffsets
+TofaArmy5Name,aCharacterNames.TofaArmy - aCharacterNameOffsets
+TofaArmy6Name,aCharacterNames.TofaArmy - aCharacterNameOffsets
+DithorbaName,aCharacterNames.Dithorba - aCharacterNameOffsets
+DithorbaSquadName,aCharacterNames.DithorbaSquad - aCharacterNameOffsets
+Pirate11Name,aCharacterNames.Pirate3 - aCharacterNameOffsets
+SilesseArmy2Name,aCharacterNames.SilesseArmy2 - aCharacterNameOffsets
+DaccarName,aCharacterNames.Daccar - aCharacterNameOffsets
+AnnandName,aCharacterNames.Annand - aCharacterNameOffsets
+AnnandSquadName,aCharacterNames.AnnandSquad - aCharacterNameOffsets
+PamelaName,aCharacterNames.Pamela - aCharacterNameOffsets
+PamelaSquadName,aCharacterNames.PamelaSquad - aCharacterNameOffsets
+AndreyCh04Name,aCharacterNames.AndreyCh04 - aCharacterNameOffsets
+Beigenritter1Name,aCharacterNames.Beigenritter1 - aCharacterNameOffsets
+Civilian1Name,aCharacterNames.Civilian1 - aCharacterNameOffsets
+Civilian2Name,aCharacterNames.Civilian1 - aCharacterNameOffsets
+DonovanName,aCharacterNames.Donovan - aCharacterNameOffsets
+ZaxonArmy1Name,aCharacterNames.ZaxonArmy1 - aCharacterNameOffsets
+ZaxonArmy2Name,aCharacterNames.ZaxonArmy1 - aCharacterNameOffsets
+ZaxonArmy3Name,aCharacterNames.ZaxonArmy1 - aCharacterNameOffsets
+ZaxonArmy4Name,aCharacterNames.ZaxonArmy1 - aCharacterNameOffsets
+ZaxonArmy5Name,aCharacterNames.ZaxonArmy2 - aCharacterNameOffsets
+LamiaName,aCharacterNames.Lamia - aCharacterNameOffsets
+Mercenary2Name,aCharacterNames.Mercenary2 - aCharacterNameOffsets
+Mercenary3Name,aCharacterNames.Mercenary3 - aCharacterNameOffsets
+Mercenary4Name,aCharacterNames.Mercenary4 - aCharacterNameOffsets
+Mercenary5Name,aCharacterNames.Mercenary5 - aCharacterNameOffsets
+Mercenary6Name,aCharacterNames.Mercenary6 - aCharacterNameOffsets
+LombardCh05Name,aCharacterNames.LombardCh05 - aCharacterNameOffsets
+Child1Name,aCharacterNames.Child1 - aCharacterNameOffsets
+LubeckArmy1Name,aCharacterNames.LubeckArmy - aCharacterNameOffsets
+SlayderName,aCharacterNames.Slayder - aCharacterNameOffsets
+LubeckArmy2Name,aCharacterNames.LubeckArmy - aCharacterNameOffsets
+Commander17Name,aCharacterNames.Commander6 - aCharacterNameOffsets
+LubeckArmy3Name,aCharacterNames.LubeckArmy - aCharacterNameOffsets
+LubeckArmy4Name,aCharacterNames.LubeckArmy - aCharacterNameOffsets
+Bandit3Name,aCharacterNames.Bandit3 - aCharacterNameOffsets
+Commander18Name,aCharacterNames.Commander7 - aCharacterNameOffsets
+LubeckArmy5Name,aCharacterNames.LubeckArmy - aCharacterNameOffsets
+LubeckArmy6Name,aCharacterNames.LubeckArmy - aCharacterNameOffsets
+LubeckArmy7Name,aCharacterNames.LubeckArmy - aCharacterNameOffsets
+ByronName,aCharacterNames.Byron - aCharacterNameOffsets
+AndreyCh05Name,aCharacterNames.AndreyCh05 - aCharacterNameOffsets
+Beigenritter2Name,aCharacterNames.Beigenritter2 - aCharacterNameOffsets
+VajaName,aCharacterNames.Vaja - aCharacterNameOffsets
+VelthomerArmy1Name,aCharacterNames.VelthomerArmy - aCharacterNameOffsets
+PriestName,aCharacterNames.Priest - aCharacterNameOffsets
+VelthomerArmy2Name,aCharacterNames.VelthomerArmy - aCharacterNameOffsets
+Travant1Name,aCharacterNames.Travant1 - aCharacterNameOffsets
+MagornName,aCharacterNames.Magorn - aCharacterNameOffsets
+ThraciaArmy2Name,aCharacterNames.ThraciaArmy2 - aCharacterNameOffsets
+LeonsterArmyName,aCharacterNames.LeonsterArmy - aCharacterNameOffsets
+AidaName,aCharacterNames.Aida - aCharacterNameOffsets
+VelthomerArmy3Name,aCharacterNames.VelthomerArmy - aCharacterNameOffsets
+ReptorCh05Name,aCharacterNames.ReptorCh05 - aCharacterNameOffsets
+FriegeArmy1Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+FriegeArmy2Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+FriegeArmy3Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+FriegeArmy4Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+FriegeArmy5Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+FriegeArmy6Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+FriegeArmy7Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+FriegeArmy8Name,aCharacterNames.FriegeArmy - aCharacterNameOffsets
+Commander19Name,aCharacterNames.Commander8 - aCharacterNameOffsets
+Rotenritter1Name,aCharacterNames.Rotenritter1 - aCharacterNameOffsets
+Commander20Name,aCharacterNames.Commander8 - aCharacterNameOffsets
+Rotenritter2Name,aCharacterNames.Rotenritter1 - aCharacterNameOffsets
+Commander21Name,aCharacterNames.Commander8 - aCharacterNameOffsets
+Rotenritter3Name,aCharacterNames.Rotenritter1 - aCharacterNameOffsets
+ArvisPrologueName,aCharacterNames.ArvisPrologue - aCharacterNameOffsets
+Commander22Name,aCharacterNames.Commander8 - aCharacterNameOffsets
+Rotenritter4Name,aCharacterNames.Rotenritter1 - aCharacterNameOffsets
+HaroldName,aCharacterNames.Harold - aCharacterNameOffsets
+GaneishireArmy1Name,aCharacterNames.GaneishireArmy - aCharacterNameOffsets
+GaneishireArmy2Name,aCharacterNames.GaneishireArmy - aCharacterNameOffsets
+Bandit4Name,aCharacterNames.Bandit4 - aCharacterNameOffsets
+SofalaArmy1Name,aCharacterNames.SofalaArmy - aCharacterNameOffsets
+IsaachArmy1Name,aCharacterNames.IsaachArmy - aCharacterNameOffsets
+IsaachArmy2Name,aCharacterNames.IsaachArmy - aCharacterNameOffsets
+SofalaArmy2Name,aCharacterNames.SofalaArmy - aCharacterNameOffsets
+SchmidtName,aCharacterNames.Schmidt - aCharacterNameOffsets
+RibautArmyName,aCharacterNames.RibautArmy - aCharacterNameOffsets
+DanannName,aCharacterNames.Danann - aCharacterNameOffsets
+GaneishireArmy3Name,aCharacterNames.GaneishireArmy - aCharacterNameOffsets
+GaneishireArmy4Name,aCharacterNames.GaneishireArmy - aCharacterNameOffsets
+Kutuzov1Name,aCharacterNames.Kutuzov - aCharacterNameOffsets
+AedMage1Name,aCharacterNames.AedMage - aCharacterNameOffsets
+AedMage2Name,aCharacterNames.AedMage - aCharacterNameOffsets
+Mercenary7Name,aCharacterNames.Mercenary7 - aCharacterNameOffsets
+AedMage3Name,aCharacterNames.AedMage - aCharacterNameOffsets
+Commander23Name,aCharacterNames.Commander9 - aCharacterNameOffsets
+UlsterArmy1Name,aCharacterNames.UlsterArmy - aCharacterNameOffsets
+UlsterArmy2Name,aCharacterNames.UlsterArmy - aCharacterNameOffsets
+Bandit5Name,aCharacterNames.Bandit5 - aCharacterNameOffsets
+Bloom1Name,aCharacterNames.Bloom1 - aCharacterNameOffsets
+UlsterArmy3Name,aCharacterNames.UlsterArmy - aCharacterNameOffsets
+DahnaArmy1Name,aCharacterNames.DahnaArmy - aCharacterNameOffsets
+IshtoreName,aCharacterNames.Ishtore - aCharacterNameOffsets
+MelgenArmy1Name,aCharacterNames.MelgenArmy - aCharacterNameOffsets
+LizaName,aCharacterNames.Liza - aCharacterNameOffsets
+MelgenArmy2Name,aCharacterNames.MelgenArmy - aCharacterNameOffsets
+MelgenArmy3Name,aCharacterNames.MelgenArmy - aCharacterNameOffsets
+MelgenArmy4Name,aCharacterNames.MelgenArmy - aCharacterNameOffsets
+MelgenArmy5Name,aCharacterNames.MelgenArmy - aCharacterNameOffsets
+MelgenArmy6Name,aCharacterNames.MelgenArmy - aCharacterNameOffsets
+MelgenArmy7Name,aCharacterNames.MelgenArmy - aCharacterNameOffsets
+JavarroName,aCharacterNames.Javarro - aCharacterNameOffsets
+Mercenary8Name,aCharacterNames.Mercenary7 - aCharacterNameOffsets
+Mercenary9Name,aCharacterNames.Mercenary7 - aCharacterNameOffsets
+BramselName,aCharacterNames.Bramsel - aCharacterNameOffsets
+DahnaArmy2Name,aCharacterNames.DahnaArmy - aCharacterNameOffsets
+Commander24Name,aCharacterNames.Commander9 - aCharacterNameOffsets
+UlsterArmy4Name,aCharacterNames.UlsterArmy - aCharacterNameOffsets
+UlsterArmy5Name,aCharacterNames.UlsterArmy - aCharacterNameOffsets
+Banba1Name,aCharacterNames.Banba1 - aCharacterNameOffsets
+Fotla1Name,aCharacterNames.Fotla1 - aCharacterNameOffsets
+Eriu1Name,aCharacterNames.Eriu1 - aCharacterNameOffsets
+HighMage1Name,aCharacterNames.HighMage - aCharacterNameOffsets
+HighMage2Name,aCharacterNames.HighMage - aCharacterNameOffsets
+HighMage3Name,aCharacterNames.HighMage - aCharacterNameOffsets
+MuhammadName,aCharacterNames.Muhammad - aCharacterNameOffsets
+ConnachtArmy1Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+ConnachtArmy2Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+ConnachtArmy3Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+BishopName,aCharacterNames.Bishop - aCharacterNameOffsets
+OvoName,aCharacterNames.Ovo - aCharacterNameOffsets
+ConnachtArmy4Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+ConnachtArmy5Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+Bandit6Name,aCharacterNames.Bandit6 - aCharacterNameOffsets
+Commander25Name,aCharacterNames.Commander10 - aCharacterNameOffsets
+ConnachtArmy6Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+Ishtar1Name,aCharacterNames.Ishtar1 - aCharacterNameOffsets
+Commander26Name,aCharacterNames.Commander10 - aCharacterNameOffsets
+ConnachtArmy7Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+Bloom2Name,aCharacterNames.Bloom2 - aCharacterNameOffsets
+ConnachtArmy8Name,aCharacterNames.ConnachtArmy - aCharacterNameOffsets
+Civilian3Name,aCharacterNames.Civilian2 - aCharacterNameOffsets
+Civilian4Name,aCharacterNames.Civilian2 - aCharacterNameOffsets
+Commander27Name,aCharacterNames.Commander10 - aCharacterNameOffsets
+ThraciaArmy3Name,aCharacterNames.ThraciaArmy3 - aCharacterNameOffsets
+CoulterName,aCharacterNames.Coulter - aCharacterNameOffsets
+ThraciaArmy4Name,aCharacterNames.ThraciaArmy3 - aCharacterNameOffsets
+Commander28Name,aCharacterNames.Commander10 - aCharacterNameOffsets
+ThraciaArmy5Name,aCharacterNames.ThraciaArmy3 - aCharacterNameOffsets
+Commander29Name,aCharacterNames.Commander10 - aCharacterNameOffsets
+ThraciaArmy6Name,aCharacterNames.ThraciaArmy3 - aCharacterNameOffsets
+MaykovName,aCharacterNames.Maykov - aCharacterNameOffsets
+Banba2Name,aCharacterNames.Banba2 - aCharacterNameOffsets
+Fotla2Name,aCharacterNames.Fotla2 - aCharacterNameOffsets
+Eriu2Name,aCharacterNames.Eriu2 - aCharacterNameOffsets
+KapathogiaArmy1Name,aCharacterNames.KapathogiaArmy - aCharacterNameOffsets
+KapathogiaArmy2Name,aCharacterNames.KapathogiaArmy - aCharacterNameOffsets
+KapathogiaArmy3Name,aCharacterNames.KapathogiaArmy - aCharacterNameOffsets
+KapathogiaArmy4Name,aCharacterNames.KapathogiaArmy - aCharacterNameOffsets
+ThraciaArmy7Name,aCharacterNames.ThraciaArmy4 - aCharacterNameOffsets
+ThraciaArmy8Name,aCharacterNames.ThraciaArmy4 - aCharacterNameOffsets
+Bandit7Name,aCharacterNames.Bandit8 - aCharacterNameOffsets
+KanatzName,aCharacterNames.Kanatz - aCharacterNameOffsets
+DistlerName,aCharacterNames.Distler - aCharacterNameOffsets
+GrutiaArmy1Name,aCharacterNames.GrutiaArmy - aCharacterNameOffsets
+Mercenary10Name,aCharacterNames.Mercenary8 - aCharacterNameOffsets
+Mercenary11Name,aCharacterNames.Mercenary8 - aCharacterNameOffsets
+Travant2Name,aCharacterNames.Travant2 - aCharacterNameOffsets
+ThraciaArmy9Name,aCharacterNames.ThraciaArmy4 - aCharacterNameOffsets
+JudahName,aCharacterNames.Judah - aCharacterNameOffsets
+Commander30Name,aCharacterNames.Commander11 - aCharacterNameOffsets
+GrutiaArmy2Name,aCharacterNames.GrutiaArmy - aCharacterNameOffsets
+Arion1Name,aCharacterNames.Arion1 - aCharacterNameOffsets
+DragonKnight1Name,aCharacterNames.DragonKnight1 - aCharacterNameOffsets
+DragonKnight2Name,aCharacterNames.DragonKnight1 - aCharacterNameOffsets
+Commander31Name,aCharacterNames.Commander11 - aCharacterNameOffsets
+ThraciaArmy10Name,aCharacterNames.ThraciaArmy4 - aCharacterNameOffsets
+Commander32Name,aCharacterNames.Commander11 - aCharacterNameOffsets
+ThraciaArmy11Name,aCharacterNames.ThraciaArmy4 - aCharacterNameOffsets
+Commander33Name,aCharacterNames.Commander11 - aCharacterNameOffsets
+ThraciaArmy12Name,aCharacterNames.ThraciaArmy4 - aCharacterNameOffsets
+MusarName,aCharacterNames.Musar - aCharacterNameOffsets
+ImperialArmy1Name,aCharacterNames.ImperialArmy - aCharacterNameOffsets
+ImperialArmy2Name,aCharacterNames.ImperialArmy - aCharacterNameOffsets
+ImperialArmy3Name,aCharacterNames.ImperialArmy - aCharacterNameOffsets
+ImperialArmy4Name,aCharacterNames.ImperialArmy - aCharacterNameOffsets
+RiddellName,aCharacterNames.Riddell - aCharacterNameOffsets
+RiddellSquad1Name,aCharacterNames.RiddellSquad - aCharacterNameOffsets
+RiddellSquad2Name,aCharacterNames.RiddellSquad - aCharacterNameOffsets
+RiddellSquad3Name,aCharacterNames.RiddellSquad - aCharacterNameOffsets
+RiddellSquad4Name,aCharacterNames.RiddellSquad - aCharacterNameOffsets
+RiddellSquad5Name,aCharacterNames.RiddellSquad - aCharacterNameOffsets
+MorriganName,aCharacterNames.Morrigan - aCharacterNameOffsets
+DarkMage1Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+Pirate12Name,aCharacterNames.Pirate4 - aCharacterNameOffsets
+Hilda1Name,aCharacterNames.Hilda1 - aCharacterNameOffsets
+DarkBishop1Name,aCharacterNames.DarkBishop1 - aCharacterNameOffsets
+DarkMage2Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+DarkMage3Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+Mercenary12Name,aCharacterNames.Mercenary9 - aCharacterNameOffsets
+Mercenary13Name,aCharacterNames.Mercenary9 - aCharacterNameOffsets
+Child2Name,aCharacterNames.Child2 - aCharacterNameOffsets
+Child3Name,aCharacterNames.Child2 - aCharacterNameOffsets
+ZagamName,aCharacterNames.Zagam - aCharacterNameOffsets
+DarkMage4Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+DarkMage5Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+DarkMage6Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+DarkMage7Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+DarkMage8Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+Mercenary14Name,aCharacterNames.Mercenary9 - aCharacterNameOffsets
+Mercenary15Name,aCharacterNames.Mercenary9 - aCharacterNameOffsets
+Mercenary16Name,aCharacterNames.Mercenary9 - aCharacterNameOffsets
+Julius1Name,aCharacterNames.Julius1 - aCharacterNameOffsets
+Ishtar2Name,aCharacterNames.Ishtar2 - aCharacterNameOffsets
+Arvis3Name,aCharacterNames.Arvis3 - aCharacterNameOffsets
+Rotenritter5Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Rotenritter6Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Rotenritter7Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+DarkMage9Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+PalmarchName,aCharacterNames.Palmarch - aCharacterNameOffsets
+Child4Name,aCharacterNames.Child2 - aCharacterNameOffsets
+Child5Name,aCharacterNames.Child2 - aCharacterNameOffsets
+Commander34Name,aCharacterNames.Commander12 - aCharacterNameOffsets
+Rotenritter8Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Rotenritter9Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Commander35Name,aCharacterNames.Commander12 - aCharacterNameOffsets
+Rotenritter10Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Rotenritter11Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Commander36Name,aCharacterNames.Commander12 - aCharacterNameOffsets
+Rotenritter12Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Rotenritter13Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+Rotenritter14Name,aCharacterNames.Rotenritter2 - aCharacterNameOffsets
+DarkMage10Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+DarkMage11Name,aCharacterNames.DarkMage1 - aCharacterNameOffsets
+RobertoName,aCharacterNames.Roberto - aCharacterNameOffsets
+Mercenary17Name,aCharacterNames.Mercenary10 - aCharacterNameOffsets
+Mercenary18Name,aCharacterNames.Mercenary10 - aCharacterNameOffsets
+Mercenary19Name,aCharacterNames.Mercenary10 - aCharacterNameOffsets
+Mercenary20Name,aCharacterNames.Mercenary10 - aCharacterNameOffsets
+Mercenary21Name,aCharacterNames.Mercenary10 - aCharacterNameOffsets
+BoyceName,aCharacterNames.Boyce - aCharacterNameOffsets
+Mercenary22Name,aCharacterNames.Mercenary10 - aCharacterNameOffsets
+Mercenary23Name,aCharacterNames.Mercenary10 - aCharacterNameOffsets
+RodanName,aCharacterNames.Rodan - aCharacterNameOffsets
+EddaArmy1Name,aCharacterNames.EddaArmy - aCharacterNameOffsets
+EddaArmy2Name,aCharacterNames.EddaArmy - aCharacterNameOffsets
+EddaArmy3Name,aCharacterNames.EddaArmy - aCharacterNameOffsets
+EddaArmy4Name,aCharacterNames.EddaArmy - aCharacterNameOffsets
+JuphielName,aCharacterNames.Juphiel - aCharacterNameOffsets
+DarkMage12Name,aCharacterNames.DarkMage2 - aCharacterNameOffsets
+DarkMage13Name,aCharacterNames.DarkMage2 - aCharacterNameOffsets
+FisherName,aCharacterNames.Fisher - aCharacterNameOffsets
+DozelArmy1Name,aCharacterNames.DozelArmy - aCharacterNameOffsets
+DozelArmy2Name,aCharacterNames.DozelArmy - aCharacterNameOffsets
+BrianName,aCharacterNames.Brian - aCharacterNameOffsets
+Grauenritter2Name,aCharacterNames.Grauenritter2 - aCharacterNameOffsets
+Grauenritter3Name,aCharacterNames.Grauenritter2 - aCharacterNameOffsets
+DagonName,aCharacterNames.Dagon - aCharacterNameOffsets
+ScipioName,aCharacterNames.Scipio - aCharacterNameOffsets
+Beigenritter3Name,aCharacterNames.Beigenritter3 - aCharacterNameOffsets
+Beigenritter4Name,aCharacterNames.Beigenritter3 - aCharacterNameOffsets
+Hilda2Name,aCharacterNames.Hilda2 - aCharacterNameOffsets
+Gelbenritter2Name,aCharacterNames.Gelbenritter2 - aCharacterNameOffsets
+Gelbenritter3Name,aCharacterNames.Gelbenritter2 - aCharacterNameOffsets
+DarkBishop2Name,aCharacterNames.DarkBishop2 - aCharacterNameOffsets
+DarkMage14Name,aCharacterNames.DarkMage2 - aCharacterNameOffsets
+ManfroyName,aCharacterNames.Manfroy - aCharacterNameOffsets
+DarkMage15Name,aCharacterNames.DarkMage2 - aCharacterNameOffsets
+Julius2Name,aCharacterNames.Julius2 - aCharacterNameOffsets
+MusName,aCharacterNames.Mus - aCharacterNameOffsets
+BovisName,aCharacterNames.Bovis - aCharacterNameOffsets
+TigrisName,aCharacterNames.Tigris - aCharacterNameOffsets
+LepusName,aCharacterNames.Lepus - aCharacterNameOffsets
+DracoName,aCharacterNames.Draco - aCharacterNameOffsets
+AnguillaName,aCharacterNames.Anguilla - aCharacterNameOffsets
+EquusName,aCharacterNames.Equus - aCharacterNameOffsets
+OvisName,aCharacterNames.Ovis - aCharacterNameOffsets
+SimiaName,aCharacterNames.Simia - aCharacterNameOffsets
+GallusName,aCharacterNames.Gallus - aCharacterNameOffsets
+CanisName,aCharacterNames.Canis - aCharacterNameOffsets
+PorcusName,aCharacterNames.Porcus - aCharacterNameOffsets
+Arion2Name,aCharacterNames.Arion2 - aCharacterNameOffsets
+DragonKnight3Name,aCharacterNames.DragonKnight2 - aCharacterNameOffsets
+Ishtar3Name,aCharacterNames.Ishtar3 - aCharacterNameOffsets
+MengName,aCharacterNames.Meng - aCharacterNameOffsets
+MabelName,aCharacterNames.Mabel - aCharacterNameOffsets
+BlegName,aCharacterNames.Bleg - aCharacterNameOffsets
+BelhallaArmy1Name,aCharacterNames.BelhallaArmy - aCharacterNameOffsets
+BelhallaArmy2Name,aCharacterNames.BelhallaArmy - aCharacterNameOffsets
+BelhallaArmy3Name,aCharacterNames.BelhallaArmy - aCharacterNameOffsets
+BelhallaArmy4Name,aCharacterNames.BelhallaArmy - aCharacterNameOffsets
+BaranName,aCharacterNames.Baran - aCharacterNameOffsets
+Kutuzov2Name,aCharacterNames.Kutuzov - aCharacterNameOffsets
+Bandit8Name,aCharacterNames.Bandit7 - aCharacterNameOffsets
+GazackName,aCharacterNames.Gazack - aCharacterNameOffsets
+CrotorName,aCharacterNames.Crotor - aCharacterNameOffsets
+WisemanName,aCharacterNames.Wiseman - aCharacterNameOffsets
+SharkName,aCharacterNames.Shark - aCharacterNameOffsets
+HoodName,aCharacterNames.Hood - aCharacterNameOffsets
+BacchusName,aCharacterNames.Bacchus - aCharacterNameOffsets
+EmirName,aCharacterNames.Emir - aCharacterNameOffsets
+Dice1Name,aCharacterNames.Dice1 - aCharacterNameOffsets
+ZeroName,aCharacterNames.Zero - aCharacterNameOffsets
+MahatmaName,aCharacterNames.Mahatma - aCharacterNameOffsets
+RowanName,aCharacterNames.Rowan - aCharacterNameOffsets
+BarcninName,aCharacterNames.Barcnin - aCharacterNameOffsets
+MilletName,aCharacterNames.Millet - aCharacterNameOffsets
+HeltsokName,aCharacterNames.Heltsok - aCharacterNameOffsets
+ChacofName,aCharacterNames.Chacof - aCharacterNameOffsets
+Keimos1Name,aCharacterNames.Keimos1 - aCharacterNameOffsets
+Marilyn1Name,aCharacterNames.Marilyn1 - aCharacterNameOffsets
+TylerName,aCharacterNames.Tyler - aCharacterNameOffsets
+Lipp1Name,aCharacterNames.Lipp1 - aCharacterNameOffsets
+PelleoName,aCharacterNames.Pelleo - aCharacterNameOffsets
+TrevilleName,aCharacterNames.Treville - aCharacterNameOffsets
+GellerName,aCharacterNames.Geller - aCharacterNameOffsets
+PazanName,aCharacterNames.Pazan - aCharacterNameOffsets
+DomaName,aCharacterNames.Doma - aCharacterNameOffsets
+KellerName,aCharacterNames.Keller - aCharacterNameOffsets
+Thornton1Name,aCharacterNames.Thornton1 - aCharacterNameOffsets
+Mario1Name,aCharacterNames.Mario1 - aCharacterNameOffsets
+KemalName,aCharacterNames.Kemal - aCharacterNameOffsets
+KaledinName,aCharacterNames.Kaledin - aCharacterNameOffsets
+KeithName,aCharacterNames.Keith - aCharacterNameOffsets
+SenghorName,aCharacterNames.Senghor - aCharacterNameOffsets
+NikitaName,aCharacterNames.Nikita - aCharacterNameOffsets
+NeneName,aCharacterNames.Nene - aCharacterNameOffsets
+KraffName,aCharacterNames.Kraff - aCharacterNameOffsets
+NiklasName,aCharacterNames.Niklas - aCharacterNameOffsets
+Atlas1Name,aCharacterNames.Atlas1 - aCharacterNameOffsets
+ShackalName,aCharacterNames.Shackal - aCharacterNameOffsets
+Lipp2Name,aCharacterNames.Lipp2 - aCharacterNameOffsets
+GreiasName,aCharacterNames.Greias - aCharacterNameOffsets
+GeeseName,aCharacterNames.Geese - aCharacterNameOffsets
+LeeName,aCharacterNames.Lee - aCharacterNameOffsets
+ShisalName,aCharacterNames.Shisal - aCharacterNameOffsets
+HawksName,aCharacterNames.Hawks - aCharacterNameOffsets
+NazarlName,aCharacterNames.Nazarl - aCharacterNameOffsets
+ThiefName,aCharacterNames.Thief - aCharacterNameOffsets
+TolstoyName,aCharacterNames.Tolstoy - aCharacterNameOffsets
+BottsmanName,aCharacterNames.Bottsman - aCharacterNameOffsets
+KrugerName,aCharacterNames.Kruger - aCharacterNameOffsets
+MannsteinName,aCharacterNames.Mannstein - aCharacterNameOffsets
+CastorName,aCharacterNames.Castor - aCharacterNameOffsets
+HoepnerName,aCharacterNames.Hoepner - aCharacterNameOffsets
+RandochName,aCharacterNames.Randoch - aCharacterNameOffsets
+WolfenName,aCharacterNames.Wolfen - aCharacterNameOffsets
+DeweyName,aCharacterNames.Dewey - aCharacterNameOffsets
+FeteName,aCharacterNames.Fete - aCharacterNameOffsets
+MarshachName,aCharacterNames.Marshach - aCharacterNameOffsets
+LuisName,aCharacterNames.Luis - aCharacterNameOffsets
+HesterName,aCharacterNames.Hester - aCharacterNameOffsets
+MalderName,aCharacterNames.Malder - aCharacterNameOffsets
+GismotName,aCharacterNames.Gismot - aCharacterNameOffsets
+Xenon1Name,aCharacterNames.Xenon1 - aCharacterNameOffsets
+Jackson1Name,aCharacterNames.Jackson1 - aCharacterNameOffsets
+Indra1Name,aCharacterNames.Indra1 - aCharacterNameOffsets
+NietzcheName,aCharacterNames.Nietzche - aCharacterNameOffsets
+ApostoleName,aCharacterNames.Apostole - aCharacterNameOffsets
+MillerName,aCharacterNames.Miller - aCharacterNameOffsets
+CilonName,aCharacterNames.Cilon - aCharacterNameOffsets
+KlainName,aCharacterNames.Klain - aCharacterNameOffsets
+SleightonName,aCharacterNames.Sleighton - aCharacterNameOffsets
+TriestaName,aCharacterNames.Triesta - aCharacterNameOffsets
+Canaan1Name,aCharacterNames.Canaan1 - aCharacterNameOffsets
+HasmannName,aCharacterNames.Hasmann - aCharacterNameOffsets
+GrantsName,aCharacterNames.Grants - aCharacterNameOffsets
+ClosroiName,aCharacterNames.Closroi - aCharacterNameOffsets
+RolandName,aCharacterNames.Roland - aCharacterNameOffsets
+MassigliName,aCharacterNames.Massigli - aCharacterNameOffsets
+RivaName,aCharacterNames.Riva - aCharacterNameOffsets
+GloriaName,aCharacterNames.Gloria - aCharacterNameOffsets
+NotheName,aCharacterNames.Nothe - aCharacterNameOffsets
+Indra2Name,aCharacterNames.Indra2 - aCharacterNameOffsets
+Dice2Name,aCharacterNames.Dice2 - aCharacterNameOffsets
+Keimos2Name,aCharacterNames.Keimos2 - aCharacterNameOffsets
+Marilyn2Name,aCharacterNames.Marilyn2 - aCharacterNameOffsets
+Xenon2Name,aCharacterNames.Xenon2 - aCharacterNameOffsets
+Jackson2Name,aCharacterNames.Jackson2 - aCharacterNameOffsets
+Thornton2Name,aCharacterNames.Thornton2 - aCharacterNameOffsets
+Mario2Name,aCharacterNames.Mario2 - aCharacterNameOffsets
+Canaan2Name,aCharacterNames.Canaan2 - aCharacterNameOffsets
+Atlas2Name,aCharacterNames.Atlas2 - aCharacterNameOffsets
+ZeusName,aCharacterNames.Zeus - aCharacterNameOffsets
+ForsetiUnitName,aCharacterNames.ForsetiUnit - aCharacterNameOffsets

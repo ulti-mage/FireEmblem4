@@ -4,19 +4,23 @@
 *.sav
 *.bst
 *.srm
+*.cht
+*.yml
 
-BIN/*.*
+EN_ROM/*.*
 
 /*.png
 /*.spc
 /*.bin
-/*.bat
+
 
 *.~lock*
 *.csv.asm
+*.dialogue.txt
 
 TOOLS/64tass.exe
 TOOLS/c2a.py
+TOOLS/process_dialogue.py
 
 *.sublime*
 

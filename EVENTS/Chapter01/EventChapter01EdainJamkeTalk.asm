@@ -1,0 +1,24 @@
+
+  aEventChapter01EdainJamkeTalk ; 90/86CB
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $73
+    YIELD
+
+    DIALOGUE dialogueChapter01EdainJamkeTalk
+    YIELD
+
+    RUN_EVENT_CONDITION
+      CHANGE_UNITS_FACTIONSLOT Jamke, FS_Player
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

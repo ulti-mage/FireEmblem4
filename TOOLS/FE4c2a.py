@@ -3,6 +3,7 @@ import sys
 from os.path import basename, splitext
 import csv
 
+# Based on Zane Avernathy's c2a.py, modified to handle FE4s clusterfuck tables.
 
 def add_def(definition, value):
     definitions.append(f'{definition.ljust(reserved, " ")} = {value}\n')

@@ -1,0 +1,191 @@
+
+  aEventChapter02Opening ; 8E/8000
+
+    RUN_EVENT_CONDITION
+      REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter02Start
+
+    SET_CAMERA_POSITION [18, 44]
+
+    EVENT_3B $80
+
+    FADE_IN_BY_TIMER 4
+
+    CASTLE_NAME dialogueCastleNameNordion, CASLTE_NAME_GREEN, 150
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter02Opening1, DIALOGUE_BG_THRONE, 3, 2
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    MOVE_TEMPORARY_BY_SCRIPT EldiganCh01, [25, 53], 4, MAP_SPRITE_GREEN, _ScriptedMovementEldigan1
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    PAUSE 120
+    YIELD
+
+    MAP_SCROLL [18, 40], 1
+    FADE_OUT_BY_TIMER 4
+    YIELD
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    SET_CAMERA_POSITION [45, 1]
+    EVENT_3B $01
+    YIELD
+
+    MOVE_TEMPORARY_BY_SCRIPT EldiganCh01, [48, 15], 4, MAP_SPRITE_GREEN, _ScriptedMovementEldigan2
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    CASTLE_NAME dialogueCastleNameAgusti, CASLTE_NAME_RED, 250
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PAUSE 10
+    YIELD
+
+    FADE_OUT_BY_TIMER 3
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter02Opening2, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    PLAY_SONG $66
+    YIELD
+
+    MAP_SCROLL [18, 45], 5
+    YIELD
+
+    PAUSE 10
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter02Opening3, DIALOGUE_BG_THRONE, 3, 1
+    SET_CAMERA_POSITION [18, 44]
+    YIELD
+
+    PAUSE 15
+    YIELD
+
+    LOAD_UNIT_BY_GROUP UNITGroupChapter02Start, aUNITGroupDataChapter02Start.ID_30, [25, 53], 4, MAP_SPRITE_GREEN
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+    LOAD_UNIT_BY_GROUP UNITGroupChapter02Start, aUNITGroupDataChapter02Start.ID_29, [25, 53], 4, MAP_SPRITE_GREEN
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+    LOAD_UNIT_BY_GROUP UNITGroupChapter02Start, aUNITGroupDataChapter02Start.ID_28, [25, 53], 4, MAP_SPRITE_GREEN
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    LOAD_UNIT_BY_GROUP UNITGroupChapter02Start, aUNITGroupDataChapter02Start.ID_27, [25, 51], 2, MAP_SPRITE_GREEN
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    MAP_SCROLL [0, 26], 4
+    YIELD
+
+    CASTLE_NAME dialogueCastleNameHeirhein, CASLTE_NAME_RED, 100
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter02Opening4, DIALOGUE_BG_HALLWAY, 3, 1
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    _UnitList := [(HeirheinArmy9, 38)]
+    _UnitList..= [(HeirheinArmy10, 40)]
+    _UnitList..= [(HeirheinArmy11, 38)]
+    _UnitList..= [(ElliotCh02, 40)]
+
+    .for _Unit, _Time in _UnitList
+
+      MOVE_TEMPORARY_BY_SCRIPT _Unit, [5, 34], 4, MAP_SPRITE_RED, _ScriptedMovementElliotGroup, true
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+
+      PAUSE _Time
+      YIELD
+
+    .endfor
+
+    PLAY_SFX_WORD $00E7
+    MAP_SCROLL [48, 50], 4
+    YIELD
+
+    PLAY_SONG $6B
+    YIELD
+
+    CASTLE_NAME dialogueCastleNameEvans, CASLTE_NAME_BLUE, 90
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter02Opening5, DIALOGUE_BG_THRONE, 3, 1
+    YIELD
+
+    JUMP _812A
+
+    ; 8E/8119
+
+      EVENT_DUMMY
+
+      FADE_OUT_BY_TIMER 1
+      YIELD
+
+      RUN_EVENT_CONDITION
+        DEPLOY_UNIT_GROUP UNITGroupChapter02Start
+
+      SET_CAMERA_POSITION [48, 50]
+      EVENT_3B 1
+      YIELD
+      JUMP _812D
+
+    _812A
+    RUN_EVENT_CONDITION
+      DEPLOY_UNIT_GROUP UNITGroupChapter02Start
+
+    _812D
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Deirdre, Ethlyn
+
+    PLAY_SFX_WORD $00E0
+
+    PAUSE 35
+    YIELD
+
+    END_EVENT
+
+    _ScriptedMovementEldigan1 ; 8E/813A
+      MAP_RIGHT_MULTIPLE 4
+      MAP_UP_MULTIPLE 9
+      MAP_END
+
+    _ScriptedMovementEldigan2 ; 8E/813F
+      MAP_UP_MULTIPLE 2
+      MAP_PAUSE 50
+      MAP_UP_MULTIPLE 3
+      MAP_RIGHT_MULTIPLE 3
+      MAP_DOWN_MULTIPLE 1
+      MAP_RIGHT_MULTIPLE 6
+      MAP_UP_MULTIPLE 3
+      MAP_LEFT_MULTIPLE 4
+      MAP_FACE_UP
+      MAP_PAUSE 10
+      MAP_END
+
+    _ScriptedMovementElliotGroup ; 8E/8153
+      MAP_RIGHT_MULTIPLE 2
+      MAP_UP_MULTIPLE 2
+      MAP_RIGHT_MULTIPLE 3
+      MAP_DOWN_MULTIPLE 4
+      MAP_RIGHT_MULTIPLE 4
+      MAP_DOWN_MULTIPLE 3
+      MAP_RIGHT_MULTIPLE 3
+      MAP_END

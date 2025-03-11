@@ -1,0 +1,31 @@
+
+  aEventChapter02SigurdLachesisTalk ; 8E/8339
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $77
+    YIELD
+
+    DIALOGUE dialogueChapter02SigurdLachesisTalk
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    RUN_EVENT_CONDITION
+      CHANGE_UNITS_FACTIONSLOT Lachesis, FS_Player
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET_IF_UNMARRIED Dew, Lachesis
+
+    PLAY_SFX_WORD $00E0
+
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

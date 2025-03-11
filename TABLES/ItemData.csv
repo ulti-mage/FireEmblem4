@@ -1,4 +1,4 @@
-.structWeaponStaffROMEntry,.structItemROMEntry,Name,EquipmentType,Durability,Cost,StatBonuses,StaffEffect,WeaponRank,Skills,WeaponType,Might,Accuracy,Weight,MinRange,MaxRange,Effectiveness,Traits,AlternateID
+.structWeaponStaffROMEntry,.structItemROMEntry,Name,EquipmentType,Durability,Cost,StatBonuses,StaffEffect,WeaponRank,Skills,WeaponType,Might,Accuracy,Weight,MinRange,MaxRange,Effectiveness,Traits,AdditionalInfo
 IronSword,,IronSwordName,EquipTypeWeapon,50,1000,None,None,WeaponRankC,None,WeaponTypeSword,6,80,3,1,1,None,None,None
 SteelSword,,SteelSwordName,EquipTypeWeapon,50,3000,None,None,WeaponRankB,None,WeaponTypeSword,10,80,3,1,1,None,None,None
 SilverSword,,SilverSwordName,EquipTypeWeapon,50,5000,None,None,WeaponRankA,None,WeaponTypeSword,14,80,3,1,1,None,None,None
@@ -8,10 +8,10 @@ SilverBlade,,SilverBladeName,EquipTypeWeapon,50,10000,None,None,WeaponRankA,None
 MiracleSword,,MiracleSwordName,EquipTypeWeapon,50,8000,None,None,WeaponRankC,ItemSkillMiracle,WeaponTypeSword,12,70,3,1,1,None,WeaponTraitFemaleOnly,None
 ThiefSword,,ThiefSwordName,EquipTypeWeapon,50,1000,None,None,WeaponRankC,ItemSkillSteal,WeaponTypeSword,3,50,2,1,1,None,None,None
 BarrierBlade,,BarrierBladeName,EquipTypeWeapon,50,12000,BarrierBladeStatBoost,None,WeaponRankC,None,WeaponTypeSword,10,70,3,1,1,None,None,None
-BerserkSword,,BerserkSwordName,EquipTypeWeapon,50,10000,None,None,WeaponRankC,None,WeaponTypeSword,8,70,12,1,1,None,WeaponTraitStatusSword,$06
+BerserkSword,,BerserkSwordName,EquipTypeWeapon,50,10000,None,None,WeaponRankC,None,WeaponTypeSword,8,70,12,1,1,None,WeaponTraitStatusSword,StatusBerserk
 BraveSword,,BraveSwordName,EquipTypeWeapon,50,8000,None,None,WeaponRankB,None,WeaponTypeSword,12,100,3,1,1,None,WeaponTraitBrave,None
-SilenceSword,,SilenceSwordName,EquipTypeWeapon,50,15000,None,None,WeaponRankC,None,WeaponTypeSword,8,70,12,1,1,None,WeaponTraitStatusSword,$04
-SleepSword,,SleepSwordName,EquipTypeWeapon,50,15000,None,None,WeaponRankC,None,WeaponTypeSword,8,70,12,1,1,None,WeaponTraitStatusSword,$05
+SilenceSword,,SilenceSwordName,EquipTypeWeapon,50,15000,None,None,WeaponRankC,None,WeaponTypeSword,8,70,12,1,1,None,WeaponTraitStatusSword,StatusSilence
+SleepSword,,SleepSwordName,EquipTypeWeapon,50,15000,None,None,WeaponRankC,None,WeaponTypeSword,8,70,12,1,1,None,WeaponTraitStatusSword,StatusSleep
 SlimSword,,SlimSwordName,EquipTypeWeapon,50,3000,None,None,WeaponRankC,None,WeaponTypeSword,8,90,1,1,1,None,None,None
 Safeguard,,SafeguardName,EquipTypeWeapon,50,12000,SafeguardStatBoost,None,WeaponRankC,None,WeaponTypeSword,12,90,5,1,1,None,None,None
 FireSword,,FireSwordName,EquipTypeWeapon,50,10000,None,None,WeaponRankC,None,WeaponTypeSword,12,70,5,1,2,None,WeaponTraitRangedMagicSword,$3F
@@ -98,9 +98,9 @@ RescueStaff,,RescueStaffName,EquipTypeStaff,10,15000,None,$08,WeaponRankA,None,W
 CharmStaff,,CharmStaffName,EquipTypeStaff,0,0,None,$09,WeaponRankA,None,WeaponTypeStaff,0,80,0,1,10,None,None,None
 RestoreStaff,,RestoreStaffName,EquipTypeStaff,10,10000,None,$0A,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,10,None,None,None
 ValkyrieStaff,,ValkyrieStaffName,EquipTypeStaff,1,30000,None,$0B,WeaponRankHoly,None,WeaponTypeStaff,0,80,0,0,0,None,None,None
-SilenceStaff,,SilenceStaffName,EquipTypeStaff,3,30000,None,$0C,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,10,None,None,$04
-SleepStaff,,SleepStaffName,EquipTypeStaff,1,30000,None,$0D,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,10,None,None,$05
-BerserkStaff,,BerserkStaffName,EquipTypeStaff,1,30000,None,$0E,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,10,None,None,$06
+SilenceStaff,,SilenceStaffName,EquipTypeStaff,3,30000,None,$0C,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,10,None,None,StatusSilence
+SleepStaff,,SleepStaffName,EquipTypeStaff,1,30000,None,$0D,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,10,None,None,StatusSleep
+BerserkStaff,,BerserkStaffName,EquipTypeStaff,1,30000,None,$0E,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,10,None,None,StatusBerserk
 ThiefStaff,,ThiefStaffName,EquipTypeStaff,0,0,None,$0F,WeaponRankB,ItemSkillSteal,WeaponTypeStaff,0,80,0,1,10,None,None,None
 BrokenStaffA,,BrokenStaffAName,EquipTypeStaff,0,100,None,None,WeaponRankA,None,WeaponTypeStaff,0,80,0,1,1,None,None,None
 BrokenStaffB,,BrokenStaffBName,EquipTypeStaff,0,100,None,None,WeaponRankB,None,WeaponTypeStaff,0,80,0,1,1,None,None,None

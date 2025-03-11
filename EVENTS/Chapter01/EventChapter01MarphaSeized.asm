@@ -1,0 +1,81 @@
+
+  aEventChapter01MarphaSeized ; 90/887D
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $54
+    YIELD
+
+    SET_FLAG_IF_IN_CHAPTER Chapter01, FlagChapter01_GenoaOrMarphaSeized
+    SET_FLAG_IF_IN_CHAPTER Chapter01, FlagChapter01_AyraDestroysGenoa
+
+    FADE_OUT_BY_TIMER 4
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_UNIT_IN_CASTLE Sigurd, Ch01_Evans
+
+    PAUSE 15
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter01MarphaSeized1, DIALOGUE_BG_GATE, 3, 4
+    SET_CAMERA_POSITION [13, 43]
+    YIELD
+
+    PAUSE 25
+    YIELD
+
+    MOVE_TEMPORARY_BY_SCRIPT Deirdre, [24, 51], 4, MAP_SPRITE_GREEN, _ScriptedMovementDeirdre
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    PAUSE 120
+    YIELD
+
+    CONTINUE_FORM_MAP_SPRITE_HALT
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    MAP_SCROLL [16, 43], 2
+    YIELD
+
+    PAUSE 10
+    YIELD
+
+    FADE_OUT_BY_TIMER 1
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_UNIT_POSITION Sigurd, $FF, [24, 51]
+
+    DIALOGUE_WITH_BG dialogueChapter01MarphaSeized2, DIALOGUE_BG_GATE, 3, 2
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT Sigurd, EventUnitSlot1
+    SET_CAMERA_TO_EVENT_UNIT_SLOT_1
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT
+
+    _ScriptedMovementDeirdre ; 90/88E7
+      MAP_LEFT_MULTIPLE 5
+      MAP_FACE_RIGHT
+      MAP_HALT
+
+      MAP_LEFT_MULTIPLE 2
+      MAP_UP_MULTIPLE 2
+      MAP_LEFT_MULTIPLE 3
+      MAP_UP_MULTIPLE 7
+      MAP_RIGHT_MULTIPLE 1
+      MAP_PAUSE 6
+      MAP_END
