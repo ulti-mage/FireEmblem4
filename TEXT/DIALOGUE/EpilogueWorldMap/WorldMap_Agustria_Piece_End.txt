@@ -1,0 +1,2 @@
+{DIALOGUE_FONT_0}などとともに､{DIALOGUE_NL}
+統一アグストリアの再建に力を尽くす｡{DIALOGUE_EOF}

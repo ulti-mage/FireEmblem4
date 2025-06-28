@@ -1,0 +1,5 @@
+.addr 0,Routine
+ID_LoadMaleChildUnit,rsLoadMaleChildUnit
+ID_LoadFemaleChildUnit,rsLoadFemaleChildUnit
+ID_LoadMaleOrFemaleChildUnit,rsLoadMaleOrFemaleChildUnit
+ID_LoadBothChildUnits,rsLoadBothChildUnits

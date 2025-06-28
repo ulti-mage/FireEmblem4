@@ -55,16 +55,16 @@
     WAIT_UNTIL_MAP_SPRITES_HALTING
     YIELD
 
-    CHECK_PERMANENT_FLAG_SET PermanentFlagQuanEthlynDied
+    TEST_PERMANENT_FLAG_SET PermanentFlagQuanEthlynDied
     JUMP_TRUE _CheckFinnSolo
 
-    CHECK_PERMANENT_FLAG_SET PermanentFlagFinnDied
+    TEST_PERMANENT_FLAG_SET PermanentFlagFinnDied
     JUMP_TRUE _QuanEthlynLeave
 
     JUMP _QuanEthlynFinnLeave
 
     _CheckFinnSolo ; 8E/90A9
-    CHECK_PERMANENT_FLAG_SET PermanentFlagFinnDied
+    TEST_PERMANENT_FLAG_SET PermanentFlagFinnDied
     JUMP_TRUE _Continue
 
     JUMP _FinnLeave

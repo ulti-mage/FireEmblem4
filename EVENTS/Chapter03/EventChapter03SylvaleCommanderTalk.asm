@@ -1,11 +1,7 @@
 
   aEventChapter03SylvaleCommanderTalk ; 9D/932F
 
-    PLAY_SFX_WORD $7FF7
-    DIALOGUE dialogueChapter03SylvaleCommanderTalk
-    YIELD
-
-    PLAY_SFX_WORD $00E8
+    macroMapDialogue dialogueChapter03SylvaleCommanderTalk
     YIELD
 
     END_EVENT

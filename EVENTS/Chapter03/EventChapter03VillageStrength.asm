@@ -2,17 +2,14 @@
   aEventChapter03VillageStrength ; 9D/9197
 
     PLAY_SFX_WORD $7FF7
-    PLAY_SFX_WORD $7FF7
-    DIALOGUE dialogueChapter03VillageStrength
-    YIELD
 
-    PLAY_SFX_WORD $00E8
+    macroMapDialogue dialogueChapter03VillageStrength
     YIELD
 
     RUN_ASM rlClearBattleData
 
     RUN_EVENT_CONDITION
-      ADD_UNIT_STAT $FF, Strength, 3
+      ADD_UNIT_STAT AnyCharacter, Strength, 3
 
     RUN_ASM rlASMCChapter03DisplayStatUpOnStrengthVillage
     YIELD

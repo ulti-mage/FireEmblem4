@@ -1,0 +1,8 @@
+長らく帝国の支配下にあったシレジアでは､{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT $02}{DIALOGUE_PAUSE 2}{DIALOGUE_WM_FADE_IN_PORTRAIT $02, [152, 28]}帰国した{DIALOGUE_UNIT1_NAME}が王位につき､{DIALOGUE_NL}
+荒れ果てた国土の復興に力を注いでいた｡{DIALOGUE_NL}
+{DIALOGUE_ASMC rlASMCEpilogueWorldMapSilessePieceRulerNoLover}{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_PAUSE 10}{DIALOGUE_ASMC rlASMCEpilogueWorldMapSilessePieceStart}{DIALOGUE_ASMC rlASMCEpilogueWorldMapSilessePieceRulersLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapSilessePieceRulersSister}{DIALOGUE_ASMC rlASMCEpilogueWorldMapSilessePieceCedHawk}{DIALOGUE_ASMC rlASMCEpilogueWorldMapSilessePieceFeeHerimna}{DIALOGUE_ASMC rlASMCEpilogueWorldMapSilessePieceEnd}美しい大地と､平和を愛する人々｡{DIALOGUE_NL}
+レヴィンがその命をかけて守ろうとした{DIALOGUE_NL}
+シレジア王国は､ここにようやく､{DIALOGUE_NL}
+完成されようとしていた｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

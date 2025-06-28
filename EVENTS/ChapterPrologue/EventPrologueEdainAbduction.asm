@@ -33,7 +33,7 @@
     PAUSE 20
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT VerdaneArmy1, [11, 14], 4, MAP_SPRITE_RED, _BridgeGuyMovementScript
+    MOVE_TEMPORARY_BY_SCRIPT EvansBarbarianHandAxe, [11, 14], 4, MAP_SPRITE_RED, _BridgeGuyMovementScript
     WAIT_UNIT_SPRITE_DECOMPRESSED
     MOVE_TEMPORARY_BY_SCRIPT Munnir, [33, 25], 4, MAP_SPRITE_RED, _MunnirMovementScript
     WAIT_UNIT_SPRITE_DECOMPRESSED

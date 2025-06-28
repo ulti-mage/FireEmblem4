@@ -19,3 +19,16 @@
     YIELD
 
     END_EVENT
+
+  rlASMCHolyWeaponObtainShine ; B0/CFDE
+
+    .al
+    .autsiz
+    .databank ?
+
+    jsl $9ED42A
+    jsl $829478
+    rtl
+
+    .databank 0
+

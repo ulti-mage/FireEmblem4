@@ -1,0 +1,5 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_LewynsSon_SisterDead_WithLover}
+{DIALOGUE_LEFT}{DIALOGUE_SCROLL_ALL}
+{DIALOGUE_FONT_0}･･･もはや､話すことはない{DIALOGUE_NL}
+行け！　シレジアを頼ん⅛だぞ･･･{DIALOGUE_NL}
+{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

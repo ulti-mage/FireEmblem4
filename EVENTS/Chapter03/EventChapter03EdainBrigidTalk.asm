@@ -22,7 +22,7 @@
       GIVE_UNIT_PID_EQUIP Brigid, PI_Yewfelle
 
     FILL_EVENT_UNIT_SLOT Brigid, EventUnitSlot1
-    RUN_ASM $B0CFDE
+    RUN_ASM rlASMCHolyWeaponObtainShine
     YIELD
 
     END_EVENT

@@ -22,7 +22,7 @@
         PAUSE 20
         YIELD
 
-        MOVE_TEMPORARY_BY_SCRIPT Travant2, [7, 43], 4, MAP_SPRITE_RED, _ScriptedMovementTravant1
+        MOVE_TEMPORARY_BY_SCRIPT TravantCh09, [7, 43], 4, MAP_SPRITE_RED, _ScriptedMovementTravant1
         WAIT_UNIT_SPRITE_DECOMPRESSED
 
         WAIT_UNTIL_MAP_SPRITES_HALTING
@@ -66,7 +66,7 @@
 
     _NoThraciaSpawn ; 9D/8CB0
     ; Eldigan alive OR Chagall died before Eldigan
-    MOVE_TEMPORARY_BY_SCRIPT Travant2, [7, 43], 5, MAP_SPRITE_RED, _ScriptedMovementTravant2, true
+    MOVE_TEMPORARY_BY_SCRIPT TravantCh09, [7, 43], 5, MAP_SPRITE_RED, _ScriptedMovementTravant2, true
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     WAIT_UNTIL_MAP_SPRITES_HALTING

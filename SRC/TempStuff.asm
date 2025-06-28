@@ -45,52 +45,7 @@ $21 = before enemy action?
 
 
 
-      rlUnknown91AFC2 ; 91/AFC2
 
-        .al
-        .autsiz
-        .databank ?
-
-        php
-        rep #$30
-        pha
-
-        jsl $91B002
-
-        lda #(`$7E8E88)<<8
-        sta $27+1
-        lda #<>$7E8E88
-        sta $27
-        jsl rlAppendDecompList
-
-        lda #(`$9CEAEE)<<8
-        sta $24+1
-        lda #<>$9CEAEE
-        sta $24
-        lda #(`$7E8C88)<<8
-        sta $27+1
-        lda #<>$7E8C88
-        sta $27
-        jsl rlAppendDecompList
-
-        lda #(`$7E8C98)<<8
-        sta $24+1
-
-        pla
-        xba
-        lsr a
-        lsr a
-        lsr a
-        clc
-        adc #<>$7E8C98 ; $03 > $8CF8
-        sta $24
-
-        plp
-        rtl
-
-        .databank 0
-
-        ; 91/B002
 
 
 
@@ -1916,7 +1871,7 @@ $21 = before enemy action?
         lda aUnknown88D83F,x
         trb wUnknown000921,b
 
-        lda wActiveMoversMapSprites,b,x
+        lda aMovingMapSpritesMapSprites,b,x
         and #$8000
         bne +
 
@@ -1988,7 +1943,7 @@ $21 = before enemy action?
         lda aUnknown88D953,x
         tsb wUnknown000921,b
 
-        lda wActiveMoversMapSprites,b,x
+        lda aMovingMapSpritesMapSprites,b,x
         and #$7FFF
         tay
         lda aUnknown88CBE8,b,y
@@ -2583,7 +2538,7 @@ $21 = before enemy action?
 
           _Loop
           lda aDeploymentTable._State,x
-          bit #$0080
+          bit #DeploymentStateAlive
           beq +
 
             inc wR2
@@ -2623,7 +2578,7 @@ $21 = before enemy action?
 
         .databank 0
 
-      rlUnknown8487BA ; 84/87BA
+      rlLoadUnitGroup ; 84/87BA
 
         .al
         .autsiz
@@ -2631,6 +2586,7 @@ $21 = before enemy action?
 
         ; Input:
         ; lR18 = UNITGroupPointer entry
+        ; lR19 = Pointer to child replacement data
 
         phb
         php
@@ -2661,7 +2617,7 @@ $21 = before enemy action?
           jml _End
 
         +
-        jsr rsUnknown848873
+        jsr rsLoadUnitGroupTryReplaceCharacterIDWithChild
         sta wRoutineVariable1,b
 
         lda structUNITEntry.FactionSlot,b,y
@@ -2743,7 +2699,7 @@ $21 = before enemy action?
 
         .databank 0
 
-      rsUnknown848873 ; 84/8873
+      rsLoadUnitGroupTryReplaceCharacterIDWithChild ; 84/8873
 
         .al
         .autsiz
@@ -2945,352 +2901,6 @@ BF
 
 
 
-      rlCheckEventParameters ; 86/9B4D
-
-        .al
-        .autsiz
-        .databank ?
-
-        phb
-        php
-        phk
-        plb
-        phx
-        sep #$20
-        cmp bEventActionIdentifier,b
-        bne _CLC
-
-          rep #$20
-
-          ora #0
-          bmi _SEC
-
-            asl a
-            tax
-            jsr (aUnknown869B71,x)
-            bcc _CLC
-
-          _SEC
-          plx
-          plp
-          plb
-          sec
-          rtl
-        
-        _CLC
-        plx
-        plp
-        plb
-        clc
-        rtl
-
-        .databank 0
-
-      aUnknown869B71 ; 86/9B71
-
-        .word <>rsEventTrue ; $00
-        .word <>rsEventCheck2Parameters ; $01
-        .word <>rsEventCheck2Parameters ; $02
-        .word <>rsEventCheckUnitInArea ; $03
-        .word <>rsEventTrue ; $04
-        .word <>rsEventTrue ; $05
-        .word <>rsEventCheck2Parameters ; $06
-        .word <>rsEventCheck2Parameters ; $07
-        .word <>rsEventCheck2Parameters ; $08
-        .word <>rsEventCheck2Parameters ; $09
-        .word <>rsEventCheck2Parameters ; $0A
-        .word <>rsEventTrue ; $0B
-        .word <>rsEventTrue ; $0C
-        .word <>rsEventTrue ; $0D
-        .word <>rsEventTrue ; $0E
-        .word <>rsEventTrue ; $0F
-        .word <>rsEventTrue ; $10
-        .word <>rsEventTrue ; $11
-        .word <>rsEventTrue ; $12
-        .word <>rsEventTrue ; $13
-        .word <>rsEventTrue ; $14
-        .word <>rsEventTrue ; $15
-        .word <>rsEventTrue ; $16
-        .word <>rsEventTrue ; $17
-        .word <>rsEventTrue ; $18
-        .word <>rsEventTrue ; $19
-        .word <>rsEventCheck2Parameters ; $1A
-        .word <>rsEventCheck1Parameter ; $1B
-        .word <>rsEventCheck2Parameters ; $1C
-        .word <>rsEventCheck1Parameter ; $1D
-        .word <>rsEventTrue ; $1E
-        .word <>rsEventTrue ; $1F
-        .word <>rsEventCheck1Parameter ; $20
-        .word <>rsEventCheck4Parameters ; $21 - turn event stuff?
-        .word <>rsEventTrue ; $22
-        .word <>rsEventTrue ; $23
-        .word <>rsEventTrue ; $24
-        .word <>rsEventTrue ; $25
-        .word <>rsEventCheck3Parameters ; $26 - EC_56 / Unused
-        .word <>rsEventTrue ; $27
-
-      rsEventTrue ; 86/9BC1
-
-        .al
-        .autsiz
-        .databank ?
-
-        sec
-        rts
-
-        .databank 0
-
-      rsEventCheck1Parameter ; 86/9BC3
-
-        .al
-        .autsiz
-        .databank ?
-
-        lda wEventEngineParameter1,b
-        bmi _SEC
-
-          lda wEventEngineArgument1,b
-          cmp wEventEngineParameter1,b
-          bne +
-
-        _SEC
-        sec
-        rts
-
-        +
-        clc
-        rts
-
-        .databank 0
-
-      rsEventCheck2Parameters ; 86/9BD4
-
-        .al
-        .autsiz
-        .databank ?
-
-        lda wEventEngineParameter1,b
-        bmi +
-
-          lda wEventEngineArgument1,b
-          cmp wEventEngineParameter1,b
-          bne _CLC
-
-        +
-        lda wEventEngineParameter2,b
-        bmi _SEC
-
-          lda wEventEngineArgument2,b
-          cmp wEventEngineParameter2,b
-          bne _CLC
-
-        _SEC
-        sec
-        rts
-        
-        _CLC
-        clc
-        rts
-
-        .databank 0
-
-      rsEventCheck3Parameters ; 86/9BF2
-
-        .al
-        .autsiz
-        .databank ?
-
-        lda wEventEngineParameter1,b
-        bmi +
-
-          lda wEventEngineArgument1,b
-          cmp wEventEngineParameter1,b
-          bne _CLC
-        
-        +
-        lda wEventEngineParameter2,b
-        bmi +
-
-          lda wEventEngineArgument2,b
-          cmp wEventEngineParameter2,b
-          bne _CLC
-        
-        +
-        lda wEventEngineParameter3,b
-        bmi +
-
-          lda wEventEngineArgument3,b
-          cmp wEventEngineParameter3,b
-          bne _CLC
-        
-        +
-        sec
-        rts
-        
-        _CLC
-        clc
-        rts
-
-        .databank 0
-
-      rsEventCheck4Parameters ; 86/9C1D
-
-        .al
-        .autsiz
-        .databank ?
-
-        lda wEventEngineParameter1,b
-        bmi +
-
-          lda wEventEngineArgument1,b
-          cmp wEventEngineParameter1,b
-          bne _CLC
-        
-        +
-        lda wEventEngineParameter2,b
-        bmi +
-
-          lda wEventEngineArgument2,b
-          cmp wEventEngineParameter2,b
-          bne _CLC
-        
-        +
-        lda wEventEngineParameter3,b
-        bmi +
-
-          lda wEventEngineArgument3,b
-          cmp wEventEngineParameter3,b
-          bne _CLC
-        
-        +
-        lda wEventEngineParameter4,b 
-        bmi +
-
-          lda wEventEngineArgument4,b
-          cmp wEventEngineParameter4,b
-          bne _CLC
-        
-        +
-        sec
-        rts
-        
-        _CLC
-        clc
-        rts
-
-        .databank 0
-
-      rsEventCheckUnitInArea ; 86/9C55
-
-        .al
-        .autsiz
-        .databank ?
-
-        lda wEventEngineParameter4,b
-        bmi +
-
-          lda wEventEngineArgument4,b
-          cmp wEventEngineParameter4,b
-          bne _CLC
-        
-        +
-        lda wEventEngineParameter1,b
-        bmi +
-
-          lda wEventEngineArgument1,b
-          cmp wEventEngineParameter1,b
-          bne _CLC
-        
-        +
-        sep #$20
-        lda wEventEngineArgument2,b
-        cmp wEventEngineParameter2,b
-        bmi _CLC
-
-          dec a
-          cmp wEventEngineParameter3,b
-          bpl _CLC
-
-            lda wEventEngineArgument3,b
-            cmp wEventEngineParameter2+1,b
-            bmi _CLC
-
-              dec a
-              cmp wEventEngineParameter3+1,b
-              bpl _CLC
-
-        rep #$20
-        sec
-        rts
-        
-        _CLC
-        rep #$20
-        clc
-        rts
-
-        .databank 0
-
-      rsUnknown869C95 ; 86/9C95
-
-        .al
-        .autsiz
-        .databank ?
-
-        phy
-        sec
-        sbc #$0019
-        tax
-        lda aUnknown869CA5,x
-        and #$00FF
-        clc
-        ply
-        rts
-
-        .databank 0
-
-      aUnknown869CA5 ; 86/9CA5
-
-        .byte $19 ; Seliph
-        .byte $1A ; Shannan
-        .byte $1B ; Dalvin
-        .byte $1C ; Asaello
-        .byte $1D ; Leif
-        .byte $1E ; Iuchar
-        .byte $1F ; Charlot
-        .byte $20 ; Hawk
-        .byte $21 ; Tristan
-        .byte $22 ; OldFinn
-        .byte $23 ; Deimne
-        .byte $24 ; Hannibal
-        .byte $25 ; Ares
-        .byte $26 ; Amid
-        .byte $27 ; Oifey
-        .byte $28 ; Daisy
-        .byte $29 ; Creidne
-        .byte $2A ; Muirne
-        .byte $2B ; Julia
-        .byte $2C ; Altena
-        .byte $2D ; Hermina
-        .byte $2E ; Linda
-        .byte $2F ; Laylea
-        .byte $30 ; Jeanne
-        .byte $31 ; Iucharba
-        .byte $1B ; Scathach
-        .byte $1C ; Febail
-        .byte $1F ; Coirpre
-        .byte $20 ; Ced
-        .byte $21 ; Diarmuid
-        .byte $23 ; Lester
-        .byte $26 ; Arthur
-        .byte $28 ; Patty
-        .byte $29 ; Larcei
-        .byte $2A ; Lana
-        .byte $2D ; Fee
-        .byte $2E ; Tine
-        .byte $2F ; Lene
-        .byte $30 ; Nanna
-
-      ; 86/9CCC
 
 
 
@@ -3617,7 +3227,7 @@ BF
         bne _End
 
           lda #$1000
-          trb $0D79,b
+          trb wUnknown000D79,b
 
           lda wActiveFactionSlot,b
           jsl rlUnknown84C5D7
@@ -3685,7 +3295,7 @@ BF
         .autsiz
         .databank ?
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$4000
         beq +
 
@@ -3698,7 +3308,7 @@ BF
 
         +
         ora #$4000
-        sta $0D79,b
+        sta wUnknown000D79,b
 
         jsr rsUnknown81AAFB
         jsr rsGetActiveFactionSongID
@@ -4194,7 +3804,7 @@ BF
         bit #$0020
         bne +
 
-          lda $0D79,b
+          lda wUnknown000D79,b
           bit #$0200
           bne +
 
@@ -4308,7 +3918,7 @@ BF
           +
           sep #$20
           lda bBufferINIDISP
-          ora #$0F
+          ora #15
           sta bBufferINIDISP
           rep #$20
 
@@ -4367,12 +3977,12 @@ BF
           bit #$0020
           bne _End
 
-            lda $0D79,b
+            lda wUnknown000D79,b
             bit #$0080
             beq _End
 
               lda #$0080
-              trb $0D79,b
+              trb wUnknown000D79,b
 
               ldx $0E82,b
               lda aAIUnitList.UnitRAMPointer,x
@@ -4474,7 +4084,7 @@ BF
                 cmp #3
                 bne _CLC
 
-                  lda $0D79,b
+                  lda wUnknown000D79,b
                   bit #$0040
                   beq _SEC
 
@@ -4511,7 +4121,7 @@ BF
 
         jsl rlDeployedUnitUnsetHiddenIfAlive
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0020
         beq +
 
@@ -4590,12 +4200,12 @@ BF
 
         jsl rlUnknown85CA4B
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0040
         beq +
 
           and #~($40)
-          sta $0D79,b
+          sta wUnknown000D79,b
 
           stz $0302,b
 
@@ -4604,7 +4214,7 @@ BF
           bra _End
         
         +
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0020
         beq +
 
@@ -4764,7 +4374,7 @@ BF
         .autsiz
         .databank ?
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0400
         bne +
 
@@ -4882,7 +4492,7 @@ BF
         .autsiz
         .databank ?
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$2000
         beq _CLC
 
@@ -4901,7 +4511,7 @@ BF
           
           +
           lda #$2000
-          trb $0D79,b
+          trb wUnknown000D79,b
           sec
           bra +
         
@@ -4945,7 +4555,7 @@ BF
           sta $0D8B,b
 
           lda #$8000
-          trb $0D79,b
+          trb wUnknown000D79,b
           sec
           bra +
 
@@ -4972,7 +4582,7 @@ BF
           cmp #11
           beq _CLC
 
-            lda $0D79,b
+            lda wUnknown000D79,b
             bit #$0004
             beq _CLC
 
@@ -4986,7 +4596,7 @@ BF
                 bpl -
 
               lda #4
-              trb $0D79,b
+              trb wUnknown000D79,b
               sec
               bra +
 
@@ -5010,7 +4620,7 @@ BF
         bne _CLC
 
         ldx $0772,b
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0004
         beq +
 
@@ -5043,9 +4653,9 @@ BF
 
         +
         lda #$2000
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         lda #$8000
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         
         _SEC
         plx
@@ -5074,7 +4684,7 @@ BF
           cmp #5
           bne _End
 
-            lda $0D79,b
+            lda wUnknown000D79,b
             bit #$0400
             bne _End
 
@@ -5198,22 +4808,22 @@ BF
         bne ++
 
         +
-        lda #0
+        lda #FS_Player
         jsl rlCountUnitsInFactionSlotAlive
         clc
-        adc $7E3D85
-        sta $7E3D85
+        adc wTotalAlivePlayerUnitCount
+        sta wTotalAlivePlayerUnitCount
 
         +
         lda wCurrentChapter,b
         asl a
         tax
         lda wCurrentTurn,b
-        sta aChapterTurncountes,b,x
+        sta aChapterTurncounts,b,x
         lda #$FFFF
         sta wCurrentTurn,b
         lda #$0400
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         jsl rlClearUnitWindowAndTerrainWindowProcs
 
         lda wCurrentChapter,b
@@ -5279,7 +4889,7 @@ BF
         sta $0D87,b
 
         lda #$8000
-        tsb $0D79,b
+        tsb wUnknown000D79,b
 
         plp
         plb
@@ -6396,7 +6006,7 @@ BF
         stz $0302
 
         lda #$0078
-        sta $1097,b,x
+        sta aProcSystem.aBody6,b,x
 
         lda #2
         sta $7FEAAC
@@ -11350,299 +10960,6 @@ BF
 
 
 
-      rlHighlightWorldMapPart ; 8B/88CE
-
-        .al
-        .autsiz
-        .databank ?
-
-        asl a
-        tax
-        phx
-        jsr (aMapHightlightDecompressionRoutines,x)
-        plx
-
-        sep #$20
-        lda #T_Setting(false, true, true, false, true)
-        sta bBufferTS
-        rep #$20
-
-        lda #0
-        sta wBufferBG2HOFS
-        lda #0
-        sta wBufferBG2VOFS
-
-        lda #(`procUnknown8B901D)<<8
-        sta lR44+1
-        lda #<>procUnknown8B901D
-        sta lR44
-        jsl rlProcEngineCreateProc
-
-        jsl rlDMAByStruct
-
-          .structDMAToVRAM $7E7B88, 32 * 21 * size(word), $80, $A800
-
-        rtl
-
-        .databank 0
-
-      aMapHightlightDecompressionRoutines ; 8B/8903
-
-        .word <>rsDecompressVerdaneMapHighlight
-        .word <>rsDecompressAgustriaMapHighlight
-        .word <>rsDecompressSilesseMapHighlight
-        .word <>rsDecompressAedMapHighlight
-        .word <>rsDecompressIsaachMapHighlight
-        .word <>rsDecompressMunsterMapHighlight
-        .word <>rsDecompressThraciaMapHighlight
-        .word <>rsDecompressMiletosMapHighlight
-        .word <>rsDecompressGrannvaleMapHighlight
-        .word <>rsDecompressUnitedGrannvaleMapHighlight
-        .word <>rsDecompressUnifiedThraciaMapHighlight
-
-      rsDecompressVerdaneMapHighlight ; 8B/8919
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aVerdaneMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aVerdaneMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressAgustriaMapHighlight ; 8B/8936
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aAgustriaMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aAgustriaMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressSilesseMapHighlight ; 8B/8953
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aSilesseMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aSilesseMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressAedMapHighlight ; 8B/8970
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aAedMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aAedMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressIsaachMapHighlight ; 8B/898D
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aIsaachMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aIsaachMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressMunsterMapHighlight ; 8B/89AA
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aMunsterMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aMunsterMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressThraciaMapHighlight ; 8B/89C7
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aThraciaMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aThraciaMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        sta DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressMiletosMapHighlight ; 8B/89E4
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aMiletosMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aMiletosMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressGrannvaleMapHighlight ; 8B/8A01
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aGrannvaleMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aGrannvaleMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        sta DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressUnitedGrannvaleMapHighlight ; 8B/8A1E
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aUnitedGrannvaleMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aUnitedGrannvaleMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-      rsDecompressUnifiedThraciaMapHighlight ; 8B/8A3B
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>aUnifiedThraciaMapHighlightTilemap
-        stx DecompressionVariables.lSource
-        lda #`aUnifiedThraciaMapHighlightTilemap
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-        rts
-
-        .databank 0
-
-        ; 8B/8A58
 
 
 
@@ -12000,7 +11317,7 @@ BF
 
               lda #2
               sta wUnknown00171C,b
-              jsl $9180BC
+              jsl rlUnknown9180BC
         
         +
         jsr $8B8275
@@ -12061,79 +11378,6 @@ BF
 
 
 
-      rlLoadPortraitIntoSlot ; 8B/8345
-
-        .al
-        .autsiz
-        .databank ?
-
-        ldy $0302,b
-        cpy #0
-        bne +
-
-          jml $88E33D
-
-        +
-        phx
-        txy
-        jsl rlDecompressPortraitToSlot
-        plx
-
-        phx
-        lda aPortraitSlotPaletteOffsets,x
-        sec
-        sbc #2
-        tax
-
-        ldy #size(Palette) - size(word)
-
-          -
-          lda [lR19],y
-          sta aPortraitSlotsPaletteBuffer + size(Palette),x
-          dec x
-          dec x
-          dec y
-          dec y
-          bpl -
-
-        lda #$35AD
-        sta aPortraitSlotsPaletteBuffer + size(Palette) +$1E,x
-        plx
-
-        ; Portrait size
-        lda #$0800
-        sta wR0
-
-        lda #$6000
-        clc
-        adc aPortraitSlotVRAMOffsets,x
-        sta wR1
-        plx
-        jsl rlDMAByPointer
-        plx
-        rtl
-
-        .databank 0
-
-      aPortraitSlotPaletteOffsets ; 8B/838F
-
-        .word size(Palette) * 2
-        .word size(Palette) * 3
-        .word size(Palette) * 4
-        .word size(Palette) * 5
-        .word size(Palette) * 6
-        .word size(Palette) * 7
-
-      aPortraitSlotVRAMOffsets ; 8B/839B
-
-        .word $0800
-        .word $0C00
-        .word $1000
-        .word $1400
-        .word $1800
-        .word $1C00
-
-        ; 8B/83A7
 
 
 
@@ -12880,14 +12124,14 @@ BF
         lda #$00FF
 
           -
-          sta $7E7B88,x
+          sta aBG2TilemapBuffer.Page1,x
           dec x
           dec x
           bpl -
 
         jsl rlDMAByStruct
-        
-          .structDMAToVRAM $7E7B88, 32 * 21 * size(word), $80, $A800
+
+          .structDMAToVRAM aBG2TilemapBuffer.Page1, 32 * 21 * size(word), $80, $A800
 
         rtl
 
@@ -13072,24 +12316,24 @@ BF
         php
         sep #$20
         lda #$80
-        sta $70
+        sta bBufferINIDISP
         rep #$20
 
         lda #$BB9B
-        sta $D3
+        sta wVBlankPointer
         jsl $80823F
         jsl rlDisableVBlank
         jsl rlHardwareResetScreenPosMathHDMA
         jsl rlHardwareResetScreenRegisters
 
         lda #0
-        sta $02
+        sta wR1
         lda #$4000
-        sta $04
+        sta wR2
         lda #$5000
-        sta $0C
+        sta wR6
         lda #$6000
-        sta $0E
+        sta wR7
         jsl rlSetLayerPositionsAndSizes
 
         jsl rlProcEngineResetProcEngine
@@ -13210,217 +12454,6 @@ BF
 
 
 
-      rlClearAllFadeProcs ; 91/A6DD
-
-        .al
-        .autsiz
-        .databank ?
-
-        jsl rlClearAllFadeInProcs
-        jsl rlClearAllFadeOutProcs
-        rtl
-
-        .databank 0
-
-      rlClearAllFadeInProcs ; 91/A6E6
-
-        .al
-        .autsiz
-        .databank ?
-
-        php
-        
-        _Proc1
-        lda #(`procFadeIn)<<8
-        sta lR44+1
-        lda #<>procFadeIn
-        sta lR44
-        jsl rlProcEngineFindProc
-        bcc _Proc2
-
-          txa
-          lsr a
-          jsl rlProcEngineFreeProcByIndex
-          bra _Proc1
-        
-        _Proc2
-        lda #(`procFadeInByScreenFadingTimer)<<8
-        sta lR44+1
-        lda #<>procFadeInByScreenFadingTimer
-        sta lR44
-        jsl rlProcEngineFindProc
-        bcc _Proc3
-
-          txa
-          lsr a
-          jsl rlProcEngineFreeProcByIndex
-          bra _Proc2
-        
-        _Proc3
-        lda #(`procEventFadeInByTimer)<<8
-        sta lR44+1
-        lda #<>procEventFadeInByTimer
-        sta lR44
-        jsl rlProcEngineFindProc
-        bcc +
-
-          txa
-          lsr a
-          jsl rlProcEngineFreeProcByIndex
-          bra _Proc3
-
-        +
-        lda #$FFFF
-        sta wScreenFadingFlag,b
-        plp
-        rtl
-
-        .databank 0
-
-      rlClearAllFadeOutProcs ; 91/A737
-
-        .al
-        .autsiz
-        .databank ?
-
-        php
-        
-        _Proc1
-        lda #(`procFadeOut)<<8
-        sta lR44+1
-        lda #<>procFadeOut
-        sta lR44
-        jsl rlProcEngineFindProc
-        bcc _Proc2
-
-          txa
-          lsr a
-          jsl rlProcEngineFreeProcByIndex
-          bra _Proc1
-
-        _Proc2
-        lda #(`procFadeOutByScreenFadingTimer)<<8
-        sta lR44+1
-        lda #<>procFadeOutByScreenFadingTimer
-        sta lR44
-        jsl rlProcEngineFindProc
-        bcc _Proc3
-
-          txa
-          lsr a
-          jsl rlProcEngineFreeProcByIndex
-          bra _Proc2
-
-        _Proc3
-        lda #(`procEventFadeOutByTimer)<<8
-        sta lR44+1
-        lda #<>procEventFadeOutByTimer
-        sta lR44
-        jsl rlProcEngineFindProc
-        bcc +
-
-          txa
-          lsr a
-          jsl rlProcEngineFreeProcByIndex
-          bra _Proc3
-
-        +
-        lda #$FFFF
-        sta wScreenFadingFlag,b
-        plp
-        rtl
-
-        .databank 0
-
-        ; 91/A788
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-81C000
-
-  .word $0074 > <>$81C074 - $81C000 ; 00 UNITGroup00Pointer
-  .word $018C > <>$81C18C - $81C000 ; 01 UNITGroup01Pointer
-  .word $020C > <>$81C20C - $81C000 ; 02 UNITGroup02Pointer
-  .word $02AC > <>$81C2AC - $81C000 ; 03 UNITGroup03Pointer
-  .word $035C > <>$81C35C - $81C000 ; 04 UNITGroup04Pointer
-  .word $03C4 > <>$81C3C4 - $81C000 ; 05 UNITGroup05Pointer
-  .word $0414 > <>$81C414 - $81C000 ; 06 UNITGroup06Pointer
-  .word $04D4 > <>$81C4D4 - $81C000 ; 07 UNITGroup07Pointer
-  .word $04EC > <>$81C4EC - $81C000 ; 08 UNITGroup08Pointer
-  .word $05E4 > <>$81C5E4 - $81C000 ; 09 UNITGroup09Pointer
-  .word $0634 > <>$81C634 - $81C000 ; 10 UNITGroup10Pointer
-  .word $06FC > <>$81C6FC - $81C000 ; 11 UNITGroup11Pointer
-  .word $0844 > <>$81C844 - $81C000 ; 12 UNITGroup12Pointer
-  .word $08DC > <>$81C8DC - $81C000 ; 13 UNITGroup13Pointer
-  .word $0A64 > <>$81CA64 - $81C000 ; 14 UNITGroup14Pointer
-  .word $0B3C > <>$81CB3C - $81C000 ; 15 UNITGroup15Pointer
-  .word $0B84 > <>$81CB84 - $81C000 ; 16 UNITGroup16Pointer
-  .word $0CE4 > <>$81CCE4 - $81C000 ; 17 UNITGroup17Pointer
-  .word $0E14 > <>$81CE14 - $81C000 ; 18 UNITGroup18Pointer
-  .word $0F8C > <>$81CF8C - $81C000 ; 19 UNITGroup19Pointer
-  .word $0FCC > <>$81CFCC - $81C000 ; 20 UNITGroup20Pointer
-  .word $1054 > <>$81D054 - $81C000 ; 21 UNITGroup21Pointer
-  .word $10BC > <>$81D0BC - $81C000 ; 22 UNITGroup22Pointer
-  .word $110C > <>$81D10C - $81C000 ; 23 UNITGroup23Pointer
-  .word $11D4 > <>$81D1D4 - $81C000 ; 24 UNITGroup24Pointer
-  .word $135C > <>$81D35C - $81C000 ; 25 UNITGroup25Pointer
-  .word $13B4 > <>$81D3B4 - $81C000 ; 26 UNITGroup26Pointer
-  .word $140C > <>$81D40C - $81C000 ; 27 UNITGroup27Pointer
-  .word $14D4 > <>$81D4D4 - $81C000 ; 28 UNITGroup28Pointer
-  .word $15FC > <>$81D5FC - $81C000 ; 29 UNITGroup29Pointer
-  .word $167C > <>$81D67C - $81C000 ; 30 UNITGroup30Pointer
-  .word $1764 > <>$81D764 - $81C000 ; 31 UNITGroup31Pointer
-  .word $182C > <>$81D82C - $81C000 ; 32 UNITGroup32Pointer
-  .word $1894 > <>$81D894 - $81C000 ; 33 UNITGroup33Pointer
-  .word $18CC > <>$81D8CC - $81C000 ; 34 UNITGroup34Pointer
-  .word $1A04 > <>$81DA04 - $81C000 ; 35 UNITGroup35Pointer
-  .word $1ADC > <>$81DADC - $81C000 ; 36 UNITGroup36Pointer
-  .word $1BB4 > <>$81DBB4 - $81C000 ; 37 UNITGroup37Pointer
-  .word $1CBC > <>$81DCBC - $81C000 ; 38 UNITGroup38Pointer
-  .word $1D34 > <>$81DD34 - $81C000 ; 39 UNITGroup39Pointer
-  .word $1E9C > <>$81DE9C - $81C000 ; 40 UNITGroup40Pointer
-  .word $1EAC > <>$81DEAC - $81C000 ; 41 UNITGroup41Pointer
-  .word $1ED4 > <>$81DED4 - $81C000 ; 42 UNITGroup42Pointer
-  .word $1FCC > <>$81DFCC - $81C000 ; 43 UNITGroup43Pointer
-  .word $2024 > <>$81E024 - $81C000 ; 44 UNITGroup44Pointer
-  .word $20D4 > <>$81E0D4 - $81C000 ; 45 UNITGroup45Pointer
-  .word $2254 > <>$81E254 - $81C000 ; 46 UNITGroup46Pointer
-  .word $232C > <>$81E32C - $81C000 ; 47 UNITGroup47Pointer
-  .word $23D4 > <>$81E3D4 - $81C000 ; 48 UNITGroup48Pointer
-  .word $24B4 > <>$81E4B4 - $81C000 ; 49 UNITGroup49Pointer
-  .word $260C > <>$81E60C - $81C000 ; 50 UNITGroup50Pointer
-  .word $278C > <>$81E78C - $81C000 ; 51 UNITGroup51Pointer
-  .word $287C > <>$81E87C - $81C000 ; 52 UNITGroup52Pointer
-  .word $2914 > <>$81E914 - $81C000 ; 53 UNITGroup53Pointer
-  .word $29E4 > <>$81E9E4 - $81C000 ; 54 UNITGroup54Pointer
-  .word $2A2C > <>$81EA2C - $81C000 ; 55 UNITGroup55Pointer
-  .word $2B1C > <>$81EB1C - $81C000 ; 56 UNITGroup56Pointer
-  .word $2B54 > <>$81EB54 - $81C000 ; 57 UNITGroup57Pointer
-
-
-81EBBC
-
-
-
-
 
 
 
@@ -13454,12 +12487,12 @@ BF
         .databank ?
 
         ; wR0 = CharacterID
-        ; wR1 = ?
-        ; wR2 = spawn X coord?
-        ; wR3 = spawn y coord?
+        ; wR1 = movement speed
+        ; wR2 = spawn X coord
+        ; wR3 = spawn y coord
         ; wR4 = dest X coordinate
         ; wR5 = dest Y coordinate
-        ; wR6 = allegiance color?
+        ; wR6 = sprite color
         ; wR7 = 0 or 1 ?
 
         phx
@@ -13710,12 +12743,12 @@ BF
         phk
         plb
 
-        lda wActiveMoversMapSprites,b,x
+        lda aMovingMapSpritesMapSprites,b,x
         and #$8000
         bne +
 
           ; Short map sprites
-          lda wActiveMoversMapSprites,b,x
+          lda aMovingMapSpritesMapSprites,b,x
           phx
           and #$7FFF
           sta wR0
@@ -13743,7 +12776,7 @@ BF
 
         ; Tall map sprite
         +
-        lda wActiveMoversMapSprites,b,x
+        lda aMovingMapSpritesMapSprites,b,x
         phx
         and #$7FFF
         sta wR0
@@ -14879,7 +13912,7 @@ BF
         .databank ?
 
         lda #0
-        jsl rlUnknown91913B
+        jsl rlDialogueUpdateSlotOffset
 
         lda #pack([28, 6])
         sta aDialogue._Slot[0].wDisplayArea,b,x
@@ -14900,7 +13933,7 @@ BF
         .databank ?
 
         lda #1
-        jsl rlUnknown91913B
+        jsl rlDialogueUpdateSlotOffset
 
         lda #pack([28, 6])
         sta aDialogue._Slot[0].wDisplayArea,b,x
@@ -14997,7 +14030,7 @@ BF
         +
         lda #2
         sta $088B,b
-        lda #$B6B6
+        lda #<>$80B6B6
         sta aProcSystem.wInput0,b
         lda #(`procUnknown828364)<<8
         sta lR44+1
@@ -16913,96 +15946,25 @@ BF
 
 
 
-      rlUnknown84B613 ; 84/B613
 
-        .al
-        .autsiz
-        .databank ?
 
-        phb
-        php
-        phk
-        plb
-        phy
-        ldy lR18
-        sep #$20
-        lda lR18+2
-        pha
-        rep #$20
-        plb
 
-        lda $0000,b,y
-        jsl rlGetUnitRAMDataPointerByID
-        bcs _End
 
-          jsl rlGetSelectedUnitDeploymentOffset
-          sta wR0
 
-          lda $0002,b,y
-          and #$00FF
-          sta wSelectedInventorySlot,b
 
-          lda $0004,b,y
-          jsl rlGetUnitRAMDataPointerByID
-          bcs _End
 
-            jsl rlGetSelectedUnitDeploymentOffset
-            sta wR1
 
-            lda lR18
-            clc
-            adc #$000D
-            sta lR18
 
-            lda lR18
-            pha
-            lda lR18+1
-            pha
 
-            jsl rlActionStructGetBattleStats
 
-            sep #$20
-            lda $000D,b,y
-            and #$01
-            ora wBattleStatus
-            sta wBattleStatus
-            rep #$20
 
-            lda $0007,b,y
-            sta lR18
-            lda $0007+1,b,y
-            sta lR18+1
-            lda #0
-            jsl rlSetBattleDeathQuotes
 
-            lda $000A,b,y
-            sta lR18
-            lda $000A+1,b,y
-            sta lR18+1
-            lda #1
-            jsl rlSetBattleDeathQuotes
 
-            pla
-            sta lR18+1
-            pla
-            sta lR18
 
-            sep #$20
-            lda #0
-            sta wBattleType
-            rep #$20
 
-            jsl rlUnknown84DF87
 
-        _End
-        ply
-        plp
-        plb
-        rtl
 
-        .databank 0
 
-        ; 84/B6A6
 
 
 
@@ -17019,91 +15981,6 @@ BF
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      rlApplyMapTileChange ; 86/C6E8
-
-        .al
-        .autsiz
-        .databank ?
-
-        phx
-        phy
-        tay
-        lda wR1
-        xba
-        lsr a
-        lsr a
-        clc
-        adc wR0
-        asl a
-        tax
-        lda $0000,b,y
-        and #$00FF
-        sta wR12
-        lda $0001,b,y
-        and #$00FF
-        sta wR11
-
-        lda #64
-        sec
-        sbc wR12
-        asl a
-        sta wR13
-        
-          _OuterLoop
-          lda wR12
-          sta wR10
-          
-            _InnerLoop
-            lda $0002,b,y
-            bmi +
-
-              lda aMapData,x
-              and #$FC00
-              ora $0002,b,y
-              sta aMapData,x
-
-            +
-            inc y
-            inc y
-            inc x
-            inc x
-            dec wR10
-            bne _InnerLoop
-
-          txa
-          clc
-          adc wR13
-          tax
-          dec wR11
-          bne _OuterLoop
-
-        ply
-        plx
-        rtl
-
-        .databank 0
-
-        ; 86/C739
 
 
 
@@ -17617,7 +16494,7 @@ BF
         jsl rlResetHDMAEngine
         jsl $82E073
         jsl $82E400
-        jsl $8780AA
+        jsl rlUnknown8780AA
         jsl $82F211
         lda #$00FF
         sta $053E,b
@@ -17751,7 +16628,7 @@ BF
         .databank ?
 
         lda #$0020
-        trb $0D79,b
+        trb wUnknown000D79,b
 
         lda #(`aMapMenuRAMArea)<<8
         sta lR18+1
@@ -17938,7 +16815,7 @@ BF
         rep #$20
 
         lda bBufferBG3SC
-        and #$00FC
+        and #BGSC_Address
         xba
         sta $0516,b
         lda #(`aBG3TilemapBuffer)<<8
@@ -17972,9 +16849,25 @@ BF
 
         .databank 0
 
-        ; 87/80EC
+      rlUnknown8780EC ; 87/80EC
 
+        .al
+        .autsiz
+        .databank ?
 
+        phb
+        php
+        phk
+        plb
+        lda #$0080
+        trb bUnknown000521,b
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 87/80F9
 
 
 
@@ -18986,7 +17879,7 @@ BF
         _E37D
         jsl rlLoadMapMenuEntryPointerFromProcBody
         lda #1
-        sta $1097,b,x
+        sta aProcSystem.aBody6,b,x
         jsr $858542
         bra -
 
@@ -19024,7 +17917,7 @@ BF
           jsl rlUnknown8582BA
           lda #1
           sta $00
-          lda $1097,b,x
+          lda aProcSystem.aBody6,b,x
           sta $02
           jsl rlUnknown82F3E5
           jsr $8584A1
@@ -19051,7 +17944,7 @@ BF
         bit #JOY_Up
         beq _8472
 
-          lda $1097,b,x
+          lda aProcSystem.aBody6,b,x
           sec
           sbc #2
           bpl +
@@ -19064,7 +17957,7 @@ BF
               dec a
 
           +
-          sta $1097,b,x
+          sta aProcSystem.aBody6,b,x
           lda #6
           jsl $808FAD
           bra _849A
@@ -19074,7 +17967,7 @@ BF
         bit #JOY_Down
         beq _849A
 
-          lda $1097,b,x
+          lda aProcSystem.aBody6,b,x
           clc
           adc #2
           cmp $00
@@ -19088,7 +17981,7 @@ BF
               lda #1
 
           +
-          sta $1097,b,x
+          sta aProcSystem.aBody6,b,x
           lda #6
           jsl $808FAD
         
@@ -19471,7 +18364,7 @@ BF
             jsl rlUnknown80900D
 
             jsl rlSetLocationDestroyed
-            inc $0D73,b
+            inc wDestroyedLocationsCount,b
             jsl rlHandleEventLocationModification
             jsl rlUnknown888410
             bra _End
@@ -19564,7 +18457,113 @@ BF
 
         .databank 0
 
-        ; 84/CF0F
+      rlUnknown84CF0F ; 84/CF0F
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        lda wR0
+        pha
+
+        lda $0580,b
+        bne +
+
+          jml _End
+
+        +
+        sta wEventLocationEntry,b
+        jsl rlGetEventLocationEntryType
+        cmp #LocationTypeVillage
+        beq +
+
+          jml _End
+
+        +
+        jsl rlUnknown84CAA9
+
+        lda #500
+        jsl rlSubtractEventLocationMoneyReward
+        bcc +
+
+          jsl rlSetLocationDestroyed
+          lda aDeploymentTable._UnitRAMPointer,x
+          sta wSelectedUnitDataRAMPointer,b
+          jsl rlGetSelectedUnitFactionSlot
+          sta wR0
+          lda #2
+          sta bEventActionIdentifier,b
+          lda wR0
+          sta wEventEngineArgument1,b
+          jsl rlGetEventLocationEntryID
+          sta wEventEngineArgument2,b
+          jsl rlGetAndRunChapterMapEventConditions
+
+        +
+        jsl rlHandleEventLocationModification
+        lda aDeploymentTable._UnitRAMPointer,x
+        sta wSelectedUnitDataRAMPointer,b
+        txa
+        sta $7E4EA9
+
+        lda aDeploymentTable._XTilePosition,x
+        sta $7E4EAB
+        lda aDeploymentTable._YTilePosition,x
+        sta $7E4EAD
+        jsl rlGetSelectedUnitClassID
+        sta $7E4EAF
+
+        jsl rlGetFirstEquippableWeaponInInventory
+        jsl rlGetItemIDByInventorySlot
+        sta $7E4EB1
+
+        jsl $87F321
+        sta $7E4EB3
+        lda #5000
+        sta $7E4EB5
+        jsl rlGetEventLocationMoneyReward
+        sta $7E4EB7
+        lda #500
+        sta $7E4EB9
+        jsl $9E9A34
+        
+        _End
+        pla
+        sta wR0
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 84/CFBF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -20334,7 +19333,7 @@ BF
         +
         lda wSelectedUnitDataRAMPointer,b
         pha
-        
+
         lda #$000A
         sta bEventActionIdentifier,b
         jsl rlGetSelectedUnitCharacterID
@@ -20496,87 +19495,7 @@ BF
 
 
 
-      rlUnknown91EB0F ; 91/EB0F
 
-        .al
-        .autsiz
-        .databank ?
-
-        phx
-        phy
-        cmp #$0030
-        bcc +
-
-          brk
-
-        +
-        tax
-        sta $1B27,b
-        lda $7E7358,x
-        and #$00FF
-        cmp #$00FF
-        beq +
-
-          lda $7E7358,x
-          inc a
-          sta $7E7358,x
-
-        +
-        ldy #0
-        
-          _Loop
-          lda $0D69,b
-          and #$FF00
-          ora $1B0F,b
-          and #$FF7F
-          sta $1B29,b
-
-          lda $1B11,b,y
-          and #$FF7F
-          cmp $1B29,b
-          bne _Next
-
-            tya
-            lsr a
-            jsr rsUnknown91EB5C
-
-          _Next
-          inc y
-          inc y
-          cpy #8
-          bne _Loop
-
-        ply
-        plx
-        rtl
-
-        .databank 0
-
-      rsUnknown91EB5C ; 91/EB5C
-
-        .al
-        .autsiz
-        .databank ?
-
-        jsr $91EC85
-        clc
-        adc $1B27,b
-        tax
-        sep #$20
-        lda $3067C0,x
-        cmp #$FF
-        beq +
-
-          inc a
-          sta $3067C0,x
-
-        +
-        rep #$20
-        rts
-
-        .databank 0
-
-        ; 91/EB76
 
 
 
@@ -20655,6 +19574,211 @@ BF
 
 
 
+      procUnknown9EAC69 .structProcInfo "ON", rlProcUnknown9EAC69Init, rlProcUnknown9EAC69Cycle, aProcUnknown9EAC69Code ; 9E/AC69
+
+      rlProcUnknown9EAC69Init ; 9E/AC71
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda $0302,b
+        sta aProcSystem.aBody7,x
+
+        stz $0302,b
+        stz aProcSystem.aHeaderBitfield,b,x
+
+        lda $7E4EB7
+        tax
+        lda $7E4EB9
+        tay
+        lda $7E4EBB
+        jsl rlUnknown9E8D25
+
+        lda wR0
+        and #$00FF
+        sta $7F4578
+        lda wR1
+        and #$00FF
+        sta $7F457A
+        lda #0
+        sta $7F4C05
+        sta $7F4C07
+        rtl
+
+        .databank 0
+
+      rlProcUnknown9EAC69Cycle ; 9E/ACAE
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+      aProcUnknown9EAC69Code ; 9E/ACAF
+
+        PROC_YIELD 1
+        PROC_SET_ONCYCLE $9ECA45
+
+        PROC_YIELD 48
+        PROC_CALL $9EC91A
+
+        PROC_JUMP_IF_BITS_UNSET _ACD1, $0002
+
+            _ACC2
+            PROC_YIELD 1
+            PROC_CALL $9EC944
+
+            PROC_JUMP_IF_BITS_UNSET _ACC2, $0004
+
+          YIELD 1
+
+        _ACD1
+        PROC_CALL $9E9342
+        PROC_JUMP_IF_BITS_UNSET _ACFC, $0002
+
+          PROC_CALL $9EB3F3
+          PROC_JUMP_IF_BITS_UNSET _ACEE, $0004
+
+            PROC_YIELD 16
+            PROC_CALL $9EB4A9
+
+        _ACEE
+        PROC_YIELD 1
+        PROC_SET_ONCYCLE $9E936B
+        PROC_JUMP_IF_BITS_UNSET _ACEE, $0004
+
+        PROC_YIELD 107
+
+        _ACFC
+        PROC_CALL $9E952D
+
+        PROC_JUMP_IF_BITS_UNSET _AD22, $0002
+        PROC_CALL $9EB3F3
+
+        PROC_JUMP_IF_BITS_UNSET _AD14, $0004
+
+          PROC_YIELD 16
+
+        _AD14
+        PROC_SET_ONCYCLE $9E95AB
+
+        _AD18
+        PROC_YIELD 1
+        PROC_JUMP_IF_BITS_UNSET _AD18, $0004
+
+        PROC_YIELD 8
+
+        _AD22
+        PROC_CALL $9E9928
+
+        PROC_JUMP_IF_BITS_UNSET _AD48, $0002
+
+        PROC_CALL $9EB3F3
+        PROC_JUMP_IF_BITS_UNSET _AD3A, $0004
+
+          PROC_YIELD 16
+
+        _AD3A
+        PROC_CALL $9EB491
+        PROC_YIELD 117
+        PROC_CALL $85DB91
+        PROC_YIELD 8
+
+        _AD48
+        PROC_CALL $9E985E
+
+        PROC_JUMP_IF_BITS_UNSET _AD6E, $0002
+
+        PROC_CALL $9EB3F3
+
+        PROC_JUMP_IF_BITS_UNSET _AD60, $0004
+
+          PROC_YIELD 16
+
+        _AD60
+        PROC_CALL $9EB49D
+        PROC_YIELD 117
+        PROC_CALL $85DB91
+        PROC_YIELD 8
+
+        _AD6E
+        PROC_CALL $9EB41C
+        PROC_YIELD 16
+        PROC_SET_ONCYCLE $9EAD7B
+        PROC_HALT
+
+        ; AD7B
+
+
+
+
+
+
+
+      rlUnknown9E8D25 ; 9E/8D25
+
+        .al
+        .autsiz
+        .databank ?
+
+        sta wR0
+        lda wBattleType
+        and #$00FF
+        cmp #3
+        beq +
+
+          txa
+          asl a
+          asl a
+          asl a
+          asl a
+          clc
+          adc #8
+          sec
+          sbc wMapScrollXPixels,b
+          sta wR0
+
+          tya
+          asl a
+          asl a
+          asl a
+          asl a
+          clc
+          adc #8
+          sec
+          sbc wMapScrollYPixels,b
+          sta wR1
+          rtl
+
+        +
+        lda wR0
+        sta wSelectedUnitDataRAMPointer
+        jsl rlGetSelectedUnitGenerationID
+        dec a
+        asl a
+        tax
+        lda $7F75DA,x
+        sta wR0
+        lda $7F760A,x
+        sta wR1
+        rtl
+
+        .databank 0
+
+        ; 9E/8D6C
+
+
+
+
+
+
+
+
+
 
       rlUnknown829478 ; 82/9478
 
@@ -20662,9 +19786,11 @@ BF
         .autsiz
         .databank ?
 
-        lda #(`$828B2B)<<8
+        ; Halt until $0002 of $7F4C07 is set
+
+        lda #(`procUnknown828B2B)<<8
         sta lR44+1
-        lda #<>$828B2B
+        lda #<>procUnknown828B2B
         sta lR44
         jsl rlEventEngineCreateProc
         rtl
@@ -20885,7 +20011,7 @@ D0 04         bne _End
         phx
 
         lda #$0010
-        trb $0D79,b
+        trb wUnknown000D79,b
 
         ldx wSelectedUnitDataRAMPointer,b
         lda #$2100
@@ -20958,7 +20084,97 @@ D0 04         bne _End
 
         .databank 0
 
-        ; 84/B613
+      rlUnknown84B613 ; 84/B613
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        phy
+        ldy lR18
+        sep #$20
+        lda lR18+2
+        pha
+        rep #$20
+        plb
+
+        lda $0000,b,y
+        jsl rlGetUnitRAMDataPointerByID
+        bcs _End
+
+          jsl rlGetSelectedUnitDeploymentOffset
+          sta wR0
+
+          lda $0002,b,y
+          and #$00FF
+          sta wSelectedInventorySlot,b
+
+          lda $0004,b,y
+          jsl rlGetUnitRAMDataPointerByID
+          bcs _End
+
+            jsl rlGetSelectedUnitDeploymentOffset
+            sta wR1
+
+            lda lR18
+            clc
+            adc #$000D
+            sta lR18
+
+            lda lR18
+            pha
+            lda lR18+1
+            pha
+
+            jsl rlActionStructGetBattleStats
+
+            sep #$20
+            lda $000D,b,y
+            and #$01
+            ora wBattleStatus
+            sta wBattleStatus
+            rep #$20
+
+            lda $0007,b,y
+            sta lR18
+            lda $0007+1,b,y
+            sta lR18+1
+            lda #0
+            jsl rlSetBattleDeathQuotes
+
+            lda $000A,b,y
+            sta lR18
+            lda $000A+1,b,y
+            sta lR18+1
+            lda #1
+            jsl rlSetBattleDeathQuotes
+
+            pla
+            sta lR18+1
+            pla
+            sta lR18
+
+            sep #$20
+            lda #0
+            sta wBattleType
+            rep #$20
+
+            jsl rlUnknown84DF87
+
+        _End
+        ply
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 84/B6A6
+
 
 
 
@@ -20989,11 +20205,11 @@ D0 04         bne _End
         jsl rlGetAndRunChapterMapEventConditions
         bcc +
 
-        lda wSelectedUnitDataRAMPointer,b
-        sta $08BA,b
-        lda #2
-        sta $0304,b
-        rtl
+          lda wSelectedUnitDataRAMPointer,b
+          sta $08BA,b
+          lda #2
+          sta $0304,b
+          rtl
 
         +
         jsl rlDisableVBlank
@@ -21003,16 +20219,16 @@ D0 04         bne _End
         sta wR1
         lda #0
         sta wR2
-        lda #$4000
+        lda #$8000 >> 1
         sta wR3
         sta wR4
-        lda #$6000
+        lda #$C000 >> 1
         sta wR5
-        lda #$5000
+        lda #$A000 >> 1
         sta wR6
-        lda #$5400
+        lda #$A800 >> 1
         sta wR7
-        lda #$5800
+        lda #$B000 >> 1
         sta wR8
         jsl rlSetLayerPositionsAndSizes
 
@@ -21062,9 +20278,9 @@ D0 04         bne _End
 
           tax
           sep #$20
-          lda $0D71,b
+          lda wAreaRestrictionBitfield,b
           ora $81B45B,x
-          sta $0D71,b
+          sta wAreaRestrictionBitfield,b
           rep #$20
 
         +
@@ -21209,7 +20425,7 @@ D0 04         bne _End
         sta wBufferBG3HOFS
         lda #$20FF
         sta $053C,b
-        jsl $8788E5
+        jsl rlUnknown8788E5
         jsl $85A234
         rtl
 
@@ -21700,27 +20916,6 @@ D0 04         bne _End
 
 
 
-      aWorldMapEvents ; 8D/FC56
-
-        .addr aEventPrologueWorldMap
-        .addr aEventChapter01WorldMap
-        .addr aEventChapter02WorldMap
-        .addr aEventChapter03WorldMap
-        .addr aEventChapter04WorldMap
-        .addr $FE0E
-        .addr $FE28
-        .addr $FE7C
-        .addr $FEBD
-        .addr $FEF1
-        .addr $FF1A
-        .addr $FF41
-        .addr aEventPrologueWorldMap
-
-
-
-
-
-
 
 
 
@@ -22043,13 +21238,76 @@ D0 04         bne _End
 
         .databank 0
 
-        ; 87/8B98
+      rlUnknown878B98 ; 87/8B98
 
+        .al
+        .autsiz
+        .databank ?
 
+        phb
+        php
+        phk
+        plb
+        phx
+        phy
+        lda wUnknown053C,b
+        sta wR0
 
+        ldy lMapMenuTilemapRAMEntryPointer,b
+        sep #$20
+        lda lMapMenuTilemapRAMEntryPointer+2,b
+        pha
+        rep #$20
+        plb
 
+        lda $0006,b,y
+        sta lR20
+        lda $0007,b,y
+        sta lR20+1
 
+        ; Width * Height
+        sep #$20
+        lda $0000,b,y
+        sta WRMPYA
+        lda $0001,b,y
+        sta WRMPYB
+        nop
+        nop
+        nop
+        rep #$20
+        lda RDMPY
+        dec a
+        tax
 
+        asl a
+        clc
+        adc lR20
+        tay
+
+        sep #$20
+        lda lR20+2
+        pha
+        rep #$20
+        plb
+
+        lda wR0
+
+          -
+          sta $0000,b,y
+          dec y
+          dec y
+          dec x
+          bpl -
+
+        ply
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 87/8BF0
 
 
 
@@ -22424,17 +21682,7 @@ D0 04         bne _End
 
 
 
-      rlUnknownB0CFDE ; B0CFDE
 
-        .al
-        .autsiz
-        .databank ?
-
-        jsl rlUnknown9ED42A
-        jsl rlUnknown829478
-        rtl
-
-        .databank 0
 
 
 
@@ -23322,39 +22570,52 @@ D0 04         bne _End
 
         .databank 0
 
-        ; 84/8ED7
-
-
-
-
-
-
-
-
-
-
-      rlASMCUnknownB298FF ; B2/98FF
+      rsEvaluateSpecifiedRankingScore ; 84/8ED7
 
         .al
         .autsiz
         .databank ?
 
-        ldx #len(aDeploymentTable._State)
+        phx
+        phy
+        ldx #0
 
           _Loop
-          lda aDeploymentTable._StateBuffer-2,x
-          and #~(DeploymentStateGrayed | DeploymentStateAsleep)
-          sta aDeploymentTable._State-2,x
-          sta aDeploymentTable._StateBuffer-2,x
-          dec x
-          dec x
-          bne _Loop
+          lda $0000,b,y
+          dec a
+          cmp wRoutineVariable1,b
+          bpl _Next
 
-        rtl
+            lda $0002,b,y
+            cmp wRoutineVariable1,b
+            bcs _End
+
+          _Next
+          inc x
+          inc y
+          inc y
+          inc y
+          inc y
+          cpx #4
+          bcc _Loop
+
+        _End
+        txa
+        ply
+        plx
+        rts
 
         .databank 0
 
-        ; B2/9916
+        ; 84/8EFB
+
+
+
+
+
+
+
+
 
 
 
@@ -23399,7 +22660,7 @@ size 12
 
         .structProcInfo "PC", rlProcDialogueBoxInit, rlProcDialogueBoxCycle1, $858398
 
-        .long $859BDA
+        .long aDialogueBoxMapMenuData
         .byte 0
 
         ; Handles writing the necessary BG tiles to the BG2, increasing in width over time 
@@ -23484,7 +22745,7 @@ size 12
         lda #<>rlProcDialogueBoxCycle3
         sta aProcSystem.aHeaderOnCycle,b,x
         lda #$0002
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         rtl
 
         .databank 0
@@ -23496,7 +22757,7 @@ size 12
         .databank ?
 
         lda #$0002
-        tsb $0D79,b
+        tsb wUnknown000D79,b
 
         jsl rlCheckDialogueBoxHDMAFinished
         bcs +
@@ -23563,7 +22824,7 @@ size 12
         jsl rlUnknown87829A
         jsl rlMapMenuBuildTilemap
         lda #$0002
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         rtl
 
         .databank 0
@@ -23580,7 +22841,7 @@ size 12
           lda aProcSystem.aBody5,b,x
           sta aProcSystem.wInput0,b
           lda #$0002
-          tsb $0D79,b
+          tsb wUnknown000D79,b
           jsl rlLoadMapMenuEntryPointerFromProcBody
           jsl rlGetMapMenuTilemapArea
           sec
@@ -23593,7 +22854,7 @@ size 12
         jsl $8586FA
         jsl $85AB2A
         lda #$0002
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         lda #<>rlProcDialogueBoxCycle6
         sta aProcSystem.aHeaderOnCycle,b,x
         rtl
@@ -23882,7 +23143,7 @@ size 12
         pha
 
         lda #$0001
-        tsb $0D79,b
+        tsb wUnknown000D79,b
 
         ldy lMapMenuRAMEntryPointer,b
         sep #$20
@@ -24208,7 +23469,31 @@ size 12
 
         .databank 0
 
-        ; 87/88E5
+      rlUnknown8788E5 ; 87/88E5
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl rlGetMapMenuTilemapRAMEntryPointer
+        jsl rlUnknown878B98
+        rtl
+
+        .databank 0
+
+      rlUnknown8788EE ; 87/88EE
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl rlGetMapMenuTilemapRAMEntryPointer
+        jsl rlUnknown878C8C
+        rtl
+
+        .databank 0
+
+        ; 87/88F7
 
 
 
@@ -24217,6 +23502,160 @@ size 12
 
 
 
+      rlUnknown878C8C ; 87/8C8C
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        phb
+        phx
+        phy
+
+        sep #$20
+        lda lR18+2
+        pha
+        rep #$20
+        plb
+
+        lda lR18
+        clc
+        adc #$000E
+        tay
+
+        ldx #$000E
+
+          -
+          lda $0000,b,y
+          clc
+          adc aCurrentTilemapInfo.wBaseTile,b
+          sta wR1,x
+          dec y
+          dec y
+          dec x
+          dec x
+          bpl -
+
+        phk
+        plb
+
+        ldy lMapMenuTilemapRAMEntryPointer,b
+        sep #$20
+        lda lMapMenuTilemapRAMEntryPointer+2,b
+        pha
+        rep #$20
+        plb
+
+        lda $0006,b,y
+        sta lR18
+        lda $0006+1,b,y
+        sta lR18+1
+        lda $0000,b,y
+        and #$00FF
+        sta wR9
+        lda $0001,b,y
+        and #$00FF
+        sta wR10
+
+        sep #$20
+        lda lR18+2
+        pha
+        rep #$20
+        plb
+
+        sep #$20
+        lda wR9
+        sta WRMPYA
+        lda wR10
+        dec a
+        sta WRMPYB
+        nop
+        nop
+        nop
+        rep #$20
+
+        lda RDMPY
+        asl a
+        clc
+        adc lR18
+        tay
+
+        ldx lR18
+        lda wR1
+        sta $0000,b,x
+        inc x
+        inc x
+        lda wR6
+        sta $0000,b,y
+        inc y
+        inc y
+        lda wR9
+        dec a
+        dec a
+        sta wR0
+
+          -
+          lda wR2
+          sta $0000,b,x
+          lda wR7
+          sta $0000,b,y
+          inc x
+          inc x
+          inc y
+          inc y
+          dec wR0
+          bne -
+
+        lda wR3
+        sta $0000,b,x
+        lda wR8
+        sta $0000,b,y
+        asl wR9
+
+        lda wR9
+        clc
+        adc lR18
+        tax
+
+        clc
+        adc wR9
+        dec a
+        dec a
+        tay
+
+        lda wR10
+        dec a
+        dec a
+        sta wR0
+
+          -
+          lda wR4
+          sta $0000,b,x
+          lda wR5
+          sta $0000,b,y
+
+          txa
+          clc
+          adc wR9
+          tax
+
+          tya
+          clc
+          adc wR9
+          tay
+          dec wR0
+          bne -
+
+        ply
+        plx
+        plb
+        plp
+        rtl
+
+        .databank 0
+
+        ; 87/8D61
 
 
 
@@ -24327,98 +23766,6 @@ EB DC 85
 
 
 
-
-
-8D920D
-
-
-        .word $928B ; Sigurd,a
-        .word $9291 ; Naoise,a
-        .word $9298 ; Alec,aCh
-        .word $929D ; Arden,aC
-        .word $92A3 ; Finn,aCh
-        .word $92A8 ; Quan,aCh
-        .word $92AE ; Midir,aC
-        .word $92B5 ; Lewyn,aC
-        .word $92BB ; Chulainn
-        .word $92C0 ; Azelle,a
-        .word $92C5 ; Jamke,aC
-        .word $92CB ; Claud,aC
-        .word $92D1 ; Beowulf,
-        .word $92DB ; Lex,aCha
-        .word $92E1 ; Dew,aCha
-        .word $92E6 ; Deirdre,
-        .word $92ED ; Ethlyn,a
-        .word $92F3 ; Lachesis
-        .word $92F9 ; Ayra,aCh
-        .word $92FE ; Erinys,a
-        .word $9304 ; Tailtiu,
-        .word $930B ; Silvia,a
-        .word $9312 ; Edain,aC
-        .word $9319 ; Brigid,a
-        .word $9320 ; Seliph,a
-        .word $9325 ; Shannan,
-        .word $932B ; Dalvin,a
-        .word $9332 ; Asaello,
-        .word $9338 ; Leif,aCh
-        .word $933D ; Iuchar,a
-        .word $9342 ; Charlot,
-        .word $9349 ; Hawk,aCh
-        .word $934E ; Tristan,
-        .word $9355 ; OldFinn,
-        .word $935A ; Deimne,a
-        .word $9360 ; Hannibal
-        .word $9367 ; Ares,aCh
-        .word $936C ; Amid,aCh
-        .word $9375 ; Oifey,aC
-        .word $937B ; Daisy,aC
-        .word $9381 ; Creidne,
-        .word $9387 ; Muirne,a
-        .word $938B ; Julia,aC
-        .word $9390 ; Altena,a
-        .word $9396 ; Hermina,
-        .word $939C ; Linda,aC
-        .word $93A1 ; Laylea,a
-        .word $93A7 ; Jeanne,a
-        .word $93AD ; Iucharba
-        .word $93B4 ; Scathach
-        .word $93BA ; Febail,a
-        .word $93C0 ; Coirpre,
-        .word $93C6 ; Ced,aCha
-        .word $93CB ; Diarmuid
-        .word $93D2 ; Lester,a
-        .word $93D8 ; Arthur,a
-        .word $93DE ; Patty,aC
-        .word $93E3 ; Larcei,a
-        .word $93E9 ; Lana,aCh
-        .word $93ED ; Fee,aCha
-        .word $93F2 ; Tine,aCh
-        .word $93F8 ; Lene,aCh
-        .word $93FD ; Nanna,aC
-
-; 8D928B dialogueNameSigurd
-
-
-
-
-8D9402
-
-14 95 
-1B 95 
-23 95 
-2A 95 
-32 95 
-3B 95 
-43 95 
-4B 95 
-54 95 5C 95 65 95 6E 95 7A 95 83 95 8B 95 93 95 9B 95 A3 95 AC 95 B3 95 BE 95 C7 95 D0 95 D7 95 E0 95 E8 95 E8 95 E8 95 F0 95 F7 95 FF 95 06 96 0B 96 13 96 1C 96 24 96 2B 96 32 96 32 96 32 96 3A 96 41 96 49 96 50 96 59 96 60 96 65 96 65 96 65 96 6D 96 74 96 7C 96 83 96 8C 96 93 96 9A 96 9A 96 9A 96 A2 96 AA 96 B3 96 BB 96 C4 96 CB 96 D4 96 DB 96 E4 96 EA 96 F3 96 FE 96 04 97 0D 97 16 97 1C 97 24 97 2B 97 33 97 3A 97 42 97 48 97 4D 97 52 97 5B 97 62 97 66 97 6D 97 6D 97 6D 97 77 97 7F 97 88 97 91 97 9A 97 A3 97 AC 97 B4 97 BE 97 C7 97 CF 97 D9 97 E5 97 EE 97 F7 97 FF 97 FF 97 FF 97 07 98 10 98 19 98 22 98 2B 98 34 98 3D 98 46 98 4E 98 57 98 60 98 69 98 71 98 7A 98 82 98 8A 98 E8 95 32 96 9A 96 6D 97 6D 97 6D 97 6D 97 6D 97 6D 97 6D 97 6D 97 6D 97 6D 97 6D 97 FF 97
-
-
-8D9514 dialogueItemIronSword
-
-
-
-
 8D9892
 
 22 99 
@@ -24484,5 +23831,3043 @@ EB DC 85
         .word 100
         .word 1000
         .word 10000
+
+
+
+
+
+
+
+
+
+
+      rlUnknown87EBC8 ; 87/EBC8
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        phx
+        phy
+
+        ldy wEventLocationEntry,b
+        sep #$20
+        lda lChapterEventDataPointer+2,b
+        pha
+        rep #$20
+        plb
+
+        lda structChapterLocationEntry.ID,b,y
+        and #$00FF
+        sta wR3
+        asl a
+        tax
+
+        lda structChapterLocationEntry.Type,b,y
+        and #$00FF
+        jsl rlGetEventLocationTypeBaseMoney
+        sta aChapterLocationMoneyRewards,x
+
+        lda structChapterLocationEntry.Type,b,y
+        and #$00FF
+        cmp #LocationTypeCastle
+        bne _End
+
+          lda lChapterEventDataPointer+1,b
+          sta lR18+1
+          lda structChapterCastleLocationEntry.ShopDataPointer,b,y
+          beq _End
+
+            sta lR18
+
+            ldx lR18
+            sep #$20
+            lda lR18+2
+            pha
+            rep #$20
+            plb
+
+            _Loop
+            lda $0000,b,x
+            cmp #$FFFF
+            beq _End
+
+              and #$00FF
+              jsl rlGetItemRAMStructEntryByPlayerItemIndex
+              jsl rlGetItemRAMStateAndOwner
+
+              lda wR0
+              cmp #ItemStateUnobtained
+              bne _Next
+
+                lda #ItemStateShop
+                sta wR0
+                lda wR3
+                sta wR1
+                jsl rlSetItemRAMStateAndOwner
+
+              _Next
+              inc x
+              bra _Loop
+
+        _End
+        ply
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 87/EC42
+
+
+
+
+
+
+
+
+      rlGetEventLocationTypeBaseMoney ; 87/F391
+
+        .al
+        .autsiz
+        .databank `aEventLocationTypeOffsets
+
+        phb
+        php
+        phk
+        plb
+        phx
+        asl a
+        tax
+        lda aEventLocationTypeOffsets,b,x
+        clc
+        adc #<>aEventLocationTypeOffsets
+        tax
+        lda structEventLocationType.BaseMoney,b,x
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 87/F3A7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      rlASMCGiveJuliaLightIfNoWeapon ; 86/C6A2
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda wSelectedUnitDataRAMPointer,b
+        pha
+        lda wRoutineVariable1,b
+        pha
+
+        lda #Julia
+        jsl rlGetUnitRAMDataPointerByID
+        bcs _End
+
+          jsl rlGetFirstWeaponBattleMight
+          ora #0
+          bne _End
+
+            jsl rlGetSelectedUnitInventorySize
+            cmp #7
+            bcc +
+
+              lda #7
+              sta wSelectedInventorySlot,b
+              jsl rlDumpInventorySlotIntoSupplyIfFilled
+              bcs _End
+
+            +
+            lda #PI_Light2
+            sta wRoutineVariable1,b
+            jsl rlGivePlayerItemIDToSelectedUnitsFirstItemSlot
+            jsl rlEquipFirstWeaponInInventory
+
+        _End
+        pla
+        sta wRoutineVariable1,b
+        pla
+        sta wSelectedUnitDataRAMPointer,b
+        rtl
+
+        .databank 0
+
+      rlApplyMapTileChange ; 86/C6E8
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        phy
+        tay
+        lda wR1
+        xba
+        lsr a
+        lsr a
+        clc
+        adc wR0
+        asl a
+        tax
+        lda $0000,b,y
+        and #$00FF
+        sta wR12
+        lda $0001,b,y
+        and #$00FF
+        sta wR11
+
+        lda #64
+        sec
+        sbc wR12
+        asl a
+        sta wR13
+        
+          _OuterLoop
+          lda wR12
+          sta wR10
+          
+            _InnerLoop
+            lda $0002,b,y
+            bmi +
+
+              lda aMapData,x
+              and #$FC00
+              ora $0002,b,y
+              sta aMapData,x
+
+            +
+            inc y
+            inc y
+            inc x
+            inc x
+            dec wR10
+            bne _InnerLoop
+
+          txa
+          clc
+          adc wR13
+          tax
+          dec wR11
+          bne _OuterLoop
+
+        ply
+        plx
+        rtl
+
+        .databank 0
+
+        ; 86/C739
+
+
+
+
+
+
+
+
+
+      rlFillItemsOwnerAndSlotData ; 87/FBC5
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        sep #$20
+        lda #$7E
+        pha
+        rep #$20
+        plb
+
+        phx
+        lda #PI_IronSword1
+        sta lR18
+
+        jsl rlGetItemRAMStructEntryByPlayerItemIndex
+
+          _Loop
+          ldx wCurrentItemDataRAMPointer,b
+          lda structItemRAMEntry.ItemState,b,x
+          and #$00FF
+          cmp #ItemStateInventory
+          beq +
+
+            cmp #ItemStateSupply
+            bne _Next
+
+          +
+          pha
+          lda structItemRAMEntry.OwnerRAMPointer,b,x
+          sta wSelectedUnitDataRAMPointer,b
+          jsl rlGetSelectedUnitCharacterID
+          cmp #Gerrard
+          bcc +
+
+            brk
+
+          +
+          and #$003F
+          sta lR19
+
+          plx
+          cpx #ItemStateSupply
+          beq _FC33
+
+            lda #(`aUnit1DataBuffer._Inventory)<<8
+            sta lRAMBufferPointer+1,b
+            lda #<>aUnit1DataBuffer._Inventory
+            sta lRAMBufferPointer,b
+            jsl rlSaveCharacterInventoryToBuffer
+            ldx #0
+
+            -
+            lda aUnit1DataBuffer._Inventory.aItems[0],x
+            cmp lR18
+            beq +
+
+              inc x
+              inc x
+              cpx #7 * 2
+              bne -
+
+                brk
+
+            +
+            txa
+            asl a
+            asl a
+            asl a
+            asl a
+            asl a
+            ora lR19
+
+          _FC33
+          ldx wCurrentItemDataRAMPointer,b
+          sta structItemRAMEntry.OwnerID_InventorySlot,b,x
+
+          _Next
+          lda wCurrentItemDataRAMPointer,b
+          clc
+          adc #size(structItemRAMEntry)
+          sta wCurrentItemDataRAMPointer,b
+
+          lda lR18
+          inc a
+          sta lR18
+          cmp #size(aItemRAMData._Entry) + 1
+          bne _Loop
+
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      rlFillItemDurabilityData ; 87/FC51
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        sep #$20
+        lda #$7E
+        pha
+        rep #$20
+        plb
+
+        phx
+        lda #PI_IronSword1
+        sta lR18
+        jsl rlGetItemRAMStructEntryByPlayerItemIndex
+
+          _Loop
+          ldx wCurrentItemDataRAMPointer,b
+          jsr rsCapItemDurability
+          sep #$20
+          lda structItemRAMEntry.Durability,b,x
+          cmp #63
+          bne +
+
+            lda #$FF
+            sta structItemRAMEntry.Durability,b,x
+            rep #$20
+
+          +
+          lda structItemRAMEntry.ItemState,b,x
+          and #$00FF
+          cmp #ItemStateInventory
+          beq +
+
+            cmp #ItemStateSupply
+            bne _Next
+
+          +
+          lda structItemRAMEntry.OwnerRAMPointer,b,x
+          bit #$FE00
+          bne _Next
+
+            and #$003F
+            jsl rlGetUnitRAMDataPointerByID
+            bcs +
+
+              lda wSelectedUnitDataRAMPointer,b
+              sta structItemRAMEntry.OwnerRAMPointer,b,x
+              bra _Next
+
+          +
+          lda #ItemStateUnobtained
+          sta structItemRAMEntry.ItemState,b,x
+          brk
+
+          _Next
+          lda wCurrentItemDataRAMPointer,b
+          clc
+          adc #size(structItemRAMEntry)
+          sta wCurrentItemDataRAMPointer,b
+          lda lR18
+          inc a
+          sta lR18
+          cmp #256 + 1
+          bne _Loop
+
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      rsCapItemDurability ; 87/FCC3
+
+        .al
+        .autsiz
+        .databank ?
+
+        sep #$20
+        lda structItemRAMEntry.ItemID,b,x
+        cmp #ValkyrieStaff
+        beq _Max1Durability
+
+        cmp #SleepStaff
+        beq _Max1Durability
+
+        cmp #BerserkStaff
+        beq _Max1Durability
+
+        cmp #EarthSword
+        beq _Max10Durability
+
+        cmp #SilenceStaff
+        beq _Max3Durability
+
+        cmp #Circlet
+        beq _SetUnbreakable
+        bra _End
+
+        _Max10Durability
+        lda structItemRAMEntry.Durability,b,x
+        cmp #10
+        bcc _SetDurability
+
+        lda #10
+        bra _SetDurability
+
+        _Max3Durability
+        lda structItemRAMEntry.Durability,b,x
+        cmp #3
+        bcc _SetDurability
+
+        lda #3
+        bra _SetDurability
+        
+        _Max1Durability
+        lda structItemRAMEntry.Durability,b,x
+        beq _SetDurability
+
+        lda #1
+        bra _SetDurability
+
+        _SetUnbreakable
+        lda #$FF
+
+        _SetDurability
+        sta structItemRAMEntry.Durability,b,x
+
+        _End
+        rep #$20
+        rts
+
+        .databank 0
+
+        ; 87/FD09
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      rlCalculateTacticsRanking ; 84/8CFE
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        phx
+        phy
+
+        stz wRoutineVariable1,b
+        ldx #11 * size(word)
+        
+          -
+          lda aChapterTurncounts,b,x
+          clc
+          adc wRoutineVariable1,b
+          sta wRoutineVariable1,b
+          dec x
+          dec x
+          bpl -
+
+        ldy #<>aTacticsRankingThresholds
+        jsr rsEvaluateSpecifiedRankingScore
+        clc
+        adc wDestroyedLocationsCount,b
+        cmp #5
+        bcc +
+
+          lda #4
+
+        +
+        ply
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      aTacticsRankingThresholds ; 84/8D2F
+
+        .word   1,  399
+        .word 400,  549
+        .word 550,  799
+        .word 800, 1099
+
+      rlCalculateSurvivalRanking ; 84/8D3F
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        phy
+
+        lda wTotalAlivePlayerUnitCount
+        sta wRoutineVariable1,b
+
+        ldy #<>aSurvivalRankingThresholds
+        jsr rsEvaluateSpecifiedRankingScore
+
+        ply
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      aSurvivalRankingThresholds ; 84/8D55
+
+        .word 44, 48
+        .word 43, 43
+        .word 42, 42
+        .word 41, 41
+
+      rlCalculateCombatRanking ; 84/8D65
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        phx
+        phy
+
+        stz wRoutineVariable1,b
+        ldx #48 - 1
+        
+          -
+          txa
+          jsl rlUnknown91EBBE
+          clc
+          adc wRoutineVariable1,b
+          sta wRoutineVariable1,b
+          dec x
+          bpl -
+
+        ldy #<>aCombatRankingThresholds
+        jsr rsEvaluateSpecifiedRankingScore
+
+        ply
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      aCombatRankingThresholds ; 84/8D8B
+
+        .word  0,  3
+        .word  4, 10
+        .word 11, 30
+        .word 31, 50
+
+      rlCalculateExperienceRanking ; 84/8D9B
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        phy
+
+        lda wTotalLevelUpCount
+        sta wRoutineVariable1,b
+
+        ldy #<>aExperienceRankingThresholds
+        jsr rsEvaluateSpecifiedRankingScore
+
+        ply
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      aExperienceRankingThresholds ; 84/8DB1
+
+        .word 1000, 1440
+        .word 800, 999
+        .word 600, 799
+        .word 400, 599
+
+      rlCalculateFinalRankingScore ; 84/8DC1
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        stz wR10
+
+        jsl rlCalculateTacticsRanking
+        clc
+        adc wR10
+        sta wR10
+
+        jsl rlCalculateSurvivalRanking
+        clc
+        adc wR10
+        sta wR10
+
+        jsl rlCalculateCombatRanking
+        clc
+        adc wR10
+        sta wR10
+
+        jsl rlCalculateExperienceRanking
+        clc
+        adc wR10
+        sta wR10
+
+        lda wR10
+        inc a
+        inc a
+        lsr a
+        lsr a
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      rlGetFatherUnitsChildrenRAMPointers ; 84/8DF4
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Input:
+        ; A = father CharacterID
+
+        ; Output:
+        ; wSonCharacterROMPointer
+        ; wDaughterCharacterROMPointer
+
+        phb
+        php
+        phk
+        plb
+        phx
+
+        ldx wSelectedUnitDataRAMPointer,b
+        phx
+        ldx wR0
+        phx
+        ldx wR1
+        phx
+
+        sta wR0
+
+        sep #$20
+        lda #$7E
+        pha
+        rep #$20
+        plb
+
+        lda aUnitRAMPointers._Entry,b
+        and #$00FF
+        asl a
+        sta wR1
+
+        stz wSonCharacterROMPointer,b
+        stz wDaughterCharacterROMPointer,b
+
+        ldx #0
+
+          _Loop
+          lda aUnitRAMPointers._Entry,b,x
+          sta wSelectedUnitDataRAMPointer,b
+          jsl rlGetSelectedUnitFatherID
+          cmp wR0
+          bne _Next
+
+            jsl rlGetSelectedUnitGender
+            cmp #GenderMale
+            bne _Female
+
+              lda wSelectedUnitDataRAMPointer,b
+              sta wSonCharacterROMPointer
+              bra _Next
+
+            _Female
+            lda wSelectedUnitDataRAMPointer,b
+            sta wDaughterCharacterROMPointer
+
+          _Next
+          inc x
+          inc x
+          cpx wR1
+          bcc _Loop
+
+        stz wSelectedUnitDataRAMPointer,b
+
+        pla
+        sta wR1
+        pla
+        sta wR0
+        pla
+        sta wSelectedUnitDataRAMPointer,b
+
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 84/8E5D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      aEpilogueLoverGroups ; B3/EDD9
+
+        .long aEpilogueLoverPointersPeppy
+        .long aEpilogueLoverPointersCreidneLarcei
+        .long aEpilogueLoverPointersMuirneLana
+        .long aEpilogueLoverPointersPeppy
+        .long aEpilogueLoverPointersLindaTine
+        .long aEpilogueLoverPointersPeppy
+        .long aEpilogueLoverPointersJeanneNanna
+
+      aEpilogueLoverPointersPeppy ; B3/EDEE
+
+        ; daisy, patty, hermina, fee, laylea, lene
+
+        .long dialogueEpilogueLover_Seliph_JuliaDead_Peppy
+        .long dialogueEpilogueLover_Seliph_JuliaAlive_All
+        .long dialogueEpilogueLover_Shannan_Peppy
+        .long dialogueEpilogueLover_DalvinScathach_ShannanDead_Peppy
+        .long dialogueEpilogueLover_DalvinScathach_ShannanAlive_All
+        .long dialogueEpilogueLover_Deimne_MuirneDead_Peppy
+        .long dialogueEpilogueLover_Deimne_MuirneAlive_All
+        .long dialogueEpilogueLover_Leif_Peppy
+        .long dialogueEpilogueLover_Leif_Peppy
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalDead_Peppy
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalAlive_Peppy
+        .long dialogueEpilogueLover_Asaello_DaisyDead_Peppy
+        .long dialogueEpilogueLover_Asaello_DaisyAlive_Peppy
+        .long dialogueEpilogueLover_Ares_Peppy
+        .long dialogueEpilogueLover_Diarmuid_Peppy
+        .long dialogueEpilogueLover_Diarmuid_Peppy
+        .long dialogueEpilogueLover_Tristan_Peppy
+        .long dialogueEpilogueLover_Tristan_Peppy
+        .long dialogueEpilogueLover_JamkesSon_Peppy
+        .long dialogueEpilogueLover_Febail_Peppy
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenDead_Peppy
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenAlive_Peppy
+        .long dialogueEpilogueLover_AmidArthur_Peppy
+        .long dialogueEpilogueLover_LexSon_Peppy
+        .long dialogueEpilogueLover_Iuchar_Peppy
+        .long dialogueEpilogueLover_Iucharba_Peppy
+        .long dialogueEpilogueLover_ClaudsSon_Peppy
+        .long dialogueEpilogueLover_AzellesSon_Peppy
+        .long dialogueEpilogueLover_Oifey_Peppy
+        .long dialogueEpilogueLover_Ced_Peppy
+        .long dialogueEpilogueLover_LewynsSon_Peppy
+
+      aEpilogueLoverPointersCreidneLarcei ; B3/EE4B
+
+        ; creidne, larcei
+
+        .long dialogueEpilogueLover_Seliph_JuliaDead_Noble
+        .long dialogueEpilogueLover_Seliph_JuliaAlive_All
+        .long dialogueEpilogueLover_Shannan_Noble
+        .long dialogueEpilogueLover_DalvinScathach_ShannanDead_Peppy
+        .long dialogueEpilogueLover_DalvinScathach_ShannanAlive_All
+        .long dialogueEpilogueLover_Deimne_MuirneDead_CreidneLarcei
+        .long dialogueEpilogueLover_Deimne_MuirneAlive_CreidneLarcei
+        .long dialogueEpilogueLover_Leif_AltenaDead_CreidneLarcei
+        .long dialogueEpilogueLover_Leif_AltenaAlive_CreidneLarcei
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalDead_CreidneLarcei
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalAlive_CreidneLarcei
+        .long dialogueEpilogueLover_Asaello_DaisyDead_CreidneLarcei
+        .long dialogueEpilogueLover_Asaello_DaisyAlive_CreidneLarcei
+        .long dialogueEpilogueLover_Ares_CreidneLarcei
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_JamkesSon_CreidneLarcei
+        .long dialogueEpilogueLover_Febail_CreidneLarcei
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenDead_Noble
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenAlive_Noble
+        .long dialogueEpilogueLover_AmidArthur_NobleA
+        .long dialogueEpilogueLover_LexSon_CreidneLarcei
+        .long dialogueEpilogueLover_Iuchar_CreidneLarcei
+        .long dialogueEpilogueLover_Iucharba_Noble
+        .long dialogueEpilogueLover_ClaudsSon_CreidneLarcei
+        .long dialogueEpilogueLover_AzellesSon_CreidneLarcei
+        .long dialogueEpilogueLover_Oifey_Noble
+        .long dialogueEpilogueLover_Ced_Noble
+        .long dialogueEpilogueLover_LewynsSon_Noble
+
+      aEpilogueLoverPointersMuirneLana ; B3/EEA8
+
+        ; murine, lana
+
+        .long dialogueEpilogueLover_Seliph_JuliaDead_Noble
+        .long dialogueEpilogueLover_Seliph_JuliaAlive_All
+        .long dialogueEpilogueLover_Shannan_Noble
+        .long dialogueEpilogueLover_DalvinScathach_ShannanDead_Noble
+        .long dialogueEpilogueLover_DalvinScathach_ShannanAlive_MuirneLana
+        .long dialogueEpilogueLover_Deimne_MuirneDead_Peppy
+        .long dialogueEpilogueLover_Deimne_MuirneAlive_All
+        .long dialogueEpilogueLover_Leif_Noble
+        .long dialogueEpilogueLover_Leif_Noble
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalDead_Noble
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalAlive_MuirneLana
+        .long dialogueEpilogueLover_Asaello_DaisyDead_Noble
+        .long dialogueEpilogueLover_Asaello_DaisyAlive_MuirneLana
+        .long dialogueEpilogueLover_Ares_Noble
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_JamkesSon_Noble
+        .long dialogueEpilogueLover_Febail_MuirneLana
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenDead_Noble
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenAlive_Noble
+        .long dialogueEpilogueLover_AmidArthur_NobleA
+        .long dialogueEpilogueLover_LexSon_Noble
+        .long dialogueEpilogueLover_Iuchar_Noble
+        .long dialogueEpilogueLover_Iucharba_Noble
+        .long dialogueEpilogueLover_ClaudsSon_MuirneLana
+        .long dialogueEpilogueLover_AzellesSon_MuirneLana
+        .long dialogueEpilogueLover_Oifey_Noble
+        .long dialogueEpilogueLover_Ced_Noble
+        .long dialogueEpilogueLover_LewynsSon_Noble
+
+      aEpilogueLoverPointersLindaTine ; B3/EF05
+
+        ; linda, tine
+
+        .long dialogueEpilogueLover_Seliph_JuliaDead_Noble
+        .long dialogueEpilogueLover_Seliph_JuliaAlive_All
+        .long dialogueEpilogueLover_Shannan_Noble
+        .long dialogueEpilogueLover_DalvinScathach_ShannanDead_Noble
+        .long dialogueEpilogueLover_DalvinScathach_ShannanAlive_All
+        .long dialogueEpilogueLover_Deimne_MuirneDead_Noble
+        .long dialogueEpilogueLover_Deimne_MuirneAlive_LindaTine
+        .long dialogueEpilogueLover_Leif_Noble
+        .long dialogueEpilogueLover_Leif_Noble
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalDead_Noble
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalAlive_LindaTine
+        .long dialogueEpilogueLover_Asaello_DaisyDead_Noble
+        .long dialogueEpilogueLover_Asaello_DaisyAlive_LindaTine
+        .long dialogueEpilogueLover_Ares_Noble
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_JamkesSon_Noble
+        .long dialogueEpilogueLover_Febail_Noble
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenDead_Noble
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenAlive_Noble
+        .long dialogueEpilogueLover_AmidArthur_NobleB
+        .long dialogueEpilogueLover_LexSon_Noble
+        .long dialogueEpilogueLover_Iuchar_Noble
+        .long dialogueEpilogueLover_Iucharba_Noble
+        .long dialogueEpilogueLover_ClaudsSon_LindaTine
+        .long dialogueEpilogueLover_AzellesSon_LindaTine
+        .long dialogueEpilogueLover_Oifey_Noble
+        .long dialogueEpilogueLover_Ced_Noble
+        .long dialogueEpilogueLover_LewynsSon_Noble
+
+      aEpilogueLoverPointersJeanneNanna ; B3/EF62
+
+        ; jeanne, nanna
+
+        .long dialogueEpilogueLover_Seliph_JuliaDead_Noble
+        .long dialogueEpilogueLover_Seliph_JuliaAlive_All
+        .long dialogueEpilogueLover_Shannan_Noble
+        .long dialogueEpilogueLover_DalvinScathach_ShannanDead_JeanneNanna
+        .long dialogueEpilogueLover_DalvinScathach_ShannanAlive_All
+        .long dialogueEpilogueLover_Deimne_MuirneDead_Noble
+        .long dialogueEpilogueLover_Deimne_MuirneAlive_All
+        .long dialogueEpilogueLover_Leif_Noble
+        .long dialogueEpilogueLover_Leif_Noble
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalDead_Noble
+        .long dialogueEpilogueLover_CharlotCoirpre_HannibalAlive_JeanneNanna
+        .long dialogueEpilogueLover_Asaello_DaisyDead_Noble
+        .long dialogueEpilogueLover_Asaello_DaisyAlive_JeanneNanna
+        .long dialogueEpilogueLover_Ares_Noble
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Diarmuid_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_Tristan_Noble
+        .long dialogueEpilogueLover_JamkesSon_Noble
+        .long dialogueEpilogueLover_Febail_Noble
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenDead_Noble
+        .long dialogueEpilogueLover_Lester_BrigidsChildrenAlive_Noble
+        .long dialogueEpilogueLover_AmidArthur_NobleB
+        .long dialogueEpilogueLover_LexSon_Noble
+        .long dialogueEpilogueLover_Iuchar_Noble
+        .long dialogueEpilogueLover_Iucharba_Noble
+        .long dialogueEpilogueLover_ClaudsSon_JeanneNanna
+        .long dialogueEpilogueLover_AzellesSon_JeanneNanna
+        .long dialogueEpilogueLover_Oifey_Noble
+        .long dialogueEpilogueLover_Ced_Noble
+        .long dialogueEpilogueLover_LewynsSon_Noble
+
+B3EFBF
+ -fill 0
+
+
+
+
+
+
+
+      rlFillUnitsDeploymentSaveData ; 87/FA83
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        sep #$20
+        lda #$7E
+        pha
+        rep #$20
+        plb
+
+        phx
+        jsl rlGetSelectedUnitDeploymentOffset
+        bcs +
+
+          tax
+          lda aDeploymentTable._State,b,x
+          xba
+          sta aSave.wCharacterDeploymentState,b
+          lda aDeploymentTable._XTilePosition,x
+          sta aSave.wCharacterXPosition,b
+          lda aDeploymentTable._YTilePosition,x
+          sta aSave.wCharacterYPosition,b
+          bra _End
+
+        +
+        lda #$00FF
+        sta aSave.wCharacterDeploymentState,b
+        sta aSave.wCharacterXPosition,b
+        sta aSave.wCharacterYPosition,b
+        
+        _End
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 87/FABC
+
+
+
+
+
+
+      rlCompactStaticDynamicUnitBuffer1UnitStates ; 87/F9CE
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda aUnit1DataBuffer._Personal.UnitStates
+        sta wR0
+        and #UnitStateArenaLevelMask
+        sta wR1
+
+        lda wR0
+        and #(UnitStateMapAnimation | UnitStateMiracleActive | UnitStateGroupLeader | UnitStateDead)
+        lsr a
+        lsr a
+        lsr a
+        ora wR1
+        sta wR1
+
+        lda wR0
+        and #(UnitState1000 | UnitStateGuardingCastle | UnitStateMoved | UnitStateFielded)
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        ora wR1
+        sta aUnit1DataBuffer._Personal.UnitStates
+        rtl
+
+        .databank 0
+
+        ; 87/F9F6
+
+
+
+
+      rlCompactHolyEnemyUnitBuffer1UnitStates ; 87/FA1E
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda aUnit1DataBuffer._Personal.UnitStates
+        sta wR0
+        and #UnitStateArenaLevelMask
+        sta wR1
+
+        lda wR0
+        and #(UnitStateGroupLeader | UnitStateDead)
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        ora wR1
+        sta wR1
+
+        lda wR0
+        and #(UnitState1000 | UnitStateGuardingCastle | UnitStateMoved | UnitStateFielded)
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        lsr a
+        ora wR1
+        sta aUnit1DataBuffer._Personal.UnitStates
+
+        lda aUnit1DataBuffer._Personal.ClassMoney
+        beq +
+
+          lda #1
+          sta aUnit1DataBuffer._Personal.ClassMoney
+
+        +
+        rtl
+
+        .databank 0
+
+        ; 87FA57
+
+
+
+
+
+
+
+
+
+
+      rlCheckIfCharacterHasFemaleGenerationID ; 87/F4CF
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Input:
+        ; A = CharacterID
+
+        phb
+        phy
+        jsl rlSwapToMainDataBank
+        jsl rlGetCharacterDataROMPointer
+        tay
+        lda structCharacterROMEntry.Type,b,y
+        and #$00FF
+        cmp #UnitTypeStatic
+        beq _Static
+
+          cmp #UnitTypeDynamic
+          beq _Dynamic
+
+            _CLC
+            clc
+            bra _End
+
+        _Static
+        lda structStaticCharacterROMEntry.GenerationID,b,y
+        bra +
+
+        _Dynamic
+        lda structDynamicCharacterROMEntry.GenerationID,b,y
+
+        +
+        and #$00FF
+        cmp #16
+        bcc _CLC
+
+        sec
+
+        _End
+        ply
+        plb
+        rtl
+
+        .databank 0
+
+        ; 87/F501
+
+
+
+      rlUnknown87FB5E ; 87/FB5E
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        sep #$20
+        lda #$7E
+        pha
+        rep #$20
+        plb
+
+        phx
+        phy
+        ldx #0
+        
+          _Loop
+          lda aFactionArea,b,x
+          tay
+          clc
+          adc #size(structFactionHeader)
+          sta aSave.aFactionEntryOffsets,b,x
+          sep #$20
+
+          lda aFactionArea + structFactionHeader.LocationID,b,y
+          cmp #$0F
+          bne +
+
+            lda #$FF
+            sta aFactionArea + structFactionHeader.LocationID,b,y
+
+          +
+          rep #$20
+
+          inc x
+          inc x
+          cpx #7 * size(word)
+          bne _Loop
+
+        ply
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 87/FB94
+
+
+
+
+
+      procUnknown8292A9 
+
+        .structProcInfo "NP", rlProcUnknown8292A9Init, rlProcUnknown8292A9Init, aProcUnknown8292A9Code ; 82/92A9
+        .word 0
+
+      rlProcUnknown8292A9Init ; 82/92B3
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+      aProcUnknown8292A9Code ; 82/92B4
+
+        PROC_END
+
+      procUnknown8292B6 ; 82/92B6
+
+        .structProcInfo "RS", rlProcUnknown8292B6Init, rlProcUnknown8292B6Cycle, aProcUnknown8292B6Code ; 82/92A9
+        .word 0
+
+      rlProcUnknown8292B6Init ; 82/92C0
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        ldy wActiveEventOffset,b
+        lda [lR22],y
+        sta aProcSystem.aBody0,b,x
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody1,b,x
+        inc y
+        inc y
+        lda [lR22],y
+        and #$00FF
+        sta aProcSystem.aBody2,b,x
+        cmp #$00FF
+        bne +
+
+          ldx aProcSystem.wOffset,b
+          jsl rlUnknown91A4AC
+
+        +
+        lda #$FFFF
+        sta aProcSystem.aBody5,b,x
+        plp
+        rtl
+
+        .databank 0
+
+      rlProcUnknown8292B6Cycle ; 82/92ED
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        jsr rsUnknown829306
+        bcc +
+
+          jsr rsUnknown82932C
+          bcc +
+
+            lda #0
+            sta aProcSystem.aBody2,b,x
+            jsl rlEventEngineFreeProc
+
+        +
+        plp
+        rtl
+
+        .databank 0
+
+      aProcUnknown8292B6Code ; 82/9304
+
+        PROC_HALT
+
+      rsUnknown829306 ; 82/9306
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        phx
+        lda aProcSystem.aBody5,b,x
+        cmp #$FFFE
+        beq _SEC
+
+          cmp #$FFFF
+          bne +
+
+            dec a
+            sta aProcSystem.aBody5,b,x
+            bra _CLC
+
+          +
+          tax
+          lda aProcSystem.aHeaderBitfield,b,x
+          bit #$2000
+          bne _SEC
+
+          _CLC
+          plx
+          plp
+          clc
+          rts
+        
+        _SEC
+        plx
+        plp
+        sec
+        rts
+
+        .databank 0
+
+      rsUnknown82932C ; 82/932C
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        lda aProcSystem.aBody2,b,x
+        beq _SEC
+
+          cmp #$00FF
+          beq +
+
+            dec a
+            sta aProcSystem.aBody2,b,x
+
+          +
+          lda lActiveEventPointer,b
+          sta aProcSystem.aBody3,b,x
+          lda wActiveEventOffset,b
+          sta aProcSystem.aBody4,b,x
+          jsr rsUnknown829391
+
+          ldy #0
+          sty wActiveEventOffset,b
+          lda lActiveEventPointer+1,b
+          sta lR22+1
+          lda aProcSystem.aBody0,b,x
+          sta lActiveEventPointer,b
+          sta lR22
+          phx
+
+          lda [lR22],y
+          sta lR23
+          inc y
+          inc y
+          sty wActiveEventOffset,b
+          jsl rlUnknown91C6D8
+
+          txa
+          plx
+          lda aProcSystem.aBody3,b,x
+          sta lActiveEventPointer,b
+          lda aProcSystem.aBody4,b,x
+          sta wActiveEventOffset,b
+          lda lActiveEventPointer+1,b
+          sta lR22+1
+          lda lActiveEventPointer,b
+          sta lR22
+          plp
+          clc
+          rts
+
+        _SEC
+        plp
+        sec
+        rts
+
+        .databank 0
+
+      rsUnknown829391 ; 82/9391
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Store first free proc offset into aBody5
+
+        phx
+        ldx #$001E
+
+        -
+        lda aProcSystem.aHeaderTypeOffset,b,x
+        beq _CLC
+
+          dec x
+          dec x
+          bpl -
+
+          lda #$FFFF
+          plx
+          sta aProcSystem.aBody5,b,x
+          sec
+          rts
+
+        _CLC
+        txa
+        plx
+        sta aProcSystem.aBody5,b,x
+        clc
+        rts
+
+        .databank 0
+
+      procUnknown8293AE
+
+        .structProcInfo "CC", rlProcUnknown8293AEInit, rlProcUnknown8293AECycle, aProcUnknown8293AECode ; 82/93AE
+        .word 0
+
+      rlProcUnknown8293AEInit ; 82/93B8
+
+        .al
+        .autsiz
+        .databank ?
+
+        ldy wActiveEventOffset,b
+        lda [lR22],y
+        sta aProcSystem.aBody0,b,x
+        inc y
+        lda [lR22],y
+        and #$FF00
+        sta aProcSystem.aBody2,b,x
+
+        inc y
+        inc y
+        lda [lR22],y
+        sta lR19
+        inc y
+        inc y
+
+        sep #$20
+        lda [lR22],y
+        sta aProcSystem.aBody2,b,x
+        sta lR19+2
+        rep #$20
+
+        lda [lR19]
+        and #$00FF
+        asl a
+        sta aProcSystem.aBody5,b,x
+
+        inc lR19
+        lda [lR19]
+        and #$00FF
+        asl a
+        sta aProcSystem.aBody6,b,x
+
+        lda lR19
+        inc a
+        sta aProcSystem.aBody1,b,x
+
+        stz aProcSystem.aBody3,b,x
+        lda #1
+        sta aProcSystem.aBody4,b,x
+
+        ldx aProcSystem.wOffset,b
+        jsl rlUnknown91A4AC
+        rtl
+
+        .databank 0
+
+      rlProcUnknown8293AECycle ; 82/9407
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda aProcSystem.aBody4,b,x
+        dec a
+        beq +
+
+          sta aProcSystem.aBody4,b,x
+          rtl
+
+        +
+        lda aProcSystem.aBody2,b,x
+        sta lR18+1
+        xba
+        sta lR19+1
+
+        lda aProcSystem.aBody0,b,x
+        sta lR18
+        lda aProcSystem.aBody1,b,x
+        sta lR19
+
+        lda aProcSystem.aBody3,b,x
+        inc a
+        inc a
+        
+          -
+          sta aProcSystem.aBody3,b,x
+          tay
+          lda [lR19],y
+          bit #$FF00
+          bne +
+
+            lda #0
+            bra -
+
+        +
+        phx
+        sep #$20
+        xba
+        sta aProcSystem.aBody4,b,x
+        rep #$20
+        xba
+        and #$00FF
+        asl a
+        clc
+        adc lR18
+        sta lR18
+
+        lda #0
+        sta lR20+1
+
+        lda #<>aBGPaletteBuffer
+        clc
+        adc aProcSystem.aBody5,b,x
+        sta lR20
+
+        lda aProcSystem.aBody6,b,x
+        tay
+
+          -
+          lda [lR18],y
+          sta [lR20],y
+          dec y
+          dec y
+          bne -
+
+        plx
+        rtl
+
+        .databank 0
+
+      aProcUnknown8293AECode ; 82/9467
+
+        PROC_HALT
+
+        ; 82/9469
+
+
+
+
+
+
+
+      rlUnknown858728 ; 85/8728
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        lda $0521,b
+        bit #$0080
+        beq _End
+
+          bit #$0020
+          bne _End
+
+            lda $0D79,b
+            bit #$0001
+            beq +
+
+              jsr $858D18
+              lda #$0001
+              trb $0D79,b
+
+            +
+            jsl $878256
+
+        _End
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 85/8751
+
+
+
+      rlUnknown8CEDD0 ; 8C/EDD0
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda wSelectedUnitDataRAMPointer,b
+        sta $078C,b
+        jsl rlGetSelectedUnitLoverGenerationID
+        ora #0
+        beq _CLC
+
+          jsl rlFindCharacterByGenerationID
+          bcs _CLC
+
+            jsl rlGetSelectedUnitCharacterID
+            jsl rlUnknown87A040
+            bcc _CLC
+            bra +
+
+        _CLC
+        lda $078C,b
+        sta wSelectedUnitDataRAMPointer,b
+        clc
+        rtl
+
+        +
+        sta $08B4,b
+        lda $078C,b
+        sta wSelectedUnitDataRAMPointer,b
+
+        ; Get lover target CharacterID
+        lda wSelectedUnitDataRAMPointer,b
+        pha
+        lda $08B4,b
+        sta wSelectedUnitDataRAMPointer,b
+        jsl rlGetSelectedUnitCharacterID
+        sta $08B4,b
+
+        ; Get own CharacterID
+        pla
+        sta wSelectedUnitDataRAMPointer,b
+        jsl rlGetSelectedUnitCharacterID
+        sta $08B2,b
+
+        lda $08B2,b
+        sec
+        sbc #1
+        asl a
+        tax
+        lda $8CEE6A,x
+        cmp #$FFFF
+        beq +
+
+          sta $078E,b
+          jsl rlCheckPermanentEventFlagSet
+          bcs _CLC
+
+            lda $078E,b
+            jsl rlSetPermanentEventFlag
+            bra _EE64
+
+        +
+        lda $08B4,b
+        sec
+        sbc #1
+        asl a
+        tax
+        lda $8CEE6A,x
+        cmp #$FFFF
+        beq _EE64
+
+          sta $078E,b
+          jsl rlCheckPermanentEventFlagSet
+          bcs _CLC
+
+            lda $078E,b
+            jsl rlSetPermanentEventFlag
+
+        _EE64
+        jsl $8CED00
+        sec
+        rtl
+
+        .databank 0
+
+      aUnknown8CEE6A ; 8C/EE6A
+
+        ; Holds permanent event flags
+
+        .word $FFFF ; 1 Sigurd
+        .word $FFFF ; 2 Naoise
+        .word $FFFF ; 3 Alec
+        .word $FFFF ; 4 Arden
+        .word $FFFF ; 5 Finn
+        .word $FFFF ; 6 Quan
+        .word $FFFF ; 7 Midir
+        .word $FFFF ; 8 Lewyn
+        .word $FFFF ; 9 Chulainn
+        .word $FFFF ; a Azelle
+        .word $FFFF ; b Jamke
+        .word $FFFF ; c Claud
+        .word $FFFF ; d Beowulf
+        .word $FFFF ; e Lex
+        .word $FFFF ; F Dew
+        .word $0004 ; 10 - Deirdre
+        .word $0005 ; 11 - ethlyn
+        .word $0006 ; 12 Lachesis
+        .word $0007 ; 13 Ayra
+        .word $0008 ; 14 Erinys
+        .word $0009 ; 15 Tailtiu
+        .word $000A ; 16 Silvia
+        .word $000B ; 17 Edain
+        .word $000C ; 18 Brigid
+        .word $FFFF ; Seliph
+        .word $FFFF ; Shannan
+        .word $FFFF ; Dalvin
+        .word $FFFF ; Asaello
+        .word $FFFF ; Leif
+        .word $FFFF ; Iuchar
+        .word $FFFF ; Charlot
+        .word $FFFF ; Hawk
+        .word $FFFF ; Tristan
+        .word $FFFF ; AdultFinn
+        .word $FFFF ; Deimne
+        .word $FFFF ; Hannibal
+        .word $FFFF ; Ares
+        .word $FFFF ; Amid
+        .word $FFFF ; Oifey
+        .word $000D ; Daisy
+        .word $000E ; Creidne
+        .word $000F ; Muirne
+        .word $0010 ; Julia
+        .word $0011 ; Altena
+        .word $0012 ; Hermina
+        .word $0013 ; Linda
+        .word $0014 ; Laylea
+        .word $0015 ; Jeanne
+        .word $FFFF ; Iucharba
+        .word $FFFF ; Scathach
+        .word $FFFF ; Febail
+        .word $FFFF ; Coirpre
+        .word $FFFF ; Ced
+        .word $FFFF ; Diarmuid
+        .word $FFFF ; Lester
+        .word $FFFF ; Arthur
+        .word $000D ; Patty
+        .word $000E ; Larcei
+        .word $000F ; Lana
+        .word $0012 ; Fee
+        .word $0013 ; Tine
+        .word $0014 ; Lene
+        .word $0015 ; Nanna
+
+
+
+F1 F0 8C 02 F1 8C 1A F1 8C 31 F1 8C 4D F1 8C 68 F1 8C 86 F1 8C A2 F1 8C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      rlUnknown87A040 ; 87/A040
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Check if selected unit alive in home castle.
+
+        phx
+        ldx wSelectedUnitDataRAMPointer,b
+        phx
+        ldx wRoutineVariable1,b
+        phx
+
+        jsl rlGetUnitRAMDataPointerByID
+        bcs _CLC
+
+          jsl rlGetSelectedUnitStates
+          bit #(UnitStateFielded | UnitStateDead)
+          bne _CLC
+
+            jsl rlGetSelectedUnitFactionSlot
+            ora #FS_Player
+            bne _CLC
+
+              lda #0
+              jsl rlGetFactionSlotLocationID
+              sta wRoutineVariable1,b
+
+              jsl rlGetSelectedUnitHomeCastle
+              cmp wRoutineVariable1,b
+              bne _CLC
+
+                sec
+                bra +
+
+        _CLC
+        clc
+
+        +
+        pla
+        sta wRoutineVariable1,b
+        pla
+        sta wSelectedUnitDataRAMPointer,b
+        plx
+        rtl
+
+        .databank 0
+
+        ; 87/A082
+
+
+
+
+      procUnknown828BEA 
+
+        .structProcInfo "CC", rlProcUnknown828BEAInit, rlProcUnknown828BEACycle, $828CA1 ; 82/8BEA
+        .word 0
+
+      rlProcUnknown828BEAInit ; 82/8BF4
+
+        .al
+        .autsiz
+        .databank ?
+
+        ldy wActiveEventOffset,b
+        sep #$20
+        lda [lR22],y
+        sta aProcSystem.aBody0,b,x
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody0+1,b,x
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody2,b,x
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody1,b,x
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody1+1,b,x
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody2+1,b,x
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody3,b,x
+        rep #$20
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody6,b,x
+        inc y
+        inc y
+        lda [lR22],y
+        sta aProcSystem.aBody7,b,x
+
+        stz aProcSystem.aBody4,b,x
+        stz aProcSystem.aBody5,b,x
+        rtl
+
+        .databank 0
+
+      rlProcUnknown828BEACycle ; 82/8C38
+
+        .al
+        .autsiz
+        .databank ?
+
+        ldx aProcSystem.wOffset,b
+        jsl rlUnknown91A4AC
+
+        lda aProcSystem.aBody4,b,x
+        cmp aProcSystem.aBody3,b,x
+        bcs +
+
+          inc a
+          sta aProcSystem.aBody4,b,x
+          rtl
+
+        +
+        lda aProcSystem.aBody5,b,x
+        beq +
+
+          sep #$20
+          lda aProcSystem.aBody0,b,x
+          sta lR18
+          lda aProcSystem.aBody0+1,b,x
+          sta lR18+1
+          lda aProcSystem.aBody2,b,x
+          sta lR18+2
+          bra ++
+
+          +
+          sep #$20
+          lda aProcSystem.aBody1,b,x
+          sta lR18
+          lda aProcSystem.aBody1+1,b,x
+          sta lR18+1
+          lda aProcSystem.aBody2+1,b,x
+          sta lR18+2
+
+        +
+        rep #$20
+        ldy aProcSystem.aBody6,b,x
+        phy
+        tya
+        clc
+        adc aProcSystem.aBody7,b,x
+        sta wR0
+        plx
+
+          -
+          lda [lR18],y
+          sta aBGPaletteBuffer,x
+          inc x
+          inc x
+          inc y
+          inc y
+          cpy wR0
+          bcc -
+
+        ldx aProcSystem.wOffset,b
+        lda aProcSystem.aBody5,b,x
+        eor #1
+        sta aProcSystem.aBody5,b,x
+        stz aProcSystem.aBody4,b,x
+        rtl
+
+        .databank 0
+
+      aProcUnknown828BEACode ; 82/8CA1
+
+        PROC_HALT
+
+      procUnknown828CA3 ; 82/8CA3
+
+        .structProcInfo "BM", rlProcUnknown828CA3Init, rlProcUnknown828CA3Cycle, aProcUnknown828CA3Code
+        .word 0
+
+      rlProcUnknown828CA3Init ; 82/8CAD
+
+        .al
+        .autsiz
+        .databank ?
+
+        sep #$20
+        lda #$01
+        ora bBufferTM
+        sta bBufferTM
+        lda #$01
+        ora bBufferTMW
+        sta bBufferTMW
+        rep #$20
+
+        stz aProcSystem.aBody0,b,x
+
+        lda wMapScrollXPixels,b
+        sta wBufferBG1HOFS
+        lda wMapScrollYPixels,b
+        sta wBufferBG1VOFS
+        rtl
+
+        .databank 0
+
+      rlProcUnknown828CA3Cycle ; 82/8CCB
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda aProcSystem.aBody0,b,x
+        cmp #2
+        beq _8D01
+
+          cmp #1
+          beq +
+
+            lda bBufferINIDISP
+            bit #$0080
+            bne _8CF3
+
+              ora #$0080
+              sta bBufferINIDISP
+
+              lda #1
+              sta aProcSystem.aBody0,b,x
+              bra _8D05
+
+          +
+          lda bBufferINIDISP
+          eor #$0080
+          sta bBufferINIDISP
+
+          _8CF3
+          phx
+          jsl $888082
+          plx
+          lda #2
+          sta aProcSystem.aBody0,b,x
+          bra _8D05
+        
+        _8D01
+        jsl rlUnknown888560
+
+        _8D05
+        ldx aProcSystem.wOffset,b
+        jsl rlUnknown91A4AC
+        bcc +
+
+          jsr rsUnknown828D12
+
+        +
+        rtl
+
+        .databank 0
+
+      rsUnknown828D12 ; 82/8D12
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda bBufferTM
+        eor #$0001
+        sta bBufferTM
+        ldx aProcSystem.wOffset,b
+        jsr rsProcCodeEnd
+
+      aProcUnknown828CA3Code ; 82/8D1F
+
+        PROC_HALT
+
+        ; 82/8D21
+
+
+
+
+
+
+      procUnknown828D52 ; 82/8D52
+
+        .structProcInfo "MS", rlProcUnknown828D52Init, rlProcUnknown828D52Cycle, aProcUnknown828D52Code
+        .word 0
+
+      rlProcUnknown828D52Init ; 82/8D5C
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        rep #$30
+        lda #0
+        sta aProcSystem.aBody2,b,x
+        ldy wActiveEventOffset,b
+        lda [lR22],y
+        sta aProcSystem.aBody0,b,x
+        inc y
+        inc y
+        lda [lR22],y
+        and #$00FF
+        sta aProcSystem.aBody1,b,x
+        jsr rsUnknown828E61
+        bcs +
+
+          lda #0
+          sta aProcSystem.aBody1,b,x
+
+        +
+        plp
+        rtl
+
+        .databank 0
+
+      rlProcUnknown828D52Cycle ; 82/8D84
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        phb
+        lda $0302,b
+        cmp #$0012
+        beq +
+
+          cmp #$000F
+          bne _End
+
+        +
+        ldx aProcSystem.wOffset,b
+        lda aProcSystem.aBody6,b,x
+        inc a
+        sta aProcSystem.aBody6,b,x
+        cmp aProcSystem.aBody3,b,x
+        beq _8DE8
+
+        sta wR12
+        lda #0
+        sta wR13
+        lda $175F,b
+        sta wR10
+        lda $1761,b
+        sta wR11
+        jsl rlUnsignedMultiply32By32
+
+        ldx aProcSystem.wOffset,b
+        lda wR15
+        sec
+        sbc aProcSystem.aBody5,b,x
+        sta wMapScrollSpeed,b
+        lda wR15
+        sta aProcSystem.aBody5,b,x
+
+        lda aProcSystem.aBody7,b,x
+        sta wR0
+
+        lda wR0
+        cmp #9
+        bmi +
+
+          -
+          bra -
+
+        +
+        asl a
+        tax
+        jsr (aUnknown828E1F,x)
+
+        lda wMapScrollXPixels,b
+        sta wBufferBG1HOFS
+        lda wMapScrollYPixels,b
+        sta wBufferBG1VOFS
+
+        _End
+        plb
+        plp
+        rtl
+
+        _8DE8
+        lda aProcSystem.aBody4,b,x
+        sec
+        sbc aProcSystem.aBody5,b,x
+        sta wMapScrollSpeed,b
+
+        lda aProcSystem.aBody7,b,x
+        sta wR0
+
+        lda wR0
+        cmp #9
+        bmi +
+
+          -
+          bra -
+
+        +
+        asl a
+        tax
+        jsr (aUnknown828E1F,x)
+        jsr rsUnknown828E61
+        bcs _End
+
+        jsl $88BF97
+        bcc +
+
+          lda #$0080
+          sta wCursorXOffset,b
+          sta wCursorYOffset,b
+
+        +
+        jsl rlEventEngineFreeProc
+        bra _End
+
+        .databank 0
+
+      aUnknown828E1F ; 82/8E1F
+
+        .addr rsUnknown828E31
+        .addr rsUnknown828E36
+        .addr rsUnknown828E3B
+        .addr rsUnknown828E40
+        .addr rsUnknown828E45
+        .addr rsUnknown828E4A
+        .addr rsUnknown828E4F
+        .addr rsUnknown828E54
+        .addr rsUnknown828E59
+
+      rsUnknown828E31 ; 82/8E31
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $8885D3
+        rts
+ 
+        .databank 0
+
+      rsUnknown828E36 ; 82/8E36
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $8885E1
+        rts
+
+        .databank 0
+
+      rsUnknown828E3B ; 82/8E3B
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $8885EF
+        rts
+
+        .databank 0
+
+      rlUnknown828E40 ; 82/8E40
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $8885FD
+        rts
+
+        .databank 0
+
+      rsUnknown828E45 ; 82/8E45
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $88860B
+        rts
+
+        .databank 0
+
+      rsUnknown828E4A ; 82/8E4A
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $88861C
+        rts
+
+        .databank 0
+
+      rsUnknown828E4F ; 82/8E4F
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $88862D
+        rts
+
+        .databank 0
+
+      rsUnknown828E54 ; 82/8E54
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl $88863E
+        rts
+
+        .databank 0
+
+      rsUnknown828E59 ; 82/8E59
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl rlUnknown828E5E
+        rts
+
+        .databank 0
+
+      rlUnknown828E5E ; 82/8E5E
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+      aProcUnknown828D52Code ; 82/8E5F
+
+        PROC_HALT
+
+      rsUnknown828E61 ; 82/8E61
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        rep #$30
+        ldx aProcSystem.wOffset,b
+        lda aProcSystem.aBody1,b,x
+        xba
+        sta lR18+1
+        lda aProcSystem.aBody0,b,x
+        sta lR18
+        ldy aProcSystem.aBody2,b,x
+
+        lda [lR18],y
+        cmp #$00FF
+        beq _CLC
+
+          lda [lR18],y
+          sta aProcSystem.aBody7,b,x
+          inc y
+          inc y
+          lda [lR18],y
+          sta aProcSystem.aBody3,b,x
+          sta wR13
+          inc y
+          inc y
+          lda [lR18],y
+          sta aProcSystem.aBody3,b,x
+          sta wR14
+
+          lda aProcSystem.aBody7,b,x
+          cmp #8
+          bne +
+
+            stz aProcSystem.aBody4,b,x
+
+          +
+          inc y
+          inc y
+          tya
+          sta aProcSystem.aBody2,b,x
+          lda #0
+          sta wR12
+          sta wR15
+          jsl $80A1D8
+
+          lda wR12
+          sta $175F,b
+          lda wR13
+          sta $1761,b
+          ldx aProcSystem.wOffset,b
+          lda #0
+          sta aProcSystem.aBody5,b,x
+          sta aProcSystem.aBody6,b,x
+          plp
+          sec
+          rts
+
+        _CLC
+        plp
+        clc
+        rts
+
+        .databank 0
+
+      procUnknown828ECB ; 82/8ECB
+
+        .structProcInfo "CM", rlProcUnknown828ECBInit, rlProcUnknown828ECBCycle, aProcUnknown828ECBCode
+        .word 0
+
+      rlProcUnknown828ECBInit ; 82/8ED5
+
+        .al
+        .autsiz
+        .databank ?
+
+        sep #$20
+        lda #$01
+        ora bBufferTM
+        sta bBufferTM
+        lda #$01
+        ora bBufferTMW
+        sta bBufferTMW
+        rep #$20
+        stz aProcSystem.aBody0,b,x
+        rtl
+
+        .databank 0
+
+      rlProcUnknown828ECBCycle ; 82/8EE9
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda aProcSystem.aBody0,b,x
+        cmp #2
+        beq _8F1F
+
+          cmp #1
+          beq +
+
+            lda bBufferINIDISP
+            bit #$0080
+            bne _8F11
+
+              ora #$0080
+              sta bBufferINIDISP
+
+              lda #1
+              sta aProcSystem.aBody0,b,x
+              bra _8F23
+
+          +
+          lda bBufferINIDISP
+          eor #$0080
+          sta bBufferINIDISP
+
+          _8F11
+          phx
+          jsl $8883C7
+          plx
+          lda #2
+          sta aProcSystem.aBody0,b,x
+          bra _8F23
+
+        _8F1F
+        jsl $80B63F
+
+        _8F23
+        ldx aProcSystem.wOffset,b
+        jsl rlUnknown91A4AC
+        bcc +
+
+          jsr rsUnknown828F30
+
+        +
+        rtl
+
+        .databank 0
+
+      rsUnknown828F30 ; 82/8F30
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda bBufferTM
+        eor #$0001
+        sta bBufferTM
+        ldx aProcSystem.wOffset,b
+        jsr rsProcCodeEnd
+
+        .databank 0
+
+      aProcUnknown828ECBCode ; 82/8F3D
+
+        PROC_HALT
+
+        ; 82/8F3F
+
+
+
+      procUnknown829245 ; 82/9245
+
+        .structProcInfo "e0", rlProcUnknown829245Init, rlProcUnknown829245Cycle, aProcUnknown829245Code
+        .word 2
+
+      rlProcUnknown829245Init ; 82/924F
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+      rlProcUnknown829245Cycle ; 82/9250
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda wJoy1New
+        bit #JOY_ABXY
+        beq +
+
+          jsl rlEventEngineFreeProc
+
+        +
+        rtl
+
+        .databank 0
+
+      aProcUnknown829245Code ; 82/925C
+
+        PROC_HALT
+
+      procUnknown82925E ; 82/925E
+
+        .structProcInfo "e0", rlProcUnknown82925EInit, rlProcUnknown82925ECycle, aProcUnknown82925ECode
+        .word 2
+
+      rlProcUnknown82925EInit ; 82/9268
+
+        .al
+        .autsiz
+        .databank ?
+
+        ldy wActiveEventOffset,b
+        lda [lR22],y
+        sta aProcSystem.aBody0,b,x
+        rtl
+
+        .databank 0
+
+      rlProcUnknown82925ECycle ; 82/9271
+
+        .al
+        .autsiz
+        .databank ?
+
+        dec aProcSystem.aBody0,b,x
+        beq +
+
+          lda wJoy1New
+          bit #JOY_ABXY
+          bne +
+
+            rtl
+
+        +
+        jsl rlEventEngineFreeProc
+        rtl
+
+        .databank 0
+
+      aProcUnknown82925ECode ; 82/9283
+
+        PROC_HALT
+
+
+
+
+
+      rlUnknown91A7BC ; 91/A7BC
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; A = fill value
+
+        php
+        ldx #$07FE
+
+          -
+          sta aBG3TilemapBuffer,x
+          dec x
+          dec x
+          bpl -
+
+        jsl rlDMAByStruct
+
+          .structDMAToVRAM aBG3TilemapBuffer, $0800, $80, $B000
+
+        nop
+        nop
+        nop
+        nop
+        jsl rlUnknown8780EC
+        plp
+        rtl
+
+        .databank 0
+
+
+
+
+
+      rlUnknown80C32C ; 80/C32C
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        sep #$20
+        lda #$09
+        sta bBufferBGMODE
+        rep #$20
+
+        lda #0
+        sta wR1
+        sta wR2
+        lda #$8000 >> 1
+        sta wR3
+        sta wR4
+        lda #$C000 >> 1
+        sta wR5
+        lda #$A000 >> 1
+        sta wR6
+        lda #$A800 >> 1
+        sta wR7
+        lda #$B000 >> 1
+        sta wR8
+        jsl rlSetLayerPositionsAndSizes
+        plp
+        rtl
+
+        .databank 0
+
+      rlUnknown80C35D ; 80/C35D
+
+        .al
+        .autsiz
+        .databank ?
+
+        plp
+        sep #$20
+        lda #3
+        sta BGMODE,b
+        sta bBufferBGMODE
+        lda #0
+        sta BG1SC,b
+        sta bBufferBG1SC
+        sta BG2SC,b
+        sta bBufferBG2SC
+        rep #$20
+
+        lda #$2000 >> 1
+        sta wR1
+        sta wR2
+        lda #$0000 >> 1
+        sta wR3
+        sta wR4
+        lda #$0000 >> 1
+        sta wR5
+        lda #$E000 >> 1
+        sta wR6
+        sta wR7
+        lda #$0000 >> 1
+        sta wR8
+        jsl rlSetLayerPositionsAndSizes
+        plp
+        rtl
+
+        .databank 0
+
+        ; 80/C39A
+
+
+
+
+
+
+      rlUnknown91A9BB ; 91/A9BB
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl rlLoadMapMenuData
+
+        lda #$2000
+        sta aCurrentTilemapInfo.wBaseTile,b
+        lda #$00FF
+        sta wUnknown053E,b
+        lda #$20FF
+        sta wUnknown053C,b
+        jsl rlUnknown8788E5
+
+        lda #(`aUnknown91A9E4)<<8
+        sta lR18+1
+        lda #<>aUnknown91A9E4
+        sta lR18
+        jsl rlUnknown8788EE
+        rtl
+
+        .databank 0
+
+      aUnknown91A9E4 ; 91/A9E4
+
+        .word $6106
+        .word $2107
+        .word $2106
+        .word $6108
+        .word $2108
+        .word $E106
+        .word $A107
+
+06 A1 85 06 A5 27 48 A5 28 48 A9 00 00 85 28 A9 08 00 85 27 A5 06 20 15 AA 20 6F AA 68 85 28 68 85 27 6B 08 DA 5A A0 00 00 85 1A A9 10 27
+
+
+
+
+
+      rlUnknown8B87A0 ; 8B/87A0
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+        ; 8B/87A1
+
+
+
+
+
+
+      rlUnknown84CDA4 ; 84/CDA4
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        lda $0580,b
+        beq _End
+
+          sta wEventLocationEntry,b
+          lda aDeploymentTable._UnitRAMPointer,x
+          sta wSelectedUnitDataRAMPointer,b
+          jsl rlUnknown84CAA9
+          lda #8
+          sta bEventActionIdentifier,b
+          jsl rlGetSelectedUnitCharacterID
+          sta wEventEngineArgument1,b
+          jsl rlGetEventLocationEntryID
+          sta wEventEngineArgument2,b
+          jsl rlGetAndRunChapterMapEventConditions
+
+        _End
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 84/CDD6
+
+
+
+
+
+      rlUnknown85DF3F ; 85/DF3F
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        jsl rlUnknown88AF7B
+        ldx $0772,b
+        jsl rlUnknown84CDA4
+
+        lda #<>$80B6B6
+        sta aProcSystem.wInput0,b
+        lda #(`procUnknown8282D3)<<8
+        sta lR44+1
+        lda #<>procUnknown8282D3
+        sta lR44
+        jsl rlProcEngineCreateProc
+        plx
+        rtl
+
+        .databank 0
+
+        ; 85/DF61
+
+
+
+        ; 85/E070
+
+57 DE 85 01 01 81 40 82 B1 82 A4 82 B0 82 AB 00 00 ; attack
+7C DE 85 01 01 81 40 82 C6 82 C2 82 B0 82 AB 00 00 ; assault
+AB DE 85 01 01 81 40 82 A8 82 C7 82 E9 00 00 ; dance
+D6 DE 85 01 01 81 40 82 C2 82 A6 00 00 ; staff
+FB DE 85 01 01 81 40 82 E0 82 BF 82 E0 82 CC 00 00 ; belongings?
+C2 DF 85 01 01 81 40 82 CD 82 C8 82 B7 00 00 ; talk
+30 E0 85 01 01 81 40 82 A0 82 B0 82 E9 00 00 ; give?
+50 E0 85 01 01 81 40 82 A0 82 B0 82 E9 00 00 ; give2?
+12 E0 85 01 01 81 40 82 BD 82 B7 82 AF 82 E9 00 00 ; help?
+6F DF 85 01 01 81 40 82 B9 82 A2 82 A0 82 C2 00 00 ; seize
+20 DF 85 01 01 81 40 82 CD 82 A2 82 E9 00 00 ; enter
+3F DF 85 01 01 81 40 82 DC 82 BF 00 00 ; town?
+61 DF 85 01 01 81 40 82 DE 82 E7 00 00 ; village
+7D DF 85 01 01 81 40 82 B5 82 E3 82 D1 00 00 ; guard
+8A DF 85 01 01 81 40 82 B5 82 E3 82 C2 82 B0 82 AB 00 00 ; depart
+98 DF 85 01 01 81 40 8F E9 82 C9 82 E0 82 C7 82 E9 00 00 ; return
+43 DE 85 01 01 81 40 82 BD 82 A2 82 AB 00 00 ; atmosphere?
+04 E0 85 01 01 81 40 8F E9 82 C9 82 E0 82 C7 82 E9 00 00 ; return2
+B4 DF 85 01 01 81 40 82 CC 82 E9 00 00 ; mount
+A6 DF 85 01 01 81 40 82 A8 82 E8 82 E9 00 00 ; dismount
+DE DF 85 01 01 81 40 82 BB 82 A4 82 D1 00 00 ; equipment
+FD DF 85 01 01 81 40 83 41 83 6A 83 81 00 00 ; anime
+
+
+00 00 18 00 50 57 DB E1 ED E1 AA 84 A3 83 85 01 C8 E1 85 22 C2 83 85 A9 00 00 85 89 85 87 AD CF 0E 9D B7 10 6B A9 09 00 22 AD 8F 80 BD D7 0E A8 22 80 82 85 22 AC 84 85 A9 00 00 8D 00 01 A9 00 20 8D 3A 05 A9 FF 20 8D 3C 05 BD B7 10 8D CF 0E A9 01 00 8D 43 05 8D 45 05 DA AE 72 07 BF EB 46 7E 8D 6F 05 20 4E E4 20 68 E4 A2 2E 00 DA FC 7F E2 FA 90 0F A9 E2 85 8D 41 05 BD AF E2 8D 40 05 20 32 E3 CA CA 10 E6 FA 22 BE F3 82 1A 0A EB 09 09 00 22 97 87 87 22 6E 85 85 22 DC 84 85 BD B7 10 C9 02 00 F0 0A C9 01 00 D0 05 20 DF E2 80 00 A9 3D E3 9D 57 0F 6B B6 E5 E8 E6 45 E5 39 E5 A5 E6 D7 E6 F6 E7 B3 E7 24
+
+
+
+      rlUnknown81B461 ; 81/B461
+
+        .al
+        .autsiz
+        .databank ?
+
+
+        phb
+        php
+        phk
+        plb
+        dec a
+        cmp #6
+        bcs +
+
+          tax
+          sep #$20
+          lda wAreaRestrictionBitfield,b
+          and $81B47D,x
+          sta wAreaRestrictionBitfield,b
+          rep #$20
+
+        +
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+        ; 81/B47D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

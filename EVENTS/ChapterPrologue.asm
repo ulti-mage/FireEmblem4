@@ -43,7 +43,7 @@
 
       aChapterPrologueOpeningEvent ; 90/8008
 
-        SET_PERMANENT_FLAG PermanentFlag0
+        SET_PERMANENT_FLAG PermanentFlagSeliphExists
 
         LOAD_FACTION_GROUP FS_Player,         FG_PrologueSigurd
         LOAD_FACTION_GROUP FS_PrologueEvans,  FG_PrologueEvans
@@ -57,9 +57,9 @@
         macroSetFactionsAllies  [FS_PrologueYngvi,  FS_PrologueArvis]
         macroSetFactionsEnemies [FS_PrologueEvans,  FS_PrologueArvis]
 
-        macroSetUnitResidingInCastle Sigurd, ChP_Chalphy
-        macroSetUnitResidingInCastle Naoise, ChP_Chalphy
-        macroSetUnitResidingInCastle Alec,   ChP_Chalphy
+        SET_UNIT_POSITION Sigurd, ChP_Chalphy
+        SET_UNIT_POSITION Naoise, ChP_Chalphy
+        SET_UNIT_POSITION Alec, ChP_Chalphy
 
         EVENT FlagAlways, EventPrologueOpening
 
@@ -104,10 +104,10 @@
         CHECK_TALK FlagAlways, Quan, Sigurd
           EVENT FlagAlways, EventPrologueQuanSigurdTalk
 
-        CHECK_TALK FlagPrologue_SigurdArvisTalk, Sigurd, ArvisPrologue
+        CHECK_TALK FlagPrologue_SigurdArvisTalk, Sigurd, ArvisChPrologue
           EVENT FlagAlways, EventPrologueSigurdArvisTalk
 
-        CHECK_TALK FlagPrologue_SigurdArvisTalk, ArvisPrologue, Sigurd
+        CHECK_TALK FlagPrologue_SigurdArvisTalk, ArvisChPrologue, Sigurd
           EVENT FlagAlways, EventPrologueSigurdArvisTalk
 
         VISIT_VILLAGE FlagAlways, AnyCharacter, ChP_Village1
@@ -362,8 +362,8 @@
 
       aChapterPrologueTalkEvents ; 90/829C
 
-        .structChapterTalkEventEntry ChapterPrologue, FlagPrologue_SigurdArvisTalk, Sigurd, ArvisPrologue
-        .structChapterTalkEventEntry ChapterPrologue, FlagPrologue_SigurdArvisTalk, ArvisPrologue, Sigurd
+        .structChapterTalkEventEntry ChapterPrologue, FlagPrologue_SigurdArvisTalk, Sigurd, ArvisChPrologue
+        .structChapterTalkEventEntry ChapterPrologue, FlagPrologue_SigurdArvisTalk, ArvisChPrologue, Sigurd
         .word $FFFF
 
     .endsection ChapterPrologueEventDataSection

@@ -1,62 +1,69 @@
 
     .weak
       
-      Flag_Unknown0                     :=  0
-      Flag_Unknown1                     :=  1
+      FlagChapter08_ConnachtSeizedCheck           :=  0
+      FlagChapter08_MeathSeizedCheck              :=  1
 
-      Flag_Unknown3                     :=  3
-      Flag_Unknown4                     :=  4
-      Flag_Unknown5                     :=  5
-      Flag_Unknown6                     :=  6
-      Flag_Unknown7                     :=  7
-      Flag_Unknown8                     :=  8
+      FlagChapter08_MuhammadCharge                :=  3
+      FlagChapter08_OvoCharge                     :=  4
+      FlagChapter08_BanbaCharge                   :=  5
+      FlagChapter08_FebailSpawn                   :=  6
+      FlagChapter08_IshtarSpawn                   :=  7
+      FlagChapter08_IshtarLeave                   :=  8
 
-      Flag_Unknown11                    := 11
-      Flag_Unknown12                    := 12
-      Flag_Unknown13                    := 13
+      FlagChapter08_MeathSpawn                    := 11
+      FlagChapter08_CoulterCharge                 := 12
+      FlagChapter08_MunsterSavedMaykovReaction    := 13
 
-      Flag_Unknown16                    := 16
+      FlagChapter08_SeliphCedTalk                 := 16
 
-      Flag_IshtarBattleQuote            := 23
-      Flag_FebailBattleQuote            := 24
-      Flag_PattyFebailBattleQuote       := 25
-      Flag_MuhammadBattleQuote          := 26
-      Flag_OvoBattleQuote               := 27
-      Flag_BanbaBattleQuote             := 28
-      Flag_Unknown29                    := 29
-      Flag_FotlaBattleQuote             := 30
-      Flag_Unknown31                    := 31
-      Flag_EriuBattleQuote              := 32
-      Flag_Unknown33                    := 33
-      Flag_BloomBattleQuote             := 34
-      Flag_CoulterBattleQuote           := 35
-      Flag_MaykovBattleQuote            := 36
+      FlagChapter08_IshtarBattleQuote             := 23
+      FlagChapter08_FebailBattleQuote             := 24
+      FlagChapter08_PattyFebailBattleQuote        := 25
+      FlagChapter08_MuhammadBattleQuote           := 26
+      FlagChapter08_OvoBattleQuote                := 27
+      FlagChapter08_BanbaBattleQuote              := 28
+      FlagChapter08_BanbaTriangleAttackQuote      := 29
+      FlagChapter08_FotlaBattleQuote              := 30
+      FlagChapter08_FotlaTriangleAttackQuote      := 31
+      FlagChapter08_EriuBattleQuote               := 32
+      FlagChapter08_EriuTriangleAttackQuote       := 33
+      FlagChapter08_BloomBattleQuote              := 34
+      FlagChapter08_CoulterBattleQuote            := 35
+      FlagChapter08_MaykovBattleQuote             := 36
 
-      Flag_Unknown40                    := 40
-      Flag_Unknown41                    := 41
-      Flag_Unknown42                    := 42
-      Flag_Unknown43                    := 43
-      Flag_Unknown44                    := 44
-      Flag_Unknown45                    := 45
-      Flag_Unknown46                    := 46
-      Flag_Unknown47                    := 47
-      Flag_Unknown48                    := 48
-      Flag_IshtarDied                   := 49
+      FlagChapter08_AltenaOnMountainCheck         := 40
+      FlagChapter08_SeliphCedTalkCheck            := 41
+      FlagChapter08_PattyFebailTalkCheck          := 42
+      FlagChapter08_AltenaDied                    := 43
+      FlagChapter08_LeifAlive                     := 44
+      FlagChapter08_FinnAlive                     := 45
+      FlagChapter08_NannaAlive                    := 46
+      FlagChapter08_JuliaCaptureReturn            := 47
+      FlagChapter08_IshtarDied                    := 48
+      FlagChapter08_IshtarDiedCheck               := 49
+      FlagChapter08_ConnachtBridgeLowered         := 50
+      FlagChapter08_LeifNearMountainCheck         := 51
+      FlagChapter08_FeeOnMountainCheck            := 52
+      FlagChapter08_Unknown53                     := 53
+      FlagChapter08_MuirneSeliphAdjacentCheck     := 54
+      FlagChapter08_MuirneSeliphAdjacent          := 55
+      FlagChapter08_LindaOnTree                   := 56
+      FlagChapter08_AmidOnTree                    := 57
+      FlagChapter08_AmidOnTreeCheck               := 58
+      FlagChapter08_LindaOnTreeCheck              := 59
+      FlagChapter08_FebailBloomBattleQuote        := 60
+      FlagChapter08_TineIshtarBattleQuote         := 61
+      FlagChapter08_TineBloomBattleQuote          := 62
+      FlagChapter08_SeliphBloomBattleQuote        := 63
+      FlagChapter08_JeanneAlive                   := 64
 
-      Flag_Unknown51                    := 51
-      Flag_Unknown52                    := 52
+      FS_Player                                   :=  0
+      FS_Ch08Connacht                             :=  1
+      FS_Ch08Munster                              :=  2
+      FS_Ch08Meath                                :=  3
 
-      Flag_Unknown54                    := 54
-      Flag_Unknown55                    := 55
-      Flag_Unknown56                    := 56
-      Flag_Unknown57                    := 57
-      Flag_AmidOnTree                   := 58
-      Flag_LindaOnTree                  := 59
-      Flag_FebailBloomBattleQuote       := 60
-      Flag_TineIshtarBattleQuote        := 61
-      Flag_TineBloomBattleQuote         := 62
-      Flag_SeliphBloomBattleQuote       := 63
-      Flag_Unknown64                    := 64
+      FS_Ch08Ced                                  :=  2
 
     .endweak
 
@@ -70,342 +77,342 @@
 
       aChapter08OpeningEvent ; B2/EE7B
 
-        REGISTER_UNITGROUP_MAP_SPRITES $25
+        REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter08Start
 
-        LOAD_FACTION_GROUP 0, FG_Ch08Seliph
-        LOAD_FACTION_GROUP 1, FG_Ch08Connacht
-        LOAD_FACTION_GROUP 2, FG_Ch08Munster1
-        LOAD_FACTION_GROUP 3, FG_Ch08Meath
+        LOAD_FACTION_GROUP FS_Player, FG_Ch08Seliph
+        LOAD_FACTION_GROUP FS_Ch08Connacht, FG_Ch08Connacht
+        LOAD_FACTION_GROUP FS_Ch08Munster, FG_Ch08Munster1
+        LOAD_FACTION_GROUP FS_Ch08Meath, FG_Ch08Meath
 
-        macroSetFactionsEnemies [0, 1]
-        macroSetFactionsEnemies [0, 2]
-        macroSetFactionsEnemies [0, 3]
-        macroSetFactionsAllies  [1, 2]
-        macroSetFactionsAllies  [1, 3]
-        macroSetFactionsAllies  [2, 3]
+        macroSetFactionsEnemies [FS_Player, FS_Ch08Connacht]
+        macroSetFactionsEnemies [FS_Player, FS_Ch08Munster]
+        macroSetFactionsEnemies [FS_Player, FS_Ch08Meath]
+        macroSetFactionsAllies  [FS_Ch08Connacht, FS_Ch08Munster]
+        macroSetFactionsAllies  [FS_Ch08Connacht, FS_Ch08Meath]
+        macroSetFactionsAllies  [FS_Ch08Munster, FS_Ch08Meath]
 
-        DEPLOY_UNIT_GROUP $25
+        DEPLOY_UNIT_GROUP UNITGroupChapter08Start
 
         CHECK_UNIT_ALIVE Leif
-          SET_FLAG Flag_Unknown44
+          SET_FLAG FlagChapter08_LeifAlive
         BREAK_STATE_CHECKS
 
-        CHECK_UNIT_ALIVE OldFinn
-          SET_FLAG Flag_Unknown45
+        CHECK_UNIT_ALIVE AdultFinn
+          SET_FLAG FlagChapter08_FinnAlive
         BREAK_STATE_CHECKS
 
         CHECK_UNIT_ALIVE Nanna
-          SET_FLAG Flag_Unknown46
+          SET_FLAG FlagChapter08_NannaAlive
         BREAK_STATE_CHECKS
 
         CHECK_UNIT_ALIVE Jeanne
-          SET_FLAG Flag_Unknown64
+          SET_FLAG FlagChapter08_JeanneAlive
         BREAK_STATE_CHECKS
 
-        EVENT $FF, $0124
+        EVENT FlagAlways, EventChapter08Opening
 
         END_CHAPTER_EVENTS
 
       aChapter08MapEvents ; 86/EEC9
 
-        CHECK_SEIZING_CASTLE Flag_Unknown0, $0000, $0002
-          EVENT $FF, $012B
+        CHECK_SEIZING_CASTLE FlagChapter08_ConnachtSeizedCheck, FS_Player, Ch08_Connacht
+          EVENT FlagAlways, EventChapter08ConnachtSeized
 
-        CHECK_SEIZING_CASTLE Flag_Unknown1, $0000, $0004
-          EVENT $FF, $0130
+        CHECK_SEIZING_CASTLE FlagChapter08_MeathSeizedCheck, FS_Player, Ch08_Meath
+          EVENT FlagAlways, EventChapter08Ending
 
-        CHECK_UNIT_DIED $FF, $FFFF, $0000
-          SET_PERMANENT_FLAG 89
+        CHECK_UNIT_DIED FlagAlways, AnyCharacter, FS_Player
+          SET_PERMANENT_FLAG PermanentFlagPlayerDeathInGen2
 
-        CHECK_UNIT_IN_AREA Flag_Unknown40, Altena, $282E, $282E, $FF
+        CHECK_UNIT_IN_AREA FlagChapter08_AltenaOnMountainCheck, Altena, pack([46, 40]), pack([46, 40]) 
           EC_NOP_00
 
-        CHECK_UNIT_IN_AREA Flag_Unknown51, Leif, $2631, $2A34, $FF
-          EVENT $FF, $0143
+        CHECK_UNIT_IN_AREA FlagChapter08_LeifNearMountainCheck, Leif, pack([49, 38]), pack([52, 42])
+          EVENT FlagAlways, EventChapter08LeifNearMountain
 
-        CHECK_UNIT_IN_AREA Flag_Unknown51, Leif, $2829, $2829, $FF
-          EVENT $FF, $0143
+        CHECK_UNIT_IN_AREA FlagChapter08_LeifNearMountainCheck, Leif, pack([41, 40]), pack([41, 40])
+          EVENT FlagAlways, EventChapter08LeifNearMountain
 
-        CHECK_UNIT_IN_AREA Flag_Unknown52, Fee, $2F11, $3413, $FF
-          EVENT $FF, $0144
+        CHECK_UNIT_IN_AREA FlagChapter08_FeeOnMountainCheck, Fee, pack([17, 47]), pack([19, 52])
+          EVENT FlagAlways, EventChapter08FeeOnMountain
 
-        CHECK_UNITS_WITHIN_DISTANCE Flag_Unknown54, Muirne, Seliph, $01, $FF
+        CHECK_UNITS_WITHIN_DISTANCE FlagChapter08_MuirneSeliphAdjacentCheck, Muirne, Seliph, 1
           EC_NOP_00
 
-        CHECK_UNIT_IN_AREA Flag_LindaOnTree, Linda, $2C14, $2C14, $FF
-          EVENT 56, $0146
+        CHECK_UNIT_IN_AREA FlagChapter08_LindaOnTreeCheck, Linda, pack([20, 44]), pack([20, 44])
+          EVENT FlagChapter08_LindaOnTree, EventChapter08LindaOnTree
 
-        CHECK_UNIT_IN_AREA Flag_AmidOnTree, Amid, $2619, $2619, $FF
+        CHECK_UNIT_IN_AREA FlagChapter08_AmidOnTreeCheck, Amid, pack([25, 38]), pack([25, 38])
           EC_NOP_00
 
-        EC_16 Flag_Unknown41, Seliph, Ced
-          EVENT Flag_Unknown16, $0132
+        CHECK_CHILD_TALK FlagChapter08_SeliphCedTalkCheck, Seliph, Ced
+          EVENT FlagChapter08_SeliphCedTalk, EventChapter08SeliphCedTalk
 
-        EC_16 Flag_Unknown42, Patty, Febail
-          EVENT $FF, $0131
+        CHECK_CHILD_TALK FlagChapter08_PattyFebailTalkCheck, Patty, Febail
+          EVENT FlagAlways, EventChapter08PattyFebailTalk
 
-        EC_16 Flag_Unknown42, Daisy, Asaello
-          EVENT $FF, $0131
+        CHECK_CHILD_TALK FlagChapter08_PattyFebailTalkCheck, Daisy, Asaello
+          EVENT FlagAlways, EventChapter08PattyFebailTalk
 
-        CHECK_UNIT_DIED Flag_Unknown43, Altena, $FFFF
-          SET_PERMANENT_FLAG 37
+        CHECK_UNIT_DIED FlagChapter08_AltenaDied, Altena
+          SET_PERMANENT_FLAG PermanentFlagAltenaDied
 
-        CHECK_UNIT_DIED_TO $FF, Ishtar, $FFFF
+        CHECK_UNIT_DIED_TO FlagAlways, IshtarCh08, AnyCharacter
           COMBATANTS_STAY_ON_MAP
 
-        CHECK_UNIT_DIED Flag_IshtarDied, Ishtar, $FFFF
-          EVENT Flag_Unknown48, $0139
+        CHECK_UNIT_DIED FlagChapter08_IshtarDiedCheck, IshtarCh08
+          EVENT FlagChapter08_IshtarDied, EventChapter08IshtarDied
 
-        CHECK_PLAYER_UNCAPTURED_IF_SEIZING Flag_Unknown47, Julia
+        CHECK_PLAYER_UNCAPTURED_IF_SEIZING FlagChapter08_JuliaCaptureReturn, Julia
           EC_NOP_00
 
-        EC_16 $FF, Febail, Seliph
-          EVENT $FF, $01F9
+        CHECK_CHILD_TALK FlagAlways, Febail, Seliph
+          EVENT FlagAlways, EventChapter08FebailSeliphTalk
 
-        CHECK_TALK $FF, Hermina, Hawk
-          EVENT $FF, $01FA
+        CHECK_TALK FlagAlways, Hermina, Hawk
+          EVENT FlagAlways, EventChapter08HerminaHawkTalk
 
-        CHECK_TALK $FF, Fee, Ced
-          EVENT $FF, $01FB
+        CHECK_TALK FlagAlways, Fee, Ced
+          EVENT FlagAlways, EventChapter08FeeCedTalk
 
-        CHECK_TALK $FF, Nanna, Ares
-          EVENT $FF, $01FC
+        CHECK_TALK FlagAlways, Nanna, Ares
+          EVENT FlagAlways, EventChapter08NannaAresTalk
 
-        CHECK_TALK $FF, Ced, Seliph
-          EVENT $FF, $01FD
+        CHECK_TALK FlagAlways, Ced, Seliph
+          EVENT FlagAlways, EventChapter08CedSeliphTalk
 
-        EC_16 $FF, Seliph, Tine
-          EVENT $FF, $01FE
+        CHECK_CHILD_TALK FlagAlways, Seliph, Tine
+          EVENT FlagAlways, EventChapter08SeliphTineTalk
 
-        CHECK_TALK $FF, Julia, Seliph
-          EVENT $FF, $01FF
+        CHECK_TALK FlagAlways, Julia, Seliph
+          EVENT FlagAlways, EventChapter08JuliaSeliphTalk
 
-        EC_16 $FF, Arthur, Fee
-          EVENT $FF, $0200
+        CHECK_CHILD_TALK FlagAlways, Arthur, Fee
+          EVENT FlagAlways, EventChapter08ArthurFeeTalk
 
-        CHECK_TALK $FF, OldFinn, Leif
-          EVENT $FF, $0201
+        CHECK_TALK FlagAlways, AdultFinn, Leif
+          EVENT FlagAlways, EventChapter08FinnLeifTalk
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 0
-          EVENT $FF, $013A
+          EVENT FlagAlways, EventChapter08CivilianRescued1
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 1
-          EVENT $FF, $013B
+          EVENT FlagAlways, EventChapter08CivilianRescued2
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 2
-          EVENT $FF, $013C
+          EVENT FlagAlways, EventChapter08CivilianRescued3
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 3
-          EVENT $FF, $013D
+          EVENT FlagAlways, EventChapter08CivilianRescued4
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 4
-          EVENT $FF, $013E
+          EVENT FlagAlways, EventChapter08CivilianRescued5
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 5
-          EVENT $FF, $013F
+          EVENT FlagAlways, EventChapter08CivilianRescued6
 
-        VISIT_VILLAGE $FF, Asaello, $0008
-          EVENT $FF, $0142
+        VISIT_VILLAGE FlagAlways, Asaello, Ch08_Village3
+          EVENT FlagAlways, EventChapter08Village3Asaello
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0005
-          EVENT $FF, $0133
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch08_Village1
+          EVENT FlagAlways, EventChapter08Village1
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0006
-          EVENT $FF, $0134
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch08_VillagePowerRing
+          EVENT FlagAlways, EventChapter08VillagePowerRing
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0007
-          EVENT $FF, $0135
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch08_Village2
+          EVENT FlagAlways, EventChapter08Village2
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0008
-          EVENT $FF, $0136
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch08_Village3
+          EVENT FlagAlways, EventChapter08Village3
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0009
-          EVENT $FF, $0137
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch08_Village4
+          EVENT FlagAlways, EventChapter08Village4
 
-        VISIT_VILLAGE $FF, AnyCharacter, $000A
-          EVENT $FF, $0138
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch08_VillageThiefBand
+          EVENT FlagAlways, EventChapter08VillageThiefBand
 
-        CHECK_SPECIAL_CRIT $FF, $0003, Banba2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_Unknown29, $8FDEAE, $00
+        CHECK_SPECIAL_CRIT FlagAlways, 3, BanbaCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_BanbaTriangleAttackQuote, dialogueChapter08BanbaTriangleAttack, 0
 
-        CHECK_SPECIAL_CRIT $FF, $0003, Fotla2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_Unknown31, $8FDEF4, $00
+        CHECK_SPECIAL_CRIT FlagAlways, 3, FotlaCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_FotlaTriangleAttackQuote, dialogueChapter08FotlaTriangleAttack, 0
 
-        CHECK_SPECIAL_CRIT $FF, $0003, Eriu2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_Unknown33, $8FDF39, $00
+        CHECK_SPECIAL_CRIT FlagAlways, 3, EriuCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_EriuTriangleAttackQuote, dialogueChapter08EriuTriangleAttack, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Patty, $FFFF, Febail
-          SET_BATTLE_OR_DEATH_QUOTE Flag_PattyFebailBattleQuote, $8FDE4E, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Patty, AnyFactionSlot, Febail
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_PattyFebailBattleQuote, dialogueChapter08PattyFebailBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Daisy, $FFFF, Asaello
-          SET_BATTLE_OR_DEATH_QUOTE Flag_PattyFebailBattleQuote, $8FDE4E, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Daisy, AnyFactionSlot, Asaello
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_PattyFebailBattleQuote, dialogueChapter08PattyFebailBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Febail, $FFFF, Bloom2
-          SET_PRECOMBAT_DIALOGUE Flag_FebailBloomBattleQuote, $B0E09C, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Febail, AnyFactionSlot, BloomCh08
+          SET_PRECOMBAT_DIALOGUE FlagChapter08_FebailBloomBattleQuote, dialogueChapter08FebailBloomBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Asaello, $FFFF, Bloom2
-          SET_PRECOMBAT_DIALOGUE Flag_FebailBloomBattleQuote, $B0E09C, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Asaello, AnyFactionSlot, BloomCh08
+          SET_PRECOMBAT_DIALOGUE FlagChapter08_FebailBloomBattleQuote, dialogueChapter08FebailBloomBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Tine, $FFFF, Ishtar
-          SET_PRECOMBAT_DIALOGUE Flag_TineIshtarBattleQuote, $B0E115, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Tine, AnyFactionSlot, IshtarCh08
+          SET_PRECOMBAT_DIALOGUE FlagChapter08_TineIshtarBattleQuote, dialogueChapter08TineIshtarBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Linda, $FFFF, Ishtar
-          SET_PRECOMBAT_DIALOGUE Flag_TineIshtarBattleQuote, $B0E115, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Linda, AnyFactionSlot, IshtarCh08
+          SET_PRECOMBAT_DIALOGUE FlagChapter08_TineIshtarBattleQuote, dialogueChapter08TineIshtarBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING_1TO2RANGE $FF, $0000, Tine, $FFFF, Bloom2
-          SET_PRECOMBAT_DIALOGUE Flag_TineBloomBattleQuote, $B0E181, $0046
+        CHECK_UNITS_FIGHTING_1TO2RANGE FlagAlways, FS_Player, Tine, AnyFactionSlot, BloomCh08
+          SET_PRECOMBAT_DIALOGUE FlagChapter08_TineBloomBattleQuote, dialogueChapter08TineBloomBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING_1TO2RANGE $FF, $0000, Linda, $FFFF, Bloom2
-          SET_PRECOMBAT_DIALOGUE Flag_TineBloomBattleQuote, $B0E181, $0046
+        CHECK_UNITS_FIGHTING_1TO2RANGE FlagAlways, FS_Player, Linda, AnyFactionSlot, BloomCh08
+          SET_PRECOMBAT_DIALOGUE FlagChapter08_TineBloomBattleQuote, dialogueChapter08TineBloomBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING_1TO2RANGE $FF, $0000, Seliph, $FFFF, Bloom2
-          SET_PRECOMBAT_DIALOGUE Flag_SeliphBloomBattleQuote, $B0E1E8, $0046
+        CHECK_UNITS_FIGHTING_1TO2RANGE FlagAlways, FS_Player, Seliph, AnyFactionSlot, BloomCh08
+          SET_PRECOMBAT_DIALOGUE FlagChapter08_SeliphBloomBattleQuote, dialogueChapter08SeliphBloomBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Febail
-          SET_BATTLE_OR_DEATH_QUOTE Flag_FebailBattleQuote, $8FDE2E, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Febail
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_FebailBattleQuote, dialogueChapter08FebailBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Asaello
-          SET_BATTLE_OR_DEATH_QUOTE Flag_FebailBattleQuote, $8FDE2E, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Asaello
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_FebailBattleQuote, dialogueChapter08FebailBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Ishtar
-          SET_BATTLE_OR_DEATH_QUOTE Flag_IshtarBattleQuote, $8FDE09, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, IshtarCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_IshtarBattleQuote, dialogueChapter08IshtarBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Muhammad
-          SET_BATTLE_OR_DEATH_QUOTE Flag_MuhammadBattleQuote, $8FDE71, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Muhammad
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_MuhammadBattleQuote, dialogueChapter08MuhammadBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Ovo
-          SET_BATTLE_OR_DEATH_QUOTE Flag_OvoBattleQuote, $8FDE8B, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Ovo
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_OvoBattleQuote, dialogueChapter08OvoBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Banba2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_BanbaBattleQuote, $8FDEDB, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, BanbaCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_BanbaBattleQuote, dialogueChapter08BanbaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Fotla2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_FotlaBattleQuote, $8FDF21, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, FotlaCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_FotlaBattleQuote, dialogueChapter08FotlaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Eriu2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_EriuBattleQuote, $8FDF68, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, EriuCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_EriuBattleQuote, dialogueChapter08EriuBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Bloom2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_BloomBattleQuote, $8FDF83, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, BloomCh08
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_BloomBattleQuote, dialogueChapter08BloomBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Coulter
-          SET_BATTLE_OR_DEATH_QUOTE Flag_CoulterBattleQuote, $8FDFAF, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Coulter
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_CoulterBattleQuote, dialogueChapter08CoulterBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Maykov
-          SET_BATTLE_OR_DEATH_QUOTE Flag_MaykovBattleQuote, $8FDFD0, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Maykov
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter08_MaykovBattleQuote, dialogueChapter08MaykovBattleQuote, 0
 
         BREAK_ACTION_EVENT_CHECKS
 
-        CHECK_FLAG_UNSET Flag_BloomBattleQuote
-          CHECK_FLAG_IN_LIST_SET [Flag_FebailBloomBattleQuote, Flag_TineBloomBattleQuote, Flag_SeliphBloomBattleQuote]
-            SET_FLAG Flag_BloomBattleQuote
+        CHECK_FLAG_UNSET FlagChapter08_BloomBattleQuote
+          CHECK_FLAG_IN_LIST_SET [FlagChapter08_FebailBloomBattleQuote, FlagChapter08_TineBloomBattleQuote, FlagChapter08_SeliphBloomBattleQuote]
+            SET_FLAG FlagChapter08_BloomBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_UNSET Flag_IshtarBattleQuote
-          CHECK_FLAG_SET Flag_TineIshtarBattleQuote
-            SET_FLAG Flag_IshtarBattleQuote
+        CHECK_FLAG_UNSET FlagChapter08_IshtarBattleQuote
+          CHECK_FLAG_SET FlagChapter08_TineIshtarBattleQuote
+            SET_FLAG FlagChapter08_IshtarBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_UNSET Flag_FebailBattleQuote
-          CHECK_FLAG_SET Flag_PattyFebailBattleQuote
-            SET_FLAG Flag_FebailBattleQuote
+        CHECK_FLAG_UNSET FlagChapter08_FebailBattleQuote
+          CHECK_FLAG_SET FlagChapter08_PattyFebailBattleQuote
+            SET_FLAG FlagChapter08_FebailBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_UNSET Flag_BanbaBattleQuote
-          CHECK_FLAG_SET Flag_Unknown29
-            SET_FLAG Flag_BanbaBattleQuote
+        CHECK_FLAG_UNSET FlagChapter08_BanbaBattleQuote
+          CHECK_FLAG_SET FlagChapter08_BanbaTriangleAttackQuote
+            SET_FLAG FlagChapter08_BanbaBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_UNSET Flag_FotlaBattleQuote
-          CHECK_FLAG_SET Flag_Unknown31
-            SET_FLAG Flag_FotlaBattleQuote
+        CHECK_FLAG_UNSET FlagChapter08_FotlaBattleQuote
+          CHECK_FLAG_SET FlagChapter08_FotlaTriangleAttackQuote
+            SET_FLAG FlagChapter08_FotlaBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_UNSET Flag_EriuBattleQuote
-          CHECK_FLAG_SET Flag_Unknown33
-            SET_FLAG Flag_EriuBattleQuote
+        CHECK_FLAG_UNSET FlagChapter08_EriuBattleQuote
+          CHECK_FLAG_SET FlagChapter08_EriuTriangleAttackQuote
+            SET_FLAG FlagChapter08_EriuBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $01, $01, $01, $FFFF
-          EVENT Flag_Unknown3, $0125
+        CHECK_TURN_PHASE_AI_ACTOR 1, FS_Ch08Connacht, 1, AnyCharacter
+          EVENT FlagChapter08_MuhammadCharge, EventChapter08MuhammadCharge
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $01, $01, $02, $FFFF
-          EVENT Flag_Unknown4, $0126
+        CHECK_TURN_PHASE_AI_ACTOR 1, FS_Ch08Connacht, 2, AnyCharacter
+          EVENT FlagChapter08_OvoCharge, EventChapter08OvoCharge
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $01, $01, $07, $FFFF
-          EVENT Flag_Unknown5, $0127
+        CHECK_TURN_PHASE_AI_ACTOR 1, FS_Ch08Connacht, 7, AnyCharacter
+          EVENT FlagChapter08_BanbaCharge, EventChapter08BanbaCharge
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $03, $01, $00, $0000
-          EVENT Flag_Unknown6, $0128
+        CHECK_TURN_PHASE_AI_ACTOR 3, FS_Ch08Connacht
+          EVENT FlagChapter08_FebailSpawn, EventChapter08FebailSpawn
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $05, $01, $00, $0000
-          EVENT Flag_Unknown7, $0129
+        CHECK_TURN_PHASE_AI_ACTOR 5, FS_Ch08Connacht
+          EVENT FlagChapter08_IshtarSpawn, EventChapter08IshtarSpawn
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $0C, $01, $00, $0000
-          CHECK_UNIT_ALIVE Ishtar
-            EVENT Flag_Unknown8, $012A
+        CHECK_TURN_PHASE_AI_ACTOR 12, FS_Ch08Connacht
+          CHECK_UNIT_ALIVE IshtarCh08
+            EVENT FlagChapter08_IshtarLeave, EventChapter08IshtarLeave
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $02, $00, $0000
-          CHECK_FLAG_SET 0
-            EVENT Flag_Unknown11, $012D
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch08Munster
+          CHECK_FLAG_SET FlagChapter08_ConnachtSeizedCheck
+            EVENT FlagChapter08_MeathSpawn, EventChapter08MeathSpawn
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $03, $03, $FFFF
-          CHECK_FLAG_SET 40
-            EVENT Flag_Unknown12, $012E
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch08Meath, 3, AnyCharacter
+          CHECK_FLAG_SET FlagChapter08_AltenaOnMountainCheck
+            EVENT FlagChapter08_CoulterCharge, EventChapter08CoulterCharge
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $03, $00, $0000
-          CHECK_FLAG_SET 16
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch08Meath
+          CHECK_FLAG_SET FlagChapter08_SeliphCedTalk
             CHECK_UNIT_ALIVE Maykov
-              EVENT Flag_Unknown13, $012F
+              EVENT FlagChapter08_MunsterSavedMaykovReaction, EventChapter08MunsterSavedMaykovReaction
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_UNITS_MARRIED $19, $FF
-          SET_FLAG Flag_Unknown55
+        CHECK_UNITS_MARRIED Seliph, AnyCharacter
+          SET_FLAG FlagChapter08_MuirneSeliphAdjacent
         BREAK_STATE_CHECKS
 
-        CHECK_UNITS_MARRIED $2A, $FF
-          SET_FLAG Flag_Unknown55
+        CHECK_UNITS_MARRIED Muirne, AnyCharacter
+          SET_FLAG FlagChapter08_MuirneSeliphAdjacent
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_SET 11
-          CHECK_FLAG_SET Flag_Unknown54
-            EC_39 89
-              EVENT Flag_Unknown55, $0145
+        CHECK_FLAG_SET FlagChapter08_MeathSpawn
+          CHECK_FLAG_SET FlagChapter08_MuirneSeliphAdjacentCheck
+            CHECK_PERMANENT_FLAG_UNSET PermanentFlagPlayerDeathInGen2
+              EVENT FlagChapter08_MuirneSeliphAdjacent, EventChapter08MuirneSeliphAdjacent
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_SET Flag_Unknown54
-          CHECK_FLAG_UNSET Flag_Unknown55
-            UNSET_FLAG Flag_Unknown54
+        CHECK_FLAG_SET FlagChapter08_MuirneSeliphAdjacentCheck
+          CHECK_FLAG_UNSET FlagChapter08_MuirneSeliphAdjacent
+            UNSET_FLAG FlagChapter08_MuirneSeliphAdjacentCheck
         BREAK_STATE_CHECKS
 
-        CHECK_ALL_FLAGS_IN_LIST_SET [Flag_Unknown56, Flag_AmidOnTree]
-          EVENT Flag_Unknown57, $0147
+        CHECK_ALL_FLAGS_IN_LIST_SET [FlagChapter08_LindaOnTree, FlagChapter08_AmidOnTreeCheck]
+          EVENT FlagChapter08_AmidOnTree, EventChapter08AmidOnTree
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_SET Flag_AmidOnTree
-          CHECK_FLAG_UNSET Flag_Unknown57
-            UNSET_FLAG Flag_AmidOnTree
+        CHECK_FLAG_SET FlagChapter08_AmidOnTreeCheck
+          CHECK_FLAG_UNSET FlagChapter08_AmidOnTree
+            UNSET_FLAG FlagChapter08_AmidOnTreeCheck
         BREAK_STATE_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $00, $00, $0000
-          CLEAR_TALK_IF_ONE_MARRIED aUnknown86F2D7
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Player
+          CLEAR_TALK_IF_ONE_MARRIED aChapter08ClearTalksIfMarriedTable
         BREAK_TURN_EVENT_CHECKS
 
         END_CHAPTER_EVENTS
 
-      aUnknown86F2D7 ; 86/F2D7
+      aChapter08ClearTalksIfMarriedTable ; 86/F2D7
 
         .byte Fee, Arthur
         .byte Hermina, Arthur
@@ -501,7 +508,7 @@
 
       aChapter08MapChangeData ; 86/F363
 
-        .structChapterMapChangeEntry Chapter08, 50, [49, 16], aChapter08MapChangeConnachtBridge
+        .structChapterMapChangeEntry Chapter08, FlagChapter08_ConnachtBridgeLowered, [49, 16], aChapter08MapChangeConnachtBridge
         .word $FFFF
 
       aChapter08MapChangeConnachtBridge ; 86/F36C
@@ -540,10 +547,10 @@
 
       aChapter08TalkEvents ; 86/F394
 
-        .structChapterTalkEventEntry Chapter08, 41, Seliph, Ced, 0
-        .structChapterTalkEventEntry Chapter08, 41, Seliph, Hawk, 0
-        .structChapterTalkEventEntry Chapter08, 42, Patty, Febail, 0
-        .structChapterTalkEventEntry Chapter08, 42, Daisy, Asaello, 0
+        .structChapterTalkEventEntry Chapter08, FlagChapter08_SeliphCedTalkCheck, Seliph, Ced
+        .structChapterTalkEventEntry Chapter08, FlagChapter08_SeliphCedTalkCheck, Seliph, Hawk
+        .structChapterTalkEventEntry Chapter08, FlagChapter08_PattyFebailTalkCheck, Patty, Febail
+        .structChapterTalkEventEntry Chapter08, FlagChapter08_PattyFebailTalkCheck, Daisy, Asaello
         .word $FFFF
 
       aFactionGroupData2D ; 86/F3B6
@@ -681,7 +688,8 @@
 
       aFactionGroup2FAI2 ; 86/F47D
 
-        AI_FLAG_IF_LEADER_ON_COORDS Chapter08, 31, [49, 10]
+        ; Wrong flag?
+        AI_FLAG_IF_LEADER_ON_COORDS Chapter08, FlagChapter08_FotlaTriangleAttackQuote, [49, 10]
         AI_END
 
       aFactionGroup2FAI3 ; 86/F484
@@ -709,10 +717,10 @@
 
         MODIFY_GROUP_LEADER_FIELD_MOVEMENT 0
         AI_SET_FORMATION $03, $00
-        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter08, 40, +
+        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter08, FlagChapter08_AltenaOnMountainCheck, +
 
           AI_02 $06
-          AI_FLAG_IF_LEADER_ON_COORDS Chapter08, 40, [46, 40]
+          AI_FLAG_IF_LEADER_ON_COORDS Chapter08, FlagChapter08_AltenaOnMountainCheck, [46, 40]
           AI_0B
           AI_END
 
@@ -738,7 +746,7 @@
 
       aFactionGroup30AI7 ; 86/F4BC
 
-        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter08, 0, +
+        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter08, FlagChapter08_ConnachtSeizedCheck, +
 
           AI_0B
           AI_END

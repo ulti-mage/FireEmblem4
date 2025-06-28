@@ -1,0 +1,68 @@
+
+  aEventChapter08IshtarDied ; 8F/BF9F
+
+    RUN_EVENT_CONDITION
+      REGISTER_CHARACTER_MAP_SPRITE JuliusChFinal
+
+    PAUSE 20
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $83
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT IshtarCh08, EventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
+    YIELD
+
+    PAUSE 5
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT IshtarCh08, EventUnitSlot1
+    RUN_ASM rlASMCUnknown8FBB85
+    RUN_ASM rlASMCUnknown8FBB91
+    YIELD
+
+    PAUSE 2
+    YIELD
+
+    RUN_ASM rlASMCUnknown8FBB99
+    PAUSE 10
+    YIELD
+
+    DIALOGUE dialogueChapter08IshtarLeave
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT JuliusChFinal, EventUnitSlot1
+    RUN_ASM rlASMCChapter08WarpAway
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT IshtarCh08, EventUnitSlot1
+    RUN_ASM rlASMCChapter08WarpAway
+    YIELD
+
+    RUN_EVENT_CONDITION
+      REMOVE_UNIT IshtarCh08
+
+    RUN_EVENT_CONDITION
+      REMOVE_UNIT JuliusChFinal
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    RUN_ASM rlASMCLoadActiveUnitCoordinatesInEventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
+    YIELD
+
+    SET_CAMERA_TO_EVENT_UNIT_SLOT_1
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Julia, None
+
+    END_EVENT

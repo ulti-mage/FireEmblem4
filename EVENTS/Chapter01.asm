@@ -113,10 +113,10 @@
         CHECK_PLAYER_UNCAPTURED_IF_SEIZING FlagChapter01_DeirdreCaptureReturn, Deirdre
           EC_NOP_00
 
-        CHECK_UNIT_IN_AREA FlagChapter01_SigurdEntersForest, Sigurd, pack([12, 38]), pack([17, 43]), AnyFactionSlot
+        CHECK_UNIT_IN_AREA FlagChapter01_SigurdEntersForest, Sigurd, pack([12, 38]), pack([17, 43])
           EVENT FlagAlways, EventChapter01DeirdreSpawn
 
-        CHECK_UNIT_IN_AREA FlagChapter01_LexOnPeninsula, Lex, pack([28, 37]), pack([28, 37]), AnyFactionSlot
+        CHECK_UNIT_IN_AREA FlagChapter01_LexOnPeninsula, Lex, pack([28, 37]), pack([28, 37])
           EVENT FlagChapter01_LexBraveAxe, EventChapter01LexBraveAxe
 
         CHECK_TALK FlagChapter01_SigurdAyraTalk, Sigurd, Ayra
@@ -504,7 +504,7 @@
 
         MODIFY_GROUP_LEADER_FIELD_MOVEMENT floor(0.9 * 256)
         AI_CHECK_GROUP_COMPLETE_BY_TURN_DIVISIBLE 3
-        AI_ASMC_CHECK rsASMC_CheckMunnirVanguardIncomplete, +
+        AI_ASMC_CHECK rsASMCCheckMunnirVanguardIncomplete, +
 
           AI_SET_CHAPTER_EVENT_FLAG Chapter01, FlagChapter01_MunnirVanguardIncomplete
 
@@ -513,7 +513,7 @@
         AI_TARGET_ALL_FOES
         AI_END
 
-      rsASMC_CheckMunnirVanguardIncomplete ; 86/CCAC
+      rsASMCCheckMunnirVanguardIncomplete ; 86/CCAC
 
         .al
         .autsiz

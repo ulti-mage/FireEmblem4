@@ -1,0 +1,1 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_HawkCed}{DIALOGUE_EOF}

@@ -1,0 +1,14 @@
+聖戦の後､セリスは一軍を率いて遠征し{DIALOGUE_NL}
+この国の治安を回復した｡{DIALOGUE_NL}
+人々は､セリスが{DIALOGUE_NL}
+ディアドラの子と知って歓喜した｡{DIALOGUE_NL}
+ディアドラは{DIALOGUE_NL}
+ヴェルダンの民にとって伝説の人､{DIALOGUE_NL}
+いまや聖女と言われていた｡{DIALOGUE_NL}
+ヴェルダンの民は{DIALOGUE_NL}
+セリスの直接統治を願った｡{DIALOGUE_NL}
+セリスも母が生まれ育ったこの国に{DIALOGUE_NL}
+深い愛着を持っていた｡{DIALOGUE_NL}
+ヴェルダンはグランベルに統合され､{DIALOGUE_NL}
+以後､王国領ヴェルダンと呼ばれた｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

@@ -1,0 +1,2 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_AgustriaEnd_Start}{DIALOGUE_FONT_0}がんばってほしい{DIALOGUE_NL}
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_AgustriaEnd_End}おまえの手中にあるのだ{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

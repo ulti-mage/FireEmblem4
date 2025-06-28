@@ -1,0 +1,14 @@
+{DIALOGUE_FONT_0}トラキア半島は､その後を継ぐべき{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT $0A}{DIALOGUE_FONT_0}リーフ王子とアルテナ王女を失い､{DIALOGUE_NL}
+統一の機会を失った｡{DIALOGUE_NL}
+{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_PAUSE 10}人々はセリスに救いを求め､{DIALOGUE_NL}
+グランベル王国と{DIALOGUE_NL}
+統合される事を望んだ｡{DIALOGUE_NL}
+セリスが王妃エスリンの甥であり､{DIALOGUE_NL}
+また､この地方の解放者として{DIALOGUE_NL}
+人々から信頼されていたからである｡{DIALOGUE_NL}
+セリスはこの願いをきき入れる｡{DIALOGUE_NL}
+{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceStart}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceFinn}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceHannibal}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceCharlotCoirpre}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceCharlotCoirpresLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceAsaello}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceAsaellosLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceDaisy}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceEndNoInheritors}この後､トラキア半島は{DIALOGUE_NL}
+グランベル王国トラキア地方として､{DIALOGUE_NL}
+平和な時代を迎えることになる｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

@@ -1273,9 +1273,9 @@
           jsl rlSetSelectedUnitClass
 
         +
-        lda aMotherData._Personal.Money
+        lda aUnit1DataBuffer._Extended.Money
         clc
-        adc aFatherData._Personal.Money
+        adc aUnit2DataBuffer._Extended.Money
         sta wR12
 
         ; divide total money by 10
@@ -1332,9 +1332,9 @@
         ldx #0
 
         -
-        lda aMotherData._Personal.HP,x
+        lda aUnit1DataBuffer._Extended.HP,x
         sta wR0
-        lda aFatherData._Personal.HP,x
+        lda aUnit2DataBuffer._Extended.HP,x
         sta wR1
         lda aChildAverageLevelStats.HP,x
         sta wR2
@@ -1512,7 +1512,7 @@
 
         rep #$20
         ply
-        lda aFatherData._ROM.CharacterID
+        lda aUnit2DataBuffer._ROM.CharacterID
         sep #$20
         sta structCharacterConstantData.FatherID,b,y
         rep #$20
@@ -1521,12 +1521,12 @@
         and #$00FF
         sta wR2
 
-        ldx #structParentCharacterROMData.HPGrowth
+        ldx #structCharacterROMDataBuffer.HPGrowth
 
         -
-        lda aMotherData._ROM.HPGrowth - structParentCharacterROMData.HPGrowth,x
+        lda aUnit1DataBuffer._ROM.HPGrowth - structCharacterROMDataBuffer.HPGrowth,x
         sta wR0
-        lda aFatherData._ROM.HPGrowth - structParentCharacterROMData.HPGrowth,x
+        lda aUnit2DataBuffer._ROM.HPGrowth - structCharacterROMDataBuffer.HPGrowth,x
         sta wR1
         jsr rlGetChildGrowthRate
 
@@ -1536,7 +1536,7 @@
         inc x
         inc x
         inc y
-        cpx #size(structCharacterConstantData.Growths)*2 + structParentCharacterROMData.HPGrowth
+        cpx #size(structCharacterConstantData.Growths)*2 + structCharacterROMDataBuffer.HPGrowth
         bcc -
 
         ply
@@ -1549,13 +1549,13 @@
         clc
         adc wR3
         tax
-        lda aMotherData._ROM.Skills1
-        ora aFatherData._ROM.Skills1
+        lda aUnit1DataBuffer._ROM.Skills1
+        ora aUnit2DataBuffer._ROM.Skills1
         and aValidInheritableSkills,x
         sta structCharacterConstantData.Skills1,b,y
 
-        lda aMotherData._ROM.Skills2
-        ora aFatherData._ROM.Skills2
+        lda aUnit1DataBuffer._ROM.Skills2
+        ora aUnit2DataBuffer._ROM.Skills2
         and aValidInheritableSkills+1,x
         sta structCharacterConstantData.Skills2,b,y
 
@@ -1566,16 +1566,16 @@
 
         ; Father influence
 
-        lda aMotherData._ROM.HolyBlood1
+        lda aUnit1DataBuffer._ROM.HolyBlood1
         sta wR0
-        lda aFatherData._ROM.HolyBlood1
+        lda aUnit2DataBuffer._ROM.HolyBlood1
         sta wR1
         jsr rlGetChildHolyBlood
         sta structCharacterConstantData.HolyBlood1,b,y
 
-        lda aMotherData._ROM.HolyBlood2
+        lda aUnit1DataBuffer._ROM.HolyBlood2
         sta wR0
-        lda aFatherData._ROM.HolyBlood2
+        lda aUnit2DataBuffer._ROM.HolyBlood2
         sta wR1
         jsr rlGetChildHolyBlood
         sta structCharacterConstantData.HolyBlood2,b,y
@@ -1583,16 +1583,16 @@
 
         ; Mother influence
         +
-        lda aFatherData._ROM.HolyBlood1
+        lda aUnit2DataBuffer._ROM.HolyBlood1
         sta wR0
-        lda aMotherData._ROM.HolyBlood1
+        lda aUnit1DataBuffer._ROM.HolyBlood1
         sta wR1
         jsr rlGetChildHolyBlood
         sta structCharacterConstantData.HolyBlood1,b,y
 
-        lda aFatherData._ROM.HolyBlood2
+        lda aUnit2DataBuffer._ROM.HolyBlood2
         sta wR0
-        lda aMotherData._ROM.HolyBlood2
+        lda aUnit1DataBuffer._ROM.HolyBlood2
         sta wR1
         jsr rlGetChildHolyBlood
         sta structCharacterConstantData.HolyBlood2,b,y
@@ -1617,7 +1617,7 @@
 
         .databank 0
 
-      aValidInheritableSkills .binclude "../tables/ValidInheritableSkills.asm"  ; 87/A975
+      aValidInheritableSkills .binclude "../TABLES/CHARACTER/ValidInheritableSkills.asm"  ; 87/A975
 
       rlGetChildGrowthRate ; 87/A9EA
 
@@ -1772,12 +1772,12 @@
           cmp wR2
           bne +
 
-          lda wR0
-          cmp #2
-          bne +
+            lda wR0
+            cmp #ItemStateSupply
+            bne +
 
-            jsr rsTryInheritItemToChild
-          
+              jsr rsTryInheritItemToChild
+
           +
           inc y
           bra -
@@ -2122,7 +2122,7 @@
 
         .databank 0
 
-      rlUnknown87AC56 ; 87/AC56
+      rlSaveLoverDataToBuffer ; 87/AC56
 
         .al
         .autsiz
@@ -2134,32 +2134,32 @@
         plb
         phx
         phy
-        lda $24
+        lda lR18
         pha
-        lda $24+1
+        lda lR18+1
         pha
 
         jsl rlGetSelectedUnitLoverData
-        lda $058D+1,b
-        sta $24+1
-        lda $058D,b
-        sta $24
+        lda lRAMBufferPointer+1,b
+        sta lR18+1
+        lda lRAMBufferPointer,b
+        sta lR18
         ldy #0
-        
-        -
-        lda $0000,b,x
-        sta [$24],y
-        inc x
-        inc x
-        inc y
-        inc y
-        cpy #$001E
-        bne -
+
+          -
+          lda $0000,b,x
+          sta [lR18],y
+          inc x
+          inc x
+          inc y
+          inc y
+          cpy #size(structLoverDataRAM)
+          bne -
 
         pla
-        sta $24+1
+        sta lR18+1
         pla
-        sta $24
+        sta lR18
         ply
         plx
         plp
@@ -2186,9 +2186,9 @@
         pha
 
         jsl rlGetSelectedUnitLoverData
-        lda $058D+1,b
+        lda lRAMBufferPointer+1,b
         sta $24+1
-        lda $058D,b
+        lda lRAMBufferPointer,b
         sta $24
         ldy #0
         
@@ -2988,16 +2988,16 @@
 
       aTriangleAttackEntry1 ; 87/BD93
 
-        .word Banba1
-        .word Fotla1
-        .word Eriu1
+        .word BanbaCh07
+        .word FotlaCh07
+        .word EriuCh07
         .word 0
 
       aTriangleAttackEntry2 ; 87/BD9B
 
-        .word Banba2
-        .word Fotla2
-        .word Eriu2
+        .word BanbaCh08
+        .word FotlaCh08
+        .word EriuCh08
         .word 0
 
       aTriangleAttackEntry3 ; 87/BDA3
@@ -3370,7 +3370,7 @@
         rep #$20
 
         lda wR1
-        sta $7E2000+structItemRAMEntry.Owner
+        sta $7E2000+structItemRAMEntry.OwnerRAMPointer
 
         ; Dest
         lda #(`aItemRAMData)<<8
@@ -3402,15 +3402,15 @@
         phk
         plb
         and #$00FF
-        sta $0550,b
-        lda #$7E00
-        sta $055C+1,b
-        lda #$3D87
-        sta $055C,b
-        lda #$8700
-        sta $054A+1,b
-        lda #$E001
-        sta $054A,b
+        sta wStructIndex,b
+        lda #(`aItemRAMData)<<8
+        sta lStructPointer2+1,b
+        lda #<>aItemRAMData
+        sta lStructPointer2,b
+        lda #(`$87E001)<<8
+        sta lStructPointer1+1,b
+        lda #<>$87E001
+        sta lStructPointer1,b
         jsl $82E85D
         plb
         rtl
@@ -3436,11 +3436,11 @@
         php
         phk
         plb
-        lda #$7E00
-        sta $055C+1,b
-        lda #$3D87
-        sta $055C,b
-        jsl $82E747
+        lda #(`aItemRAMData)<<8
+        sta lStructPointer2+1,b
+        lda #<>aItemRAMData
+        sta lStructPointer2,b
+        jsl rlGetRAMStructCurrentStructCount
         plp
         plb
         rtl
@@ -3846,7 +3846,7 @@
         lda structItemRAMEntry.ItemState,b,x
         and #$00FF
         sta wR0
-        lda structItemRAMEntry.Owner,b,x
+        lda structItemRAMEntry.OwnerRAMPointer,b,x
         sta wR1
         plx
 
@@ -3879,7 +3879,7 @@
         rep #$20
 
         lda wR1
-        sta structItemRAMEntry.Owner,b,x
+        sta structItemRAMEntry.OwnerRAMPointer,b,x
 
         plx
         plp
@@ -3906,12 +3906,12 @@
         phx
         ldx wCurrentItemDataRAMPointer,b
         sep #$20
-        lda #7
+        lda #ItemStateUnobtained
         sta structItemRAMEntry.ItemState,b,x
 
         rep #$20
         lda #0
-        sta structItemRAMEntry.Owner,b,x
+        sta structItemRAMEntry.OwnerRAMPointer,b,x
 
         lda structItemRAMEntry.ItemID,b,x
         and #$00FF
@@ -4084,8 +4084,8 @@
 
         .databank 0
 
-      aBrokenWeaponOffsets .include "../tables/BrokenWeaponOffsets.csv.asm" ; 87/E2DC
-      aBrokenWeaponData .binclude "../tables/BrokenWeaponData.csv.asm"      ; 87/E2F0
+      aBrokenWeaponOffsets .include "../TABLES/ITEM/BrokenWeaponOffsets.csv.asm" ; 87/E2DC
+      aBrokenWeaponData .binclude "../TABLES/ITEM/BrokenWeaponData.csv.asm"      ; 87/E2F0
 
       rlGetItemNamePointerByItemID ; 87/E314
 
@@ -4742,7 +4742,7 @@
         plp
         plb
         rtl
-        
+
         +
         lda #0
         plx

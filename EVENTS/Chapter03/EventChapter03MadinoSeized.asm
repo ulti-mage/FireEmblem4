@@ -83,7 +83,7 @@
     MOVE_TEMPORARY_BY_SCRIPT Mus, [36, 20], 4, MAP_SPRITE_GREEN, _ScriptedMovementDummy
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
-    MOVE_TEMPORARY_BY_SCRIPT Child1, [36, 20], 4, MAP_SPRITE_GREEN, _ScriptedMovementDummy
+    MOVE_TEMPORARY_BY_SCRIPT ChildOifey, [36, 20], 4, MAP_SPRITE_GREEN, _ScriptedMovementDummy
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     MOVE_TEMPORARY_BY_SCRIPT Deirdre, [36, 61], 4, MAP_SPRITE_BLUE, _ScriptedMovementDeirdre
@@ -160,7 +160,7 @@
       REMOVE_UNIT Manfroy
 
     RUN_EVENT_CONDITION
-      macroSetUnitToCoordinates Sigurd, [41, 32]
+      SET_UNIT_POSITION Sigurd, $FF, [41, 32]
 
     FILL_EVENT_UNIT_SLOT Sigurd, EventUnitSlot1
     MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4

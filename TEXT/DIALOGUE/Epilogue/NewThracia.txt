@@ -1,0 +1,1 @@
+{DIALOGUE_ASMC rlASMCSetNewThraciaEpilogue}{DIALOGUE_ASMC rlASMCLoadEpilogueDialogue}{DIALOGUE_EOF}

@@ -1,14 +1,14 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
 ID_01,Annand,$1F,$37,1,2,FS_Ch04Silesse,0
-ID_02,AnnandSquad,$1E,$36,0,2,FS_Ch04Silesse,1
-ID_03,AnnandSquad,$1E,$38,0,2,FS_Ch04Silesse,2
-ID_04,AnnandSquad,$1F,$35,0,2,FS_Ch04Silesse,3
-ID_05,AnnandSquad,$1F,$39,0,2,FS_Ch04Silesse,4
-ID_06,AnnandSquad,$21,$37,0,2,FS_Ch04Silesse,5
-ID_07,AnnandSquad,$21,$35,0,2,FS_Ch04Silesse,6
-ID_08,AnnandSquad,$21,$39,0,2,FS_Ch04Silesse,7
-ID_09,AnnandSquad,$20,$36,0,2,FS_Ch04Silesse,8
-ID_10,AnnandSquad,$20,$38,0,2,FS_Ch04Silesse,9
-ID_11,AnnandSquad,$1F,$33,0,2,FS_Ch04Silesse,10
-ID_12,AnnandSquad,$1F,$3B,0,2,FS_Ch04Silesse,11
+ID_02,AnnandSquadPegasusKnight,$1E,$36,0,2,FS_Ch04Silesse,1
+ID_03,AnnandSquadPegasusKnight,$1E,$38,0,2,FS_Ch04Silesse,2
+ID_04,AnnandSquadPegasusKnight,$1F,$35,0,2,FS_Ch04Silesse,3
+ID_05,AnnandSquadPegasusKnight,$1F,$39,0,2,FS_Ch04Silesse,4
+ID_06,AnnandSquadPegasusKnight,$21,$37,0,2,FS_Ch04Silesse,5
+ID_07,AnnandSquadPegasusKnight,$21,$35,0,2,FS_Ch04Silesse,6
+ID_08,AnnandSquadPegasusKnight,$21,$39,0,2,FS_Ch04Silesse,7
+ID_09,AnnandSquadPegasusKnight,$20,$36,0,2,FS_Ch04Silesse,8
+ID_10,AnnandSquadPegasusKnight,$20,$38,0,2,FS_Ch04Silesse,9
+ID_11,AnnandSquadPegasusKnight,$1F,$33,0,2,FS_Ch04Silesse,10
+ID_12,AnnandSquadPegasusKnight,$1F,$3B,0,2,FS_Ch04Silesse,11
 ID_13,$FFFF,0,0,0,0,0,0

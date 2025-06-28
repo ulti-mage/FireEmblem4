@@ -29,7 +29,7 @@
               lda wUnknown00171A,b
               bne +
 
-                lda $0D79,b
+                lda wUnknown000D79,b
                 bit #$0080
                 bne +
 
@@ -217,7 +217,7 @@
 
           _9E3F
           lda #$0080
-          tsb $0D79,b
+          tsb wUnknown000D79,b
 
           inc wAIEngineCycleType,b
 
@@ -302,7 +302,7 @@
 
             +
             lda #$0080
-            trb $0D79,b
+            trb wUnknown000D79,b
 
             _9EBD
             lda #5
@@ -3167,7 +3167,7 @@
         rep #$20
         plb
 
-        ldx (len(aDeploymentTable._State) - 2)
+        ldx #(len(aDeploymentTable._State) - 2)
         
           _Loop
           txa
@@ -6043,9 +6043,7 @@
 
         .databank 0
 
-      aFillUnitMapFilter ; 86/C1B9
-
-        .include "../TABLES/FillUnitMapFilters.csv.asm"
+      aFillUnitMapFilter .include "../TABLES/SYSTEM/FillUnitMapFilters.csv.asm" ; 86/C1B9
 
       rsFillUnitMapAllyFilter ; 86/C1BF
 
@@ -7237,7 +7235,7 @@
               lda wAICurrentAISetting,b
               sta wRoutineVariable1,b
               lda wAIActiveFaction,b
-              jsl rlUnknown84C54C
+              jsl rlReviveFactionsUnitsOfAISetting
 
               lda wAIUnknownBitfield7E2000
               ora #$0080

@@ -1,0 +1,2 @@
+{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachCheckNoInheritors}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachCheckInherited}{DIALOGUE_SCROLL}
+{DIALOGUE_EOF}

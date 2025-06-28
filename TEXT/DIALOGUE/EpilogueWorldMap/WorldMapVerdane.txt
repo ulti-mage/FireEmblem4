@@ -1,0 +1,14 @@
+{DIALOGUE_FONT_0}ヴェルダン王国は{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT WMH_Verdane}帝国の圧政下においても､{DIALOGUE_NL}
+ほとんどかえりみられる事なく{DIALOGUE_NL}
+打ち捨てられていたという｡{DIALOGUE_NL}
+{DIALOGUE_WM_CLEAR_HIGHLIGHT}各部族は争いをくり返し{DIALOGUE_NL}
+治安はみだれ､{DIALOGUE_NL}
+盗賊団があばれ回っていた｡{DIALOGUE_NL}
+{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdaneCheckNoInheritors}{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdaneCheckInherited}森と湖の国ヴェルダン{DIALOGUE_NL}
+その美しい緑はシグルドのいのり､{DIALOGUE_NL}
+そのすきとおった水は{DIALOGUE_NL}
+ディアドラの涙だと{DIALOGUE_NL}
+この国の人達は信じている･･･｡{DIALOGUE_NL}
+{DIALOGUE_SCROLL}
+{DIALOGUE_EOF}

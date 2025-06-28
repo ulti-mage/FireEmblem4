@@ -1,0 +1,1 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_CharlotCoirpre_HannibalAlive}{DIALOGUE_ASMC rlASMCEpilogueCharlotCoirpreLoverCallHannibalAlive}{DIALOGUE_EOF}

@@ -1,0 +1,14 @@
+.addr 0,Pointer
+ID_00,aEventPrologueWorldMap
+ID_01,aEventChapter01WorldMap
+ID_02,aEventChapter02WorldMap
+ID_03,aEventChapter03WorldMap
+ID_04,aEventChapter04WorldMap
+ID_05,aEventChapter05WorldMap
+ID_06,aEventChapter06WorldMap
+ID_07,aEventChapter07WorldMap
+ID_08,aEventChapter08WorldMap
+ID_09,aEventChapter09WorldMap
+ID_10,aEventChapter10WorldMap
+ID_11,aEventChapterFinalWorldMap
+ID_12,aEventPrologueWorldMap

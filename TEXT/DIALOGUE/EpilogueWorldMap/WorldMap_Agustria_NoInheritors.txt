@@ -1,0 +1,17 @@
+{DIALOGUE_FONT_0}ゆえに､解放軍の勝利は{DIALOGUE_NL}
+アグストリア国民を歓喜させ{DIALOGUE_NL}
+セリス王の統治下に入ることを{DIALOGUE_NL}
+自ら望んだ｡{DIALOGUE_NL}
+彼らの心にはかつて征服者として{DIALOGUE_NL}
+君臨しながらも､{DIALOGUE_NL}
+自分たちに優しく接してくれた{DIALOGUE_NL}
+シグルド公子の思い出があった｡{DIALOGUE_NL}
+その子であるセリスにならば{DIALOGUE_NL}
+自分たちの国を託しても良いと{DIALOGUE_NL}
+かんがえたのである｡{DIALOGUE_NL}
+やがて人々の願いは実現する｡{DIALOGUE_NL}
+アグストリアは{DIALOGUE_NL}
+グランベル連合王国の一国家として､{DIALOGUE_NL}
+聖王セリスのもとで{DIALOGUE_NL}
+おだやかな時代を迎えることとなる｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

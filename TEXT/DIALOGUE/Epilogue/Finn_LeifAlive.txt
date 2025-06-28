@@ -1,0 +1,8 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Finn}私は､レンスター王国の騎士として{DIALOGUE_NL}
+主君への忠誠を果たしただけ､{DIALOGUE_NL}
+騎士として当然の事をしたまでです{DIALOGUE_PAUSE 96}{DIALOGUE_SCROLL_ALL}
+{DIALOGUE_LEFT}{DIALOGUE_FONT_0}フィンどの､トラキアを頼みます{DIALOGUE_NL}
+リーフ王子を助けて{DIALOGUE_NL}
+トラキアの平和をかなえてください{DIALOGUE_RIGHT}{DIALOGUE_PAUSE 32}{DIALOGUE_FONT_0}はい､それこそが{DIALOGUE_NL}
+キュアン様の願いでした{DIALOGUE_NL}
+この力の限り尽くしてみます{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

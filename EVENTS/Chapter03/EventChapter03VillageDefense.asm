@@ -8,7 +8,7 @@
     RUN_ASM rlClearBattleData
 
     RUN_EVENT_CONDITION
-      ADD_UNIT_STAT $FF, Defense, 1
+      ADD_UNIT_STAT AnyCharacter, Defense, 1
 
     RUN_ASM rlASMCChapter03DisplayStatUpOnDefenseVillage
     YIELD

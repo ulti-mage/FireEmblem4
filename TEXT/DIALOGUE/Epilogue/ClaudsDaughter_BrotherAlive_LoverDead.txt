@@ -1,0 +1,1 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_ClaudsDaughter_BrotherAlive}{DIALOGUE_FONT_0}もちろん､{DIALOGUE_UNIT1_NAME}の事も･･･{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_ClaudsDaughter_End}{DIALOGUE_EOF}

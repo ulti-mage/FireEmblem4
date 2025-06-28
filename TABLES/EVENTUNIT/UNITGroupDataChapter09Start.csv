@@ -1,0 +1,6 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,BrigandCh09,7,6,0,3,FS_Ch09Luthecia,0
+ID_02,LutheciaHero,15,2,0,2,FS_Ch09Luthecia,0
+ID_03,LutheciaHeroF,15,4,0,2,FS_Ch09Luthecia,0
+ID_04,LutheciaHero,15,6,0,2,FS_Ch09Luthecia,0
+ID_05,$FFFF,0,0,0,0,0,0

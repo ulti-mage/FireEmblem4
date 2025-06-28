@@ -1,0 +1,1 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_IsaachEnd_Start}{DIALOGUE_FONT_0}イザークの者達よ､{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_IsaachEnd_End}{DIALOGUE_EOF}

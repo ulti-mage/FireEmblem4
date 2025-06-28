@@ -30,7 +30,7 @@
     .endfor
 
     RUN_EVENT_CONDITION
-      REMOVE_UNIT ArvisPrologue
+      REMOVE_UNIT ArvisChPrologue
 
     DIALOGUE_WITH_BG dialogueChapterPrologueEnding1, DIALOGUE_BG_HALLWAY, 5, 2
     YIELD

@@ -17,9 +17,9 @@
     YIELD
 
     _UnitList1 := [(Donovan, 16)]
-    _UnitList1..= [(ZaxonArmy1, 16)]
-    _UnitList1..= [(ZaxonArmy1, 16)]
-    _UnitList1..= [(ZaxonArmy1, 30)]
+    _UnitList1..= [(SilesseFighter, 16)]
+    _UnitList1..= [(SilesseFighter, 16)]
+    _UnitList1..= [(SilesseFighter, 30)]
 
     .for _Unit, _Time in _UnitList1
 
@@ -70,8 +70,8 @@
     YIELD
 
     _UnitList3 := [Donovan]
-    _UnitList3..= [ZaxonArmy1]
-    _UnitList3..= [ZaxonArmy1]
+    _UnitList3..= [SilesseFighter]
+    _UnitList3..= [SilesseFighter]
 
     .for _Unit in _UnitList3
 
@@ -83,7 +83,7 @@
 
     .endfor
 
-    MOVE_TEMPORARY_BY_SCRIPT ZaxonArmy1, [35, 53], 4, MAP_SPRITE_RED, _ScriptedMovementDonovan2
+    MOVE_TEMPORARY_BY_SCRIPT SilesseFighter, [35, 53], 4, MAP_SPRITE_RED, _ScriptedMovementDonovan2
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     WAIT_UNTIL_MAP_SPRITES_HALTING

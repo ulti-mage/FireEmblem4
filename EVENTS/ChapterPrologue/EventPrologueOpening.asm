@@ -120,11 +120,11 @@
       YIELD
 
       RUN_EVENT_CONDITION
-        macroSetUnitToCoordinates Sigurd, [60, 13]
+        SET_UNIT_POSITION Sigurd, $FF, [60, 13]
       RUN_EVENT_CONDITION
-        macroSetUnitToCoordinates Naoise, [59, 12]
+        SET_UNIT_POSITION Naoise, $FF, [59, 12]
       RUN_EVENT_CONDITION
-        macroSetUnitToCoordinates Alec,   [61, 12]
+        SET_UNIT_POSITION Alec, $FF, [61, 12]
 
       RUN_EVENT_CONDITION
         DEPLOY_UNIT_GROUP UNITGroupPrologueStart

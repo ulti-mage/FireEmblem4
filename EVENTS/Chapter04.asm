@@ -31,7 +31,7 @@
       FlagChapter04_DonovanBattleQuote              := 30
       FlagChapter04_DaccarBattleQuote               := 31
       FlagChapter04_LamiaBattleQuote                := 32
-      FlagChapter04_LewynVisitSilesse               := 33
+      FlagChapter04_LewynSilesseVisit               := 33
       FlagChapter04_SilesseSeizedByZaxon            := 34
 
       FlagChapter04_PamelaOnMountainBelowSafeguard  := 36
@@ -128,8 +128,8 @@
         CHECK_SEIZING_CASTLE FlagChapter04_SilesseSeizedByZaxon, FS_Ch04Zaxon, Ch04_Silesse
           EVENT FlagAlways, EventChapter04AndreyLeave
 
-        CHECK_ENTERING_CASTLE_MENU FlagChapter04_LewynVisitSilesse, Lewyn, Ch04_Silesse
-          EVENT FlagAlways, EventChapter04LewynVisitsSilesse
+        CHECK_ENTERING_CASTLE_MENU FlagChapter04_LewynSilesseVisit, Lewyn, Ch04_Silesse
+          EVENT FlagAlways, EventChapter04LewynSilesseVisit
 
         CHECK_UNIT_IN_AREA FlagChapter04_PlayerBeforeBridge, AnyCharacter, pack([44, 1]), pack([53, 13]), FS_Player
           EC_NOP_00

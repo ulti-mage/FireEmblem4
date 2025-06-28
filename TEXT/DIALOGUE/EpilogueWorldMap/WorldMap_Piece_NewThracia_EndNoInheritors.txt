@@ -1,0 +1,3 @@
+{DIALOGUE_FONT_0}たちに､{DIALOGUE_NL}
+この国の未来を託したのである｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

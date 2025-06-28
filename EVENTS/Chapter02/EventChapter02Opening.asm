@@ -102,9 +102,11 @@
     PAUSE 20
     YIELD
 
-    _UnitList := [(HeirheinArmy9, 38)]
-    _UnitList..= [(HeirheinArmy10, 40)]
-    _UnitList..= [(HeirheinArmy11, 38)]
+    ; The bow knight is only used for this cutscene and is unused otherwise.
+
+    _UnitList := [(HeirheinBowKnight, 38)]
+    _UnitList..= [(HeirheinAxeKnight, 40)]
+    _UnitList..= [(HeirheinLanceKnight, 38)]
     _UnitList..= [(ElliotCh02, 40)]
 
     .for _Unit, _Time in _UnitList

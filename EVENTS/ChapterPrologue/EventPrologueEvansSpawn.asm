@@ -53,7 +53,7 @@
     PAUSE 15
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT VerdaneArmy1, [5, 15], 4, MAP_SPRITE_RED, _BridgeGuyMovementScript
+    MOVE_TEMPORARY_BY_SCRIPT EvansBarbarianHandAxe, [5, 15], 4, MAP_SPRITE_RED, _BridgeGuyMovementScript
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     WAIT_UNTIL_MAP_SPRITES_HALTING

@@ -8,6 +8,7 @@
   AnyCharacter    = -1
   AnyLocation     = -1
   AnyTurn         = -1
+  AnyAI           = -1
 
 
 

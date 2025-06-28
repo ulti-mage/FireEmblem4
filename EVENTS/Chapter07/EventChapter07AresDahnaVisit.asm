@@ -1,0 +1,54 @@
+
+  aEventChapter07AresDahnaVisit ; B2/8FB5
+
+    TEST_PERMANENT_FLAG_SET PermanentFlagLeneExists
+    JUMP_TRUE +
+
+      RUN_EVENT_CONDITION
+        REGISTER_CHARACTER_MAP_SPRITE Laylea
+
+      JUMP ++
+
+      +
+      RUN_EVENT_CONDITION
+        REGISTER_CHARACTER_MAP_SPRITE Lene
+
+    +
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $73
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter07AresDahnaVisit, DIALOGUE_BG_HALLWAY, 3, 1
+    YIELD
+
+    TEST_PERMANENT_FLAG_SET PermanentFlagLeneExists
+    JUMP_TRUE +
+
+      LOAD_UNIT_DIRECT Laylea, FS_Player, [15, 24], [16, 24], 4, MAP_SPRITE_BLUE
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+      JUMP ++
+
+      +
+      LOAD_UNIT_DIRECT Lene, FS_Player, [15, 24], [16, 24], 4, MAP_SPRITE_BLUE
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    +
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_CHILD_TALK_TARGET [Lene, Laylea], [Seliph, Seliph]
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

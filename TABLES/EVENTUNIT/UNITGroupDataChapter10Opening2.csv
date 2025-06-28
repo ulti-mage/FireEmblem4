@@ -1,0 +1,22 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,Riddell,$08,$39,1,1,FS_Ch10Rados,0
+ID_02,RiddellSquadTroubadour,$08,$38,0,1,FS_Ch10Rados,1
+ID_03,RiddellSquadTroubadour,$08,$3A,0,1,FS_Ch10Rados,2
+ID_04,RiddellSquadArchKnight,$09,$39,0,1,FS_Ch10Rados,3
+ID_05,RiddellSquadArchKnight,$09,$38,0,1,FS_Ch10Rados,4
+ID_06,RiddellSquadArchKnight,$09,$3A,0,1,FS_Ch10Rados,5
+ID_07,RiddellSquadMageKnight,$0A,$39,0,1,FS_Ch10Rados,6
+ID_08,RiddellSquadMageKnight,$0A,$38,0,1,FS_Ch10Rados,7
+ID_09,RiddellSquadMageKnight,$0A,$3A,0,1,FS_Ch10Rados,8
+ID_10,RiddellSquadDukeKnight,$0B,$39,0,1,FS_Ch10Rados,9
+ID_11,RiddellSquadDukeKnight,$0B,$38,0,1,FS_Ch10Rados,10
+ID_12,RiddellSquadDukeKnight,$0B,$3A,0,1,FS_Ch10Rados,11
+ID_13,RiddellSquadGreatKnight,$0C,$39,0,1,FS_Ch10Rados,12
+ID_14,RiddellSquadGreatKnight,$0C,$38,0,1,FS_Ch10Rados,13
+ID_15,RiddellSquadGreatKnight,$0C,$3A,0,1,FS_Ch10Rados,14
+ID_16,Morrigan,$05,$38,1,2,FS_Ch10Rados,0
+ID_17,RadosDarkMage,$05,$3B,0,2,FS_Ch10Rados,1
+ID_18,RadosDarkMage,$04,$3A,0,2,FS_Ch10Rados,2
+ID_19,RadosDarkMage,$06,$3A,0,2,FS_Ch10Rados,3
+ID_20,HildaCh10,$24,$30,1,3,FS_Ch10Chronos,0
+ID_21,$FFFF,0,0,0,0,0,0

@@ -1,0 +1,1 @@
+{DIALOGUE_FONT_0}ペガサスナイト{DIALOGUE_EOF}

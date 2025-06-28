@@ -1,0 +1,1 @@
+{DIALOGUE_FONT_0}サ⅛イレスの杖{DIALOGUE_EOF}

@@ -1,0 +1,29 @@
+.structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
+ID_01,MiletosDarkMageJormungandr,$05,$1A,0,2,FS_Ch10Miletos,21
+ID_02,MiletosDarkMageFenrir,$07,$19,0,6,FS_Ch10Miletos,22
+ID_03,MiletosDarkMageFenrir,$0A,$18,0,6,FS_Ch10Miletos,23
+ID_04,MiletosDarkMageHel,$07,$1D,0,2,FS_Ch10Miletos,24
+ID_05,MiletosDarkMageSleep,$0C,$1B,0,2,FS_Ch10Miletos,25
+ID_06,MiletosDarkMagePhysic,$0F,$1C,0,2,FS_Ch10Miletos,26
+ID_07,MiletosDarkMageSleep,$13,$1C,0,2,FS_Ch10Miletos,27
+ID_08,MiletosSniper,$08,$1F,0,2,FS_Ch10Miletos,28
+ID_09,MiletosSniper,$11,$1E,0,2,FS_Ch10Miletos,29
+ID_10,MiletosDarkMageFenrir,$06,$22,0,6,FS_Ch10Miletos,0
+ID_11,MiletosDarkMageHel,$09,$23,0,1,FS_Ch10Miletos,0
+ID_12,MiletosDarkMageJormungandr,$0B,$21,0,1,FS_Ch10Miletos,0
+ID_13,MiletosHero,$0D,$23,0,1,FS_Ch10Miletos,0
+ID_14,MiletosDarkMageHel,$12,$22,0,1,FS_Ch10Miletos,0
+ID_15,MiletosDarkMageFenrir,$16,$20,0,6,FS_Ch10Miletos,0
+ID_16,MiletosWarrior,$05,$24,0,1,FS_Ch10Miletos,0
+ID_17,MiletosDarkMagePhysic,$07,$25,0,1,FS_Ch10Miletos,0
+ID_18,MiletosDarkMageSleep,$03,$26,0,1,FS_Ch10Miletos,0
+ID_19,MiletosDarkMageJormungandr,$06,$27,0,1,FS_Ch10Miletos,0
+ID_20,MiletosDarkMageSleep,$0C,$27,0,1,FS_Ch10Miletos,0
+ID_21,MiletosDarkMageJormungandr,$13,$26,0,1,FS_Ch10Miletos,0
+ID_22,MiletosWarrior,$17,$24,0,1,FS_Ch10Miletos,0
+ID_23,MiletosDarkMageHel,$19,$25,0,1,FS_Ch10Miletos,0
+ID_24,MiletosHero,$16,$27,0,1,FS_Ch10Miletos,0
+ID_25,JuliusCh10,$09,$1D,1,6,FS_Ch10Chalphy,0
+ID_26,IshtarCh10,$0A,$1C,0,6,FS_Ch10Chalphy,0
+ID_27,Zagam,$09,$1A,0,4,FS_Ch10Miletos,9 + $20
+ID_28,$FFFF,0,0,0,0,0,0

@@ -1,0 +1,1 @@
+{DIALOGUE_ASMC rlASMCSetBelhallaEpilogue}{DIALOGUE_ASMC rlASMCLoadEpilogueDialogue}{DIALOGUE_EOF}

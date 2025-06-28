@@ -1,0 +1,5 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_AgustriaEnd_Start}{DIALOGUE_NL}
+{DIALOGUE_FONT_0}どうかみなで力を合わせて{DIALOGUE_NL}
+がんばってほしい{DIALOGUE_PAUSE 96}{DIALOGUE_SCROLL}
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_AgustriaEnd_End}おまえたちの手中にあるのだ{DIALOGUE_NL}
+{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

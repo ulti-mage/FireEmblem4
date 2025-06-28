@@ -1,0 +1,3 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Leif_Start}{DIALOGUE_FONT_0}わが姉､アルテナも{DIALOGUE_NL}
+そのことを望んでいます{DIALOGUE_NL}
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Leif_End}{DIALOGUE_EOF}

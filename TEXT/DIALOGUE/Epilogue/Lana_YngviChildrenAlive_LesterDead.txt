@@ -1,0 +1,2 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Lana_Start}{DIALOGUE_FONT_0}ラナは怒ってるんだろう{DIALOGUE_NL}
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Lana_End}{DIALOGUE_EOF}

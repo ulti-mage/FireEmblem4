@@ -1,0 +1,1 @@
+{DIALOGUE_FONT_0}サ⅛イレスの剣{DIALOGUE_EOF}

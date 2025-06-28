@@ -5,7 +5,7 @@
     YIELD
 
     SET_CAMERA_POSITION [13, 30]
-    EVENT_4F
+    WM_FADE_IN
     WM_SCROLL [10 * 16, 23 * 16]
     YIELD
 
@@ -43,7 +43,7 @@
     WM_CLEAR_MARKER 0
     YIELD
 
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
     WM_SCROLL [10 * 16, 20 * 16]
@@ -56,8 +56,8 @@
     YIELD
 
     PLAY_SFX_WORD $00E1
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
-    EVENT_50
+    WM_FADE_OUT
     END_EVENT

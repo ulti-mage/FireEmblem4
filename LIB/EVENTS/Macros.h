@@ -11,14 +11,10 @@
     SET_FACTION_HOSTILITY HOSTILITY_NEUTRAL, \FactionSlots
   .endsegment
 
+  macroMapDialogue .segment DialoguePointer
+    PLAY_SFX_WORD $7FF7
+    DIALOGUE \DialoguePointer
+    YIELD
 
-  macroSetUnitToCoordinates .segment CharacterID, Coordinates
-    SET_UNIT_POSITION \CharacterID, $FF, \Coordinates
+    PLAY_SFX_WORD $00E8
   .endsegment
-
-  macroSetUnitResidingInCastle .segment CharacterID, CastleID
-    SET_UNIT_POSITION \CharacterID, \CastleID, [0, 0]
-  .endsegment
-
-  ; A better way to do this is with event condition command 61
-

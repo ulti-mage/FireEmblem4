@@ -1,39 +1,47 @@
 
     .weak
 
-      Flag_Unknown0                     :=  0
-      Flag_Unknown1                     :=  1
-      Flag_Unknown2                     :=  2
+      FlagChapter10_ChronosSeizedCheck            :=  0
+      FlagChapter10_RadosSeizedCheck              :=  1
+      FlagChapter10_MiletosSeizedCheck            :=  2
+      FlagChapter10_ChalphySeizedCheck            :=  3
+      FlagChapter10_RiddellLeisurelyCharge        :=  4
 
-      Flag_Unknown4                     :=  4
+      FlagChapter10_MiletosSpawn                  := 13
 
-      Flag_Unknown13                    := 13
+      FlagChapter10_ChalphySpawn                  := 15
+      FlagChapter10_SeliphPalmarchTalk            := 16
 
-      Flag_Unknown15                    := 15
-      Flag_SeliphPalmarchTalk           := 16
+      FlagChapter10_JuliusKilledUnit              := 18
+      FlagChapter10_IshtarKilledUnit              := 19
 
-      Flag_Unknown18                    := 18
-      Flag_Unknown19                    := 19
+      FlagChapter10_ArvisBattleQuote              := 34
+      FlagChapter10_RiddellBattleQuote            := 35
+      FlagChapter10_HildaBattleQuote              := 36
+      FlagChapter10_MorriganBattleQuote           := 37
+      FlagChapter10_IshtarBattleQuote             := 38
+      FlagChapter10_JuliusBattleQuote             := 39
+      FlagChapter10_ZagamBattleQuote              := 40
+      FlagChapter10_SeliphArvisBattleQuote        := 41
 
-      Flag_ArvisBattleQuote             := 34
-      Flag_RiddellBattleQuote           := 35
-      Flag_HildaBattleQuote             := 36
-      Flag_MorriganBattleQuote          := 37
-      Flag_IshtarBattleQuote            := 38
-      Flag_JuliusBattleQuote            := 39
-      Flag_ZagamBattleQuote             := 40
-      Flag_SeliphArvisBattleQuote       := 41
+      FlagChapter10_SeliphPalmarchTalkCheck       := 43
+      FlagChapter10_RemoveRampart                 := 44
+      FlagChapter10_LowerBridge                   := 45
+      FlagChapter10_JuliusKilledUnitCheck         := 46
+      FlagChapter10_IshtarKilledUnitCheck         := 47
+      FlagChapter10_KillingMinigameCompleted      := 48
+      FlagChapter10_SeliphKilledArvis             := 49
+      FlagChapter10_SeliphAtSeaCheck              := 50
+      FlagChapter10_SeliphAtSea                   := 51
+      FlagChapter10_TineHildaBattleQuote          := 52
+      FlagChapter10_SeliphHildaBattleQuote        := 53
 
-      Flag_SeliphPalmarchTalkCheck      := 43
-
-      Flag_Unknown46                    := 46
-      Flag_Unknown47                    := 47
-      Flag_Unknown48                    := 48
-      Flag_Unknown49                    := 49
-      Flag_SeliphAtSea                  := 50
-      Flag_Unknown51                    := 51
-      Flag_TineHildaBattleQuote         := 52
-      Flag_SeliphHildaBattleQuote       := 53
+      FS_Player                                   :=  0
+      FS_Ch10Civilians                            :=  1
+      FS_Ch10Chronos                              :=  2
+      FS_Ch10Rados                                :=  3
+      FS_Ch10Miletos                              :=  4
+      FS_Ch10Chalphy                              :=  5
 
     .endweak
 
@@ -47,243 +55,243 @@
 
       aChapter10OpeningEvent ; B0/8008
 
-        UNDEPLOY_UNIT $002B
+        UNDEPLOY_UNIT Julia
 
-        LOAD_FACTION_GROUP 0, FG_Ch10Seliph
-        LOAD_FACTION_GROUP 1, FG_37
-        LOAD_FACTION_GROUP 2, FG_Ch10Chronos
-        LOAD_FACTION_GROUP 3, FG_Ch10Rados
-        LOAD_FACTION_GROUP 4, FG_Ch10Miletos
-        LOAD_FACTION_GROUP 5, FG_Ch10Chalphy
+        LOAD_FACTION_GROUP FS_Player,        FG_Ch10Seliph
+        LOAD_FACTION_GROUP FS_Ch10Civilians, FG_Ch10Civilians
+        LOAD_FACTION_GROUP FS_Ch10Chronos,   FG_Ch10Chronos
+        LOAD_FACTION_GROUP FS_Ch10Rados,     FG_Ch10Rados
+        LOAD_FACTION_GROUP FS_Ch10Miletos,   FG_Ch10Miletos
+        LOAD_FACTION_GROUP FS_Ch10Chalphy,   FG_Ch10Chalphy
 
-        macroSetFactionsAllies  [0, 1]
-        macroSetFactionsEnemies [0, 2]
-        macroSetFactionsEnemies [0, 3]
-        macroSetFactionsEnemies [0, 4]
-        macroSetFactionsEnemies [0, 5]
-        macroSetFactionsEnemies [1, 2]
-        macroSetFactionsEnemies [1, 3]
-        macroSetFactionsEnemies [1, 4]
-        macroSetFactionsEnemies [1, 5]
-        macroSetFactionsAllies  [2, 3]
-        macroSetFactionsAllies  [2, 4]
-        macroSetFactionsAllies  [2, 5]
-        macroSetFactionsAllies  [3, 4]
-        macroSetFactionsAllies  [3, 5]
-        macroSetFactionsAllies  [4, 5]
+        macroSetFactionsAllies  [FS_Player,        FS_Ch10Civilians]
+        macroSetFactionsEnemies [FS_Player,        FS_Ch10Chronos]
+        macroSetFactionsEnemies [FS_Player,        FS_Ch10Rados]
+        macroSetFactionsEnemies [FS_Player,        FS_Ch10Miletos]
+        macroSetFactionsEnemies [FS_Player,        FS_Ch10Chalphy]
+        macroSetFactionsEnemies [FS_Ch10Civilians, FS_Ch10Chronos]
+        macroSetFactionsEnemies [FS_Ch10Civilians, FS_Ch10Rados]
+        macroSetFactionsEnemies [FS_Ch10Civilians, FS_Ch10Miletos]
+        macroSetFactionsEnemies [FS_Ch10Civilians, FS_Ch10Chalphy]
+        macroSetFactionsAllies  [FS_Ch10Chronos,   FS_Ch10Rados]
+        macroSetFactionsAllies  [FS_Ch10Chronos,   FS_Ch10Miletos]
+        macroSetFactionsAllies  [FS_Ch10Chronos,   FS_Ch10Chalphy]
+        macroSetFactionsAllies  [FS_Ch10Rados,     FS_Ch10Miletos]
+        macroSetFactionsAllies  [FS_Ch10Rados,     FS_Ch10Chalphy]
+        macroSetFactionsAllies  [FS_Ch10Miletos,   FS_Ch10Chalphy]
 
-        EVENT $FF, $016A
+        EVENT FlagAlways, EventChapter10Opening
 
         END_CHAPTER_EVENTS
 
       aChapter10MapEvents ; B0/805F
 
-        CHECK_SEIZING_CASTLE 0, $0000, $0001
-          EVENT $FF, $0172
+        CHECK_SEIZING_CASTLE FlagChapter10_ChronosSeizedCheck, FS_Player, Ch10_Chronos
+          EVENT FlagAlways, EventChapter10ChronosSeized
 
-        CHECK_SEIZING_CASTLE 1, $0000, $0002
-          EVENT $FF, $0173
+        CHECK_SEIZING_CASTLE FlagChapter10_RadosSeizedCheck, FS_Player, Ch10_Rados
+          EVENT FlagAlways, EventChapter10RadosSeized
 
-        CHECK_SEIZING_CASTLE 2, $0000, $0003
-          EVENT $FF, $0175
+        CHECK_SEIZING_CASTLE FlagChapter10_MiletosSeizedCheck, FS_Player, Ch10_Miletos
+          EVENT FlagAlways, EventChapter10MiletosSeized
 
-        CHECK_SEIZING_CASTLE 3, $0000, $0004
-          EVENT $FF, $0178
+        CHECK_SEIZING_CASTLE FlagChapter10_ChalphySeizedCheck, FS_Player, Ch10_Chalphy
+          EVENT FlagAlways, EventChapter10Ending
 
-        CHECK_TALK Flag_SeliphPalmarchTalkCheck, Seliph, Palmarch
-          EVENT Flag_SeliphPalmarchTalk, $0177
+        CHECK_TALK FlagChapter10_SeliphPalmarchTalkCheck, Seliph, Palmarch
+          EVENT FlagChapter10_SeliphPalmarchTalk, EventChapter10SeliphPalmarchTalk
 
-        CHECK_UNIT_DIED_TO Flag_Unknown49, Arvis3, Seliph
+        CHECK_UNIT_DIED_TO FlagChapter10_SeliphKilledArvis, ArvisCh10, Seliph
           EC_NOP_00
 
-        CHECK_UNIT_IN_AREA Flag_SeliphAtSea, Seliph, $0425, $0726, $FF
+        CHECK_UNIT_IN_AREA FlagChapter10_SeliphAtSeaCheck, Seliph, pack([37, 4]), pack([38, 7])
           EC_NOP_00
 
-        CHECK_UNIT_IN_AREA Flag_SeliphAtSea, Seliph, $120C, $120F, $FF
+        CHECK_UNIT_IN_AREA FlagChapter10_SeliphAtSeaCheck, Seliph, pack([12, 18]), pack([15, 18])
           EC_NOP_00
 
-        CHECK_UNIT_IN_AREA Flag_SeliphAtSea, Seliph, $0D18, $0D1B, $FF
+        CHECK_UNIT_IN_AREA FlagChapter10_SeliphAtSeaCheck, Seliph, pack([24, 13]), pack([27, 13])
           EC_NOP_00
 
-        CHECK_UNIT_DIED_TO Flag_Unknown46, $FFFF, Julius
-          SET_FLAG Flag_Unknown48
+        CHECK_UNIT_DIED_TO FlagChapter10_JuliusKilledUnitCheck, AnyCharacter, JuliusCh10
+          SET_FLAG FlagChapter10_KillingMinigameCompleted
 
-        CHECK_UNIT_DIED_TO Flag_Unknown47, $FFFF, Ishtar2
-          SET_FLAG Flag_Unknown48
+        CHECK_UNIT_DIED_TO FlagChapter10_IshtarKilledUnitCheck, AnyCharacter, IshtarCh10
+          SET_FLAG FlagChapter10_KillingMinigameCompleted
 
-        CHECK_UNIT_DIED_TO $FF, Hilda1, $FFFF
+        CHECK_UNIT_DIED_TO FlagAlways, HildaCh10, AnyCharacter
           COMBATANTS_STAY_ON_MAP
 
-        CHECK_UNIT_DIED $FF, Hilda1, $FFFF
-          EVENT $FF, $0184
+        CHECK_UNIT_DIED FlagAlways, HildaCh10, AnyCharacter
+          EVENT FlagAlways, EventChapter10HildaDied
 
-        CHECK_UNIT_DIED_TO $FF, Ishtar2, $FFFF
+        CHECK_UNIT_DIED_TO FlagAlways, IshtarCh10, AnyCharacter
           COMBATANTS_STAY_ON_MAP
 
-        CHECK_UNIT_DIED Flag_Unknown48, Ishtar2, $FFFF
-          EVENT $FF, $017C
+        CHECK_UNIT_DIED FlagChapter10_KillingMinigameCompleted, IshtarCh10, AnyCharacter
+          EVENT FlagAlways, EventChapter10IshtarDied
 
-        CHECK_UNIT_DIED_TO $FF, Julius, $FFFF
+        CHECK_UNIT_DIED_TO FlagAlways, JuliusCh10, AnyCharacter
           COMBATANTS_STAY_ON_MAP
 
-        CHECK_UNIT_DIED Flag_Unknown48, Julius, $FFFF
-          EVENT $FF, $017B
+        CHECK_UNIT_DIED FlagChapter10_KillingMinigameCompleted, JuliusCh10, AnyCharacter
+          EVENT FlagAlways, EventChapter10JuliusDied
 
-        CHECK_TALK $FF, Leif, Altena
-          EVENT $FF, $0209
+        CHECK_TALK FlagAlways, Leif, Altena
+          EVENT FlagAlways, EventChapter10LeifAltenaTalk
 
-        CHECK_TALK $FF, Shannan, Seliph
-          EVENT $FF, $020A
+        CHECK_TALK FlagAlways, Shannan, Seliph
+          EVENT FlagAlways, EventChapter10ShannanSeliphTalk
 
-        CHECK_TALK $FF, Oifey, Seliph
-          EVENT $FF, $020B
+        CHECK_TALK FlagAlways, Oifey, Seliph
+          EVENT FlagAlways, EventChapter10OifeySeliphTalk
 
-        EC_16 $FF, Coirpre, Altena
-          EVENT $FF, $020C
+        CHECK_CHILD_TALK FlagAlways, Coirpre, Altena
+          EVENT FlagAlways, EventChapter10CoirpreAltenaTalk
 
-        EC_16 $FF, Deimne, Daisy
-          EVENT $FF, $020D
+        CHECK_CHILD_TALK FlagAlways, Deimne, Daisy
+          EVENT FlagAlways, EventChapter10LesterPattyTalk
 
-        EC_16 $FF, Nanna, Leif
-          EVENT $FF, $020E
+        CHECK_CHILD_TALK FlagAlways, Nanna, Leif
+          EVENT FlagAlways, EventChapter10NannaLeifTalk
 
-        EC_16 $FF, Asaello, Muirne
-          EVENT $FF, $020F
+        CHECK_CHILD_TALK FlagAlways, Asaello, Muirne
+          EVENT FlagAlways, EventChapter10FebailLanaTalk
 
-        CHECK_TALK $FF, Seliph, Lene
-          EVENT $FF, $0210
+        CHECK_TALK FlagAlways, Seliph, Lene
+          EVENT FlagAlways, EventChapter10SeliphLeneTalk
 
-        CHECK_TALK $FF, Seliph, Fee
-          EVENT $FF, $0211
+        CHECK_TALK FlagAlways, Seliph, Fee
+          EVENT FlagAlways, EventChapter10SeliphFeeTalk
 
-        CHECK_TALK $FF, Seliph, Tine
-          EVENT $FF, $0212
+        CHECK_TALK FlagAlways, Seliph, Tine
+          EVENT FlagAlways, EventChapter10SeliphTineTalk
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 0
-          EVENT $FF, $016C
+          EVENT FlagAlways, EventChapter10CivilianRescued1
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 1
-          EVENT $FF, $016D
+          EVENT FlagAlways, EventChapter10CivilianRescued2
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 2
-          EVENT $FF, $016E
+          EVENT FlagAlways, EventChapter10CivilianRescued3
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 3
-          EVENT $FF, $016F
+          EVENT FlagAlways, EventChapter10CivilianRescued4
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 4
-          EVENT $FF, $0170
+          EVENT FlagAlways, EventChapter10CivilianRescued5
 
         RESCUE_CIVILIAN FlagAlways, AnyCharacter, 5
-          EVENT $FF, $0171
+          EVENT FlagAlways, EventChapter10CivilianRescued6
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0005
-          EVENT $FF, $017E
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch10_Village1
+          EVENT FlagAlways, EventChapter10Village1
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0006
-          EVENT $FF, $017F
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch10_Village2
+          EVENT FlagAlways, EventChapter10Village2
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0007
-          EVENT $FF, $0180
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch10_Village3
+          EVENT FlagAlways, EventChapter10Village3
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0008
-          EVENT $FF, $0181
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch10_VillageMagicRing
+          EVENT FlagAlways, EventChapter10VillageMagicRing
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0009
-          EVENT $FF, $0182
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch10_Village4
+          EVENT FlagAlways, EventChapter10Village4
 
-        VISIT_VILLAGE $FF, AnyCharacter, $000A
-          EVENT $FF, $0183
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch10_Village5
+          EVENT FlagAlways, EventChapter10Village5
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Seliph, $FFFF, Arvis3
-          SET_PRECOMBAT_DIALOGUE Flag_SeliphArvisBattleQuote, $B3CA04, $0074
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Seliph, AnyFactionSlot, ArvisCh10
+          SET_PRECOMBAT_DIALOGUE FlagChapter10_SeliphArvisBattleQuote, dialogueChapter10SeliphArvisBattleQuote, $74
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Tine, $FFFF, Hilda1
-          SET_PRECOMBAT_DIALOGUE Flag_TineHildaBattleQuote, $B0E61E, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Tine, AnyFactionSlot, HildaCh10
+          SET_PRECOMBAT_DIALOGUE FlagChapter10_TineHildaBattleQuote, dialogueChapter10TineHildaBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Linda, $FFFF, Hilda1
-          SET_PRECOMBAT_DIALOGUE Flag_TineHildaBattleQuote, $B0E61E, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Linda, AnyFactionSlot, HildaCh10
+          SET_PRECOMBAT_DIALOGUE FlagChapter10_TineHildaBattleQuote, dialogueChapter10TineHildaBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Seliph, $FFFF, Hilda1
-          SET_BATTLE_OR_DEATH_QUOTE Flag_SeliphHildaBattleQuote, $B0E72D, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Seliph, AnyFactionSlot, HildaCh10
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_SeliphHildaBattleQuote, dialogueChapter10SeliphHildaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Riddell
-          SET_BATTLE_OR_DEATH_QUOTE Flag_RiddellBattleQuote, $B3CA88, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Riddell
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_RiddellBattleQuote, dialogueChapter10RiddellBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Hilda1
-          SET_BATTLE_OR_DEATH_QUOTE Flag_HildaBattleQuote, $B3CAAE, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, HildaCh10
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_HildaBattleQuote, dialogueChapter10HildaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Morrigan
-          SET_BATTLE_OR_DEATH_QUOTE Flag_MorriganBattleQuote, $B3CADE, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Morrigan
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_MorriganBattleQuote, dialogueChapter10MorriganBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Julius
-          SET_BATTLE_OR_DEATH_QUOTE Flag_JuliusBattleQuote, $B3CB05, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, JuliusCh10
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_JuliusBattleQuote, dialogueChapter10JuliusBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Ishtar2
-          SET_BATTLE_OR_DEATH_QUOTE Flag_IshtarBattleQuote, $B3CB28, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, IshtarCh10
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_IshtarBattleQuote, dialogueChapter10IshtarBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Zagam
-          SET_BATTLE_OR_DEATH_QUOTE Flag_ZagamBattleQuote, $B3CC23, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Zagam
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_ZagamBattleQuote, dialogueChapter10ZagamBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Arvis3
-          SET_BATTLE_OR_DEATH_QUOTE Flag_ArvisBattleQuote, $B3CC48, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, ArvisCh10
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_ArvisBattleQuote, dialogueChapter10ArvisBattleQuote, 0
 
         BREAK_ACTION_EVENT_CHECKS
 
-        CHECK_FLAG_UNSET Flag_HildaBattleQuote
-          CHECK_FLAG_IN_LIST_SET [Flag_TineHildaBattleQuote, Flag_SeliphHildaBattleQuote]
-            SET_FLAG Flag_HildaBattleQuote
+        CHECK_FLAG_UNSET FlagChapter10_HildaBattleQuote
+          CHECK_FLAG_IN_LIST_SET [FlagChapter10_TineHildaBattleQuote, FlagChapter10_SeliphHildaBattleQuote]
+            SET_FLAG FlagChapter10_HildaBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_UNSET Flag_ArvisBattleQuote
-          CHECK_FLAG_SET Flag_SeliphArvisBattleQuote
-            SET_FLAG Flag_ArvisBattleQuote
+        CHECK_FLAG_UNSET FlagChapter10_ArvisBattleQuote
+          CHECK_FLAG_SET FlagChapter10_SeliphArvisBattleQuote
+            SET_FLAG FlagChapter10_ArvisBattleQuote
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_SET Flag_Unknown46
-          CHECK_UNIT_DIED $FF, $FFFF, $FFFF
-            EVENT Flag_Unknown18, $0179
+        CHECK_FLAG_SET FlagChapter10_JuliusKilledUnitCheck
+          CHECK_UNIT_DIED FlagAlways, AnyCharacter, AnyCharacter
+            EVENT FlagChapter10_JuliusKilledUnit, EventChapter10JuliusKilledUnit
           BREAK_ACTION_EVENT_CHECKS
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_SET Flag_Unknown47
-          CHECK_UNIT_DIED $FF, $FFFF, $FFFF
-            EVENT Flag_Unknown19, $017A
+        CHECK_FLAG_SET FlagChapter10_IshtarKilledUnitCheck
+          CHECK_UNIT_DIED FlagAlways, AnyCharacter, AnyCharacter
+            EVENT FlagChapter10_IshtarKilledUnit, EventChapter10IshtarKilledUnit
           BREAK_ACTION_EVENT_CHECKS
         BREAK_STATE_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $03, $01, $FFFF
-          EVENT Flag_Unknown4, $016B
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch10Rados, 1, AnyCharacter
+          EVENT FlagChapter10_RiddellLeisurelyCharge, EventChapter10RiddellLeisurelyCharge
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $04, $00, $0000
-          CHECK_ALL_FLAGS_IN_LIST_SET [Flag_Unknown1, Flag_Unknown0]
-            EVENT Flag_Unknown13, $0174
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch10Miletos
+          CHECK_ALL_FLAGS_IN_LIST_SET [FlagChapter10_RadosSeizedCheck, FlagChapter10_ChronosSeizedCheck]
+            EVENT FlagChapter10_MiletosSpawn, EventChapter10MiletosSpawn
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $05, $00, $0000
-          CHECK_FLAG_SET Flag_Unknown2
-            EVENT Flag_Unknown15, $0176
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch10Chalphy
+          CHECK_FLAG_SET FlagChapter10_MiletosSeizedCheck
+            EVENT FlagChapter10_ChalphySpawn, EventChapter10ChalphySpawn
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_ALL_FLAGS_IN_LIST_SET [Flag_Unknown49, Flag_SeliphAtSea]
-          EVENT Flag_Unknown51, $0189
+        CHECK_ALL_FLAGS_IN_LIST_SET [FlagChapter10_SeliphKilledArvis, FlagChapter10_SeliphAtSeaCheck]
+          EVENT FlagChapter10_SeliphAtSea, EventChapter10SeliphAtSea
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_SET Flag_SeliphAtSea
-          CHECK_FLAG_UNSET Flag_Unknown51
-            UNSET_FLAG Flag_SeliphAtSea
+        CHECK_FLAG_SET FlagChapter10_SeliphAtSeaCheck
+          CHECK_FLAG_UNSET FlagChapter10_SeliphAtSea
+            UNSET_FLAG FlagChapter10_SeliphAtSeaCheck
         BREAK_STATE_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $00, $00, $0000
-          CLEAR_TALK_IF_ONE_MARRIED aUnknownB08327
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Player
+          CLEAR_TALK_IF_ONE_MARRIED aChapter10ClearTalksIfMarriedTable
         BREAK_TURN_EVENT_CHECKS
 
         END_CHAPTER_EVENTS
 
-      aUnknownB08327 ; B0/8327
+      aChapter10ClearTalksIfMarriedTable ; B0/8327
 
         .byte Daisy, Deimne
         .byte Leif, Nanna
@@ -361,8 +369,8 @@
 
       aChapter10MapChangeData ; B0/839F
 
-        .structChapterMapChangeEntry Chapter10, 44, [21, 42], aChapter10MapChangeRampart
-        .structChapterMapChangeEntry Chapter10, 45, [5, 20], aChapter10MapChangeBridge
+        .structChapterMapChangeEntry Chapter10, FlagChapter10_RemoveRampart, [21, 42], aChapter10MapChangeRampart
+        .structChapterMapChangeEntry Chapter10, FlagChapter10_LowerBridge, [5, 20], aChapter10MapChangeBridge
         .word $FFFF
 
       aChapter10MapChangeRampart ; B0/83AF
@@ -410,7 +418,7 @@
 
       aChapter10TalkEvents ; B0/83E3
 
-        .structChapterTalkEventEntry Chapter10, 43, Seliph, Palmarch
+        .structChapterTalkEventEntry Chapter10, FlagChapter10_SeliphPalmarchTalkCheck, Seliph, Palmarch
         .word $FFFF
 
       aFactionGroupData36 ; B0/83ED

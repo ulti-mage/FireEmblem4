@@ -16,25 +16,25 @@
     PLAY_SONG $47
     YIELD
 
-    RUN_ASM rlASMCSilviaDance
+    RUN_ASM rlASMCChapter04SilviaDance
     YIELD
 
     DIALOGUE dialogueChapter04VillageSafeguardSilvia2
     YIELD
 
-    RUN_ASM rlASMCSilviaDance
+    RUN_ASM rlASMCChapter04SilviaDance
     YIELD
 
     DIALOGUE dialogueChapter04VillageSafeguardSilvia3
     YIELD
 
-    RUN_ASM rlASMCSilviaDance
+    RUN_ASM rlASMCChapter04SilviaDance
     YIELD
 
     DIALOGUE dialogueChapter04VillageSafeguardSilvia4
     YIELD
 
-    RUN_ASM rlASMCSilviaDance
+    RUN_ASM rlASMCChapter04SilviaDance
     YIELD
 
     PLAY_SFX_WORD $7FF7
@@ -53,7 +53,7 @@
 
     END_EVENT
 
-  rlASMCSilviaDance ; 8E/9B2A
+  rlASMCChapter04SilviaDance ; 8E/9B2A
 
     .al
     .autsiz

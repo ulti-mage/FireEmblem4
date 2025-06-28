@@ -23,8 +23,7 @@
       ADD_UNIT_STAT Finn, Defense, 1
 
     FILL_EVENT_UNIT_SLOT Finn, EventUnitSlot1
-
-    RUN_ASM $91BD94
+    RUN_ASM rlASMCStatUpDisplay
     YIELD
 
     PLAY_SFX_WORD $00E0

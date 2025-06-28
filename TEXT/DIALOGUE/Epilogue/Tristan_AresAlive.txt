@@ -1,0 +1,1 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Tristan_AresAlive}{DIALOGUE_EOF}

@@ -1,0 +1,5 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Altena_LeifAlive}{DIALOGUE_FONT_0}アリオーンの事は､残念でした･･･{DIALOGUE_NL}
+あなたは､彼を愛していたのでしょう{DIALOGUE_NL}
+{DIALOGUE_RIGHT}{DIALOGUE_PAUSE 32}{DIALOGUE_FONT_0}それはもう言わないで！{DIALOGUE_NL}
+もう･･･終わったことです･･･{DIALOGUE_NL}
+{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

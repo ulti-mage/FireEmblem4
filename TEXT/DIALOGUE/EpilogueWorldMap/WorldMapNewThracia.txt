@@ -1,0 +1,2 @@
+{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaCheckNoInheritors}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaCheckInherited}{DIALOGUE_SCROLL}
+{DIALOGUE_EOF}

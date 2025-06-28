@@ -1,0 +1,1 @@
+{DIALOGUE_ASMC rlASMCSetFriegeEpilogue}{DIALOGUE_ASMC rlASMCLoadEpilogueDialogue}{DIALOGUE_EOF}

@@ -1,4 +1,4 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,Bandit1,21,44,$00,$03,$03,$00
-ID_02,Bandit1,49,25,$00,$03,$03,$00
+ID_01,BanditCh01_02,21,44,0,3,FS_Ch01Verdane,0
+ID_02,BanditCh01_02,49,25,0,3,FS_Ch01Verdane,0
 ID_03,$FFFF,0,0,0,0,0,0

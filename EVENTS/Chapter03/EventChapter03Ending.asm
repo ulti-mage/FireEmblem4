@@ -174,19 +174,19 @@
     PAUSE 30
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT AnnandSquad, [63, 7], 4, MAP_SPRITE_GREEN, _ScriptedMovement1
+    MOVE_TEMPORARY_BY_SCRIPT AnnandSquadPegasusKnight, [63, 7], 4, MAP_SPRITE_GREEN, _ScriptedMovement1
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     PAUSE 35
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT AnnandSquad, [63, 6], 4, MAP_SPRITE_GREEN, _ScriptedMovement2
+    MOVE_TEMPORARY_BY_SCRIPT AnnandSquadPegasusKnight, [63, 6], 4, MAP_SPRITE_GREEN, _ScriptedMovement2
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     PAUSE 15
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT AnnandSquad, [63, 8], 4, MAP_SPRITE_GREEN, _ScriptedMovement3
+    MOVE_TEMPORARY_BY_SCRIPT AnnandSquadPegasusKnight, [63, 8], 4, MAP_SPRITE_GREEN, _ScriptedMovement3
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     WAIT_UNTIL_MAP_SPRITES_HALTING

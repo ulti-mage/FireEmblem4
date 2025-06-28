@@ -1773,7 +1773,7 @@
 
         .databank 0
 
-      rsUnknown91892B ; 91/892B
+      rsDialogueClearDialogue ; 91/892B
 
         .al
         .autsiz
@@ -2156,7 +2156,7 @@
 
         ; DIALOGUE_CLEAR
 
-        jsl rlUnknown919088
+        jsl rlDialogueClearCurrentSlotsDialogue
         clc
         rts
 
@@ -2318,7 +2318,7 @@
         inc y
         lda [lR18],y
         sta lR23+1
-        jsl rlUnknown91908F
+        jsl rlDialogueSetBufferPosition
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -2333,6 +2333,8 @@
         .al
         .autsiz
         .databank ?
+
+        ; DIALOGUE_SET_TEXT_POSITION
 
         lda [lR18],y
         jsl rlUnknown91909D
@@ -2350,8 +2352,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_SET_DISPLAY_AREA
+
         lda [lR18],y
-        jsl rlUnknown9190CF
+        jsl rlDialogueSetDisplayArea
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -2366,9 +2370,11 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_SET_SPEED
+
         lda [lR18],y
         and #$00FF
-        jsl rlUnknown9190D6
+        jsl rlDialogueSetTextSpeed
 
         inc aDialogue.lActivePointer,b
         clc
@@ -2486,8 +2492,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_SET_BASE_TILE
+
         lda [lR18],y
-        jsl rlUnknown919113
+        jsl rlDialogueSetBaseTileIndex
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -2502,8 +2510,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_SET_CLEAR_TILE
+
         lda [lR18],y
-        jsl rlUnknown919117
+        jsl rlDialogueSetClearTileIndex
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -2518,7 +2528,9 @@
         .autsiz
         .databank ?
 
-        jsl rlUnknown91911B
+        ; DIALOGUE_CLEAR_HALT
+
+        jsl rlDialogueClearCurrentSlotsDialogueHalt
         sec
         rts
 
@@ -2530,7 +2542,9 @@
         .autsiz
         .databank ?
 
-        jsl rlUnknown919121
+        ; DIALOGUE_18
+
+        jsl rlDialogueHalt1
         sec
         rts
 
@@ -2541,6 +2555,8 @@
         .al
         .autsiz
         .databank ?
+
+        ; DIALOGUE_SET_BUFFER_OFFSET
 
         lda [lR18],y
         jsl rlUnknown919134
@@ -2636,11 +2652,11 @@
         .autsiz
         .databank ?
 
-        ; DIALOGUE_1C
+        ; DIALOGUE_ADD_TILE_OFFSET
 
         lda [lR18],y
         and #$00FF
-        jsl rlUnknown919160
+        jsl rlDialogueAddTileOffset
 
         inc aDialogue.lActivePointer,b
         sec
@@ -2721,6 +2737,8 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_LOAD_UNIT1_PORTRAIT
+
         lda aDialogue.wUnit1,b
         bra +
 
@@ -2729,6 +2747,8 @@
         .al
         .autsiz
         .databank ?
+
+        ; DIALOGUE_LOAD_UNIT2_PORTRAIT
 
         lda aDialogue.wUnit2,b
         bra +
@@ -2739,8 +2759,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_LOAD_CHILD_SIBLING_PORTRAIT
+
         lda aDialogue.wUnit2,b
-        jsl rlDialogueTryGetActiveChildSiblingPortrait
+        jsl rlDialogueTryGetActiveChildSiblingCharacterID
         bra +
 
       rsDialogueCommand24 ; 91/8D11
@@ -2748,6 +2770,8 @@
         .al
         .autsiz
         .databank ?
+
+        ; DIALOGUE_LOAD_SLOT_PORTRAIT
 
         lda aDialogue.wUnit1,b
         ldx aDialogue.wSlotOffset,b
@@ -2783,8 +2807,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_CHILD_NAME
+
         lda [lR18],y
-        jsl rlDialogueTryGetActiveChildPortrait
+        jsl rlDialogueTryGetActiveChildCharacterID
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -2796,8 +2822,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_CHILD_SIBLING_NAME
+
         lda aDialogue.wUnit2,b
-        jsl rlDialogueTryGetActiveChildSiblingPortrait
+        jsl rlDialogueTryGetActiveChildSiblingCharacterID
         bra +
 
       rsDialogueCommand22 ; 91/8D48
@@ -2822,10 +2850,10 @@
         lda aDialogue.wUnit2,b
         
         +
-        ldx #(`$8D920D)<<8
+        ldx #(`aDialogueCharacterNames)<<8
         stx lR18+1
         dec a
-        cmp #$003F
+        cmp #aDialogueCharacterNames.Nanna + 1
         bcc +
 
           lda #0
@@ -2833,7 +2861,7 @@
         +
         asl a
         tax
-        lda $8D920D,x
+        lda aDialogueCharacterNames,x
         sta lR18
         jsl rlDialoguePushToActivePointerStack
         jsr rsDialogueSetDefaultPauseTimer
@@ -2965,10 +2993,10 @@
 
         ; DIALOGUE_ITEM_NAME
 
-        ldx #(`$8D9402)<<8
+        ldx #(`aDialogueItemNames)<<8
         stx lR18+1
         lda aDialogue.wItemID,b
-        cmp #$0089
+        cmp #aDialogueItemNames.BrokenHolyStaff + 1
         bcc +
 
           lda #0
@@ -2976,7 +3004,7 @@
         +
         asl a
         tax
-        lda $8D9402,x
+        lda aDialogueItemNames,x
         sta lR18
         jsl rlDialoguePushToActivePointerStack
         clc
@@ -2992,11 +3020,11 @@
 
         ; DIALOGUE_CLASS_NAME
 
-        ldx #(`$8D9892)<<8
+        ldx #(`aDialogueClassNames)<<8
         stx lR18+1
         lda aDialogue.wClassID,b
         dec a
-        cmp #$0048
+        cmp #DarkPrince + 1
         bcc +
 
           lda #0
@@ -3004,7 +3032,7 @@
         +
         asl a
         tax
-        lda $8D9892,x
+        lda aDialogueClassNames,x
         sta lR18
         jsl rlDialoguePushToActivePointerStack
         clc
@@ -3248,8 +3276,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_SET_STATUS
+
         lda [lR18],y
-        jsl rlUnknown919479
+        jsl rlDialogueSetStatus
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -3264,8 +3294,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_ADD_STATUS
+
         lda [lR18],y
-        jsl rlUnknown91947D
+        jsl rlDialogueAddStatus
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -3280,8 +3312,10 @@
         .autsiz
         .databank ?
 
+        ; DIALOGUE_MASK_STATUS
+
         lda [lR18],y
-        jsl rlUnknown919484
+        jsl rlDialogueMaskStatus
 
         inc aDialogue.lActivePointer,b
         inc aDialogue.lActivePointer,b
@@ -3298,7 +3332,7 @@
 
         ; DIALOGUE_WAIT_PRESS
 
-        jsl rlUnknown91948B
+        jsl rlDialogueHalt2
         sec
         rts
 
@@ -3389,7 +3423,7 @@
         ldx #1
         jsr rsUnknown9197DC
         lda #$0002
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         inc aDialogue.wCommandCycle,b
         rts
 
@@ -3520,19 +3554,19 @@
 
         .databank 0
 
-      rlUnknown919088 ; 91/9088
+      rlDialogueClearCurrentSlotsDialogue ; 91/9088
 
         .al
         .autsiz
         .databank ?
 
         ldx aDialogue.wSlotOffset,b
-        jsr rsUnknown91892B
+        jsr rsDialogueClearDialogue
         rtl
 
         .databank 0
 
-      rlUnknown91908F ; 91/908F
+      rlDialogueSetBufferPosition ; 91/908F
 
         .al
         .autsiz
@@ -3584,7 +3618,7 @@
 
         .databank 0
 
-      rlUnknown9190CF ; 91/90CF
+      rlDialogueSetDisplayArea ; 91/90CF
 
         .al
         .autsiz
@@ -3596,7 +3630,7 @@
 
         .databank 0
 
-      rlUnknown9190D6 ; 91/90D6
+      rlDialogueSetTextSpeed ; 91/90D6
 
         .al
         .autsiz
@@ -3682,7 +3716,7 @@
 
         .databank 0
 
-      rlUnknown919113 ; 91/9113
+      rlDialogueSetBaseTileIndex ; 91/9113
 
         .al
         .autsiz
@@ -3693,7 +3727,7 @@
  
         .databank 0
 
-      rlUnknown919117 ; 91/9117
+      rlDialogueSetClearTileIndex ; 91/9117
 
         .al
         .autsiz
@@ -3704,16 +3738,16 @@
 
         .databank 0
 
-      rlUnknown91911B ; 91/911B
+      rlDialogueClearCurrentSlotsDialogueHalt ; 91/911B
 
         .al
         .autsiz
         .databank ?
 
         ldx aDialogue.wSlotOffset,b
-        jsr $91892B
+        jsr rsDialogueClearDialogue
 
-      rlUnknown919121 ; 91/9121
+      rlDialogueHalt1 ; 91/9121
 
         .al
         .autsiz
@@ -3774,7 +3808,7 @@
 
         .databank 0
 
-      rlUnknown919160 ; 91/9160
+      rlDialogueAddTileOffset ; 91/9160
 
         .al
         .autsiz
@@ -3788,7 +3822,7 @@
         inc a
         clc
         adc wR0
-        
+
           -
           pha
 
@@ -4215,7 +4249,7 @@
         ; Input:
         ; A = PortraitID
 
-        jsl rlDialogueTryGetActiveChildPortrait
+        jsl rlDialogueTryGetActiveChildCharacterID
 
         ldx aDialogue.wSlotOffset,b
         cmp aDialogue._Slot[0].wPortraitID,b,x
@@ -4362,7 +4396,7 @@
         .autsiz
         .databank ?
 
-        jsl rlDialogueTryGetActiveChildPortrait
+        jsl rlDialogueTryGetActiveChildCharacterID
 
         ldx aDialogue.wSlotOffset,b
         cmp aDialogue._Slot[0].wPortraitID,b,x
@@ -4452,7 +4486,7 @@
         _944B
         jsr rsUnknown9197DC
         lda #$0002
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         rtl
 
         .databank 0
@@ -4518,7 +4552,7 @@
 
         .databank 0
 
-      rlUnknown919479 ; 91/9479
+      rlDialogueSetStatus ; 91/9479
 
         .al
         .autsiz
@@ -4529,7 +4563,7 @@
 
         .databank 0
 
-      rlUnknown91947D ; 91/947D
+      rlDialogueAddStatus ; 91/947D
 
         .al
         .autsiz
@@ -4541,7 +4575,7 @@
 
         .databank 0
 
-      rlUnknown919484 ; 91/9484
+      rlDialogueMaskStatus ; 91/9484
 
         .al
         .autsiz
@@ -4553,7 +4587,7 @@
 
         .databank 0
 
-      rlUnknown91948B ; 91/948B
+      rlDialogueHalt2 ; 91/948B
 
         .al
         .autsiz
@@ -5165,10 +5199,10 @@
           dec x
           bne _OuterLoop
 
-        lda $000D79
+        lda wUnknown000D79
         ora #$0001
         ora #$0002
-        sta $000D79
+        sta wUnknown000D79
         plx
         plp
         rts
@@ -5295,13 +5329,13 @@
 
         .databank 0
 
-      rlUnknown91984D ; 91/984D
+      rlDialogueClearDialogueWrapper ; 91/984D
 
         .al
         .autsiz
         .databank ?
 
-        jsr rsUnknown91892B
+        jsr rsDialogueClearDialogue
         rtl
 
         .databank 0
@@ -5412,7 +5446,7 @@
         +
         inc y
         lda [lR18],y
-        jsl rlDialogueTryGetActiveChildPortrait
+        jsl rlDialogueTryGetActiveChildCharacterID
         bra +
 
         _98D0

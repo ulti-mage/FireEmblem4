@@ -42,7 +42,7 @@
     RUN_EVENT_CONDITION
       DEPLOY_UNIT_GROUP UNITGroupChapter05Belhalla
 
-    RUN_ASM $B298FF
+    RUN_ASM rlASMCRefreshAllUnits
     JUMP eventLoadAliveUnitsNearVelthomer
 
     _LoadAliveUnitsNearVelthomerReturn ; 9D/C5DD
@@ -114,7 +114,7 @@
     PLAY_SONG $52
     YIELD
 
-    LOAD_UNIT_DIRECT VelthomerArmy3, FS_Ch05Belhalla, [4, 59], [8, 54], 3, MAP_SPRITE_GREEN, false, 1
+    LOAD_UNIT_DIRECT VelthomerCh05FireMageCliff, FS_Ch05Belhalla, [4, 59], [8, 54], 3, MAP_SPRITE_GREEN, false, 1
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     PAUSE 18
@@ -129,12 +129,12 @@
     DIALOGUE dialogueChapter05Ending3
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT VelthomerArmy3, [8, 54], 3, MAP_SPRITE_GREEN, _SciptedMovementGuard
+    MOVE_TEMPORARY_BY_SCRIPT VelthomerCh05FireMageCliff, [8, 54], 3, MAP_SPRITE_GREEN, _SciptedMovementGuard
     WAIT_UNIT_SPRITE_DECOMPRESSED
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     RUN_EVENT_CONDITION
-      REMOVE_UNIT VelthomerArmy3
+      REMOVE_UNIT VelthomerCh05FireMageCliff
 
     MOVE_TEMPORARY_BY_SCRIPT Deirdre, [7, 54], 3, MAP_SPRITE_GREEN, _SciptedMovementDeirdre
     WAIT_UNIT_SPRITE_DECOMPRESSED
@@ -198,8 +198,8 @@
     MAP_SCROLL [0, 48], 2
     YIELD
 
-    EVENT_43 $06, $35, $00
-    EVENT_43 $06, $36, $01
+    FILL_EVENT_UNIT_SLOT_BY_COORDS [6, 53], EventUnitSlot1
+    FILL_EVENT_UNIT_SLOT_BY_COORDS [6, 54], EventUnitSlot2
 
     RUN_ASM rlASMCUnknown9DC73E
     YIELD

@@ -1,0 +1,2 @@
+憎しみあう人々を一つにまとめ{DIALOGUE_NL}
+平和な国を築きあげよ{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

@@ -17,7 +17,7 @@
       ADD_UNIT_STAT Arden, Skill, 5
 
     FILL_EVENT_UNIT_SLOT Arden, EventUnitSlot1
-    RUN_ASM $91BD94
+    RUN_ASM rlASMCStatUpDisplay
     YIELD
 
     PLAY_SFX_WORD $00E0

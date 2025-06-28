@@ -19,20 +19,23 @@
     .endsegment
 
     ; Identifier : $02
-    EC_03 .segment Flag, Unknown1, Unknown2
+    CHECK_VILLAGE_DESTROYED .segment Flag, DestroyerFactionSlot, LocationID
+      ; Unused.
       .byte $03
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
+      .word \DestroyerFactionSlot
+      .word \LocationID
     .endsegment
 
     ; Identifier : $0A
-    CHECK_TALK .segment Flag, Initiator, Target, CostsMoneyFlag=$FFFF
+    CHECK_TALK .segment Flag, Initiator, Target, CostsMoneyFlag=-1
+      ; If checking for a talk that can be for a child as well as a substitute,
+      ; use CHECK_CHILD_TALK instead.
       .byte $04
       .byte \Flag
       .sint \Initiator
       .sint \Target
-      .word int(\CostsMoneyFlag)
+      .sint int(\CostsMoneyFlag)
     .endsegment
 
     ; Identifier : $04
@@ -45,6 +48,8 @@
 
     ; Identifier : $05
     EC_06 .segment Flag, Unknown1, Unknown2
+      ; Unused.
+      ; No idea where the game sets the bEventActionIdentifier to $05, so idk what this checks.
       .byte $06
       .byte \Flag
       .word \Unknown1
@@ -62,6 +67,8 @@
 
     ; Identifier : $07
     EC_08 .segment Flag, Unknown1, Unknown2
+      ; Unused.
+      ; No idea where the game sets the bEventActionIdentifier to $07, so idk what this checks.
       .byte $08
       .byte \Flag
       .word \Unknown1
@@ -69,11 +76,13 @@
     .endsegment
 
     ; Identifier : $08
-    EC_09 .segment Flag, Unknown1, Unknown2
+    EC_09 .segment Flag, CharacterID, LocationID
+      ; Unused.
+      ; Only checked for in the unused "Visit Town" command?
       .byte $09
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
+      .word \CharacterID
+      .word \LocationID
     .endsegment
 
     ; Identifier : $09
@@ -85,7 +94,7 @@
     .endsegment
 
     ; Identifier : $03
-    CHECK_UNIT_IN_AREA .segment Flag, CharacterID, TopLeftCorner, BottomRightCorner, FactionSlot
+    CHECK_UNIT_IN_AREA .segment Flag, CharacterID, TopLeftCorner, BottomRightCorner, FactionSlot=$FF
       .byte $0B
       .byte \Flag
       .sint \CharacterID
@@ -136,33 +145,40 @@
     .endsegment
 
     ; Identifier : $11
-    EC_10 .segment Flag, Unknown1, Unknown2
+    CHECK_FELL_IN_LOVE .segment Flag, HusbandCharacterID, WifeCharacterID
+      ; Unused.
+      ; Triggers whenever 2 characters fall in love, be it though events or the start of player phase.
       .byte $10
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
+      .word \HusbandCharacterID
+      .word \WifeCharacterID
     .endsegment
 
     ; Identifier : $06
-    EC_11 .segment Flag, Unknown1, Unknown2, Unknown3
+    EC_11 .segment Flag, CharacterID, LocationID, Gender
+      ; Unused.
+      ; Same identifier as CHECK_ENTERING_CASTLE_MENU, but parameter 3 is never set,
+      ; so this can't event check the gender of the character?
       .byte $11
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
-      .word \Unknown3
+      .word \CharacterID
+      .word \LocationID
+      .word \Gender
     .endsegment
 
     ; Identifier : $0A
-    EC_12 .segment Flag, Unknown1, Unknown2, Unknown3
+    EC_12 .segment Flag, Initiator, Target, InitiatorGender
+      ; Unused.
+      ; Like CHECK_TALK but also checks gender of initiator?
       .byte $12
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
-      .word \Unknown3
+      .word \Initiator
+      .word \Target
+      .word \InitiatorGender
     .endsegment
 
     ; Identifier : $04
-    EC_13 .segment Flag, Unit, CastleID
+    CHECK_CHILD_ENTERING_HOME_CASTLE .segment Flag, Unit, CastleID
       ; Only for Gen2 units, maps the character IDs of subs 
       ; to those of the original children.
       .byte $13
@@ -172,15 +188,18 @@
     .endsegment
 
     ; Identifier : $06
-    EC_14 .segment Flag, Unknown1, Unknown2
+    CHECK_CHILD_ENTERING_CASTLE_MENU .segment Flag, CharacterID, LocationID
+      ; Unused.
       .byte $14
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
+      .word \CharacterID
+      .word \LocationID
     .endsegment
 
     ; Identifier : $0A
-    EC_15 .segment Flag, Unknown1, Unknown2
+    EC_15 .segment Flag, Initiator, Target
+      ; Unused.
+      ; Like CHECK_CHILD_TALK but only maps the initiator to a sub?
       .byte $15
       .byte \Flag
       .word \Unknown1
@@ -188,35 +207,41 @@
     .endsegment
 
     ; Identifier : $0A
-    EC_16 .segment Flag, Unknown1, Unknown2
+    CHECK_CHILD_TALK .segment Flag, Initiator, Target
+      ; Only works with CharacterIDs equal/greater than Seliphs
+      ; Specified characters get mapped to the substitutes IDs.
       .byte $16
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
+      .word \Initiator
+      .word \Target
     .endsegment
 
     ; Identifier : $17
-    EC_17 .segment Flag, Unknown1
+    CHECK_CHILD_UNIT_DIED .segment Flag, CharacterID
+      ; Unused.
       .byte $17
       .byte \Flag
-      .word \Unknown1
+      .word \CharacterID
     .endsegment
 
     ; Identifier : $11
-    EC_18 .segment Flag, Unknown1
+    CHECK_CHILD_FELL_IN_LOVE .segment Flag, HusbandCharacterID, WifeCharacterID
+      ; Unused.
       .byte $18
       .byte \Flag
-      .word \Unknown1
+      .word \HusbandCharacterID
+      .word \WifeCharacterID
     .endsegment
 
     ; Identifier : $14
-    EC_19 .segment Flag, Unknown1, Unknown2, Unknown3, Unknown4
+    CHECK_CHILD_UNITS_FIGHTING .segment Flag, FactionSlot1, CharacterID1, FactionSlot2, CharacterID2
+      ; Unused.
       .byte $19
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
-      .word \Unknown3
-      .word \Unknown4
+      .word \FactionSlot1
+      .word \CharacterID1
+      .word \FactionSlot2
+      .word \CharacterID2
     .endsegment
 
     ; Identifier : $18
@@ -228,11 +253,12 @@
     .endsegment
 
     ; Identifier : $18
-    EC_1B .segment Flag, Unknown1, Unknown2
+    CHECK_CHILD_UNIT_DIED_TO .segment Flag, DeadCharacterID, KillerCharacterID
+      ; Unused.
       .byte $1B
       .byte \Flag
-      .word \Unknown1
-      .word \Unknown2
+      .word \DeadCharacterID
+      .word \KillerCharacterID
     .endsegment
 
     ; Identifier : $1A
@@ -286,25 +312,30 @@
       .byte $21
       .char \Turn
       .char \FactionSlot
-      .byte \AISetting
+      .char \AISetting
       .sint \CharacterID
     .endsegment
 
     ; Identifier : $20
-    EC_22 .segment Unknown1 ; unsure about the argument
+    SKIP_IF_START_PLAYER_PHASE .segment
+      ; Unused.
+      ; If the event engine reads this command while the event identifier is $20 aka at the start of the player phase,
+      ; skip any events that come after this until it hits a BREAK_TURN_EVENT_CHECKS.
       .byte $22
-      .byte \Unknown1
     .endsegment
 
     ; Identifier : $25
     EC_23 .segment
+      ; Unused.
+      ; Like the last one, but nothing sets the identifier to $25?
       .byte $23
     .endsegment
 
     ; Identifier : $26
-    EC_24 .segment Unknown1 ; unsure about the argument
+    EC_24 .segment
+      ; Unused.
+      ; Like the last two, but nothing sets the identifier to $26?
       .byte $24
-      .byte \Unknown1
     .endsegment
 
     BREAK_TURN_EVENT_CHECKS .segment
@@ -315,9 +346,10 @@
       .word $6666
     .endsegment
 
-    EC_26 .segment Unknown1
+    EC_RUN_ASM .segment RoutinePointer
+      ; Unused.
       .byte $26
-      .long \Unknown1
+      .long \RoutinePointer
     .endsegment
 
     SET_FLAG .segment Flag
@@ -340,9 +372,10 @@
       .byte \Flag
     .endsegment
 
-    EC_2B .segment Unknown1
+    EC_JUMP .segment Address
+      ; Unused.
       .byte $2B
-      .byte \Unknown1
+      .word \Address
     .endsegment
 
     CHECK_ALL_FLAGS_IN_LIST_SET .segment FlagList
@@ -362,8 +395,11 @@
       .word $6666
     .endsegment
 
-    EC_2F .segment ; END_PERM_FLAG_CHECKS ?
+    EC_2F .segment
+      ; Unused.
+      ; Effectively the same as the previous one?
       .byte $2F
+      .word $6666
     .endsegment
 
     EVENT .segment Flag, EventID
@@ -391,9 +427,9 @@
       .word \SongID
     .endsegment
 
-    EC_33 .segment Unknown1
+    REMOVE_CURRENT_CHAPTER_STRUCT .segment
+      ; Unused.
       .byte $33
-      .byte \Unknown1
     .endsegment
 
     REMOVE_CHAPTER_STRUCT .segment ChapterID
@@ -403,6 +439,7 @@
     .endsegment
 
     EC_35 .segment EventHeaderPointer
+      ; Unused.
       ; Runs the opening events of a specified pointer?
       .byte $35
       .long \EventHeaderPointer
@@ -418,63 +455,67 @@
       .byte \Flag
     .endsegment
 
-    EC_38 .segment Flag
+    CHECK_PERMANENT_FLAG_SET .segment Flag
       .byte $38
       .byte \Flag
     .endsegment
 
-    EC_39 .segment Flag
+    CHECK_PERMANENT_FLAG_UNSET .segment Flag
       .byte $39
       .byte \Flag
     .endsegment
 
-    EC_3A .segment Flag
+    CHECK_ALL_PERMANENT_FLAGS_IN_LIST_SET .segment Flag
       .byte $3A
       .byte \Flag
     .endsegment
 
-    EC_3B .segment Unknown1, Unknown2
+    SET_CHAPTER_EVENT_COUNTER .segment CounterID, Value
+      ; Sets a value to one of the 2 counters in the chapter RAM struct
+      ; ID can be 0 or 1
       .byte $3B
-      .byte \Unknown1
-      .byte \Unknown2
+      .byte \CounterID
+      .byte \Value
     .endsegment
 
-    EC_3C .segment Unknown1, Unknown2
+    ADD_CHAPTER_EVENT_COUNTER .segment CounterID, Value
       .byte $3C
-      .byte \Unknown1
-      .byte \Unknown2
+      .byte \CounterID
+      .byte \Value
     .endsegment
 
-    EC_3D .segment Unknown1
+    INCREMENT_CHAPTER_EVENT_COUNTER .segment CounterID
       .byte $3D
-      .byte \Unknown1
+      .byte \CounterID
     .endsegment
 
-    EC_3E .segment Unknown1
+    DECREMENT_CHAPTER_EVENT_COUNTER .segment CounterID
       .byte $3E
-      .byte \Unknown1
+      .byte \CounterID
     .endsegment
 
-    EC_3F .segment Unknown1, Unknown2
+    CHECK_CHAPTER_EVENT_COUNTER_EQUAL .segment CounterID, Value
       .byte $3F
-      .byte \Unknown1
-      .byte \Unknown2
+      .byte \CounterID
+      .byte \Value
     .endsegment
 
-    EC_40 .segment Unknown1, Unknown2
+    CHECK_CHAPTER_EVENT_COUNTER_NOT_EQUAL .segment CounterID, Value
       .byte $40
-      .byte \Unknown1
-      .byte \Unknown2
+      .byte \CounterID
+      .byte \Value
     .endsegment
 
-    EC_41 .segment Unknown1
+    CHECK_IF_IN_HOME_CASTLE .segment CharacterID
+      ; Unused.
       .byte $41
-      .word \Unknown1
+      .word \CharacterID
     .endsegment
 
-    EC_42 .segment Unknown1
+    CHECK_ITEM_UNOBTAINED .segment PlayerItemID
+      ; Unused.
       .byte $42
-      .word \Unknown1
+      .word \PlayerItemID
     .endsegment
 
     CHECK_NO_CASTLE_DESTROYED .segment
@@ -500,14 +541,19 @@
       .word \CharacterID
     .endsegment
 
-    EC_47 .segment Unknown1
+    CHECK_FATHERS_CHILD_ALIVE .segment FatherCharacterID
+      ; Based on the given character ID, finds the units with the given
+      ; ID as father.
+      ; If at least one of them is alive, continue with the event script,
+      ; else skip over events until a BREAK_STATE_CHECKS.
       .byte $47
-      .word \Unknown1
+      .word \FatherCharacterID
     .endsegment
 
-    EC_48 .segment Unknown1
+    SET_CHAPTER_EVENT_DATA_POINTER .segment EventDataPointer
+      ; Unused.
       .byte $48
-      .long \Unknown1
+      .long \EventDataPointer
     .endsegment
 
     REGISTER_CHARACTER_MAP_SPRITE .segment CharacterID
@@ -520,17 +566,18 @@
       .byte \UNITGroupID
     .endsegment
 
-    LOAD_FACTION_GROUP .segment FactionID, FactionGroupID
+    LOAD_FACTION_GROUP .segment FactionSlot, FactionGroupID
       .byte $4B
       ; Loads the given FactionGroup into the assigned faction slot
-      .byte \FactionID
+      .byte \FactionSlot
       .byte \FactionGroupID
     .endsegment
 
-    EC_4C .segment Unknown1, Unknown2
+    SET_FACTION_GROUP .segment FactionSlot, FactionGroupID
+      ; Writes new FactionGroup data over an existing slot.
       .byte $4C
-      .byte \Unknown1
-      .byte \Unknown2
+      .byte \FactionSlot
+      .byte \FactionGroupID
     .endsegment
 
     SET_FACTION_HOSTILITY .segment Type, FactionSlots
@@ -547,9 +594,14 @@
       .byte \UnitGroupID
     .endsegment
 
-    EC_4F .segment Unknown1
+    DEPLOY_UNIT_GROUP_CHILD .segment UnitGroupID
+      ; Similar to the last one, but requires additional data after
+      ; this command. Takes a byte permanent flag and 2 character words.
+      ; Checks the first character word against the units in the UnitGroup
+      ; and will replace the matching character with the 2nd one if the
+      ; permanent flag is set.
       .byte $4F
-      .byte \Unknown1
+      .byte \UnitGroupID
     .endsegment
 
     SET_UNIT_POSITION .segment CharacterID, CastleID, Coordinates=[0, 0]
@@ -562,19 +614,25 @@
       .byte \Coordinates[1]
     .endsegment
 
-    EC_51 .segment Unknown1, Unknown2, Unknown3
+    EC_51 .segment CharacterID, FactionSlot, Coordinates, AISetting, GroupLeaderFlag
+      ; Unused.
+      ; Like the last one, but not locked to the player faction
       .byte $51
-      .word \Unknown1
-      .byte \Unknown2
-      .word \Unknown3
+      .word \CharacterID
+      .byte \FactionSlot
+      .byte \Coordinates[0]
+      .byte \Coordinates[1]
+      .word \(AISetting | int(GroupLeaderFlag) << 7)
     .endsegment
 
-    EC_52 .segment Unknown1, Unknown2, Unknown3, Unknown4
+    EC_52 .segment CharacterID, Level, Item1, Item2
+      ; Unused.
+      ; Like SET_UNIT_POSITION, but puts them into the home castle, autolevels them and can give them 2 items.
       .byte $52
-      .word \Unknown1
-      .byte \Unknown2
-      .byte \Unknown3
-      .byte \Unknown4
+      .word \CharacterID
+      .byte \Level
+      .byte \Item1
+      .byte \Item2
     .endsegment
 
     CHANGE_UNITS_FACTIONSLOT .segment Character, FactionSlot
@@ -598,7 +656,9 @@
       .word \MoneyAmount
     .endsegment
 
-    EC_NOP_56 .segment
+    EC_56 .segment
+      ; Unused.
+      ; Does nothing.
       .byte $56
     .endsegment
 
@@ -619,10 +679,11 @@
       .byte \PlayerItemID
     .endsegment
 
-    EC_59 .segment Unknown1, Unknown2
+    GIVE_CHILD_UNIT_PID .segment CharacterID, PlayerItemID
+      ; Unused.
       .byte $59
-      .word \Unknown1
-      .byte \Unknown2
+      .word \CharacterID
+      .byte \PlayerItemID
     .endsegment
 
     SEND_INVENTORY_TO_SUPPLY .segment CharacterID
@@ -643,18 +704,30 @@
       .byte $5C
     .endsegment
 
-    EC_5D .segment Unknown1, Unknown2, Unknown3, Unknown4, Unknown5
+    EC_5D .segment EventFlag, Turn, FactionSlot, AISetting, EventID
+      ; Unused.
+      ; If all conditions are met, run specified event.
       .byte $5D
-      .byte \Unknown1
-      .word \Unknown2
-      .byte \Unknown3
-      .byte \Unknown4
-      .word \Unknown5
+      .byte \EventFlag
+      .word \Turn
+      .byte \FactionSlot
+      .byte \AISetting
+      .word \EventID
     .endsegment
 
-    EC_5E .segment Unknown1
+    EC_5E .segment BattleDataPointer
+      ; Unused.
+      ; Starts a scripted battle?
+      ; Points to:
+      ; word CharacterID
+      ; byte InvenorySlot
+      ; word CharacterID
+      ; byte ?
+      ; long death quote
+      ; long battle quote
+      ; byte initiator
       .byte $5E
-      .long \Unknown1
+      .long \BattleDataPointer
     .endsegment
 
     SET_SCRIPTED_ACTION .segment Unit1ID, Coordinates, ActionID, Unit2ID
@@ -695,10 +768,10 @@
       .byte \AISetting
     .endsegment
 
-    EC_64 .segment Unknown1, Unknown2
+    REVIVE_FACTIONS_AI .segment FactionSlot, AISetting
       .byte $64
-      .byte \Unknown1
-      .byte \Unknown2
+      .byte \FactionSlot
+      .byte \AISetting
     .endsegment
 
     REMOVE_UNIT .segment CharacterID
@@ -714,9 +787,11 @@
       .word \CharacterID
     .endsegment
 
-    EC_67 .segment Unknown1
+    SET_EVENT_UNIT_POINTERS .segment GenerationID1, GenerationID2
+      ; Unused.
       .byte $67
-      .byte \Unknown1
+      .byte \GenerationID1
+      .byte \GenerationID2
     .endsegment
 
     SET_TALK_TARGET .segment Initiator, Target
@@ -726,20 +801,28 @@
       .byte \Target
     .endsegment
 
-    SET_TALK_TARGET_IF_UNMARRIED .segment Initiator, Target, Unknown1=$FF, Unknown2=$FF
+    SET_TALK_TARGET_IF_UNMARRIED .segment Initiator, Target
       .byte $69
-      .byte \Initiator
-      .byte \Target
-      .byte \Unknown1
-      .byte \Unknown2
+      .switch type(\Initiator)
+        .case int
+          .byte \Initiator
+          .byte \Target
+          .char -1
+          .char -1
+        .case list
+          .byte \Initiator[0]
+          .byte \Target[0]
+          .byte \Initiator[1]
+          .byte \Target[1]
+      .endswitch
     .endsegment
 
-    EC_6A .segment Unknown1, Unknown2, Unknown3, Unknown4
+    SET_CHILD_TALK_TARGET .segment Initiator, Target
       .byte $6A
-      .byte \Unknown1
-      .byte \Unknown2
-      .byte \Unknown3
-      .byte \Unknown4
+      .byte \Initiator[0]
+      .byte \Target[0]
+      .byte \Initiator[1]
+      .byte \Target[1]
     .endsegment
 
     SET_TALK_TARGET_IF_MARRIED .segment EventFlag, Initiator, Target
@@ -749,13 +832,13 @@
       .byte \Target
     .endsegment
 
-    EC_6C .segment Unknown1, Unknown2, Unknown3, Unknown4, Unknown5
+    SET_TALK_TARGET_IF_CHILDREN_MARRIED .segment EventFlag, Initiator, Target
       .byte $6C
-      .byte \Unknown1
-      .byte \Unknown2
-      .byte \Unknown3
-      .byte \Unknown4
-      .byte \Unknown5
+      .byte \EventFlag ; flag
+      .byte \Initiator[0]
+      .byte \Target[0]
+      .byte \Initiator[1]
+      .byte \Target[1]
     .endsegment
 
     ADD_CASTLE_MONEY .segment
@@ -776,7 +859,7 @@
     ADD_UNIT_STAT .segment CharacterID, StatIndex, Value
       ; Targets EventUnitSlot1 if character isnt specified.
       .byte $70
-      .byte \CharacterID
+      .char \CharacterID
       .byte structExtendedPersonalCharacterDataRAM.\StatIndex
       .byte \Value
     .endsegment
@@ -787,9 +870,10 @@
       .byte \Index
     .endsegment
 
-    EC_72 .segment Unknown1
+    SET_AREA_RESTRICTION .segment Index
+      ; Unused.
       .byte $72
-      .byte \Unknown1
+      .byte \Index
     .endsegment
 
     EC_73 .segment
@@ -802,17 +886,18 @@
       .byte $74
     .endsegment
 
-    EC_75 .segment Unknown1, Unknown2, Unknown3
+    SET_UNIT_STATUS .segment CharacterID, Status, StatusDuration
+      ; Unused
       .byte $75
-      .word \Unknown1
-      .byte \Unknown2
-      .byte \Unknown3
+      .word \CharacterID
+      .byte \Status
+      .byte \StatusDuration
     .endsegment
 
-    EC_76 .segment Unknown1, Unknown2
+    REPLACE_UNIT .segment Original, Replacement
       .byte $76
-      .word \Unknown1
-      .word \Unknown2
+      .word \Original
+      .word \Replacement
     .endsegment
 
     CLEAR_TALK_IF_ONE_MARRIED .segment TalkUnitsPointer

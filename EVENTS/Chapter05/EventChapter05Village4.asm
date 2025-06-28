@@ -1,11 +1,7 @@
 
   aEventChapter05Village4 ; 9D/CA64
 
-    PLAY_SFX_WORD $7FF7
-    DIALOGUE dialogueChapter05Village4
-    YIELD
-
-    PLAY_SFX_WORD $00E8
+    macroMapDialogue dialogueChapter05Village4
     YIELD
 
     END_EVENT

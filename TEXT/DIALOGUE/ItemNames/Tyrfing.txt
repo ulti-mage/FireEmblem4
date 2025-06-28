@@ -1,0 +1,1 @@
+{DIALOGUE_FONT_0}ティルフィング{DIALOGUE_EOF}

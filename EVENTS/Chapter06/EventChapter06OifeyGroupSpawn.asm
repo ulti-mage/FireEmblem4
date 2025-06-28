@@ -1,0 +1,89 @@
+
+  aEventChapter06OifeyGroupSpawn ; 91/D0E0
+
+    PLAY_SONG $73
+    YIELD
+
+    RUN_EVENT_CONDITION
+      REGISTER_CHARACTER_MAP_SPRITE Oifey
+
+    TEST_PERMANENT_FLAG_SET PermanentFlagLesterExists
+    JUMP_TRUE +
+
+      RUN_EVENT_CONDITION
+        REGISTER_CHARACTER_MAP_SPRITE Deimne
+
+      JUMP ++
+
+      +
+      RUN_EVENT_CONDITION
+        REGISTER_CHARACTER_MAP_SPRITE Lester
+
+    +
+    TEST_PERMANENT_FLAG_SET PermanentFlagDiarmuidExists
+    JUMP_TRUE +
+
+      RUN_EVENT_CONDITION
+        REGISTER_CHARACTER_MAP_SPRITE Tristan
+
+      JUMP ++
+
+      +
+      RUN_EVENT_CONDITION
+        REGISTER_CHARACTER_MAP_SPRITE Diarmuid
+
+    +
+    MAP_SCROLL [0, 0], 4
+    YIELD
+
+    TEST_PERMANENT_FLAG_SET PermanentFlagDiarmuidExists
+    JUMP_TRUE +
+
+      LOAD_UNIT_DIRECT Tristan, FS_Player, [0, 7], [1, 6], 4, MAP_SPRITE_BLUE
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+      JUMP ++
+
+      +
+      LOAD_UNIT_DIRECT Diarmuid, FS_Player, [0, 7], [1, 6], 4, MAP_SPRITE_BLUE
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    +
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    TEST_PERMANENT_FLAG_SET PermanentFlagLesterExists
+    JUMP_TRUE +
+
+      LOAD_UNIT_DIRECT Deimne, FS_Player, [0, 7], [1, 8], 4, MAP_SPRITE_BLUE
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+      JUMP ++
+
+      +
+      LOAD_UNIT_DIRECT Lester, FS_Player, [0, 7], [1, 8], 4, MAP_SPRITE_BLUE
+      WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    +
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    LOAD_UNIT_DIRECT Oifey, FS_Player, [0, 7], [1, 7], 4, MAP_SPRITE_BLUE
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    DIALOGUE dialogueChapter06OifeyGroupSpawn
+    YIELD
+
+    RUN_EVENT_CONDITION
+      SET_TALK_TARGET Oifey, Seliph
+
+    RUN_EVENT_CONDITION
+      SET_CHILD_TALK_TARGET [Lester, Deimne], [Lana, Muirne]
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

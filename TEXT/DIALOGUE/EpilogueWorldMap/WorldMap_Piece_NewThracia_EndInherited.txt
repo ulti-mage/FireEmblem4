@@ -1,0 +1,3 @@
+{DIALOGUE_FONT_0}たちも恊力して{DIALOGUE_NL}
+新しい国の建設に力を尽くした｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

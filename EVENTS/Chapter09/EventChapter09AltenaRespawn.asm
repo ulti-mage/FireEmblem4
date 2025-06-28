@@ -1,0 +1,30 @@
+
+  aEventChapter09AltenaRespawn ; B1/D6F1
+
+    PLAY_SONG $81
+    YIELD
+
+    MAP_SCROLL [45, 34], 4
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapter09AltenaRespawn, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    PAUSE 20
+    YIELD
+
+    LOAD_UNIT_DIRECT Altena, FS_Ch09Thracia, [52, 43], [54, 43], 4, MAP_SPRITE_RED, false, 1
+    WAIT_UNIT_SPRITE_DECOMPRESSED
+
+    WAIT_UNTIL_MAP_SPRITES_HALTING
+    YIELD
+
+    UNSET_FLAG_IF_IN_CHAPTER Chapter09, FlagChapter09_SeliphAltenaTalkCheck
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

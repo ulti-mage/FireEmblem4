@@ -5,7 +5,7 @@
     YIELD
 
     SET_CAMERA_POSITION [21, 30]
-    EVENT_4F
+    WM_FADE_IN
     WM_SCROLL [21 * 16, 30 * 16]
     YIELD
 
@@ -15,7 +15,7 @@
     WM_DIALOGUE dialogueChapterPrologueWorldMap1
     YIELD
 
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
     WM_SCROLL [33 * 16, 23 * 16]
@@ -24,7 +24,7 @@
     WM_DIALOGUE dialogueChapterPrologueWorldMap2
     YIELD
 
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
     WM_SCROLL [21 * 16, 30 * 16]
@@ -33,7 +33,7 @@
     WM_DIALOGUE dialogueChapterPrologueWorldMap3
     YIELD
 
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
     WM_SCROLL [10 * 16, 23 * 16]
@@ -50,7 +50,7 @@
     PAUSE 50
     YIELD
 
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
     WM_SCROLL [9 * 16, 36 * 16]
@@ -64,7 +64,7 @@
     WM_DIALOGUE dialogueChapterPrologueWorldMap5
     YIELD
 
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
     WM_SCROLL [16 * 16, 34 * 16]
@@ -74,8 +74,8 @@
     YIELD
 
     PLAY_SFX_WORD $00E1
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
-    EVENT_50
+    WM_FADE_OUT
     END_EVENT

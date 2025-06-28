@@ -42,7 +42,7 @@
       JUMP_TRUE _TravantLeftAlready
 
     _EthlynAlive ; 9D/C4A4
-    FILL_EVENT_UNIT_SLOT Travant, EventUnitSlot1
+    FILL_EVENT_UNIT_SLOT TravantCh05, EventUnitSlot1
     MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
     YIELD
 
@@ -52,13 +52,13 @@
     RUN_EVENT_CONDITION
       macroSetFactionsEnemies [FS_Ch05Thracia, FS_Player]
 
-    FILL_EVENT_UNIT_SLOT Travant, EventUnitSlot1
-    MOVE_TEMPORARY_TO_COORDS Travant, [-1, -1], [57, 63], 4, EventUnitSlot1, MAP_SPRITE_RED, true
+    FILL_EVENT_UNIT_SLOT TravantCh05, EventUnitSlot1
+    MOVE_TEMPORARY_TO_COORDS TravantCh05, [-1, -1], [57, 63], 4, EventUnitSlot1, MAP_SPRITE_RED, true
     WAIT_UNIT_SPRITE_DECOMPRESSED
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     RUN_EVENT_CONDITION
-      REMOVE_UNIT Travant
+      REMOVE_UNIT TravantCh05
 
     WAIT_UNTIL_MAP_SPRITES_HALTING
     YIELD

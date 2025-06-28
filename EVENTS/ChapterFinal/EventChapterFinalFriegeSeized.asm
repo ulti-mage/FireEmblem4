@@ -1,0 +1,27 @@
+
+  aEventChapterFinalFriegeSeized ; B1/E2BE
+
+    FACTION_UNIT_DEATH FS_ChFinalYngvi
+    YIELD
+
+    RUN_EVENT_CONDITION
+      DELETE_FACTIONS_AI FS_ChFinalYngvi, 1
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 30
+    YIELD
+
+    PLAY_SONG $82
+    YIELD
+
+    DIALOGUE_WITH_BG dialogueChapterFinalFriegeSeized, DIALOGUE_BG_HALLWAY, 3, 2
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

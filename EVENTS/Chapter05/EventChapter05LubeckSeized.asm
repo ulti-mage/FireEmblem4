@@ -38,13 +38,13 @@
     PAUSE 15
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT Child1, [55, 8], 3, MAP_SPRITE_BLUE, _ScriptedMovementShannanOifey
+    MOVE_TEMPORARY_BY_SCRIPT ChildOifey, [55, 8], 3, MAP_SPRITE_BLUE, _ScriptedMovementShannanOifey
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     PAUSE 26
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT Child2, [55, 8], 3, MAP_SPRITE_BLUE, _ScriptedMovementShannanOifey
+    MOVE_TEMPORARY_BY_SCRIPT ChronosChildMale, [55, 8], 3, MAP_SPRITE_BLUE, _ScriptedMovementShannanOifey
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     WAIT_UNTIL_MAP_SPRITES_HALTING
@@ -54,7 +54,7 @@
     YIELD
 
     RUN_EVENT_CONDITION
-      SET_PERMANENT_FLAG PermanentFlag39
+      SET_PERMANENT_FLAG PermanentFlagOifeyTacticianGone
 
     DIALOGUE dialogueChapter05LubeckSeized2
     YIELD

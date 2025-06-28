@@ -5,7 +5,7 @@
     YIELD
 
     SET_CAMERA_POSITION [17, 28]
-    EVENT_4F
+    WM_FADE_IN
 
     WM_SCROLL [16 * 16, 34 * 16]
     YIELD
@@ -13,7 +13,7 @@
     WM_DIALOGUE dialogueChapter01WorldMap1
     YIELD
 
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
     WM_SCROLL [9 * 16, 36 * 16]
@@ -57,8 +57,8 @@
     YIELD
 
     PLAY_SFX_WORD $00E1
-    EVENT_5A
+    WM_CLEAR_DIALOGUE
     YIELD
 
-    EVENT_50
+    WM_FADE_OUT
     END_EVENT

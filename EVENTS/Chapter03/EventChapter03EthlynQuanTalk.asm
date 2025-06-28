@@ -22,7 +22,7 @@
       GIVE_UNIT_PID_EQUIP Quan, PI_GaeBolg
 
     FILL_EVENT_UNIT_SLOT Quan, EventUnitSlot1
-    RUN_ASM $B0CFDE
+    RUN_ASM rlASMCHolyWeaponObtainShine
     YIELD
 
     END_EVENT

@@ -1,0 +1,25 @@
+
+  aEventChapter09HannibalDefend ; B1/D60C
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $85
+    YIELD
+
+    FILL_EVENT_UNIT_SLOT Hannibal, EventUnitSlot1
+    MAP_SCROLL_TO_EVENT_UNIT_SLOT_1 4
+    YIELD
+
+    DIALOGUE dialogueChapter09HannibalDefend
+    YIELD
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    RESTORE_PHASE_MUSIC
+    YIELD
+
+    END_EVENT

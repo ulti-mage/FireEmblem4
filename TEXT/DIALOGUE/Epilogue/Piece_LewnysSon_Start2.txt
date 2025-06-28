@@ -1,0 +1,3 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_LewnysSon_Start1}{DIALOGUE_FONT_0}はい､父上は私の誇りです{DIALOGUE_NL}
+私も早く､父上のような人になりたいと{DIALOGUE_NL}
+願っています{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

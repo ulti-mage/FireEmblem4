@@ -1,0 +1,6 @@
+{DIALOGUE_FONT_0}はい､わが母ラケシスは{DIALOGUE_NL}
+エルトシャン王の妹､{DIALOGUE_NL}
+そして､誰よりも王をしたっておりました{DIALOGUE_PAUSE 96}{DIALOGUE_SCROLL_ALL}
+私は母とエルトシャン王の遺志を継ぎ､{DIALOGUE_NL}
+アグストリアの統一のために､{DIALOGUE_NL}
+{DIALOGUE_EOF}

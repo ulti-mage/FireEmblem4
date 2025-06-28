@@ -1,0 +1,14 @@
+{DIALOGUE_FONT_0}それゆえに､新しい統一国家の建設は{DIALOGUE_NL}
+人々すべての願いであり､{DIALOGUE_NL}
+その願いは英雄エルトシャンの{DIALOGUE_NL}
+ノディオン王家に託されていた｡{DIALOGUE_NL}
+{DIALOGUE_PAUSE 20}{DIALOGUE_WM_FADE_IN_PORTRAIT $02, [152, 28]}人々は{DIALOGUE_UNIT1_NAME}の帰国を{DIALOGUE_NL}
+熱狂して迎えた｡{DIALOGUE_ASMC rlASMCEpilogueWorldMapAgustriaPieceRulerNoLover}{DIALOGUE_NL}
+それは､{DIALOGUE_UNIT1_NAME}の中に{DIALOGUE_NL}
+若き日のエルトシャン王の姿を{DIALOGUE_NL}
+見いだしたからである｡{DIALOGUE_ASMC rlASMCEpilogueWorldMapAgustriaPieceStart}{DIALOGUE_ASMC rlASMCEpilogueWorldMapAgustriaPieceRulersLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapAgustriaPieceLayleaLene}{DIALOGUE_ASMC rlASMCEpilogueWorldMapAgustriaPieceDiarmuidTristan}{DIALOGUE_ASMC rlASMCEpilogueWorldMapAgustriaPieceNannaJeanne}{DIALOGUE_ASMC rlASMCEpilogueWorldMapAgustriaPieceEnd}{DIALOGUE_NL}
+やがてアグストリアは{DIALOGUE_NL}
+{DIALOGUE_UNIT1_NAME}王のもと{DIALOGUE_NL}
+グランベルの最も有力なパートナーとして{DIALOGUE_NL}
+空前の発展をとげるのである｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

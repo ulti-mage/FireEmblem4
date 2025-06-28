@@ -2,8 +2,270 @@
     .weak
 
       rlFindCharacterByGenerationID             :?= address($848726)
+      rlClearUnitWindowAndTerrainWindowProcs    :?= address($859B94)
 
     .endweak
+
+    .section Code91A670Section
+
+      rsUnknown91A670 ; 91/A670
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        jsl rlClearAllFadeProcs
+        lda #(`procUnknown8282D3)<<8
+        sta lR44+1
+        lda #<>procUnknown8282D3
+        sta lR44
+        jsl rlProcEngineFindProc
+        bcc +
+
+          txa
+          lsr a
+          jsl rlProcEngineFreeProcByIndex
+
+        +
+        jsl rlClearUnitWindowAndTerrainWindowProcs
+        jsl $85C0D5
+        jsl rlUnknown9180BC
+        jsl rlDialogueFreeHDMA
+        plp
+        rts
+
+        .databank 0
+
+      rsUnknown91A69D ; 91/A69D
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda wJoy1New
+        bit #JOY_Start
+        beq _CLC
+
+          ldy wActiveEventOffset,b
+          cpy wActiveEventLength,b
+          bcs _CLC
+
+            jsr rsUnknown91A670
+            jsl rlEventEngineFreeAllProcs
+            stz $0302,b
+            ldy wActiveEventLength,b
+            sty wActiveEventOffset,b
+            sec
+            rts
+
+        _CLC
+        clc
+        rts
+
+        .databank 0
+
+      rlUnknown91A6C0 ; 91/A6C0
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        rep #$30
+        stz wUnknown00171A,b
+        stz wUnknown00171C,b
+        stz wUnknown00171E,b
+        stz wActiveEventOffset,b
+        jsl rlEventEngineFreeAllProcs
+        jsl rlActiveSpriteEngineClearAllSprites
+        jsl $818D7B
+        plp
+        rtl
+
+        .databank 0
+
+      rlClearAllFadeProcs ; 91/A6DD
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl rlClearAllFadeInProcs
+        jsl rlClearAllFadeOutProcs
+        rtl
+
+        .databank 0
+
+      rlClearAllFadeInProcs ; 91/A6E6
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        
+        _Proc1
+        lda #(`procFadeIn)<<8
+        sta lR44+1
+        lda #<>procFadeIn
+        sta lR44
+        jsl rlProcEngineFindProc
+        bcc _Proc2
+
+          txa
+          lsr a
+          jsl rlProcEngineFreeProcByIndex
+          bra _Proc1
+        
+        _Proc2
+        lda #(`procFadeInByScreenFadingTimer)<<8
+        sta lR44+1
+        lda #<>procFadeInByScreenFadingTimer
+        sta lR44
+        jsl rlProcEngineFindProc
+        bcc _Proc3
+
+          txa
+          lsr a
+          jsl rlProcEngineFreeProcByIndex
+          bra _Proc2
+        
+        _Proc3
+        lda #(`procEventFadeInByTimer)<<8
+        sta lR44+1
+        lda #<>procEventFadeInByTimer
+        sta lR44
+        jsl rlProcEngineFindProc
+        bcc +
+
+          txa
+          lsr a
+          jsl rlProcEngineFreeProcByIndex
+          bra _Proc3
+
+        +
+        lda #$FFFF
+        sta wScreenFadingFlag,b
+        plp
+        rtl
+
+        .databank 0
+
+      rlClearAllFadeOutProcs ; 91/A737
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        
+        _Proc1
+        lda #(`procFadeOut)<<8
+        sta lR44+1
+        lda #<>procFadeOut
+        sta lR44
+        jsl rlProcEngineFindProc
+        bcc _Proc2
+
+          txa
+          lsr a
+          jsl rlProcEngineFreeProcByIndex
+          bra _Proc1
+
+        _Proc2
+        lda #(`procFadeOutByScreenFadingTimer)<<8
+        sta lR44+1
+        lda #<>procFadeOutByScreenFadingTimer
+        sta lR44
+        jsl rlProcEngineFindProc
+        bcc _Proc3
+
+          txa
+          lsr a
+          jsl rlProcEngineFreeProcByIndex
+          bra _Proc2
+
+        _Proc3
+        lda #(`procEventFadeOutByTimer)<<8
+        sta lR44+1
+        lda #<>procEventFadeOutByTimer
+        sta lR44
+        jsl rlProcEngineFindProc
+        bcc +
+
+          txa
+          lsr a
+          jsl rlProcEngineFreeProcByIndex
+          bra _Proc3
+
+        +
+        lda #$FFFF
+        sta wScreenFadingFlag,b
+        plp
+        rtl
+
+        .databank 0
+
+      rlUnknown91A788 ; 91/A788
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        ldx #$0018
+
+        _Loop
+        lda $7E93AA,x
+        beq _Next
+
+          sta lMapMenuRAMEntryPointer,b
+          phx
+          jsl $8785A4
+          plx
+          lda #0
+          sta lMapMenuRAMEntryPointer,b,x
+
+        _Next
+        dec x
+        dec x
+        dec x
+        bpl _Loop
+
+        plx
+        rtl
+
+        .databank 0
+
+      rlUnknown91A7A8 ; 91/A7A8
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        phx
+
+        ldx #24
+        lda #0
+
+          -
+          sta $7E93AA,x
+          dec x
+          dec x
+          dec x
+          bpl -
+
+        plx
+        plb
+        rtl
+
+        .databank 0
+
+        ; 91/A7BC
+
+    .endsection Code91A670Section
 
     .section Code91AD0BSection
 
@@ -294,50 +556,46 @@
 
         .databank 0
 
-    aUnknown91AE49 .block ; 91/AE49
+      aUnknown91AE49 .block ; 91/AE49
 
-      PLAY_SFX_WORD $7FF7
-      DIALOGUE $000000
-      YIELD
+        macroMapDialogue 0
 
-      PLAY_SFX_WORD $00E8
+        RUN_EVENT_CONDITION
+          EC_73
 
-      RUN_EVENT_CONDITION
-        EC_73
+        END_EVENT
 
-      END_EVENT
+        .bend
 
-      .bend
-
-    aUnknown91AE58 .block ; 91/AE58
-
-      PLAY_SFX_WORD $00E0
-      PAUSE 35
-      YIELD
-
-      PLAY_SONG $00
-
-      DIALOGUE $000000
-      YIELD
-
-      RUN_ASM rlASMCCheckIfAnimationsOff
-
-      JUMP_RELATIVE_FALSE +
+      aUnknown91AE58 .block ; 91/AE58
 
         PLAY_SFX_WORD $00E0
         PAUSE 35
         YIELD
 
-        RESTORE_PHASE_MUSIC
+        PLAY_SONG 0
+
+        DIALOGUE 0
         YIELD
 
-      +
-      RUN_EVENT_CONDITION
-        EC_73
+        RUN_ASM rlASMCCheckIfAnimationsOff
 
-      END_EVENT
+        JUMP_RELATIVE_FALSE +
 
-      .bend
+          PLAY_SFX_WORD $00E0
+          PAUSE 35
+          YIELD
+
+          RESTORE_PHASE_MUSIC
+          YIELD
+
+        +
+        RUN_EVENT_CONDITION
+          EC_73
+
+        END_EVENT
+
+        .bend
 
       rlASMCCheckIfAnimationsOff ; 91/AE7A
 
@@ -381,22 +639,22 @@
 
         .databank 0
 
-      rlDialogueTryGetActiveChildPortrait ; 91/AEAE
+      rlDialogueTryGetActiveChildCharacterID ; 91/AEAE
 
         .al
         .autsiz
         .databank ?
 
-        ; If its chapter 6+ and the PortraitID belongs to a child unit,
-        ; get the GenerationID based on the PortraitID, and then load
-        ; the portrait that belongs to that unit if found. Else load the portrait
+        ; If its chapter 6+ and the CharacterID belongs to a child unit,
+        ; get the GenerationID based on it, and then load the ID
+        ; that belongs to that unit if found. Else load the ID
         ; of the substitute.
 
         ; Input:
-        ; A = PortraitID
+        ; A = CharacterID
 
         ; Output
-        ; A = CharacterID/ input PortraitID, if CharacterID not found
+        ; A = CharacterID of child or substitute
 
         php
         phx
@@ -414,7 +672,7 @@
             -
             inc x
             inc x
-            lda aDialogueChildrenPortraits,x
+            lda aDialogueChildrenCharacterIDs,x
             beq _End
 
               cmp wR0
@@ -435,7 +693,7 @@
             asl a
             asl a
             tax
-            lda aDialogueChildrenPortraits,x
+            lda aDialogueChildrenCharacterIDs,x
             bra +
 
             _Found
@@ -455,7 +713,7 @@
 
         .databank 0
 
-      aDialogueChildrenPortraits ; 91/AEF2
+      aDialogueChildrenCharacterIDs ; 91/AEF2
 
         .word PortraitDalvin
         .word PortraitScathach
@@ -503,33 +761,36 @@
 
       aDialogueChildrenGenerationIDs ; 91/AF2C
 
-        .byte $03
-        .byte $04
-        .byte $07
-        .byte $08
-        .byte $09
-        .byte $0B
-        .byte $0E
-        .byte $10
-        .byte $11
-        .byte $12
-        .byte $15
-        .byte $16
-        .byte $17
-        .byte $18
+        .byte GEN_ID_Dalvin_Scathach
+        .byte GEN_ID_Asaello_Febail
+        .byte GEN_ID_Charlot_Coirpre
+        .byte GEN_ID_Hawk_Ced
+        .byte GEN_ID_Tristan_Diarmuid
+        .byte GEN_ID_Deimne_Lester
+        .byte GEN_ID_Amid_Arthur
+        .byte GEN_ID_Daisy_Patty
+        .byte GEN_ID_Creidne_Larcei
+        .byte GEN_ID_Muirne_Lana
+        .byte GEN_ID_Hermina_Fee
+        .byte GEN_ID_Linda_Tine
+        .byte GEN_ID_Laylea_Lene
+        .byte GEN_ID_Jeanne_Nanna
 
-      rlDialogueTryGetActiveChildSiblingPortrait ; 91/AF3A
+      rlDialogueTryGetActiveChildSiblingCharacterID ; 91/AF3A
 
         .al
         .autsiz
         .databank ?
 
         ; Input:
-        ; A = PortraitID
+        ; A = CharacterID
+
+        ; Output:
+        ; A = Siblings CharacterID
 
         php
         phx
-        jsl rlDialogueTryGetActiveChildPortrait
+        jsl rlDialogueTryGetActiveChildCharacterID
         pha
         sta wR0
 
@@ -581,15 +842,330 @@
         .word Amid,     Linda
         .word 0
 
-      ; 91/AFA4
+      rlASMCLoadTineOrSubUnit ; 91/AFA4
 
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        phx
+        phy
+        pha
+        lda #PermanentFlagTineExists
+        and #$00FF
+        jsl rlCheckPermanentEventFlagSet
+
+        lda #Tine
+        bcs +
+
+          lda #Linda
+
+        +
+        sta aDialogue.wUnit1,b
+        pla
+        ply
+        plx
+        plp
+        rtl
+
+        .databank 0
+
+      rlUnknown91AFC2 ; 91/AFC2
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        rep #$30
+        pha
+
+        jsl rlGetBattleBannerPointer
+
+        lda #(`$7E8E88)<<8
+        sta lR19+1
+        lda #<>$7E8E88
+        sta lR19
+        jsl rlAppendDecompList
+
+        lda #(`$9CEAEE)<<8
+        sta lR18+1
+        lda #<>$9CEAEE
+        sta lR18
+        lda #(`$7E8C88)<<8
+        sta lR19+1
+        lda #<>$7E8C88
+        sta lR19
+        jsl rlAppendDecompList
+
+        lda #(`$7E8C98)<<8
+        sta lR18+1
+
+        pla
+        xba
+        lsr a
+        lsr a
+        lsr a
+        clc
+        adc #<>$7E8C98
+        sta lR18
+
+        plp
+        rtl
+
+        .databank 0
+
+      rlGetBattleBannerPointer ; 91/B002
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        rep #$30
+        cmp #$001C
+        bcc +
+
+          lda #0
+
+        +
+        ldx #$9C00
+        stx lR18+1
+        asl a
+        tax
+        lda aUnknown91B01C,x
+        sta lR18
+        plp
+        rtl
+
+        .databank 0
+
+      aUnknown91B01C ; 91/B01C
+
+        .word <>$9CD95E
+        .word <>$9CDA67
+        .word <>$9CDBB8
+        .word <>$9CDCEF
+        .word <>$9CDE2B
+        .word <>$9CDF6F
+        .word <>$9CE0C0
+        .word <>$9CE20F
+        .word <>$9CE367
+        .word <>$9CE494
+        .word <>$9CE5D0
+        .word <>$9CE706
+        .word <>$9CE845
+        .word <>$9CE98C
+
+      rlUnknown91B038 ; 91/B038
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; MOVE_TEMPORARY_BY_SCRIPT
+
+        lda #0
+        jml +
+
+      rlUnknown91B03F ; 91/B03F
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; MOVE_TEMPORARY_TO_COORDS
+
+        lda #1
+        jml +
+
+      rlUnknown91B046 ; 91/B046
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; LOAD_UNIT_BY_GROUP
+
+        lda #2
+        jml +
+
+      rlUnknown91B04D ; 91/B04D
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; LOAD_UNIT_DIRECT
+
+        lda #3
+        jml +
+
+      rlUnknown91B054 ; 91/B054
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; MOVE_TEMPORARY_TO_COORDS_FOLLOW
+
+        lda #4
+        jml +
+
+      rlUnknown91B05B ; 91/B05B
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; MOVE_TEMPORARY_TO_COORDS_CLASS
+
+        lda #5
+        jml +
+
+        +
+        phy
+        sta wR0
+        lda bDecompressionArrayFlag,b
+        bne _SEC
+
+          lda aMovingMapSprites.wState,b
+          cmp #0
+          bne _SEC
+
+            ldx #6
+
+            -
+            lda aMovingMapSprites.wActiveSpriteOffset,b,x
+            cmp #$FFFF
+            beq +
+
+              dec x
+              dec x
+              bpl -
+
+        _SEC
+        ply
+        dec y
+        sec
+        bra _End
+
+        +
+        lda wR0
+        jsr rsUnknown91C56C
+        ply
+        clc
+
+        _End
+        rtl
+
+        .databank 0
+
+      rlASMCLoadActiveUnitCoordinatesInEventUnitSlot1 ; 91/B08E
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #$FFFF
+        sta wEventUnitSlot1XCoordinate
+        sta wEventUnitSlot1YCoordinate
+
+        lda wActiveFactionSlot,b
+        bne +
+
+          lda $000772
+          tax
+          lda aDeploymentTable._XTilePosition,x
+          sta wEventUnitSlot1XCoordinate
+          lda aDeploymentTable._YTilePosition,x
+          sta wEventUnitSlot1YCoordinate
+
+        +
+        rtl
+
+        .databank 0
+
+      rlUnknown91B0B4 ; 91/B0B4
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #(`$8288E9)<<8
+        sta lR44+1
+        lda #<>$8288E9
+        sta lR44
+        jsl rlEventEngineCreateProc
+        rtl
+
+        .databank 0
+
+      rlASMCChapterFinalEddaSeizedClaudsChildrenStart ; 91/B0C3
+
+        .al
+        .autsiz
+        .databank ?
+
+        stz aDialogue.wUnit1,b
+        stz aDialogue.wUnit2,b
+
+        lda wEventUnit1Pointer,b
+        beq +
+
+          sta wSelectedUnitDataRAMPointer,b
+          jsl rlGetSelectedUnitCharacterID
+          sta aDialogue.wUnit1,b
+
+        +
+        lda wEventUnit2Pointer,b
+        beq +
+
+          sta wSelectedUnitDataRAMPointer,b
+          jsl rlGetSelectedUnitCharacterID
+          sta aDialogue.wUnit2,b
+
+        +
+        lda wEventUnit2Pointer,b
+        beq +
+
+          lda wEventUnit1Pointer,b
+          beq ++
+
+            lda #(`dialogueChapterFinalEddaSeizedClaudsChildrenTogetherStart)<<8
+            sta lR18+1
+            lda #<>dialogueChapterFinalEddaSeizedClaudsChildrenTogetherStart
+            sta lR18
+            bra _B10D
+
+        +
+        lda aDialogue.wUnit1,b
+        sta aDialogue.wUnit2,b
+
+        +
+        lda #(`dialogueChapterFinalEddaSeizedClaudsChildrenAloneStart)<<8
+        sta lR18+1
+        lda #<>dialogueChapterFinalEddaSeizedClaudsChildrenAloneStart
+        sta lR18
+
+        _B10D
+        jsl rlDialoguePushToActivePointerStack
+        rtl
+
+        .databank 0
+
+      dialogueChapterFinalEddaSeizedClaudsChildrenTogetherStart ; 91/B112
+
+        .enc "DialoguePage0"
+
+        DIALOGUE_UNIT1_NAME
+        .text "と"
+
+      dialogueChapterFinalEddaSeizedClaudsChildrenAloneStart .include "../TEXT/DIALOGUE/ChapterFinal/EddaSeizedClaudsChildrenAloneStart.dialogue.txt" ; 91/B115
+      ; The 2nd one starts 3 bytes later to cut out the Unit1 call and one character. But the dialogue builder really dislikes files ending with a japanese
+      ; character so I have to do it like this.
+
+      ; 91b11c
 
     .endsection Code91AD0BSection
-
-
-
-
-
-
-
-

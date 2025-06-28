@@ -1,0 +1,19 @@
+{DIALOGUE_FONT_0}イザーク王国は､いちはやく{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT $04}帝国の圧政から解放されたが{DIALOGUE_NL}
+王位継承者不在のまま､{DIALOGUE_NL}
+人々は不安な日々を送っていた｡{DIALOGUE_NL}
+{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_FONT_0}それゆえに{DIALOGUE_NL}
+解放戦争の勝利と{DIALOGUE_NL}
+{DIALOGUE_PAUSE 20}{DIALOGUE_WM_FADE_IN_PORTRAIT $02, [152, 28]}{DIALOGUE_UNIT1_NAME}{DIALOGUE_FONT_0}の帰国は､{DIALOGUE_NL}
+{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceRulerNoLover}イザーク国民を歓喜させた｡{DIALOGUE_NL}
+王位についた{DIALOGUE_UNIT1_NAME}は{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceRulersLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceScathachDalvin}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceLarceiCreidne}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceDeimne}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceMuirne}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceEndInherited}{DIALOGUE_NL}
+国の復興につとめ､{DIALOGUE_NL}
+また他の国々との交流を進んで行い{DIALOGUE_NL}
+豊かな国作りをめざした｡{DIALOGUE_NL}
+かつては東方の蛮土とよばれた{DIALOGUE_NL}
+イザークであったが､{DIALOGUE_NL}
+{DIALOGUE_UNIT1_NAME}王の治世のもと{DIALOGUE_NL}
+空前の発展をとげ､{DIALOGUE_NL}
+やがて､他の国々に勝るとも劣らない{DIALOGUE_NL}
+一大強国に生まれ変わるのである｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

@@ -1,0 +1,1 @@
+{DIALOGUE_FONT_0}バルキリーの杖{DIALOGUE_EOF}

@@ -1,0 +1,1 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Hannibal_Start}{DIALOGUE_FONT_0}シャルロー{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_Hannibal_CharlotCoirpreDead}{DIALOGUE_EOF}

@@ -1,0 +1,6 @@
+.addr 0,Pointer
+ID_DeleteParentUnitData,rsDeleteParentUnitData
+ID_TransferUnitToGen2,rsTransferUnitToGen2
+ID_LoadChildUnitAndDeleteParentUnitData,rsLoadChildUnitAndDeleteParentUnitData
+ID_OverwriteSeliphUnitData,rsOverwriteSeliphUnitData
+ID_OverwriteAltenaUnitData,rsOverwriteAltenaUnitData

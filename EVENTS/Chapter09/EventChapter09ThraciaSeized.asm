@@ -1,0 +1,34 @@
+
+  aEventChapter09ThraciaSeized ; B1/DC4C
+
+    PLAY_SFX_WORD $00E0
+    PAUSE 35
+    YIELD
+
+    PLAY_SONG $86
+    YIELD
+
+    TEST_FLAG_IN_CHAPTER_SET Chapter09, FlagChapter09_JuliaCaptureReturn
+    JUMP_FALSE +
+
+      DIALOGUE_WITH_BG dialogueDeathQuoteGen1PlayerJuliaReturn, DIALOGUE_BG_HALLWAY, 5, 2
+      YIELD
+
+      PAUSE 25
+      YIELD
+
+    + ; B1/DC68
+    DIALOGUE_WITH_BG dialogueChapter09Ending, DIALOGUE_BG_HALLWAY, 3, 2
+    SET_CAMERA_POSITION [45, 34]
+    YIELD
+
+    RUN_EVENT_CONDITION
+      ADD_CASTLE_MONEY
+
+    RUN_EVENT_CONDITION
+      REMOVE_CHAPTER_STRUCT Chapter09
+
+    RUN_EVENT_CONDITION
+      SAVE_CHAPTER_TURNCOUNT
+
+    END_EVENT

@@ -1,0 +1,26 @@
+.structUNITEntry 1,Character,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,Unknown3
+ID_01,Harold,$38,$0E,1,1,FS_Ch06Ganeshire,0
+ID_02,GaneishireGuardAxeArmor,$38,$11,0,1,FS_Ch06Ganeshire,1
+ID_03,GaneishireGuardAxeArmor,$37,$10,0,1,FS_Ch06Ganeshire,2
+ID_04,GaneishireGuardAxeArmor,$39,$10,0,1,FS_Ch06Ganeshire,3
+ID_05,GaneishireBowArmor,$33,$10,0,2,FS_Ch06Ganeshire,0
+ID_06,GaneishireFighter,$34,$11,0,2,FS_Ch06Ganeshire,0
+ID_07,GaneishireFighter,$35,$0E,0,2,FS_Ch06Ganeshire,0
+ID_08,GaneishireFighter,$35,$10,0,2,FS_Ch06Ganeshire,0
+ID_09,GaneishireBowArmor,$35,$12,0,2,FS_Ch06Ganeshire,0
+ID_10,GaneishireAxeArmor,$36,$0D,0,2,FS_Ch06Ganeshire,0
+ID_11,GaneishireFighter,$36,$11,0,2,FS_Ch06Ganeshire,0
+ID_12,GaneishireFighter,$36,$12,0,2,FS_Ch06Ganeshire,0
+ID_13,GaneishireAxeArmor,$26,$10,0,3,FS_Ch06Ganeshire,12
+ID_14,GaneishireBowArmor,$25,$0C,0,3,FS_Ch06Ganeshire,0
+ID_15,GaneishireFighter,$24,$0E,0,3,FS_Ch06Ganeshire,0
+ID_16,GaneishireAxeArmor,$21,$0B,0,3,FS_Ch06Ganeshire,0
+ID_17,GaneishireFighter,$1F,$0A,0,3,FS_Ch06Ganeshire,0
+ID_18,GaneishireFighter,$1F,$0C,0,3,FS_Ch06Ganeshire,0
+ID_19,GaneishireFighter,$1E,$0B,0,3,FS_Ch06Ganeshire,0
+ID_20,GaneishireBowArmor,$1D,$0D,0,3,FS_Ch06Ganeshire,0
+ID_21,GaneishireAxeArmor,$18,$06,0,3,FS_Ch06Ganeshire,0
+ID_22,GaneishireFighter,$16,$08,0,3,FS_Ch06Ganeshire,0
+ID_23,GaneishireFighter,$14,$02,0,3,FS_Ch06Ganeshire,0
+ID_24,GaneishireFighter,$10,$09,0,3,FS_Ch06Ganeshire,0
+ID_25,$FFFF,0,0,0,0,0,0

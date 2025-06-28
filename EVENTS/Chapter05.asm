@@ -67,37 +67,37 @@
       FlagChapter05_AyraLoverTalkSet              := 63
       FlagChapter05_StartPlayerPhase              := 64
 
-      FlagChapter05EndAlive_Naoise    := 20
-      FlagChapter05EndAlive_Alec      := 21
-      FlagChapter05EndAlive_Arden     := 22
-      FlagChapter05EndAlive_Midir     := 23
-      FlagChapter05EndAlive_Lewyn     := 24
-      FlagChapter05EndAlive_Chulainn  := 25
-      FlagChapter05EndAlive_Azelle    := 26
-      FlagChapter05EndAlive_Jamke     := 27
-      FlagChapter05EndAlive_Claud     := 28
-      FlagChapter05EndAlive_Beowulf   := 29
-      FlagChapter05EndAlive_Lex       := 30
-      FlagChapter05EndAlive_Dew       := 31
-      FlagChapter05EndAlive_Lachesis  := 32
-      FlagChapter05EndAlive_Ayra      := 33
-      FlagChapter05EndAlive_Erinys    := 37
-      FlagChapter05EndAlive_Silvia    := 41
-      FlagChapter05EndAlive_Edain     := 42
-      FlagChapter05EndAlive_Brigid    := 43
-      FlagChapter05EndAlive_Tailtiu   := 44
+      FlagChapter05EndAlive_Naoise                := 20
+      FlagChapter05EndAlive_Alec                  := 21
+      FlagChapter05EndAlive_Arden                 := 22
+      FlagChapter05EndAlive_Midir                 := 23
+      FlagChapter05EndAlive_Lewyn                 := 24
+      FlagChapter05EndAlive_Chulainn              := 25
+      FlagChapter05EndAlive_Azelle                := 26
+      FlagChapter05EndAlive_Jamke                 := 27
+      FlagChapter05EndAlive_Claud                 := 28
+      FlagChapter05EndAlive_Beowulf               := 29
+      FlagChapter05EndAlive_Lex                   := 30
+      FlagChapter05EndAlive_Dew                   := 31
+      FlagChapter05EndAlive_Lachesis              := 32
+      FlagChapter05EndAlive_Ayra                  := 33
+      FlagChapter05EndAlive_Erinys                := 37
+      FlagChapter05EndAlive_Silvia                := 41
+      FlagChapter05EndAlive_Edain                 := 42
+      FlagChapter05EndAlive_Brigid                := 43
+      FlagChapter05EndAlive_Tailtiu               := 44
 
 
-      FS_Player                         :=  0
-      FS_Ch05Byron                      :=  1
-      FS_Ch05Lubeck                     :=  2
-      FS_Ch05Phinora                    :=  3
-      FS_Ch05Velthomer                  :=  4
-      FS_Ch05Friege                     :=  5
-      FS_Ch05Belhalla                   :=  6
+      FS_Player                                   :=  0
+      FS_Ch05Byron                                :=  1
+      FS_Ch05Lubeck                               :=  2
+      FS_Ch05Phinora                              :=  3
+      FS_Ch05Velthomer                            :=  4
+      FS_Ch05Friege                               :=  5
+      FS_Ch05Belhalla                             :=  6
 
-      FS_Ch05Leonster                   :=  1
-      FS_Ch05Thracia                    :=  2
+      FS_Ch05Leonster                             :=  1
+      FS_Ch05Thracia                              :=  2
 
     .endweak
 
@@ -170,7 +170,7 @@
         CHECK_TALK FlagChapter05_AnyoneAidaTalkCheck, AnyCharacter, Aida
           EVENT FlagChapter05_AnyoneAidaTalk, EventChapter05AnyoneAidaTalk
 
-        CHECK_UNIT_IN_AREA FlagChapter05_ArdenOnCliffCheck, Arden, pack([36, 22]), pack([37, 22]), AnyFactionSlot
+        CHECK_UNIT_IN_AREA FlagChapter05_ArdenOnCliffCheck, Arden, pack([36, 22]), pack([37, 22])
           EC_NOP_00
 
         CHECK_UNIT_DIED FlagChapter05_SlayderDied, Slayder, AnyFactionSlot
@@ -332,7 +332,7 @@
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Vaja
           SET_BATTLE_OR_DEATH_QUOTE FlagChapter05_VajaBattleQuote, dialogueChapter05VajaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Travant
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, TravantCh05
           SET_BATTLE_OR_DEATH_QUOTE FlagChapter05_TravantBattleQuote, dialogueChapter05TravantBattleQuote, 0
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Magorn
@@ -391,7 +391,7 @@
         CHECK_FLAG_SET FlagChapter05_ReptorDeathQuoteCheck
           CHECK_FLAG_UNSET FlagChapter05_ReptorDeathQuote
             CHECK_FLAG_UNSET FlagChapter05_AidaBetrayal
-              SET_BATTLE_OR_DEATH_QUOTE FlagChapter05_ReptorDeathQuote, dialogueDeathQuoteReptorPreBetrayal, 1
+              SET_BATTLE_OR_DEATH_QUOTE FlagChapter05_ReptorDeathQuote, dialogueDeathQuoteGen1EnemyNPCReptorCh05PreBetrayal, 1
         BREAK_STATE_CHECKS
 
         CHECK_FLAG_UNSET FlagChapter05_AndreyBattleQuote
@@ -721,10 +721,10 @@
 
       aChapter05TalkEvents ; 86/E5D3
 
-        .structChapterTalkEventEntry Chapter05, 37, Sigurd, Byron
-        .structChapterTalkEventEntry Chapter05, 37, Byron, Sigurd
-        .structChapterTalkEventEntry Chapter05, 38, Sigurd, Aida
-        .structChapterTalkEventEntry Chapter05, 40, $FFFF, Aida
+        .structChapterTalkEventEntry Chapter05, FlagChapter05_SigurdByronTalk, Sigurd, Byron
+        .structChapterTalkEventEntry Chapter05, FlagChapter05_SigurdByronTalk, Byron, Sigurd
+        .structChapterTalkEventEntry Chapter05, FlagChapter05_SigurdAidaTalk, Sigurd, Aida
+        .structChapterTalkEventEntry Chapter05, FlagChapter05_AnyoneAidaTalkCheck, AnyCharacter, Aida
         .word $FFFF
 
       aFactionGroupData1A ; 86/E5F5

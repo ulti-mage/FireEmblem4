@@ -1,0 +1,17 @@
+{DIALOGUE_FONT_0}イザークは王位を継ぐべき{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT $04}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceNoInheritorsSubstitutes}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceNoInheritorsChildren}{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_FONT_0}この国を第二の祖国と信じる{DIALOGUE_NL}
+セリスにとって､{DIALOGUE_NL}
+人々の悲しみはこらえようもなかった｡{DIALOGUE_NL}
+人々はセリスに願った｡{DIALOGUE_NL}
+この国を見捨てないでと{DIALOGUE_NL}
+彼にすがったのである｡{DIALOGUE_NL}
+セリスは人々の願いをきき入れて､{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceScathachDalvin}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceLarceiCreidne}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceDeimne}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceMuirne}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceEndNoInheritors}{DIALOGUE_NL}
+この国を統治した｡{DIALOGUE_NL}
+そして､まずしかったこの国に{DIALOGUE_NL}
+善政をしき､やがて､{DIALOGUE_NL}
+大陸中央と変わらぬほどの豊かさを{DIALOGUE_NL}
+もたらすことになるのである｡{DIALOGUE_NL}
+のちにイザークは{DIALOGUE_NL}
+グランベル王国の一地方として､{DIALOGUE_NL}
+セリスと共に生きる道を選ぶのである｡{DIALOGUE_NL}
+{DIALOGUE_EOF}

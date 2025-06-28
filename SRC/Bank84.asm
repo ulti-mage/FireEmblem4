@@ -132,7 +132,393 @@
 
         .databank 0
 
-        ; 84/80EC
+      rlUnknown8480EC ; 84/80EC
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Run on chapter start
+
+        phb
+        php
+        phk
+        plb
+        phx
+        lda wR0
+        pha
+
+        lda wLoadedFactionCount,b
+        beq _810A
+
+          lda #1
+          sta wLoadedFactionCount,b
+          ldx #6
+
+            -
+            txa
+            jsl rlUnloadFactionSlot
+            dec x
+            bne -
+
+        _810A
+        lda #(`aUnitRAMPointers)<<8
+        sta lStructPointer2+1,b
+        lda #<>aUnitRAMPointers
+        sta lStructPointer2,b
+        jsl rlGetRAMStructCurrentStructCount
+        ora #0
+        beq _8163
+
+          sta wR0
+
+          -
+          lda wR0
+          sta wStructIndex,b
+          jsl rlLoadRAMStructDataByIndex
+          bcs _810A
+
+            lda lStructPointer1,b
+            sta wSelectedUnitDataRAMPointer,b
+            lda #80
+            sta wRoutineVariable1,b
+            jsl rlHealSelectedUnitsHP
+            lda #0
+            jsl rlSetSelectedUnitStatusDuration
+            lda #StatusHealthy
+            jsl rlSetSelectedUnitStatus
+            lda #0
+            jsl rlSetSelectedUnitArenaLevel
+            lda #None
+            jsl rlSetSelectedUnitTalkTarget
+            lda #(UnitStateGuardingCastle | UnitStateMoved | UnitStateFielded)
+            jsl rlUnsetSelectedUnitStates
+            dec wR0
+            bne -
+
+        _8163
+        ldx #(len(aDeploymentTable._State) - 2)
+        lda #$FFFF
+
+          -
+          sta aDeploymentTable._MapSpriteID,x
+          dec x
+          dec x
+          bpl -
+
+        ldx #(len(aDeploymentTable._State) - 2)
+
+        -
+        lda aDeploymentTable._UnitRAMPointer,x
+        beq +
+
+          sta wSelectedUnitDataRAMPointer,b
+          jsl rlGetSelectedUnitMapSprite
+          sta wR1
+          jsl rlAddDeployedMapSprite
+          sta aDeploymentTable._DeploymentOffsets,x
+          lda aDeploymentTable._StateBuffer,x
+          and #DeploymentAllegianceMask
+          ora #DeploymentStateHidden
+          sta aDeploymentTable._StateBuffer,x
+          sta aDeploymentTable._State,x
+
+        +
+        dec x
+        dec x
+        bpl -
+
+        lda wCurrentChapter,b
+        cmp #6
+        bne +
+
+          jsl $82F866
+          jsl rlDeleteParentsAndModifyChildrenData
+          jsl $8BCE71
+
+        +
+        lda wCurrentChapter,b
+        cmp #6
+        bne _End
+
+        jsl rlUnknown87E007
+        ora #0
+        beq _End
+
+          ldx #1
+
+          -
+          txa
+          jsl rlGetItemRAMStructEntryByPlayerItemIndex
+          bcs _End
+
+            jsl rlGetItemRAMStateAndOwner
+            lda wR0
+            cmp #ItemStateUnobtained
+            beq _81E9
+
+              cmp #ItemStateShop
+              beq +
+
+                cmp #ItemStatePawnbroker
+                bne _81E9
+
+              +
+              jsl rlRevertItemAquirement
+            
+            _81E9
+            inc x
+            bra -
+
+        _End
+        jsl $87E93F
+        jsl $87E952
+        jsl $86C548
+
+        pla
+        sta wR0
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      rlDeleteParentsAndModifyChildrenData ; 84/81FF
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        phk
+        plb
+        phx
+        ldy #<>aModifyChildrenDataList
+
+          _Loop
+          lda $0000,b,y
+          cmp #$FFFF
+          beq _End
+
+            jsl rlGetUnitRAMDataPointerByID
+            bcs _Next
+
+              lda $0002,b,y
+              asl a
+              tax
+              jsr (aModifyChildrenDataRoutines,x)
+
+            _Next
+            tya
+            clc
+            adc #size(word) * 3
+            tay
+            bra _Loop
+
+        _End
+        jsl $81B15A
+        plx
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      aModifyChildrenDataRoutines .include "../TABLES/SYSTEM/ModifyChildrenDataRoutines.csv.asm" ; 84/822D
+
+      aModifyChildrenDataList ; 84/8237
+
+        .word Deirdre,  ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadMaleChildUnit
+        .word Ethlyn,   ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Brigid,   ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Edain,    ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Silvia,   ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Tailtiu,  ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Erinys,   ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Ayra,     ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Lachesis, ID_LoadChildUnitAndDeleteParentUnitData, ID_LoadBothChildUnits
+        .word Dew,      ID_DeleteParentUnitData, None
+        .word Lex,      ID_DeleteParentUnitData, None
+        .word Beowulf,  ID_DeleteParentUnitData, None
+        .word Claud,    ID_DeleteParentUnitData, None
+        .word Jamke,    ID_DeleteParentUnitData, None
+        .word Azelle,   ID_DeleteParentUnitData, None
+        .word Chulainn, ID_DeleteParentUnitData, None
+        .word Lewyn,    ID_DeleteParentUnitData, None
+        .word Midir,    ID_DeleteParentUnitData, None
+        .word Quan,     ID_DeleteParentUnitData, None
+        .word Finn,     ID_TransferUnitToGen2,   AdultFinn
+        .word Arden,    ID_DeleteParentUnitData, None
+        .word Alec,     ID_DeleteParentUnitData, None
+        .word Naoise,   ID_DeleteParentUnitData, None
+        .word Sigurd,   ID_DeleteParentUnitData, None
+        .word Seliph,   ID_OverwriteSeliphUnitData, None
+        .word Altena,   ID_OverwriteAltenaUnitData, None
+        .sint -1
+
+      rsDeleteParentUnitData ; 84/82D5
+
+        .al
+        .autsiz
+        .databank ?
+
+        jsl rlUndeployUnit
+        jsl rlDeleteUnit
+        rts
+
+        .databank 0
+
+      rsTransferUnitToGen2 ; 84/82DE
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Argument: new CharacterID
+
+        phy
+        jsl rlGetSelectedUnitMoney
+        lsr a
+        jsl rlSetSelectedUnitMoney
+
+        lda $0004,b,y
+        jsl rlGetCharacterDataROMPointer
+        tay
+
+        ldx wSelectedUnitDataRAMPointer,b
+        lda #>`FinnCharacterDataOffsetsEntry
+        sta $7E0000 + structCharacterDataRAM.ConstantData+1,x
+
+        tya
+        clc
+        adc #structStaticCharacterROMEntry.CharacterID
+        sta $7E0000 + structCharacterDataRAM.ConstantData,x
+
+        phb
+        jsl rlGetSelectedUnitPersonalDataPointer
+        jsl rlGetSelectedUnitLoveDataIDByCharacterID
+        sep #$20
+        sta structPersonalCharacterDataRAM.LoveDataID,b,x
+        lda #0
+        sta structPersonalCharacterDataRAM.LoverGenerationID,b,x
+        rep #$20
+        plb
+
+        ldx wSelectedUnitDataRAMPointer,b
+        jsr rsUnknown849294
+        jsl rlUndeployUnit
+        ply
+        rts
+
+        .databank 0
+
+      rsLoadChildUnitAndDeleteParentUnitData ; 84/8325
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda $0004,b,y
+        asl a
+        tax
+        jsr (aLoadChildUnitRoutines,x)
+        jsr rsDeleteParentUnitData
+        rts
+
+        .databank 0
+
+      aLoadChildUnitRoutines .include "../TABLES/SYSTEM/LoadChildUnitRoutines.csv.asm" ; 84/8331
+
+      rsLoadBothChildUnits ; 84/8339
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #0
+        sta wRoutineVariable1,b
+        jsl rlLoadChildUnit
+        bra rsLoadFemaleChildUnit
+
+      rsLoadMaleOrFemaleChildUnit ; 84/8345
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #50
+        jsl rlRollForChance
+        bcs rsLoadFemaleChildUnit
+
+      rsLoadMaleChildUnit ; 84/834E
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #0
+        bra +
+
+      rsLoadFemaleChildUnit ; 84/8353
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #1
+        
+        +
+        sta wRoutineVariable1,b
+        jsl rlLoadChildUnit
+        rts
+
+        .databank 0
+
+      rsOverwriteSeliphUnitData ; 84/835E
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        jsl rlGetSelectedUnitConstantDataPointer
+        lda structCharacterConstantData.Skills1,b,x
+        ora #UnitSkill1Dismount
+        sta structCharacterConstantData.Skills1,b,x
+        lda #(MajorBaldrBlood | MinorNagaBlood)
+        sta structCharacterConstantData.HolyBlood1,b,x
+        lda #0
+        sta structCharacterConstantData.HolyBlood2,b,x
+        jsl rlGetSelectedUnitExtendedPersonalDataPointer
+        sep #$20
+        lda #2
+        sta structExtendedPersonalCharacterDataRAM.LeadershipStars,b,x
+        rep #$20
+        plb
+        rts
+
+        .databank 0
+
+      rsOverwriteAltenaUnitData ; 84/8387
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        jsl rlGetSelectedUnitExtendedPersonalDataPointer
+        sep #$20
+        lda #3
+        sta structExtendedPersonalCharacterDataRAM.LeadershipStars,b,x
+        rep #$20
+        plb
+        rts
+
+        .databank 0
+
+        ; 84/8397
 
     .endsection Code848000Section
 
@@ -1059,31 +1445,31 @@
 
         lda wR1
         sta wSelectedUnitDataRAMPointer,b
-        lda #(`aMotherData._Personal)<<8
-        sta $058D+1,b
-        lda #<>aMotherData._Personal
-        sta $058D,b
-        jsl rlCopyParentsExtendedCharacterData
+        lda #(`aUnit1DataBuffer._Extended)<<8
+        sta lRAMBufferPointer+1,b
+        lda #<>aUnit1DataBuffer._Extended
+        sta lRAMBufferPointer,b
+        jsl rlSaveExtendedCharacterDataToBuffer
 
-        lda #(`aMotherData._ROM)<<8
-        sta $058D+1,b
-        lda #<>aMotherData._ROM
-        sta $058D,b
-        jsl rlCopyParentsCharacterROMData
+        lda #(`aUnit1DataBuffer._ROM)<<8
+        sta lRAMBufferPointer+1,b
+        lda #<>aUnit1DataBuffer._ROM
+        sta lRAMBufferPointer,b
+        jsl rlSaveCharacterROMDataToBuffer
 
         lda wR0
         sta wSelectedUnitDataRAMPointer,b
-        lda #(`aFatherData._Personal)<<8
-        sta $058D+1,b
-        lda #<>aFatherData._Personal
-        sta $058D,b
-        jsl rlCopyParentsExtendedCharacterData
+        lda #(`aUnit2DataBuffer._Extended)<<8
+        sta lRAMBufferPointer+1,b
+        lda #<>aUnit2DataBuffer._Extended
+        sta lRAMBufferPointer,b
+        jsl rlSaveExtendedCharacterDataToBuffer
 
-        lda #(`aFatherData._ROM)<<8
-        sta $058D+1,b
-        lda #<>aFatherData._ROM
-        sta $058D,b
-        jsl rlCopyParentsCharacterROMData
+        lda #(`aUnit2DataBuffer._ROM)<<8
+        sta lRAMBufferPointer+1,b
+        lda #<>aUnit2DataBuffer._ROM
+        sta lRAMBufferPointer,b
+        jsl rlSaveCharacterROMDataToBuffer
 
         stx wSelectedUnitDataRAMPointer,b
 
@@ -1504,8 +1890,8 @@
         bcs +
 
           lda #0
-          sta $7E0000+structCharacterDataRAM.LoverData+1,x
-          sta $7E0000+structCharacterDataRAM.LoverData,x
+          sta $7E0000 + structCharacterDataRAM.LoverData+1,x
+          sta $7E0000 + structCharacterDataRAM.LoverData,x
           ldx #$002E
           lda #9
           sta wR0
@@ -1522,10 +1908,10 @@
         lda #size(structLoverDataRAM)
         jsl rlAllocateRAMArea
 
-        lda $39+1
-        sta $7E0000+structCharacterDataRAM.LoverData+1,x
-        lda $39
-        sta $7E0000+structCharacterDataRAM.LoverData,x
+        lda lR25+1
+        sta $7E0000 + structCharacterDataRAM.LoverData+1,x
+        lda lR25
+        sta $7E0000 + structCharacterDataRAM.LoverData,x
         ldx #$001C
         lda #$0010
         sta wR0
@@ -1554,8 +1940,8 @@
 
         _9304
         lda #0
-        sta $7E0000+structCharacterDataRAM.LoverData+1,x
-        sta $7E0000+structCharacterDataRAM.LoverData,x
+        sta $7E0000 + structCharacterDataRAM.LoverData+1,x
+        sta $7E0000 + structCharacterDataRAM.LoverData,x
         bra -
 
         .databank 0
@@ -1668,10 +2054,10 @@
           bne _Next
 
             lda wR0
-            cmp #1
+            cmp #ItemStateInventory
             beq +
 
-              cmp #2
+              cmp #ItemStateSupply
               bne _Next
 
             +
@@ -1840,7 +2226,7 @@
 
         .databank 0
 
-      rlSavePersonalCharacterDataStruct ; 84/949B
+      rlSavePersonalCharacterDataToBuffer ; 84/949B
 
         .al
         .autsiz
@@ -1860,71 +2246,71 @@
 
         jsl rlGetSelectedUnitPersonalDataPointer
 
-        lda $058D+1,b
+        lda lRAMBufferPointer+1,b
         sta lR18+1
-        lda $058D,b
+        lda lRAMBufferPointer,b
         sta lR18
 
-        ldy #0
+        ldy #structPersonalCharacterDataBuffer.UnitStates
         lda structPersonalCharacterDataRAM.UnitStates,b,x
         sta [lR18],y
 
-        ldy #4
+        ldy #structPersonalCharacterDataBuffer.LoverGenerationID
         lda structPersonalCharacterDataRAM.LoverGenerationID,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #6
+        ldy #structPersonalCharacterDataBuffer.DeploymentOffset
         lda structPersonalCharacterDataRAM.DeploymentOffset,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #8
+        ldy #structPersonalCharacterDataBuffer.ResidingCastle
         lda structPersonalCharacterDataRAM.ResidingCastle,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$0A
+        ldy #structPersonalCharacterDataBuffer.FactionSlot
         lda structPersonalCharacterDataRAM.FactionSlot,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$0C
+        ldy #structPersonalCharacterDataBuffer.AI
         lda structPersonalCharacterDataRAM.AI,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$0E
+        ldy #structPersonalCharacterDataBuffer.Status
         lda structPersonalCharacterDataRAM.Status,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$14
+        ldy #structPersonalCharacterDataBuffer.CantoMovement
         lda structPersonalCharacterDataRAM.CantoMovement,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$10
+        ldy #structPersonalCharacterDataBuffer.RingStatBonusBitfield
         lda structPersonalCharacterDataRAM.RingStatBonusBitfield,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$12
+        ldy #structPersonalCharacterDataBuffer.WeaponStatBonus
         lda structPersonalCharacterDataRAM.WeaponStatBonus,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$16
+        ldy #structPersonalCharacterDataBuffer.StatusDuration
         lda structPersonalCharacterDataRAM.StatusDuration,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$18
+        ldy #structPersonalCharacterDataBuffer.CurrentHP
         lda structPersonalCharacterDataRAM.CurrentHP,b,x
         and #$00FF
         sta [lR18],y
 
-        ldy #$1A
+        ldy #structPersonalCharacterDataBuffer.ClassMoney
         lda structPersonalCharacterDataRAM.ClassMoney,b,x
         and #$00FF
         sta [lR18],y
@@ -1942,7 +2328,7 @@
 
         .databank 0
 
-      rlLoadPersonalCharacterDataStruct ; 84/954C
+      rlLoadPersonalCharacterDataFromBuffer ; 84/954C
 
         .al
         .autsiz
@@ -1962,65 +2348,65 @@
 
         jsl rlGetSelectedUnitPersonalDataPointer
 
-        lda $058D+1,b
+        lda lRAMBufferPointer+1,b
         sta lR18+1
-        lda $058D,b
+        lda lRAMBufferPointer,b
         sta lR18
 
-        ldy #0
+        ldy #structPersonalCharacterDataBuffer.UnitStates
         lda [lR18],y
         sta structPersonalCharacterDataRAM.UnitStates,b,x
 
         sep #$20
-        ldy #2
+        ldy #structPersonalCharacterDataBuffer.LoveDataID
         lda [lR18],y
         sta structPersonalCharacterDataRAM.LoveDataID,b,x
 
-        ldy #4
+        ldy #structPersonalCharacterDataBuffer.LoverGenerationID
         lda [lR18],y
         sta structPersonalCharacterDataRAM.LoverGenerationID,b,x
 
-        ldy #8
+        ldy #structPersonalCharacterDataBuffer.ResidingCastle
         lda [lR18],y
         sta structPersonalCharacterDataRAM.ResidingCastle,b,x
 
-        ldy #$0A
+        ldy #structPersonalCharacterDataBuffer.FactionSlot
         lda [lR18],y
         sta structPersonalCharacterDataRAM.FactionSlot,b,x
 
-        ldy #$0C
+        ldy #structPersonalCharacterDataBuffer.AI
         lda [lR18],y
         sta structPersonalCharacterDataRAM.AI,b,x
 
-        ldy #$14
+        ldy #structPersonalCharacterDataBuffer.CantoMovement
         lda [lR18],y
         sta structPersonalCharacterDataRAM.CantoMovement,b,x
 
-        ldy #$10
+        ldy #structPersonalCharacterDataBuffer.RingStatBonusBitfield
         lda [lR18],y
         sta structPersonalCharacterDataRAM.RingStatBonusBitfield,b,x
 
-        ldy #$12
+        ldy #structPersonalCharacterDataBuffer.WeaponStatBonus
         lda [lR18],y
         sta structPersonalCharacterDataRAM.WeaponStatBonus,b,x
 
-        ldy #$16
+        ldy #structPersonalCharacterDataBuffer.StatusDuration
         lda [lR18],y
         sta structPersonalCharacterDataRAM.StatusDuration,b,x
 
-        ldy #$0E
+        ldy #structPersonalCharacterDataBuffer.Status
         lda [lR18],y
         sta structPersonalCharacterDataRAM.Status,b,x
 
-        ldy #6
+        ldy #structPersonalCharacterDataBuffer.DeploymentOffset
         lda [lR18],y
         sta structPersonalCharacterDataRAM.DeploymentOffset,b,x
 
-        ldy #$18
+        ldy #structPersonalCharacterDataBuffer.CurrentHP
         lda [lR18],y
         sta structPersonalCharacterDataRAM.CurrentHP,b,x
 
-        ldy #$1A
+        ldy #structPersonalCharacterDataBuffer.ClassMoney
         lda [lR18],y
         sta structPersonalCharacterDataRAM.ClassMoney,b,x
         rep #$20
@@ -2808,8 +3194,8 @@
 
         lda #StatusHealthy
         jsl rlSetSelectedUnitStatus
-        pla
 
+        pla
         cmp #StatusSleep
         bne +
 
@@ -2820,8 +3206,8 @@
           and #~DeploymentStateAsleep
           sta aDeploymentTable._StateBuffer,x
 
-          lda #4
-          tsb $0D79,b
+          lda #$0004
+          tsb wUnknown000D79,b
 
         +
         plx
@@ -2932,7 +3318,7 @@
 
         .databank 0
 
-      rlCopyParentsExtendedCharacterData ; 84/9900
+      rlSaveExtendedCharacterDataToBuffer ; 84/9900
 
         .al
         .autsiz
@@ -2952,58 +3338,70 @@
         jsl rlGetSelectedUnitClassDataPointer
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
-        lda $058D+1,b
+        lda lRAMBufferPointer+1,b
         sta lR18+1
-        lda $058D,b
+        lda lRAMBufferPointer,b
         sta lR18
 
         ldy #0
         lda structExtendedPersonalCharacterDataRAM.HP,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #2
         lda structExtendedPersonalCharacterDataRAM.Strength,b,x    
         and #$00FF
         sta [lR18],y
+
         ldy #4
         lda structExtendedPersonalCharacterDataRAM.Magic,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #6
         lda structExtendedPersonalCharacterDataRAM.Skill,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #8
         lda structExtendedPersonalCharacterDataRAM.Speed,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #10
         lda structExtendedPersonalCharacterDataRAM.Defense,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #12
         lda structExtendedPersonalCharacterDataRAM.Resistance,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #$0E
         lda structExtendedPersonalCharacterDataRAM.Luck,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #$10
         lda structExtendedPersonalCharacterDataRAM.Class,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #$12
         lda structExtendedPersonalCharacterDataRAM.Level,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #$16
         lda structExtendedPersonalCharacterDataRAM.Money,b,x
         sta [lR18],y
+
         ldy #$18
         lda structExtendedPersonalCharacterDataRAM.Experience,b,x
         and #$00FF
         sta [lR18],y
+
         ldy #$1A
         lda structExtendedPersonalCharacterDataRAM.TalkTarget,b,x
         and #$00FF
@@ -4457,7 +4855,7 @@
 
         .databank 0
 
-      rlCopyParentsCharacterROMData ; 84/A1BA
+      rlSaveCharacterROMDataToBuffer ; 84/A1BA
 
         .al
         .autsiz
@@ -4476,70 +4874,70 @@
 
         jsl rlGetSelectedUnitConstantDataPointer
 
-        lda $058D+1,b
+        lda lRAMBufferPointer+1,b
         sta lR18+1
-        lda $058D,b
+        lda lRAMBufferPointer,b
         sta lR18
 
-        ldy #structParentCharacterROMData.CharacterID
+        ldy #structCharacterROMDataBuffer.CharacterID
         jsl rlGetSelectedUnitCharacterID
         sta [lR18],y
 
-        ldy #structParentCharacterROMData.CharacterName
+        ldy #structCharacterROMDataBuffer.CharacterName
         jsl rlGetSelectedUnitNamePointer
         sta [lR18],y
 
-        ldy #structParentCharacterROMData.Gender
+        ldy #structCharacterROMDataBuffer.Gender
         lda structStaticCharacterROMEntry.Gender - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.FatherID
+        ldy #structCharacterROMDataBuffer.FatherID
         lda structStaticCharacterROMEntry.FatherID - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.HPGrowth
+        ldy #structCharacterROMDataBuffer.HPGrowth
         lda structStaticCharacterROMEntry.HPGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.StrengthGrowth
+        ldy #structCharacterROMDataBuffer.StrengthGrowth
         lda structStaticCharacterROMEntry.StrengthGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.MagicGrowth
+        ldy #structCharacterROMDataBuffer.MagicGrowth
         lda structStaticCharacterROMEntry.MagicGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.SkillGrowth
+        ldy #structCharacterROMDataBuffer.SkillGrowth
         lda structStaticCharacterROMEntry.SkillGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.SpeedGrowth
+        ldy #structCharacterROMDataBuffer.SpeedGrowth
         lda structStaticCharacterROMEntry.SpeedGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.DefenseGrowth
+        ldy #structCharacterROMDataBuffer.DefenseGrowth
         lda structStaticCharacterROMEntry.DefenseGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.ResistanceGrowth
+        ldy #structCharacterROMDataBuffer.ResistanceGrowth
         lda structStaticCharacterROMEntry.ResistanceGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.LuckGrowth
+        ldy #structCharacterROMDataBuffer.LuckGrowth
         lda structStaticCharacterROMEntry.LuckGrowth - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.Skills1
+        ldy #structCharacterROMDataBuffer.Skills1
         lda structStaticCharacterROMEntry.Skills1 - structStaticCharacterROMEntry.CharacterID,b,x
         sta [lR18],y
-        ldy #structParentCharacterROMData.Skills3
+        ldy #structCharacterROMDataBuffer.Skills3
         lda structStaticCharacterROMEntry.Skills3 - structStaticCharacterROMEntry.CharacterID,b,x
         and #$00FF
         sta [lR18],y
-        ldy #structParentCharacterROMData.HolyBlood1
+        ldy #structCharacterROMDataBuffer.HolyBlood1
         lda structStaticCharacterROMEntry.HolyBlood1 - structStaticCharacterROMEntry.CharacterID,b,x
         sta [lR18],y
-        ldy #structParentCharacterROMData.HolyBlood2
+        ldy #structCharacterROMDataBuffer.HolyBlood2
         lda structStaticCharacterROMEntry.HolyBlood2 - structStaticCharacterROMEntry.CharacterID,b,x
         sta [lR18],y
 
@@ -4748,7 +5146,7 @@
         jsl rlGetSelectedUnitConstantDataPointer
         lda structStaticCharacterROMEntry.Gender - structStaticCharacterROMEntry.CharacterID,b,x 
         and #$00FF
-        
+
         -
         plx
 
@@ -4756,7 +5154,7 @@
         plb
 
         rtl
-        
+
         +
         jsl rlGetEnemyUnitGender
         bra -
@@ -4782,7 +5180,7 @@
         -
         lda aChildrenDataOffsets,x
         cmp wRoutineVariable1,b
-        beq +
+        beq _Child
 
         inc x
         inc x
@@ -4791,18 +5189,17 @@
         bcc -
 
         lda #0
-        
+
         -
         ply
         plx
         rtl
-        
-        ; Is child
-        +
+
+        _Child
         tya
         lsr a
         clc
-        adc #$0010 ; start of female character IDs
+        adc #Deirdre
         bra -
 
         .databank 0
@@ -4836,7 +5233,7 @@
         plp
         plb
         rtl
-        
+
         +
         lda #0
         bra -
@@ -6289,9 +6686,9 @@
         sta structExtendedPersonalCharacterDataRAM.Level,b,x
         rep #$20
 
-        lda $7E3D83
+        lda wTotalLevelUpCount
         inc a
-        sta $7E3D83
+        sta wTotalLevelUpCount
 
         sep #$20
         lda #$7E
@@ -6392,9 +6789,9 @@
               adc wRoutineVariable1,b
               asl a
               tax
-              lda $7E3D23,x
+              lda aUnitWinCounts,x
               inc a
-              sta $7E3D23,x
+              sta aUnitWinCounts,x
 
         _End
         pla
@@ -7396,7 +7793,7 @@
           sta aDeploymentTable._StateBuffer,x
           sta aDeploymentTable._State,x
 
-          lda $0D79,b
+          lda wUnknown000D79,b
           bit #$0020
           bne +
 
@@ -7515,7 +7912,7 @@
               jsl rlUnsetCastleGuarded
 
         +
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0010
         beq _B916
 
@@ -7623,11 +8020,14 @@
 
     .section Code84BAA1Section
 
-      rlUnknown84BAA1 ; 84/BAA1
+      rlLoadChildUnit ; 84/BAA1
 
         .al
         .autsiz
         .databank ?
+
+        ; Input:
+        ; wRoutineVariable1 = 0 if male child, 1 if female
 
         phb
         php
@@ -7637,7 +8037,6 @@
         lda wSelectedUnitDataRAMPointer,b
         pha
 
-        ; 0 = male child, 1 = female child?
         lda wRoutineVariable1,b
         sta wR2
 
@@ -7658,44 +8057,44 @@
         ora #0
         beq _End
 
-        cmp #Ethlyn
-        bcs _End
+          cmp #GEN_ID_Ethlyn
+          bcs _End
 
-        jsl rlGetUnitRAMDataPointerByID
-        bcs _End
+            jsl rlGetUnitRAMDataPointerByID
+            bcs _End
 
-        ; father data?
-        lda wSelectedUnitDataRAMPointer,b
-        sta wR0
+              ; father data?
+              lda wSelectedUnitDataRAMPointer,b
+              sta wR0
 
-        ; mother data?
-        stx wSelectedUnitDataRAMPointer,b
-        lda wSelectedUnitDataRAMPointer,b
-        sta wR1
+              ; mother data?
+              stx wSelectedUnitDataRAMPointer,b
+              lda wSelectedUnitDataRAMPointer,b
+              sta wR1
 
-        jsl rlGetSelectedUnitGenerationID
-        cmp #$10
-        bcc _End
+              jsl rlGetSelectedUnitGenerationID
+              cmp #GEN_ID_Deirdre
+              bcc _End
 
-          sec
-          sbc #$10
-          asl a
-          tax
+                sec
+                sbc #GEN_ID_Deirdre
+                asl a
+                tax
 
-          lda wR2
-          asl a
-          clc
-          adc aChildrenDataOffsets,x
-          tax
-          lda aChildrenDataOffsets,x
-          beq _End
+                lda wR2
+                asl a
+                clc
+                adc aChildrenDataOffsets,x
+                tax
+                lda aChildrenDataOffsets,x
+                beq _End
 
-          jsl rlLoadUnit
+                  jsl rlLoadUnit
 
-          lda $84BB1E,x
-          bmi _End
+                  lda aChildrenPermanentFlags,x
+                  bmi _End
 
-            jsl rlSetPermanentEventFlag
+                    jsl rlSetPermanentEventFlag
 
         _End
         pla
@@ -7707,7 +8106,40 @@
 
         .databank 0
 
-        ; 84/BB1E
+      aChildrenPermanentFlags ; 84/BB1E
+
+        ; The first few entries are offsets, but it already gets indexed with an offset already.
+
+        .sint 18
+        .sint 22
+        .sint 26
+        .sint 30
+        .sint 34
+        .sint 38
+        .sint 42
+        .sint 46
+        .sint 50
+
+        .sint -1 ; Seliph
+        .sint -1 ; None
+        .sint -1 ; Leif
+        .sint -1 ; Altena
+        .sint PermanentFlagDiarmuidExists
+        .sint PermanentFlagNannaExists
+        .sint PermanentFlagScathachExists
+        .sint PermanentFlagLarceiExists
+        .sint PermanentFlagCedExists
+        .sint PermanentFlagFeeExists
+        .sint PermanentFlagArthurExists
+        .sint PermanentFlagTineExists
+        .sint PermanentFlagCoirpreExists
+        .sint PermanentFlagLeneExists
+        .sint PermanentFlagLesterExists
+        .sint PermanentFlagLanaExists
+        .sint PermanentFlagFebailExists
+        .sint PermanentFlagPattyExists
+
+        ; 84/BB54
 
     .endsection Code84BAA1Section
 
@@ -8343,7 +8775,11 @@
         .autsiz
         .databank ?
 
+        ; Input:
         ; A = FactionSlot
+
+        ; Output:
+        ; A = UnitCount
 
         phb
         php
@@ -8451,7 +8887,7 @@
         jsr rsGetFactionSlotOffset
         bcs _End
 
-        stz $0574,b
+        stz wRoutineVariable1,b
         lda $7E0004,x
         and #$00FF
         beq ++
@@ -8468,7 +8904,7 @@
         bit #$8000
         beq +
 
-        inc $0574,b
+        inc wRoutineVariable1,b
         
         +
         inc x
@@ -8477,7 +8913,7 @@
         bne _Loop
         
         +
-        lda $0574,b
+        lda wRoutineVariable1,b
         
         _End
         ply
@@ -8725,7 +9161,7 @@
             bne _End
 
               ; Only for player units
-              jsl rlUnknown8BCDD8
+              jsl rlAddToUnitJoinOrder
 
         _End
         pla
@@ -8842,7 +9278,7 @@
             lda wRoutineVariable1,b
             bne _End
 
-              jsl rlUnknown8BCDF2
+              jsl rlRemoveFromUnitJoinOrder
 
         _End
         pla
@@ -9549,11 +9985,14 @@
 
         .databank 0
 
-      rlUnknown84C54C ; 84/C54C
+      rlReviveFactionsUnitsOfAISetting ; 84/C54C
 
         .al
         .autsiz
         .databank ?
+
+        ; A = FactionSlot
+        ; wRoutineVariable1 = AI
 
         phb
         php
@@ -10159,7 +10598,7 @@
           _NotDeployed
           lda wR2
           jsl rlAssignUnitToFactionSlot
-        
+
         +
         jsl rlUnknown84AEC0
 
@@ -10543,8 +10982,8 @@
           ora #DeploymentStateCanto
           sta aDeploymentTable._State,x
 
-          lda #4
-          tsb $0D79,b
+          lda #$0004
+          tsb wUnknown000D79,b
 
           pla
           sta wR2
@@ -10575,8 +11014,8 @@
         and #~DeploymentStateGrayed
         sta aDeploymentTable._StateBuffer,x
 
-        lda #4
-        tsb $0D79,b
+        lda #$0004
+        tsb wUnknown000D79,b
         rtl
 
         .databank 0
@@ -10614,7 +11053,7 @@
           bra _CB24
 
         +
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0040
         bne _CB18
 
@@ -10661,8 +11100,8 @@
         +
         sta aDeploymentTable._StateBuffer,x
 
-        lda #4
-        tsb $0D79,b
+        lda #$0004
+        tsb wUnknown000D79,b
 
         jsl $85E897
 
@@ -10673,7 +11112,7 @@
         jsl rlSetSelectedUnitStates
 
         lda #$1000
-        tsb $0D79,b
+        tsb wUnknown000D79,b
 
         lda aDeploymentTable._State,x
         bit #DeploymentStateCanto
@@ -10709,7 +11148,7 @@
 
         ; X = deployment offset
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0004
         bne +
 
@@ -10746,7 +11185,7 @@
 
         ; X = deployment offset
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0004
         bne +
 
@@ -10847,7 +11286,7 @@
         sta aDeploymentTable._FactionSlot,x
         dec wDeployedUnitsCount,b
         lda #$0004
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         plx
         plp
         plb
@@ -11523,7 +11962,7 @@
         cmp #LombardCh05
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Travant
+        cmp #TravantCh05
         beq rsCheckIfFightingBoss._SEC
 
         cmp #ReptorCh05
@@ -11532,43 +11971,43 @@
         cmp #Danann
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Bloom
+        cmp #BloomCh07
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Ishtar
+        cmp #IshtarCh08
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Bloom2
+        cmp #BloomCh08
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Travant2
+        cmp #TravantCh09
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Arion1
+        cmp #ArionCh09
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Hilda1
+        cmp #HildaCh10
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Ishtar2
+        cmp #IshtarCh10
         beq rsCheckIfFightingBoss._SEC
 
         cmp #Brian
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Hilda2
+        cmp #HildaChFinal
         beq rsCheckIfFightingBoss._SEC
 
         cmp #Manfroy
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Arion2
+        cmp #ArionChFinal
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Ishtar3
+        cmp #IshtarChFinal
         beq rsCheckIfFightingBoss._SEC
 
-        cmp #Julius2
+        cmp #JuliusChFinal
         beq rsCheckIfFightingBoss._SEC
         bra rsCheckIfFightingBoss._CLC
 
@@ -11581,7 +12020,7 @@
         .databank ?
 
         lda aActionStructUnit2.CharacterID
-        cmp #Arvis3
+        cmp #ArvisCh10
         beq rsCheckIfFightingBoss._SEC
         bra rsCheckIfFightingBoss._CLC
 
@@ -11615,10 +12054,10 @@
 
         +
         lda aActionStructUnit2.CharacterID
-        cmp #Julius
+        cmp #JuliusCh10
         beq _SEC
 
-        cmp #Julius2
+        cmp #JuliusChFinal
         beq _SEC
 
         _CLC
@@ -12424,7 +12863,7 @@
 
         jsl rlActionStructGetBattleStats
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0020
 
         sep #$20
@@ -12530,12 +12969,12 @@
 
         jsr rsActionStructGetBattleInitiatorIfArena
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0010
         bne _Loop
 
           lda #$0010
-          tsb $0D79,b
+          tsb wUnknown000D79,b
 
           jsr rsActionStructGetBattleTriggerableSkillFlags
           jsr rsActionStructAdjustVantageRoundOrder
@@ -12595,7 +13034,7 @@
         jsr rsActionstructGetLevelUpAndDroppedItemData
 
         lda #$0010
-        trb $0D79,b
+        trb wUnknown000D79,b
 
         lda @l wBattleType
         and #$00FF
@@ -13000,7 +13439,7 @@
         sta lR18
 
         lda #$0010
-        tsb $0D79,b
+        tsb wUnknown000D79,b
         ldy #0
 
           _Loop
@@ -13045,7 +13484,7 @@
         jsl rlAppendNewStructEntry
 
         lda #$0010
-        trb $0D79,b
+        trb wUnknown000D79,b
         lda #$0033
         sta wBattleSong
         jsl $81B368
@@ -13673,9 +14112,9 @@
         .databank `wActionStructAttacker
 
         lda #(`aBattleRoundsData)<<8
-        sta $055C+1,b
+        sta lStructPointer2+1,b
         lda #<>aBattleRoundsData
-        sta $055C,b
+        sta lStructPointer2,b
         jsl rlGetRAMStructCurrentStructCount
         cmp #40
         bcs _CLC
@@ -14325,7 +14764,7 @@
         beq +
 
         lda @l aActionStructUnit2.CharacterID
-        cmp #Julius2
+        cmp #JuliusChFinal
         beq +
 
         lda structActionStructEntry.TriggerableSkills,b,y
@@ -14388,7 +14827,7 @@
             beq +
 
               lda wR0
-              cmp #7
+              cmp #ItemStateUnobtained
               bne _E7CC
 
             +
@@ -14758,7 +15197,7 @@
         lda #2
         tsb bBattleRoundFlags
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0020
         bne _EA76
 
@@ -14954,7 +15393,7 @@
         
         jsr rsUnknown84E62C
 
-        lda $0D79,b
+        lda wUnknown000D79,b
         bit #$0040
         bne _ED3A
 
@@ -15261,8 +15700,8 @@
           sta aDeploymentTable._StateBuffer,x
 
         +
-        lda #4
-        tsb $0D79,b
+        lda #$0004
+        tsb wUnknown000D79,b
         plx
 
         jsl rlGetItemAdditionalInfo
@@ -15463,7 +15902,7 @@
 
         .databank 0
 
-      rlUnknown84EFE7 ; 84/EFE7
+      rlSaveCharacterInventoryToBuffer ; 84/EFE7
 
         .al
         .autsiz
@@ -15475,49 +15914,51 @@
         plb
         phx
         phy
-        lda $24
+        lda lR18
         pha
-        lda $25
+        lda lR18+1
         pha
-        lda $00
+        lda wR0
         pha
 
-        lda $058D+1,b
-        sta $24+1
-        lda $058D,b
-        sta $24
-        jsl $84EFD4
+        lda lRAMBufferPointer+1,b
+        sta lR18+1
+        lda lRAMBufferPointer,b
+        sta lR18
 
-        ldy #0
-        lda $0000,b,x
-        and #$00FF
-        sta [$24],y
-        ldy #2
-        lda $0001,b,x
-        and #$00FF
-        sta [$24],y
-        sta $00
-        beq +
+        jsl rlGetSelectedUnitInventoryRAMPointer
 
-        ldy #4
-        
-        -
-        lda $0005,b,x
+        ldy #structInventoryDataBuffer.EquippedWeaponBitfield
+        lda structInventoryDataRAM.EquippedWeaponBitfield,b,x
         and #$00FF
-        sta [$24],y
-        inc x
-        inc y
-        inc y
-        dec $00
-        bne -
-        
-        +
+        sta [lR18],y
+
+        ldy #structInventoryDataBuffer.ItemCount
+        lda structInventoryDataRAM.CurrentStructCount,b,x
+        and #$00FF
+        sta [lR18],y
+        sta wR0
+        beq _End
+
+          ldy #structInventoryDataBuffer.Items
+
+            -
+            lda structInventoryDataRAM.Slot,b,x
+            and #$00FF
+            sta [lR18],y
+            inc x
+            inc y
+            inc y
+            dec wR0
+            bne -
+
+        _End
         pla
-        sta $00
+        sta wR0
         pla
-        sta $25
+        sta lR18+1
         pla
-        sta $24
+        sta lR18
         ply
         plx
         plp
@@ -16021,14 +16462,14 @@
         plb
         phx
 
-        sta $054A,b
-        ldx $056F,b
+        sta lStructPointer1,b
+        ldx wSelectedUnitDataRAMPointer,b
         lda $7E000E,x
-        sta $055D,b
+        sta lStructPointer2+1,b
         lda $7E000D,x
         clc
         adc #1
-        sta $055C,b
+        sta lStructPointer2,b
         jsl rlFindRAMStructEntry
 
         plx
@@ -16038,7 +16479,7 @@
 
         .databank 0
 
-      rlUnknown84F2EB ; 84/F2EB
+      rlGetSelectedUnitFirstInventoryItem ; 84/F2EB
 
         .al
         .autsiz
@@ -16050,7 +16491,7 @@
         plb
         phx
 
-        jsl $84EFD4
+        jsl rlGetSelectedUnitInventoryRAMPointer
 
         lda $0000,b,x
         and #$00FF
@@ -17053,7 +17494,7 @@
         phk
         plb
 
-        lda $0574,b
+        lda wRoutineVariable1,b
         jsl rlGetItemRAMStructEntryByInventorySlot
         bcs +
 
@@ -17108,7 +17549,7 @@
         phk
         plb
         phx
-        ldx $0574,b
+        ldx wRoutineVariable1,b
         phx
 
         cmp #0
@@ -17145,7 +17586,7 @@
         
         _End
         plx
-        stx $0574,b
+        stx wRoutineVariable1,b
         plx
         plp
         plb
@@ -17297,14 +17738,12 @@
         sty wCurrentItemDataRAMPointer,b
         jsl rlGetItemRAMStateAndOwner
 
-        ; check if item owner matches this unit
         lda wR1
         cmp wSelectedUnitDataRAMPointer,b
         beq _FAB1
 
-        ; check if item state? is 7
         lda wR0
-        cmp #7
+        cmp #ItemStateUnobtained
         bne +
 
         _FAB1

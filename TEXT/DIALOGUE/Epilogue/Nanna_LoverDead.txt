@@ -1,0 +1,4 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_JeanneNanna_LoverDead}{DIALOGUE_FONT_0}ナンナ､元気を出して{DIALOGUE_NL}
+アグストリアにはきみが必要なんだ{DIALOGUE_RIGHT}{DIALOGUE_PAUSE 32}{DIALOGUE_FONT_0}はい､私も王を助けて{DIALOGUE_NL}
+人々のために力を尽くします{DIALOGUE_NL}
+{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

@@ -1,0 +1,17 @@
+長らく帝国の支配下にあったシレジアでは{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT $02}住民による蜂起が相次ぎ､{DIALOGUE_NL}
+聖戦の勝利の後{DIALOGUE_NL}
+ようやく王国全土が解放された｡{DIALOGUE_NL}
+だが､すでに王位を継ぐ者はなく､{DIALOGUE_NL}
+人々はセリス王に{DIALOGUE_NL}
+グランベルへの統合を願い出た｡{DIALOGUE_NL}
+美しい大地と､平和を愛する人々｡{DIALOGUE_NL}
+セリスは､父が愛したシレジアを愛し､{DIALOGUE_NL}
+荒れ果てた国土の復興に全力をつくした｡{DIALOGUE_NL}
+{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_PAUSE 10}{DIALOGUE_FONT_0}それは､{DIALOGUE_NL}
+父と運命を共にしたレヴィン王子と､{DIALOGUE_NL}
+そして､彼の遺志を継ぐべく､{DIALOGUE_NL}
+この世界へとどまった{DIALOGUE_NL}
+異国の戦士､フォルセティへの､{DIALOGUE_NL}
+せめてものつぐないであったのだろうか{DIALOGUE_NL}
+{DIALOGUE_EOF}

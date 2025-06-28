@@ -24,12 +24,12 @@
 
     .rept 8
 
-      FILL_EVENT_UNIT_SLOT Beigenritter1, EventUnitSlot1
-      MOVE_TEMPORARY_TO_COORDS Beigenritter1, [-1, -1], [63, 45], 4, EventUnitSlot1, MAP_SPRITE_RED, true, true
+      FILL_EVENT_UNIT_SLOT BeigenritterCh04BowKnight, EventUnitSlot1
+      MOVE_TEMPORARY_TO_COORDS BeigenritterCh04BowKnight, [-1, -1], [63, 45], 4, EventUnitSlot1, MAP_SPRITE_RED, true, true
       WAIT_UNIT_SPRITE_DECOMPRESSED
 
       RUN_EVENT_CONDITION
-        REMOVE_UNIT Beigenritter1
+        REMOVE_UNIT BeigenritterCh04BowKnight
 
     .endrept
 

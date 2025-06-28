@@ -1,0 +1,5 @@
+{DIALOGUE_SET_TEXT dialogueEpilogue_Piece_AzellesDaughter_BrotherAlive}{DIALOGUE_PAUSE 96}{DIALOGUE_SCROLL}
+{DIALOGUE_FONT_0}でも､ヴェルトマー公国は{DIALOGUE_NL}
+きみたち二人の手にかかっている{DIALOGUE_NL}
+がんばって再建してほしい{DIALOGUE_RIGHT}{DIALOGUE_PAUSE 32}はい､おまかせ下さい{DIALOGUE_NL}
+{DIALOGUE_PAUSE 96}{DIALOGUE_EOF}

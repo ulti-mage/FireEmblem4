@@ -1,43 +1,49 @@
 
     .weak
 
-      Flag_Unknown0                     :=  0
-      Flag_Unknown1                     :=  1
-      Flag_Unknown2                     :=  2
-      Flag_Unknown3                     :=  3
-      Flag_Unknown4                     :=  4
+      FlagChapter06_GaneishireSeizedCheck             :=  0
+      FlagChapter06_SofalaSeizedCheck                 :=  1
+      FlagChapter06_IsaachSeizedCheck                 :=  2
+      FlagChapter06_RibautSeizedCheck                 :=  3
+      FlagChapter06_OifeyGroupSpawn                   :=  4
 
-      Flag_Unknown6                     :=  6
-      Flag_Unknown7                     :=  7
-      Flag_Unknown8                     :=  8
-      Flag_Unknown9                     :=  9
+      FlagChapter06_FeeArthurSpawn                    :=  6
+      FlagChapter06_SchmidtSpawn                      :=  7
+      FlagChapter06_LarceiIucharbaTalk                :=  8
+      FlagChapter06_LarceiIucharTalk                  :=  9
 
-      Flag_HaroldBattleQuote            := 24
-      Flag_IucharbaBattleQuote          := 25
-      Flag_IucharBattleQuote            := 26
-      Flag_SchmidtBattleQuote           := 27
-      Flag_DanannBattleQuote            := 28
-      Flag_Unknown29                    := 29
-      Flag_IucharDied                   := 30
-      Flag_IucharbaDied                 := 31
+      FlagChapter06_HaroldBattleQuote                 := 24
+      FlagChapter06_IucharbaBattleQuote               := 25
+      FlagChapter06_IucharBattleQuote                 := 26
+      FlagChapter06_SchmidtBattleQuote                := 27
+      FlagChapter06_DanannBattleQuote                 := 28
+      FlagChapter06_LarceiBrothersTalkCheck           := 29
+      FlagChapter06_IucharDied                        := 30
+      FlagChapter06_IucharbaDied                      := 31
 
-      Flag_Unknown33                    := 33
-      Flag_Unknown34                    := 34
+      FlagChapter06_BrotherRecruitedDanannResponse    := 33
+      FlagChapter06_JuliaCaptureReturn                := 34
+      FlagChapter06_Unknown35                         := 35
+      FlagChapter06_DanannDied                        := 36
+      FlagChapter06_CreidneIucharbaAdjacent           := 37
+      FlagChapter06_CreidneIucharAdjacent             := 38
+      FlagChapter06_IsaachTalkCheck                   := 39
+      FlagChapter06_SofalaTalkCheck                   := 40
+      FlagChapter06_DeimneIsaachVisitCheck            := 41
+      FlagChapter06_JuliaSeliphTalk                   := 42
+      FlagChapter06_IucharDanannBattleQuote           := 43
+      FlagChapter06_IucharbaDanannBattleQuote         := 44
+      FlagChapter06_IucharbaIucharBattleQuote         := 45
+      FlagChapter06_LarceiIucharBattleQuote           := 46
+      FlagChapter06_LarceiIucharbaBattleQuote         := 47
+      FlagChapter06_SeliphDanannBattleQuote           := 48
 
-      Flag_DanannDied                   := 36
-      Flag_Unknown37                    := 37
-      Flag_Unknown38                    := 38
-      Flag_IsaachTalkCheck              := 39
-      Flag_SofalaTalkCheck              := 40
-      Flag_Unknown41                    := 41
-      Flag_JuliaSeliphTalk              := 42
-      Flag_IucharDanannBattleQuote      := 43
-      Flag_IucharbaDanannBattleQuote    := 44
-      Flag_IucharbaIucharBattleQuote    := 45
-      Flag_LarceiIucharBattleQuote      := 46
-      Flag_LarceiIucharbaBattleQuote    := 47
-      Flag_SeliphDanannBattleQuote      := 48
-    
+      FS_Player                                       :=  0
+      FS_Ch06Ganeshire                                :=  1
+      FS_Ch06Sofala                                   :=  2
+      FS_Ch06Isaach                                   :=  3
+      FS_Ch06Ribaut                                   :=  4
+
     .endweak
 
     .section Chapter06EventsSection
@@ -48,224 +54,225 @@
         .long aChapter06OpeningEvent
         .long aChapter06MapEvents
 
+
       aChapter06OpeningEvent ; B2/8008
 
-        REGISTER_UNITGROUP_MAP_SPRITES $1E
+        REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter06Start
 
-        LOAD_FACTION_GROUP 0, FG_Ch06Seliph
-        LOAD_FACTION_GROUP 1, FG_Ch06Ganeshire
-        LOAD_FACTION_GROUP 2, FG_Ch06Sofala1
-        LOAD_FACTION_GROUP 3, FG_Ch06Isaach1
-        LOAD_FACTION_GROUP 4, FG_Ch06Ribaut
+        LOAD_FACTION_GROUP FS_Player,        FG_Ch06Seliph
+        LOAD_FACTION_GROUP FS_Ch06Ganeshire, FG_Ch06Ganeshire
+        LOAD_FACTION_GROUP FS_Ch06Sofala,    FG_Ch06Sofala1
+        LOAD_FACTION_GROUP FS_Ch06Isaach,    FG_Ch06Isaach1
+        LOAD_FACTION_GROUP FS_Ch06Ribaut,    FG_Ch06Ribaut
 
-        macroSetFactionsEnemies [0, 1]
-        macroSetFactionsNeutral [0, 2]
-        macroSetFactionsNeutral [0, 3]
-        macroSetFactionsEnemies [0, 4]
-        macroSetFactionsNeutral [1, 2]
-        macroSetFactionsNeutral [1, 3]
-        macroSetFactionsAllies  [1, 4]
-        macroSetFactionsNeutral [2, 3]
-        macroSetFactionsAllies  [2, 4]
-        macroSetFactionsAllies  [3, 4]
+        macroSetFactionsEnemies [FS_Player,        FS_Ch06Ganeshire]
+        macroSetFactionsNeutral [FS_Player,        FS_Ch06Sofala]
+        macroSetFactionsNeutral [FS_Player,        FS_Ch06Isaach]
+        macroSetFactionsEnemies [FS_Player,        FS_Ch06Ribaut]
+        macroSetFactionsNeutral [FS_Ch06Ganeshire, FS_Ch06Sofala]
+        macroSetFactionsNeutral [FS_Ch06Ganeshire, FS_Ch06Isaach]
+        macroSetFactionsAllies  [FS_Ch06Ganeshire, FS_Ch06Ribaut]
+        macroSetFactionsNeutral [FS_Ch06Sofala,    FS_Ch06Isaach]
+        macroSetFactionsAllies  [FS_Ch06Sofala,    FS_Ch06Ribaut]
+        macroSetFactionsAllies  [FS_Ch06Isaach,    FS_Ch06Ribaut]
 
-        EC_3B $00, $00
-        EC_3B $01, $00
+        SET_CHAPTER_EVENT_COUNTER 0, 0
+        SET_CHAPTER_EVENT_COUNTER 1, 0
 
-        DEPLOY_UNIT_GROUP $1E
+        DEPLOY_UNIT_GROUP UNITGroupChapter06Start
 
-        EVENT $FF, $00D9
+        EVENT FlagAlways, EventChapter06Opening
 
         END_CHAPTER_EVENTS
 
       aChapter06MapEvents ; B2/804F
 
-        CHECK_SEIZING_CASTLE Flag_Unknown0, $0000, $0001
-          EVENT $FF, $00DB
+        CHECK_SEIZING_CASTLE FlagChapter06_GaneishireSeizedCheck, FS_Player, Ch06_Ganeishire
+          EVENT FlagAlways, EventChapter06GaneishireSeized
 
-        CHECK_SEIZING_CASTLE Flag_Unknown2, $0000, $0003
-          EVENT $FF, $00E0
+        CHECK_SEIZING_CASTLE FlagChapter06_IsaachSeizedCheck, FS_Player, Ch06_Isaach
+          EVENT FlagAlways, EventChapter06IsaachSeized
 
-        CHECK_SEIZING_CASTLE Flag_Unknown1, $0000, $0002
-          EVENT $FF, $00E1
+        CHECK_SEIZING_CASTLE FlagChapter06_SofalaSeizedCheck, FS_Player, Ch06_Sofala
+          EVENT FlagAlways, EventChapter06SofalaSeized
 
-        CHECK_SEIZING_CASTLE Flag_Unknown3, $0000, $0004
-          EVENT $FF, $00E3
+        CHECK_SEIZING_CASTLE FlagChapter06_RibautSeizedCheck, FS_Player, Ch06_Ribaut
+          EVENT FlagAlways, EventChapter06Ending
 
-        CHECK_UNIT_DIED $FF, $FFFF, $0000
-          SET_PERMANENT_FLAG 89
+        CHECK_UNIT_DIED FlagAlways, AnyCharacter, FS_Player
+          SET_PERMANENT_FLAG PermanentFlagPlayerDeathInGen2
 
-        EC_16 Flag_Unknown29, Creidne, Iucharba
-          EVENT Flag_Unknown8, $00DE
+        CHECK_CHILD_TALK FlagChapter06_LarceiBrothersTalkCheck, Creidne, Iucharba
+          EVENT FlagChapter06_LarceiIucharbaTalk, EventChapter06LarceiIucharbaTalk
 
-        EC_16 Flag_Unknown29, Creidne, Iuchar
-          EVENT Flag_Unknown9, $00DF
+        CHECK_CHILD_TALK FlagChapter06_LarceiBrothersTalkCheck, Creidne, Iuchar
+          EVENT FlagChapter06_LarceiIucharTalk, EventChapter06LarceiIucharTalk
 
-        CHECK_PLAYER_UNCAPTURED_IF_SEIZING Flag_Unknown34, $002B
+        CHECK_PLAYER_UNCAPTURED_IF_SEIZING FlagChapter06_JuliaCaptureReturn, Julia
           EC_NOP_00
 
-        CHECK_UNIT_DIED Flag_IucharDied, Iuchar, $FFFF
+        CHECK_UNIT_DIED FlagChapter06_IucharDied, Iuchar
           EC_NOP_00
 
-        CHECK_UNIT_DIED Flag_IucharbaDied, Iucharba, $FFFF
+        CHECK_UNIT_DIED FlagChapter06_IucharbaDied, Iucharba
           EC_NOP_00
 
-        CHECK_UNIT_DIED Flag_DanannDied, Danann, $FFFF
+        CHECK_UNIT_DIED FlagChapter06_DanannDied, Danann
           EC_NOP_00
 
-        CHECK_TALK $FF, Oifey, Seliph
-          EVENT $FF, $01E1
+        CHECK_TALK FlagAlways, Oifey, Seliph
+          EVENT FlagAlways, EventChapter06OifeySeliphTalk
 
-        CHECK_TALK $FF, Lester, Lana
-          EVENT $FF, $01E2
+        CHECK_TALK FlagAlways, Lester, Lana
+          EVENT FlagAlways, EventChapter06LesterLanaTalk
 
-        CHECK_TALK $FF, Fee, Seliph
-          EVENT $FF, $01E3
+        CHECK_TALK FlagAlways, Fee, Seliph
+          EVENT FlagAlways, EventChapter06FeeSeliphTalk
 
-        CHECK_TALK $FF, Hermina, Seliph
-          EVENT $FF, $022D
+        CHECK_TALK FlagAlways, Hermina, Seliph
+          EVENT FlagAlways, EventChapter06HerminaSeliphTalk
 
-        EC_16 $FF, Lana, Julia
-          EVENT $FF, $01E4
+        CHECK_CHILD_TALK FlagAlways, Lana, Julia
+          EVENT FlagAlways, EventChapter06LanaJuliaTalk
 
-        CHECK_TALK $FF, Scathach, Larcei
-          EVENT $FF, $01E5
+        CHECK_TALK FlagAlways, Scathach, Larcei
+          EVENT FlagAlways, EventChapter06ScathachLarceiTalk
 
-        EC_16 $FF, Arthur, Seliph
-          EVENT $FF, $01E6
+        CHECK_CHILD_TALK FlagAlways, Arthur, Seliph
+          EVENT FlagAlways, EventChapter06ArthurSeliphTalk
 
-        CHECK_TALK $FF, Deimne, Muirne
-          EVENT $FF, $01E7
+        CHECK_TALK FlagAlways, Deimne, Muirne
+          EVENT FlagAlways, EventChapter06DeimneMuirneTalk
 
-        CHECK_TALK $FF, Dalvin, Creidne
-          EVENT $FF, $01E8
+        CHECK_TALK FlagAlways, Dalvin, Creidne
+          EVENT FlagAlways, EventChapter06DalvinCreidneTalk
 
-        EC_16 $FF, Seliph, Lana
-          EVENT $FF, $01E9
+        CHECK_CHILD_TALK FlagAlways, Seliph, Lana
+          EVENT FlagAlways, EventChapter06SeliphLanaTalk
 
-        CHECK_TALK $FF, Julia, Seliph
-          EVENT Flag_JuliaSeliphTalk, $01EA
+        CHECK_TALK FlagAlways, Julia, Seliph
+          EVENT FlagChapter06_JuliaSeliphTalk, EventChapter06JuliaSeliphTalk
 
-        CHECK_TALK Flag_SofalaTalkCheck, AnyCharacter, SofalaArmy2
-          EVENT $FF, $00F2
+        CHECK_TALK FlagChapter06_SofalaTalkCheck, AnyCharacter, SofalaFighter
+          EVENT FlagAlways, EventChapter06SofalaArmyTalk
 
-        CHECK_TALK Flag_IsaachTalkCheck, AnyCharacter, IsaachArmy2
-          EVENT $FF, $00F3
+        CHECK_TALK FlagChapter06_IsaachTalkCheck, AnyCharacter, IsaachAxeKnight
+          EVENT FlagAlways, EventChapter06IsaachArmyTalk
 
-        CHECK_ENTERING_CASTLE_MENU Flag_Unknown41, Deimne, $0003
-          EVENT $FF, $00F4
+        CHECK_ENTERING_CASTLE_MENU FlagChapter06_DeimneIsaachVisitCheck, Deimne, Ch06_Isaach
+          EVENT FlagAlways, EventChapter06DeimneIsaachVisit
 
-        VISIT_VILLAGE $FF, Seliph, $0006
-          EVENT $FF, $00F1
+        VISIT_VILLAGE FlagAlways, Seliph, Ch06_Village2
+          EVENT FlagAlways, EventChapter06Village2Seliph
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0005
-          EVENT $FF, $00E4
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch06_Village1
+          EVENT FlagAlways, EventChapter06Village1
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0006
-          EVENT $FF, $00E5
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch06_Village2
+          EVENT FlagAlways, EventChapter06Village2
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0007
-          EVENT $FF, $00E6
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch06_Village3
+          EVENT FlagAlways, EventChapter06Village3
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0008
-          EVENT $FF, $00E7
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch06_Village4
+          EVENT FlagAlways, EventChapter06Village4
 
-        VISIT_VILLAGE $FF, AnyCharacter, $0009
-          EVENT $FF, $00E8
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch06_VillageSkillRing
+          EVENT FlagAlways, EventChapter06VillageSkillRing
 
-        VISIT_VILLAGE $FF, AnyCharacter, $000A
-          EVENT $FF, $00E9
+        VISIT_VILLAGE FlagAlways, AnyCharacter, Ch06_Village5
+          EVENT FlagAlways, EventChapter06Village5
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Iuchar, $FFFF, Danann
-          SET_PRECOMBAT_DIALOGUE Flag_IucharDanannBattleQuote, $B0DBD0, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Iuchar, AnyFactionSlot, Danann
+          SET_PRECOMBAT_DIALOGUE FlagChapter06_IucharDanannBattleQuote, dialogueChapter06IucharDanannBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Iucharba, $FFFF, Danann
-          SET_PRECOMBAT_DIALOGUE Flag_IucharbaDanannBattleQuote, $B0DC39, $0046
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Iucharba, AnyFactionSlot, Danann
+          SET_PRECOMBAT_DIALOGUE FlagChapter06_IucharbaDanannBattleQuote, dialogueChapter06IucharbaDanannBattleQuote, $46
 
-        CHECK_UNITS_FIGHTING $FF, $FFFF, Iucharba, $FFFF, Iuchar
-          SET_PRECOMBAT_DIALOGUE Flag_IucharbaIucharBattleQuote, $B0DCBE, $0043
+        CHECK_UNITS_FIGHTING FlagAlways, AnyFactionSlot, Iucharba, AnyFactionSlot, Iuchar
+          SET_PRECOMBAT_DIALOGUE FlagChapter06_IucharbaIucharBattleQuote, dialogueChapter06IucharIucharbaBattleQuote, $43
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Larcei, $FFFF, Iucharba
-          SET_BATTLE_OR_DEATH_QUOTE Flag_LarceiIucharbaBattleQuote, $B0DD77, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Larcei, AnyFactionSlot, Iucharba
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_LarceiIucharbaBattleQuote, dialogueChapter06LarceiIucharbaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Creidne, $FFFF, Iucharba
-          SET_BATTLE_OR_DEATH_QUOTE Flag_LarceiIucharbaBattleQuote, $B0DD77, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Creidne, AnyFactionSlot, Iucharba
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_LarceiIucharbaBattleQuote, dialogueChapter06LarceiIucharbaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Larcei, $FFFF, Iuchar
-          SET_BATTLE_OR_DEATH_QUOTE Flag_LarceiIucharBattleQuote, $B0DD49, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Larcei, AnyFactionSlot, Iuchar
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_LarceiIucharBattleQuote, dialogueChapter06LarceiIucharBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Creidne, $FFFF, Iuchar
-          SET_BATTLE_OR_DEATH_QUOTE Flag_LarceiIucharBattleQuote, $B0DD49, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Creidne, AnyFactionSlot, Iuchar
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_LarceiIucharBattleQuote, dialogueChapter06LarceiIucharBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, Seliph, $FFFF, Danann
-          SET_PRECOMBAT_DIALOGUE Flag_SeliphDanannBattleQuote, $B0DDA2, $0043
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Seliph, AnyFactionSlot, Danann
+          SET_PRECOMBAT_DIALOGUE FlagChapter06_SeliphDanannBattleQuote, dialogueChapter06SeliphDanannBattleQuote, $43
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Harold
-          SET_BATTLE_OR_DEATH_QUOTE Flag_HaroldBattleQuote, $90E7E2, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Harold
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_HaroldBattleQuote, dialogueChapter06HaroldBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Iucharba
-          SET_BATTLE_OR_DEATH_QUOTE Flag_IucharbaBattleQuote, $90E800, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Iucharba
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_IucharbaBattleQuote, dialogueChapter06IucharbaBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Iuchar
-          SET_BATTLE_OR_DEATH_QUOTE Flag_IucharBattleQuote, $90E82E, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Iuchar
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_IucharBattleQuote, dialogueChapter06IucharBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Schmidt
-          SET_BATTLE_OR_DEATH_QUOTE Flag_SchmidtBattleQuote, $90E871, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Schmidt
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_SchmidtBattleQuote, dialogueChapter06SchmidtBattleQuote, 0
 
-        CHECK_UNITS_FIGHTING $FF, $0000, $FFFF, $FFFF, Danann
-          SET_BATTLE_OR_DEATH_QUOTE Flag_DanannBattleQuote, $90E8A1, $00
+        CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Danann
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter06_DanannBattleQuote, dialogueChapter06DanannBattleQuote, 0
 
         BREAK_ACTION_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $03, $00, $00, $0000
-          EVENT Flag_Unknown4, $00DA
+        CHECK_TURN_PHASE_AI_ACTOR 3, FS_Player
+          EVENT FlagChapter06_OifeyGroupSpawn, EventChapter06OifeyGroupSpawn
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $00, $00, $0000
-          CHECK_FLAG_SET Flag_Unknown0
-            EVENT Flag_Unknown6, $00DC
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Player
+          CHECK_FLAG_SET FlagChapter06_GaneishireSeizedCheck
+            EVENT FlagChapter06_FeeArthurSpawn, EventChapter06FeeArthurSpawn
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $04, $00, $0000
-          CHECK_FLAG_SET Flag_Unknown0
-            EVENT Flag_Unknown7, $00DD
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch06Ribaut
+          CHECK_FLAG_SET FlagChapter06_GaneishireSeizedCheck
+            EVENT FlagChapter06_SchmidtSpawn, EventChapter06SchmidtSpawn
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $04, $00, $0000
-          CHECK_FLAG_SET Flag_Unknown29
-            EVENT Flag_Unknown33, $00E2
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch06Ribaut
+          CHECK_FLAG_SET FlagChapter06_LarceiBrothersTalkCheck
+            EVENT FlagChapter06_BrotherRecruitedDanannResponse, EventChapter06BrotherRecruitedDanannResponse
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_FLAG_SET Flag_Unknown8
-          CHECK_UNITS_WITHIN_DISTANCE $FF, Iucharba, Creidne, $01, $FF
-            EC_3D $01
+        CHECK_FLAG_SET FlagChapter06_LarceiIucharbaTalk
+          CHECK_UNITS_WITHIN_DISTANCE FlagAlways, Iucharba, Creidne, 1
+            INCREMENT_CHAPTER_EVENT_COUNTER 1
           BREAK_ACTION_EVENT_CHECKS
         BREAK_STATE_CHECKS
 
-        EC_3F $01, $0A
-          EVENT Flag_Unknown37, $00EF
+        CHECK_CHAPTER_EVENT_COUNTER_EQUAL 1, 10
+          EVENT FlagChapter06_CreidneIucharbaAdjacent, EventChapter06CreidneIucharbaAdjacent
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_SET Flag_Unknown9
-          CHECK_UNITS_WITHIN_DISTANCE $FF, Iuchar, Creidne, $01, $FF
-            EC_3D $00
+        CHECK_FLAG_SET FlagChapter06_LarceiIucharTalk
+          CHECK_UNITS_WITHIN_DISTANCE FlagAlways, Iuchar, Creidne, 1
+            INCREMENT_CHAPTER_EVENT_COUNTER 0
           BREAK_ACTION_EVENT_CHECKS
         BREAK_STATE_CHECKS
 
-        EC_3F $00, $0A
-          EVENT Flag_Unknown38, $00F0
+        CHECK_CHAPTER_EVENT_COUNTER_EQUAL 0, 10
+          EVENT FlagChapter06_CreidneIucharAdjacent, EventChapter06CreidneIucharAdjacent
         BREAK_STATE_CHECKS
 
-        CHECK_TURN_PHASE_AI_ACTOR $FF, $00, $00, $0000
-          CLEAR_TALK_IF_ONE_MARRIED aUnknownB282F4
+        CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Player
+          CLEAR_TALK_IF_ONE_MARRIED aChapter06ClearTalksIfMarriedTable
         BREAK_TURN_EVENT_CHECKS
 
         END_CHAPTER_EVENTS
 
-      aUnknownB282F4 ; B2/82F4
+      aChapter06ClearTalksIfMarriedTable ; B2/82F4
 
         .byte Lana, Seliph
         .byte Muirne, Seliph
@@ -434,18 +441,18 @@
 
       aChapter06TalkEvents ; B2/83FF
 
-        .structChapterTalkEventEntry Chapter06, 29, Creidne, Iuchar
-        .structChapterTalkEventEntry Chapter06, 29, Creidne, Iucharba
-        .structChapterTalkEventEntry Chapter06, 29, Larcei, Iuchar
-        .structChapterTalkEventEntry Chapter06, 29, Larcei, Iucharba
-        .structChapterTalkEventEntry Chapter06, 39, Tristan, IsaachArmy2
-        .structChapterTalkEventEntry Chapter06, 39, Deimne, IsaachArmy2
-        .structChapterTalkEventEntry Chapter06, 39, Diarmuid, IsaachArmy2
-        .structChapterTalkEventEntry Chapter06, 39, Lester, IsaachArmy2
-        .structChapterTalkEventEntry Chapter06, 40, Tristan, SofalaArmy2
-        .structChapterTalkEventEntry Chapter06, 40, Deimne, SofalaArmy2
-        .structChapterTalkEventEntry Chapter06, 40, Diarmuid, SofalaArmy2
-        .structChapterTalkEventEntry Chapter06, 40, Lester, SofalaArmy2
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_LarceiBrothersTalkCheck, Creidne, Iuchar
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_LarceiBrothersTalkCheck, Creidne, Iucharba
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_LarceiBrothersTalkCheck, Larcei, Iuchar
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_LarceiBrothersTalkCheck, Larcei, Iucharba
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_IsaachTalkCheck, Tristan, IsaachAxeKnight
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_IsaachTalkCheck, Deimne, IsaachAxeKnight
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_IsaachTalkCheck, Diarmuid, IsaachAxeKnight
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_IsaachTalkCheck, Lester, IsaachAxeKnight
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_SofalaTalkCheck, Tristan, SofalaFighter
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_SofalaTalkCheck, Deimne, SofalaFighter
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_SofalaTalkCheck, Diarmuid, SofalaFighter
+        .structChapterTalkEventEntry Chapter06, FlagChapter06_SofalaTalkCheck, Lester, SofalaFighter
         .word $FFFF
 
       aUnknownB28461 ; B2/8461
@@ -482,9 +489,9 @@
 
         AI_SET_IGNORED_GENERATION_ID GEN_ID_Creidne_Larcei
         AI_SET_FORMATION $05, $01
-        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, 8, ++
+        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, FlagChapter06_LarceiIucharbaTalk, ++
 
-          AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, 0, +
+          AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, FlagChapter06_GaneishireSeizedCheck, +
 
             AI_END
 
@@ -507,9 +514,9 @@
 
         AI_SET_IGNORED_GENERATION_ID GEN_ID_Creidne_Larcei
         AI_SET_FORMATION $06, $00
-        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, 9, ++
+        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, FlagChapter06_LarceiIucharTalk, ++
 
-          AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, 0, +
+          AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, FlagChapter06_GaneishireSeizedCheck, +
 
             AI_END
 
@@ -531,15 +538,16 @@
       aFactionGroup27AI1 ; B2/84BC
 
         AI_SET_FORMATION $08, $01
-        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, 33, ++
+        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, FlagChapter06_BrotherRecruitedDanannResponse, ++
 
           AI_22 +
 
             AI_0A
             AI_END
 
+          ; tries to set Ch1 flag?
           +
-          AI_SET_CHAPTER_EVENT_FLAG Chapter01, 35
+          AI_SET_CHAPTER_EVENT_FLAG Chapter01, FlagChapter06_Unknown35
           AI_0A
           AI_END
 
@@ -571,7 +579,7 @@
 
       aFactionGroup27AI4 ; B2/84F0
 
-        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, 0, +
+        AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET Chapter06, FlagChapter06_GaneishireSeizedCheck, +
 
           AI_0B
           AI_END

@@ -21,7 +21,7 @@
       REMOVE_UNIT Byron
 
     FILL_EVENT_UNIT_SLOT Sigurd, EventUnitSlot1
-    RUN_ASM rlASMCTyrfingObtainShine
+    RUN_ASM rlASMCChapter05TyrfingObtainShine
     YIELD
 
     PLAY_SFX_WORD $00E0
@@ -33,7 +33,7 @@
 
     END_EVENT
 
-  rlASMCTyrfingObtainShine ; 9D/C0FA
+  rlASMCChapter05TyrfingObtainShine ; 9D/C0FA
 
     .al
     .autsiz

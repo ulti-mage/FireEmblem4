@@ -1,0 +1,1 @@
+{DIALOGUE_FONT_0}ライブのうでわ{DIALOGUE_EOF}
