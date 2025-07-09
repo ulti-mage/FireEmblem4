@@ -14,12 +14,7 @@ python "%FE4c2a%" "CharacterData.csv" "CharacterDataHelper.h" "CharacterData.csv
 cd %~dp0TABLES\ITEM
 python "%FE4c2a%" "ItemData.csv" "ItemDataHelper.h" "ItemData.csv.asm"
 
-cd %~dp0TABLES\CHAPTER
-for %%t in (*.csv) do (
-    python "%c2a%" "%%t" "%%~nt.csv.asm"
-)
-
-cd %~dp0TABLES\EVENTUNIT
+cd %~dp0TABLES
 for %%t in (*.csv) do (
     python "%c2a%" "%%t" "%%~nt.csv.asm"
 )
