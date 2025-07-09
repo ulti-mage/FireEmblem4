@@ -1,10 +1,10 @@
 {DIALOGUE_FONT_0}トラキア半島は統一された｡{DIALOGUE_NL}
-{DIALOGUE_WM_HIGHLIGHT $0A}{DIALOGUE_FONT_0}かつては多くの小国が乱立し{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT WMH_UnifiedThracia}{DIALOGUE_FONT_0}かつては多くの小国が乱立し{DIALOGUE_NL}
 戦いにあけくれたこの地方も､{DIALOGUE_NL}
 レンスター王国の再興と{DIALOGUE_NL}
 トラキア王国の滅亡によって､{DIALOGUE_NL}
 ようやく平和が訪れたのである｡{DIALOGUE_NL}
-{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_PAUSE 20}{DIALOGUE_WM_FADE_IN_PORTRAIT $02, [152, 28]}新しい国の初代国王には､{DIALOGUE_NL}
+{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_PAUSE 20}{DIALOGUE_WM_FADE_IN_PORTRAIT WM_PortraitSlot1, [152, 28]}新しい国の初代国王には､{DIALOGUE_NL}
 {DIALOGUE_UNIT1_NAME}が人々の熱い希望によって{DIALOGUE_NL}
 選ばれた｡{DIALOGUE_NL}
 {DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceLeifNoLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceStart}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceLeifsLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceFinn}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceHannibal}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceCharlotCoirpre}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceAsaello}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceDaisy}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceEndInherited}{DIALOGUE_ASMC rlASMCEpilogueWorldMapNewThraciaPieceEndCheckLeifAndAltenaAlive}トラキア半島に生まれた新しい国､{DIALOGUE_NL}

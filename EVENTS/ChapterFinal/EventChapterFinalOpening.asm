@@ -189,7 +189,7 @@
     lda #6
     sta $7E4EAD
     jsl $9EF1D9
-    jsl $829478
+    jsl rlCreateProcHaltEvent
     rtl
 
     .databank 0

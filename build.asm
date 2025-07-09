@@ -37,40 +37,15 @@
 
   .endnamespace ; crossbank
 
-
-  ; Bugfix idea:
-  ; remove the first CMP in rsUnknown86B6BE, so AI units without
-  ; the groupleader flag respect the ignored generation ID.
-  ; Ayras AI is supposed to ignore Sigurd, but since she isnt a group
-  ; leader she goes after him anyway.
-
+  .include "Safeguard.h"
 
   .include "SRC/BaseRom.asm"
-  .include "LIB/LibraryHelpers.h"
-  .include "LIB/IORegisters.h"
-  .include "LIB/WRAM.h"
-  .include "LIB/Constants.h"
-  .include "LIB/Macros.h"
-  .include "LIB/MenuText.h"
-  .include "LIB/Procs.h"
-  .include "LIB/Events.h"
-  .include "LIB/AI.h"
-  .include "LIB/Palettes.h"
-  .include "LIB/Dialogue.h"
-  .include "LIB/Sprites.h"
-  .include "LIB/Tiles.h"
-  .include "LIB/DMA.h"
-  .include "LIB/HDMA.h"
-  .include "LIB/PermanentFlags.h"
-  .include "LIB/SRAM.h"
-  .include "LIB/Save.h"
 
-  .include "LIB/Functions.h"
-
-    ROM = binary("fe4.sfc")
+  ROM = binary("fe4.sfc")
 
   .include "SRC/Debug.asm"
   .include "SRC/Proc.asm"
+  .include "SRC/DMA.asm"
   .include "SRC/HDMA.asm"
   .include "SRC/Decompressor.asm"
   .include "SRC/Dialogue.asm"
@@ -78,6 +53,7 @@
   .include "SRC/Save.asm"
   .include "SRC/Epilogue.asm"
   .include "SRC/Events.asm"
+  .include "SRC/WorldMap.asm"
 
   .include "SRC/Bank80.asm"
   .include "SRC/Bank81.asm"
@@ -88,8 +64,9 @@
   .include "SRC/Bank89.asm"
   .include "SRC/Bank8A.asm"
   .include "SRC/Bank8B.asm"
+  .include "SRC/Bank8F.asm"
   .include "SRC/Bank91.asm"
-
+  .include "SRC/BankB1.asm"
 
   .include "EVENTS/ChapterPrologue.asm"
   .include "EVENTS/Chapter01.asm"
@@ -129,6 +106,15 @@
       .dsection Code80A096Section
 
       ; 80/A1AB
+
+    .here
+
+    * = $00A34F
+    .logical $80A34F
+
+      .dsection DMAEngineSection
+
+      ; 80/A5D9
 
     .here
 
@@ -317,6 +303,16 @@
       ; 82/9245
 
     .here
+
+    * = $029478
+    .logical $829478
+
+      .dsection Code829478Section
+
+      ; 829487
+
+    .here
+
 
     * = $02C000
     .logical $82C000
@@ -842,6 +838,15 @@
 
     .here
 
+    * = $09C6F9
+    .logical $89C6F9
+
+      .dsection DebugMenuSection
+
+      ; 89/EB26
+
+    .here
+
     * = $0AB317
     .logical $8AB317
 
@@ -870,6 +875,16 @@
 
     .here
 
+
+    * = $0B84E5
+    .logical $8B84E5
+
+      .dsection WorldMapMarkers1Section
+
+      ; 8B/87E5
+
+    .here
+
     * = $0B88CE
     .logical $8B88CE
 
@@ -879,8 +894,10 @@
 
     .here
 
-    * = $0B9A88
-    .logical $8B9A88
+    * = $0B977D
+    .logical $8B977D
+
+      .dsection WorldMapMarkers2Section
 
       aPortraitDataIDs .include "TABLES/CHARACTER/PortraitDataIDs.csv.asm" ; 8B/9A88
       aClassPortraitDataIDs .include "TABLES/CLASS/ClassPortraitDataIDs.csv.asm" ; 8B/9FF8
@@ -1364,7 +1381,7 @@
       dialogueChapter07LeifSeliphTalk .include "TEXT/DIALOGUE/Chapter07/LeifSeliphTalk.dialogue.txt" ; 8DF32D
       dialogueChapter07DiarmuidNannaTalk .include "TEXT/DIALOGUE/Chapter07/DiarmuidNannaTalk.dialogue.txt" ; 8DF6F8
       dialogueChapter07TristanJeanneTalk .include "TEXT/DIALOGUE/Chapter07/TristanJeanneTalk.dialogue.txt" ; 8DF8FB
-      dialogueChapter07TineSeliphTalk .include "TEXT/DIALOGUE/Chapter07/TineSeliphTalk.dialogue.txt" ; 8DFAFB
+      dialogueChapter07TineLinda_SeliphTalk .include "TEXT/DIALOGUE/Chapter07/TineLinda_SeliphTalk.dialogue.txt" ; 8DFAFB
 
       aWorldMapEvents .binclude "TABLES/CHAPTER/WorldMapEvents.csv.asm"
 
@@ -1772,83 +1789,7 @@
     * = $0F8000
     .logical $8F8000
 
-      aUnknown8F8000 ; 8F/8000
-
-        .word $AA24
-        .word $B66C
-        .word $5349
-
-      rlUnknown8F8006 ; 8F/8006
-
-        .al
-        .autsiz
-        .databank ?
-
-        phb
-        php
-        phk
-        plb
-        phx
-        lda $8F8004
-        beq _CLC
-
-          lda #0
-          ldx #$8D56
-
-            -
-            clc
-            adc $800000,x
-            inc x
-            inc x
-            cpx #$8E2D
-            bcc -
-
-          cmp $8F8000
-          bne _SEC
-
-          lda #0
-          ldx #$8017
-
-            -
-            clc
-            adc $870000,x
-            inc x
-            inc x
-            cpx #$80AA
-            bcc -
-
-          cmp $8F8002
-          bne _SEC
-
-          lda $8F8000
-          cmp $888000
-          bne _SEC
-
-          cmp $878008
-          bne _SEC
-
-          lda $8F8002
-          cmp $888002
-          bne _SEC
-
-          cmp $87800A
-          bne _SEC
-
-        _CLC
-        plx
-        plp
-        plb
-        clc
-        rtl
-
-        _SEC
-        plx
-        plp
-        plb
-        sec
-        rtl
-
-        .databank 0
+      .dsection Code8F8000Section
 
       dialogueChapter02Opening1 .include "TEXT/DIALOGUE/Chapter02/Opening1.dialogue.txt" ; 8F806B
       dialogueChapter02Opening2 .include "TEXT/DIALOGUE/Chapter02/Opening2.dialogue.txt" ; 8F823F
@@ -1905,7 +1846,7 @@
       .include "EVENTS/Chapter08/EventChapter08MuhammadCharge.asm"
       .include "EVENTS/Chapter08/EventChapter08OvoCharge.asm"
       .include "EVENTS/Chapter08/EventChapter08BanbaCharge.asm"
-      .include "EVENTS/Chapter08/EventChapter08FebailSpawn.asm"
+      .include "EVENTS/Chapter08/EventChapter08FebailAsaello_Spawn.asm"
       .include "EVENTS/Chapter08/EventChapter08IshtarSpawn.asm"
       .include "EVENTS/Chapter08/EventChapter08IshtarLeave.asm"
       .include "EVENTS/Chapter08/EventChapter08ConnachtSeized.asm"
@@ -1914,8 +1855,8 @@
       .include "EVENTS/Chapter08/EventChapter08CoulterCharge.asm"
       .include "EVENTS/Chapter08/EventChapter08MunsterSavedMaykovReaction.asm"
       .include "EVENTS/Chapter08/EventChapter08Ending.asm"
-      .include "EVENTS/Chapter08/EventChapter08PattyFebailTalk.asm"
-      .include "EVENTS/Chapter08/EventChapter08SeliphCedTalk.asm"
+      .include "EVENTS/Chapter08/EventChapter08PattyDaisy_FebailAsaelloTalk.asm"
+      .include "EVENTS/Chapter08/EventChapter08Seliph_CedHawkTalk.asm"
       .include "EVENTS/Chapter08/EventChapter08Village1.asm"
       .include "EVENTS/Chapter08/EventChapter08VillagePowerRing.asm"
       .include "EVENTS/Chapter08/EventChapter08Village2.asm"
@@ -1944,7 +1885,7 @@
       dialogueChapter08MuhammadCharge .include "TEXT/DIALOGUE/Chapter08/MuhammadCharge.dialogue.txt" ; 8FC741
       dialogueChapter08OvoCharge .include "TEXT/DIALOGUE/Chapter08/OvoCharge.dialogue.txt" ; 8FC79D
       dialogueChapter08BanbaCharge .include "TEXT/DIALOGUE/Chapter08/BanbaCharge.dialogue.txt" ; 8FC7E3
-      dialogueChapter08FebailSpawn .include "TEXT/DIALOGUE/Chapter08/FebailSpawn.dialogue.txt" ; 8FC817
+      dialogueChapter08FebailAsaello_Spawn .include "TEXT/DIALOGUE/Chapter08/FebailAsaello_Spawn.dialogue.txt" ; 8FC817
       dialogueChapter08IshtarSpawn .include "TEXT/DIALOGUE/Chapter08/IshtarSpawn.dialogue.txt" ; 8FCA0D
       dialogueChapter08IshtarLeave .include "TEXT/DIALOGUE/Chapter08/IshtarLeave.dialogue.txt" ; 8FCBB2
       dialogueChapter08ConnachtSeized .include "TEXT/DIALOGUE/Chapter08/ConnachtSeized.dialogue.txt" ; 8FCC47
@@ -1958,8 +1899,8 @@
       dialogueChapter08MunsterSavedMaykovReaction .include "TEXT/DIALOGUE/Chapter08/MunsterSavedMaykovReaction.dialogue.txt" ; 8FD3CD
       dialogueChapter08Ending .include "TEXT/DIALOGUE/Chapter08/Ending.dialogue.txt" ; 8FD44D
       dialogueChapter08EndingAltena .include "TEXT/DIALOGUE/Chapter08/EndingAltena.dialogue.txt" ; 8FD69C
-      dialogueChapter08PattyFebailTalk .include "TEXT/DIALOGUE/Chapter08/PattyFebailTalk.dialogue.txt" ; 8FD6D2
-      dialogueChapter08SeliphCedTalk .include "TEXT/DIALOGUE/Chapter08/SeliphCedTalk.dialogue.txt" ; 8FD86E
+      dialogueChapter08PattyDaisy_FebailAsaelloTalk .include "TEXT/DIALOGUE/Chapter08/PattyDaisy_FebailAsaelloTalk.dialogue.txt" ; 8FD6D2
+      dialogueChapter08Seliph_CedHawkTalk .include "TEXT/DIALOGUE/Chapter08/Seliph_CedHawkTalk.dialogue.txt" ; 8FD86E
       dialogueChapter08CivilianRescued1 .include "TEXT/DIALOGUE/Chapter08/CivilianRescued1.dialogue.txt" ; 8FD9FF
       dialogueChapter08CivilianRescued2 .include "TEXT/DIALOGUE/Chapter08/CivilianRescued2.dialogue.txt" ; 8FDA24
       dialogueChapter08CivilianRescued3 .include "TEXT/DIALOGUE/Chapter08/CivilianRescued3.dialogue.txt" ; 8FDA3C
@@ -1973,8 +1914,8 @@
       dialogueChapter08Village4 .include "TEXT/DIALOGUE/Chapter08/Village4.dialogue.txt" ; 8FDCF4
       dialogueChapter08VillageThiefBand .include "TEXT/DIALOGUE/Chapter08/VillageThiefBand.dialogue.txt" ; 8FDD74
       dialogueChapter08IshtarBattleQuote .include "TEXT/DIALOGUE/Chapter08/IshtarBattleQuote.dialogue.txt" ; 8FDE09
-      dialogueChapter08FebailBattleQuote .include "TEXT/DIALOGUE/Chapter08/FebailBattleQuote.dialogue.txt" ; 8FDE2E
-      dialogueChapter08PattyFebailBattleQuote .include "TEXT/DIALOGUE/Chapter08/PattyFebailBattleQuote.dialogue.txt" ; 8FDE4E
+      dialogueChapter08FebailAsaello_BattleQuote .include "TEXT/DIALOGUE/Chapter08/FebailAsaello_BattleQuote.dialogue.txt" ; 8FDE2E
+      dialogueChapter08PattyDaisy_FebailAsaelloBattleQuote .include "TEXT/DIALOGUE/Chapter08/PattyDaisy_FebailAsaelloBattleQuote.dialogue.txt" ; 8FDE4E
       dialogueChapter08MuhammadBattleQuote .include "TEXT/DIALOGUE/Chapter08/MuhammadBattleQuote.dialogue.txt" ; 8FDE71
       dialogueChapter08OvoBattleQuote .include "TEXT/DIALOGUE/Chapter08/OvoBattleQuote.dialogue.txt" ; 8FDE8B
       dialogueChapter08BanbaTriangleAttack .include "TEXT/DIALOGUE/Chapter08/BanbaTriangleAttack.dialogue.txt" ; 8FDEAE
@@ -2010,37 +1951,37 @@
       .include "EVENTS/Chapter06/EventChapter06OifeySeliphTalk.asm"
       .include "EVENTS/Chapter06/EventChapter06LesterLanaTalk.asm"
       .include "EVENTS/Chapter06/EventChapter06FeeSeliphTalk.asm"
-      .include "EVENTS/Chapter06/EventChapter06LanaJuliaTalk.asm"
+      .include "EVENTS/Chapter06/EventChapter06LanaMuirne_JuliaTalk.asm"
       .include "EVENTS/Chapter06/EventChapter06ScathachLarceiTalk.asm"
-      .include "EVENTS/Chapter06/EventChapter06ArthurSeliphTalk.asm"
+      .include "EVENTS/Chapter06/EventChapter06ArthurAmid_SeliphTalk.asm"
       .include "EVENTS/Chapter06/EventChapter06DeimneMuirneTalk.asm"
       .include "EVENTS/Chapter06/EventChapter06DalvinCreidneTalk.asm"
-      .include "EVENTS/Chapter06/EventChapter06SeliphLanaTalk.asm"
+      .include "EVENTS/Chapter06/EventChapter06Seliph_LanaMuirneTalk.asm"
       .include "EVENTS/Chapter06/EventChapter06JuliaSeliphTalk.asm"
 
-      .include "EVENTS/Chapter07/EventChapter07ShannanPattyTalk.asm"
+      .include "EVENTS/Chapter07/EventChapter07Shannan_PattyDaisyTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07SeliphShannanTalk.asm"
-      .include "EVENTS/Chapter07/EventChapter07OifeyDiarmuidTalk.asm"
-      .include "EVENTS/Chapter07/EventChapter07LarceiShannanTalk.asm"
-      .include "EVENTS/Chapter07/EventChapter07PattySeliphTalk.asm"
+      .include "EVENTS/Chapter07/EventChapter07Oifey_DiarmuidTristanTalk.asm"
+      .include "EVENTS/Chapter07/EventChapter07LarceiCreidne_ShannanTalk.asm"
+      .include "EVENTS/Chapter07/EventChapter07PattyDaisy_SeliphTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07AresSeliphTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07LeifSeliphTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07DiarmuidNannaTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07TristanJeanneTalk.asm"
-      .include "EVENTS/Chapter07/EventChapter07TineSeliphTalk.asm"
-      .include "EVENTS/Chapter07/EventChapter07LeneSeliphTalk.asm"
+      .include "EVENTS/Chapter07/EventChapter07TineLinda_SeliphTalk.asm"
+      .include "EVENTS/Chapter07/EventChapter07LeneLaylea_SeliphTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07FinnNannaTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07FinnLanaTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07FinnLarceiTalk.asm"
 
-      .include "EVENTS/Chapter08/EventChapter08FebailSeliphTalk.asm"
+      .include "EVENTS/Chapter08/EventChapter08FebailAsaello_SeliphTalk.asm"
       .include "EVENTS/Chapter08/EventChapter08HerminaHawkTalk.asm"
       .include "EVENTS/Chapter08/EventChapter08FeeCedTalk.asm"
       .include "EVENTS/Chapter08/EventChapter08NannaAresTalk.asm"
       .include "EVENTS/Chapter08/EventChapter08CedSeliphTalk.asm"
-      .include "EVENTS/Chapter08/EventChapter08SeliphTineTalk.asm"
+      .include "EVENTS/Chapter08/EventChapter08Seliph_TineLindaTalk.asm"
       .include "EVENTS/Chapter08/EventChapter08JuliaSeliphTalk.asm"
-      .include "EVENTS/Chapter08/EventChapter08ArthurFeeTalk.asm"
+      .include "EVENTS/Chapter08/EventChapter08ArthurAmid_FeeHerminaTalk.asm"
       .include "EVENTS/Chapter08/EventChapter08FinnLeifTalk.asm"
 
       .include "EVENTS/Chapter09/EventChapter09FebailPattyTalk.asm"
@@ -2048,41 +1989,41 @@
       .include "EVENTS/Chapter09/EventChapter09LeneCoirpreTalk.asm"
       .include "EVENTS/Chapter09/EventChapter09FinnAltenaTalk.asm"
       .include "EVENTS/Chapter09/EventChapter09HannibalAltenaTalk.asm"
-      .include "EVENTS/Chapter09/EventChapter09PattyCoirpreTalk.asm"
+      .include "EVENTS/Chapter09/EventChapter09PattyDaisy_CoirpreCharlotTalk.asm"
       .include "EVENTS/Chapter09/EventChapter09JuliaSeliphTalk.asm"
 
       .include "EVENTS/Chapter10/EventChapter10LeifAltenaTalk.asm"
       .include "EVENTS/Chapter10/EventChapter10ShannanSeliphTalk.asm"
       .include "EVENTS/Chapter10/EventChapter10OifeySeliphTalk.asm"
-      .include "EVENTS/Chapter10/EventChapter10CoirpreAltenaTalk.asm"
-      .include "EVENTS/Chapter10/EventChapter10LesterPattyTalk.asm"
-      .include "EVENTS/Chapter10/EventChapter10NannaLeifTalk.asm"
-      .include "EVENTS/Chapter10/EventChapter10FebailLanaTalk.asm"
+      .include "EVENTS/Chapter10/EventChapter10CoirpreCharlot_AltenaTalk.asm"
+      .include "EVENTS/Chapter10/EventChapter10LesterDeimne_PattyDaisyTalk.asm"
+      .include "EVENTS/Chapter10/EventChapter10NannaJeanne_LeifTalk.asm"
+      .include "EVENTS/Chapter10/EventChapter10FebailAsaello_LanaMuirneTalk.asm"
       .include "EVENTS/Chapter10/EventChapter10SeliphLeneTalk.asm"
       .include "EVENTS/Chapter10/EventChapter10SeliphFeeTalk.asm"
       .include "EVENTS/Chapter10/EventChapter10SeliphTineTalk.asm"
 
-      .include "EVENTS/ChapterFinal/EventChapterFinalTineSeliphTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalTineCedTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalTineLeifTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalTineLinda_SeliphTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalTineLinda_CedHawkTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalTineLinda_LeifTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalDaisyDeimneTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalJeanneLeifTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalMuirneAsaelloTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalLanaSeliphTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalLanaMuirne_SeliphTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalLanaFebailTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalLanaScathachTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiSeliphTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiIucharTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiIucharbaTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiShannanTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalPattySeliphTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalPattyShannanTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalLanaMuirne_ScathachDalvinTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiCreidne_SeliphTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiCreidne_IucharTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiCreidne_IucharbaTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalLarceiCreidne_ShannanTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalPattyDaisy_SeliphTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalPattyDaisy_ShannanTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalPattyLesterTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalNannaSeliphTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalNannaJeanne_SeliphTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalNannaAresTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalNannaLeifTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalFeeSeliphTalk.asm"
-      .include "EVENTS/ChapterFinal/EventChapterFinalFeeArthurTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalFeeHermina_SeliphTalk.asm"
+      .include "EVENTS/ChapterFinal/EventChapterFinalFeeHermina_ArthurAmidTalk.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinalFeeOifeyTalk.asm"
 
       .include "EVENTS/Chapter09/EventChapter09AsaelloDaisyTalk.asm"
@@ -2189,10 +2130,10 @@
       dialogueChapter06SchmidtSpawn1 .include "TEXT/DIALOGUE/Chapter06/SchmidtSpawn1.dialogue.txt" ; 90D4DB
       dialogueChapter06SchmidtSpawn2 .include "TEXT/DIALOGUE/Chapter06/SchmidtSpawn2.dialogue.txt" ; 90D53E
       dialogueChapter06SchmidtSpawn3 .include "TEXT/DIALOGUE/Chapter06/SchmidtSpawn3.dialogue.txt" ; 90D583
-      dialogueChapter06LarceiIucharbaTalk .include "TEXT/DIALOGUE/Chapter06/LarceiIucharbaTalk.dialogue.txt" ; 90D5DF
-      dialogueChapter06LarceiIucharbaTalkIucharResponse .include "TEXT/DIALOGUE/Chapter06/LarceiIucharbaTalkIucharResponse.dialogue.txt" ; 90D7F5
-      dialogueChapter06LarceiIucharTalk .include "TEXT/DIALOGUE/Chapter06/LarceiIucharTalk.dialogue.txt" ; 90D843
-      dialogueChapter06LarceiIucharTalkIucharbaResponse .include "TEXT/DIALOGUE/Chapter06/LarceiIucharTalkIucharbaResponse.dialogue.txt" ; 90D9B4
+      dialogueChapter06LarceiCreidne_IucharbaTalk .include "TEXT/DIALOGUE/Chapter06/LarceiCreidne_IucharbaTalk.dialogue.txt" ; 90D5DF
+      dialogueChapter06LarceiCreidne_IucharbaTalkIucharResponse .include "TEXT/DIALOGUE/Chapter06/LarceiCreidne_IucharbaTalkIucharResponse.dialogue.txt" ; 90D7F5
+      dialogueChapter06LarceiCreidne_IucharTalk .include "TEXT/DIALOGUE/Chapter06/LarceiCreidne_IucharTalk.dialogue.txt" ; 90D843
+      dialogueChapter06LarceiCreidne_IucharTalkIucharbaResponse .include "TEXT/DIALOGUE/Chapter06/LarceiCreidne_IucharTalkIucharbaResponse.dialogue.txt" ; 90D9B4
       dialogueChapter06IsaachSeizedDanannAlive .include "TEXT/DIALOGUE/Chapter06/IsaachSeizedDanannAlive.dialogue.txt" ; 90DA0E
       dialogueChapter06IsaachSeizedDanannDead .include "TEXT/DIALOGUE/Chapter06/IsaachSeizedDanannDead.dialogue.txt" ; 90DC01
       dialogueChapter06SofalaSeizedDanannAlive .include "TEXT/DIALOGUE/Chapter06/SofalaSeizedDanannAlive.dialogue.txt" ; 90DC35
@@ -2280,8 +2221,8 @@
       .include "EVENTS/Chapter06/EventChapter06GaneishireSeized.asm"
       .include "EVENTS/Chapter06/EventChapter06FeeArthurSpawn.asm"
       .include "EVENTS/Chapter06/EventChapter06SchmidtSpawn.asm"
-      .include "EVENTS/Chapter06/EventChapter06LarceiIucharbaTalk.asm"
-      .include "EVENTS/Chapter06/EventChapter06LarceiIucharTalk.asm"
+      .include "EVENTS/Chapter06/EventChapter06LarceiCreidne_IucharbaTalk.asm"
+      .include "EVENTS/Chapter06/EventChapter06LarceiCreidne_IucharTalk.asm"
       .include "EVENTS/Chapter06/EventChapter06IsaachSeized.asm"
       .include "EVENTS/Chapter06/EventChapter06SofalaSeized.asm"
       .include "EVENTS/Chapter06/EventChapter06BrotherRecruitedDanannResponse.asm"
@@ -2659,20 +2600,20 @@
       dialogueChapter06OifeySeliphTalk .include "TEXT/DIALOGUE/Chapter06/OifeySeliphTalk.dialogue.txt" ; AEE07D
       dialogueChapter06LesterLanaTalk .include "TEXT/DIALOGUE/Chapter06/LesterLanaTalk.dialogue.txt" ; AEE2C2
       dialogueChapter06FeeSeliphTalk .include "TEXT/DIALOGUE/Chapter06/FeeSeliphTalk.dialogue.txt" ; AEE472
-      dialogueChapter06LanaJuliaTalk .include "TEXT/DIALOGUE/Chapter06/LanaJuliaTalk.dialogue.txt" ; AEE626
+      dialogueChapter06LanaMuirne_JuliaTalk .include "TEXT/DIALOGUE/Chapter06/LanaMuirne_JuliaTalk.dialogue.txt" ; AEE626
       dialogueChapter06ScathachLarceiTalk .include "TEXT/DIALOGUE/Chapter06/ScathachLarceiTalk.dialogue.txt" ; AEE76F
-      dialogueChapter06ArthurSeliphTalk .include "TEXT/DIALOGUE/Chapter06/ArthurSeliphTalk.dialogue.txt" ; AEE93A
+      dialogueChapter06ArthurAmid_SeliphTalk .include "TEXT/DIALOGUE/Chapter06/ArthurAmid_SeliphTalk.dialogue.txt" ; AEE93A
       dialogueChapter06DeimneMuirneTalk .include "TEXT/DIALOGUE/Chapter06/DeimneMuirneTalk.dialogue.txt" ; AEEA90
       dialogueChapter06DalvinCreidneTalk .include "TEXT/DIALOGUE/Chapter06/DalvinCreidneTalk.dialogue.txt" ; AEEC0D
-      dialogueChapter06SeliphLanaTalk .include "TEXT/DIALOGUE/Chapter06/SeliphLanaTalk.dialogue.txt" ; AEED93
+      dialogueChapter06Seliph_LanaMuirneTalk .include "TEXT/DIALOGUE/Chapter06/Seliph_LanaMuirneTalk.dialogue.txt" ; AEED93
       dialogueChapter06JuliaSeliphTalkIsaachSeized .include "TEXT/DIALOGUE/Chapter06/JuliaSeliphTalkIsaachSeized.dialogue.txt" ; AEEE3D
       dialogueChapter06JuliaSeliphTalkSofalaSeized .include "TEXT/DIALOGUE/Chapter06/JuliaSeliphTalkSofalaSeized.dialogue.txt" ; AEEF0E
 
-      dialogueChapter07ShannanPattyTalk .include "TEXT/DIALOGUE/Chapter07/ShannanPattyTalk.dialogue.txt" ; AEEFCC
+      dialogueChapter07Shannan_PattyDaisyTalk .include "TEXT/DIALOGUE/Chapter07/Shannan_PattyDaisyTalk.dialogue.txt" ; AEEFCC
       dialogueChapter07SeliphShannanTalk .include "TEXT/DIALOGUE/Chapter07/SeliphShannanTalk.dialogue.txt" ; AEF22F
-      dialogueChapter07OifeyDiarmuidTalk .include "TEXT/DIALOGUE/Chapter07/OifeyDiarmuidTalk.dialogue.txt" ; AEF36C
-      dialogueChapter07LarceiShannanTalk .include "TEXT/DIALOGUE/Chapter07/LarceiShannanTalk.dialogue.txt" ; AEF452
-      dialogueChapter07PattySeliphTalk .include "TEXT/DIALOGUE/Chapter07/PattySeliphTalk.dialogue.txt" ; AEF550
+      dialogueChapter07Oifey_DiarmuidTristanTalk .include "TEXT/DIALOGUE/Chapter07/Oifey_DiarmuidTristanTalk.dialogue.txt" ; AEF36C
+      dialogueChapter07LarceiCreidne_ShannanTalk .include "TEXT/DIALOGUE/Chapter07/LarceiCreidne_ShannanTalk.dialogue.txt" ; AEF452
+      dialogueChapter07PattyDaisy_SeliphTalk .include "TEXT/DIALOGUE/Chapter07/PattyDaisy_SeliphTalk.dialogue.txt" ; AEF550
       dialogueChapter07AresSeliphTalk .include "TEXT/DIALOGUE/Chapter07/AresSeliphTalk.dialogue.txt" ; AEF7E0
 
       .fill $AE8000 + $8000 - *, 0
@@ -2686,41 +2627,41 @@
       dialogueChapter09LeneCoirpreTalk .include "TEXT/DIALOGUE/Chapter09/LeneCoirpreTalk.dialogue.txt" ; AF818B
       dialogueChapter09FinnAltenaTalk .include "TEXT/DIALOGUE/Chapter09/FinnAltenaTalk.dialogue.txt" ; AF8379
       dialogueChapter09HannibalAltenaTalk .include "TEXT/DIALOGUE/Chapter09/HannibalAltenaTalk.dialogue.txt" ; AF853B
-      dialogueChapter09PattyCoirpreTalk .include "TEXT/DIALOGUE/Chapter09/PattyCoirpreTalk.dialogue.txt" ; AF86DF
+      dialogueChapter09PattyDaisy_CoirpreCharlotTalk .include "TEXT/DIALOGUE/Chapter09/PattyDaisy_CoirpreCharlotTalk.dialogue.txt" ; AF86DF
       dialogueChapter09JuliaSeliphTalk .include "TEXT/DIALOGUE/Chapter09/JuliaSeliphTalk.dialogue.txt" ; AF879F
 
       dialogueChapter10LeifAltenaTalk .include "TEXT/DIALOGUE/Chapter10/LeifAltenaTalk.dialogue.txt" ; AF8AF2
       dialogueChapter10ShannanSeliphTalk .include "TEXT/DIALOGUE/Chapter10/ShannanSeliphTalk.dialogue.txt" ; AF8DA4
       dialogueChapter10OifeySeliphTalk .include "TEXT/DIALOGUE/Chapter10/OifeySeliphTalk.dialogue.txt" ; AF8EE2
-      dialogueChapter10CoirpreAltenaTalk .include "TEXT/DIALOGUE/Chapter10/CoirpreAltenaTalk.dialogue.txt" ; AF9321
-      dialogueChapter10LesterPattyTalk .include "TEXT/DIALOGUE/Chapter10/LesterPattyTalk.dialogue.txt" ; AF955C
-      dialogueChapter10NannaLeifTalk .include "TEXT/DIALOGUE/Chapter10/NannaLeifTalk.dialogue.txt" ; AF96BF
-      dialogueChapter10FebailLanaTalk .include "TEXT/DIALOGUE/Chapter10/FebailLanaTalk.dialogue.txt" ; AF98F8
+      dialogueChapter10CoirpreCharlot_AltenaTalk .include "TEXT/DIALOGUE/Chapter10/CoirpreCharlot_AltenaTalk.dialogue.txt" ; AF9321
+      dialogueChapter10LesterDeimne_PattyDaisyTalk .include "TEXT/DIALOGUE/Chapter10/LesterDeimne_PattyDaisyTalk.dialogue.txt" ; AF955C
+      dialogueChapter10NannaJeanne_LeifTalk .include "TEXT/DIALOGUE/Chapter10/NannaJeanne_LeifTalk.dialogue.txt" ; AF96BF
+      dialogueChapter10FebailAsaello_LanaMuirneTalk .include "TEXT/DIALOGUE/Chapter10/FebailAsaello_LanaMuirneTalk.dialogue.txt" ; AF98F8
       dialogueChapter10SeliphLeneTalk .include "TEXT/DIALOGUE/Chapter10/SeliphLeneTalk.dialogue.txt" ; AF9ABD
       dialogueChapter10SeliphFeeTalk .include "TEXT/DIALOGUE/Chapter10/SeliphFeeTalk.dialogue.txt" ; AF9CF4
       dialogueChapter10SeliphTineTalk .include "TEXT/DIALOGUE/Chapter10/SeliphTineTalk.dialogue.txt" ; AF9F99
 
-      dialogueChapterFinalTineSeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/TineSeliphTalk.dialogue.txt" ; AFA258
-      dialogueChapterFinalTineCedTalk .include "TEXT/DIALOGUE/ChapterFinal/TineCedTalk.dialogue.txt" ; AFA38E
-      dialogueChapterFinalTineLeifTalk .include "TEXT/DIALOGUE/ChapterFinal/TineLeifTalk.dialogue.txt" ; AFA4AD
+      dialogueChapterFinalTineLinda_SeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/TineLinda_SeliphTalk.dialogue.txt" ; AFA258
+      dialogueChapterFinalTineLinda_CedHawkTalk .include "TEXT/DIALOGUE/ChapterFinal/TineLinda_CedHawkTalk.dialogue.txt" ; AFA38E
+      dialogueChapterFinalTineLinda_LeifTalk .include "TEXT/DIALOGUE/ChapterFinal/TineLinda_LeifTalk.dialogue.txt" ; AFA4AD
       dialogueChapterFinalDaisyDeimneTalk .include "TEXT/DIALOGUE/ChapterFinal/DaisyDeimneTalk.dialogue.txt" ; AFA5E7
       dialogueChapterFinalJeanneLeifTalk .include "TEXT/DIALOGUE/ChapterFinal/JeanneLeifTalk.dialogue.txt" ; AFA6DA
       dialogueChapterFinalMuirneAsaelloTalk .include "TEXT/DIALOGUE/ChapterFinal/MuirneAsaelloTalk.dialogue.txt" ; AFA7F9
-      dialogueChapterFinalLanaSeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/LanaSeliphTalk.dialogue.txt" ; AFA97A
+      dialogueChapterFinalLanaMuirne_SeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/LanaMuirne_SeliphTalk.dialogue.txt" ; AFA97A
       dialogueChapterFinalLanaFebailTalk .include "TEXT/DIALOGUE/ChapterFinal/LanaFebailTalk.dialogue.txt" ; AFAAEC
-      dialogueChapterFinalLanaScathachTalk .include "TEXT/DIALOGUE/ChapterFinal/LanaScathachTalk.dialogue.txt" ; AFAB91
-      dialogueChapterFinalLarceiSeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiSeliphTalk.dialogue.txt" ; AFAC38
-      dialogueChapterFinalLarceiIucharTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiIucharTalk.dialogue.txt" ; AFAD11
-      dialogueChapterFinalLarceiIucharbaTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiIucharbaTalk.dialogue.txt" ; AFADF0
-      dialogueChapterFinalLarceiShannanTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiShannanTalk.dialogue.txt" ; AFAF23
-      dialogueChapterFinalPattySeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/PattySeliphTalk.dialogue.txt" ; AFB03E
-      dialogueChapterFinalPattyShannanTalk .include "TEXT/DIALOGUE/ChapterFinal/PattyShannanTalk.dialogue.txt" ; AFB119
+      dialogueChapterFinalLanaMuirne_ScathachDalvinTalk .include "TEXT/DIALOGUE/ChapterFinal/LanaMuirne_ScathachDalvinTalk.dialogue.txt" ; AFAB91
+      dialogueChapterFinalLarceiCreidne_SeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiCreidne_SeliphTalk.dialogue.txt" ; AFAC38
+      dialogueChapterFinalLarceiCreidne_IucharTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiCreidne_IucharTalk.dialogue.txt" ; AFAD11
+      dialogueChapterFinalLarceiCreidne_IucharbaTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiCreidne_IucharbaTalk.dialogue.txt" ; AFADF0
+      dialogueChapterFinalLarceiCreidne_ShannanTalk .include "TEXT/DIALOGUE/ChapterFinal/LarceiCreidne_ShannanTalk.dialogue.txt" ; AFAF23
+      dialogueChapterFinalPattyDaisy_SeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/PattyDaisy_SeliphTalk.dialogue.txt" ; AFB03E
+      dialogueChapterFinalPattyDaisy_ShannanTalk .include "TEXT/DIALOGUE/ChapterFinal/PattyDaisy_ShannanTalk.dialogue.txt" ; AFB119
       dialogueChapterFinalPattyLesterTalk .include "TEXT/DIALOGUE/ChapterFinal/PattyLesterTalk.dialogue.txt" ; AFB28A
-      dialogueChapterFinalNannaSeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/NannaSeliphTalk.dialogue.txt" ; AFB326
+      dialogueChapterFinalNannaJeanne_SeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/NannaJeanne_SeliphTalk.dialogue.txt" ; AFB326
       dialogueChapterFinalNannaAresTalk .include "TEXT/DIALOGUE/ChapterFinal/NannaAresTalk.dialogue.txt" ; AFB437
       dialogueChapterFinalNannaLeifTalk .include "TEXT/DIALOGUE/ChapterFinal/NannaLeifTalk.dialogue.txt" ; AFB5F6
-      dialogueChapterFinalFeeSeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/FeeSeliphTalk.dialogue.txt" ; AFB719
-      dialogueChapterFinalFeeArthurTalk .include "TEXT/DIALOGUE/ChapterFinal/FeeArthurTalk.dialogue.txt" ; AFB8A4
+      dialogueChapterFinalFeeHermina_SeliphTalk .include "TEXT/DIALOGUE/ChapterFinal/FeeHermina_SeliphTalk.dialogue.txt" ; AFB719
+      dialogueChapterFinalFeeHermina_ArthurAmidTalk .include "TEXT/DIALOGUE/ChapterFinal/FeeHermina_ArthurAmidTalk.dialogue.txt" ; AFB8A4
       dialogueChapterFinalFeeOifeyTalk .include "TEXT/DIALOGUE/ChapterFinal/FeeOifeyTalk.dialogue.txt" ; AFB9FC
       dialogueChapter09AsaelloDaisyTalk .include "TEXT/DIALOGUE/Chapter09/AsaelloDaisyTalk.dialogue.txt" ; AFBC4C
       dialogueChapterFinalArthurTineTalk .include "TEXT/DIALOGUE/ChapterFinal/ArthurTineTalk.dialogue.txt" ; AFBDB1
@@ -2918,20 +2859,20 @@
       dialogueChapter06IucharDanannBattleQuote .include "TEXT/DIALOGUE/Chapter06/IucharDanannBattleQuote.dialogue.txt" ; B0DBD0
       dialogueChapter06IucharbaDanannBattleQuote .include "TEXT/DIALOGUE/Chapter06/IucharbaDanannBattleQuote.dialogue.txt" ; B0DC39
       dialogueChapter06IucharIucharbaBattleQuote .include "TEXT/DIALOGUE/Chapter06/IucharIucharbaBattleQuote.dialogue.txt" ; B0DCBE
-      dialogueChapter06LarceiIucharBattleQuote .include "TEXT/DIALOGUE/Chapter06/LarceiIucharBattleQuote.dialogue.txt" ; B0DD49
-      dialogueChapter06LarceiIucharbaBattleQuote .include "TEXT/DIALOGUE/Chapter06/LarceiIucharbaBattleQuote.dialogue.txt" ; B0DD77
+      dialogueChapter06LarceiCreidne_IucharBattleQuote .include "TEXT/DIALOGUE/Chapter06/LarceiCreidne_IucharBattleQuote.dialogue.txt" ; B0DD49
+      dialogueChapter06LarceiCreidne_IucharbaBattleQuote .include "TEXT/DIALOGUE/Chapter06/LarceiCreidne_IucharbaBattleQuote.dialogue.txt" ; B0DD77
       dialogueChapter06SeliphDanannBattleQuote .include "TEXT/DIALOGUE/Chapter06/SeliphDanannBattleQuote.dialogue.txt" ; B0DDA2
 
-      dialogueChapter07ArthurTineBattleQuote .include "TEXT/DIALOGUE/Chapter07/ArthurTineBattleQuote.dialogue.txt" ; B0DE30
+      dialogueChapter07ArthurAmid_TineLindaBattleQuote .include "TEXT/DIALOGUE/Chapter07/ArthurAmid_TineLindaBattleQuote.dialogue.txt" ; B0DE30
       dialogueChapter07AresBramselBattleQuote .include "TEXT/DIALOGUE/Chapter07/AresBramselBattleQuote.dialogue.txt" ; B0DE78
       dialogueChapter07AresJavarroBattleQuote .include "TEXT/DIALOGUE/Chapter07/AresJavarroBattleQuote.dialogue.txt" ; B0DEFA
-      dialogueChapter07TineBloomBattleQuote .include "TEXT/DIALOGUE/Chapter07/TineBloomBattleQuote.dialogue.txt" ; B0DF4C
-      dialogueChapter07ArthurBloomBattleQuote .include "TEXT/DIALOGUE/Chapter07/ArthurBloomBattleQuote.dialogue.txt" ; B0DF90
+      dialogueChapter07TineLinda_BloomBattleQuote .include "TEXT/DIALOGUE/Chapter07/TineLinda_BloomBattleQuote.dialogue.txt" ; B0DF4C
+      dialogueChapter07ArthurAmid_BloomBattleQuote .include "TEXT/DIALOGUE/Chapter07/ArthurAmid_BloomBattleQuote.dialogue.txt" ; B0DF90
       dialogueChapter07LeifBloomBattleQuote .include "TEXT/DIALOGUE/Chapter07/LeifBloomBattleQuote.dialogue.txt" ; B0E01A
 
-      dialogueChapter08FebailBloomBattleQuote .include "TEXT/DIALOGUE/Chapter08/FebailBloomBattleQuote.dialogue.txt" ; B0E09C
-      dialogueChapter08TineIshtarBattleQuote .include "TEXT/DIALOGUE/Chapter08/TineIshtarBattleQuote.dialogue.txt" ; B0E115
-      dialogueChapter08TineBloomBattleQuote .include "TEXT/DIALOGUE/Chapter08/TineBloomBattleQuote.dialogue.txt" ; B0E181
+      dialogueChapter08FebailAsaello_BloomBattleQuote .include "TEXT/DIALOGUE/Chapter08/FebailAsaello_BloomBattleQuote.dialogue.txt" ; B0E09C
+      dialogueChapter08TineLinda_IshtarBattleQuote .include "TEXT/DIALOGUE/Chapter08/TineLinda_IshtarBattleQuote.dialogue.txt" ; B0E115
+      dialogueChapter08TineLinda_BloomBattleQuote .include "TEXT/DIALOGUE/Chapter08/TineLinda_BloomBattleQuote.dialogue.txt" ; B0E181
       dialogueChapter08SeliphBloomBattleQuote .include "TEXT/DIALOGUE/Chapter08/SeliphBloomBattleQuote.dialogue.txt" ; B0E1E8
       dialogueChapter08UnusedPattyFebailBattleQuote .include "TEXT/DIALOGUE/Chapter08/UnusedPattyFebailBattleQuote.dialogue.txt" ; B0E27D
 
@@ -2941,7 +2882,7 @@
       dialogueChapter09LeifTravantBattleQuote .include "TEXT/DIALOGUE/Chapter09/LeifTravantBattleQuote.dialogue.txt" ; B0E3EC
       dialogueChapter09FinnTravantBattleQuote .include "TEXT/DIALOGUE/Chapter09/FinnTravantBattleQuote.dialogue.txt" ; B0E4F7
       dialogueChapter09SeliphArionBattleQuote .include "TEXT/DIALOGUE/Chapter09/SeliphArionBattleQuote.dialogue.txt" ; B0E58E
-      dialogueChapter10TineHildaBattleQuote .include "TEXT/DIALOGUE/Chapter10/TineHildaBattleQuote.dialogue.txt" ; B0E61E
+      dialogueChapter10TineLinda_HildaBattleQuote .include "TEXT/DIALOGUE/Chapter10/TineLinda_HildaBattleQuote.dialogue.txt" ; B0E61E
       dialogueChapter10SeliphHildaBattleQuote .include "TEXT/DIALOGUE/Chapter10/SeliphHildaBattleQuote.dialogue.txt" ; B0E72D
 
       dialogueChapterFinalIuchar_BrianBattleQuote .include "TEXT/DIALOGUE/ChapterFinal/Iuchar_BrianBattleQuote.dialogue.txt" ; B0E769
@@ -3079,11 +3020,11 @@
       dialogueChapter07AresRecruitment1 .include "TEXT/DIALOGUE/Chapter07/AresRecruitment1.dialogue.txt" ; B1C22C
       dialogueChapter07AresRecruitment2 .include "TEXT/DIALOGUE/Chapter07/AresRecruitment2.dialogue.txt" ; B1C321
       dialogueChapter07BanbaDialogue .include "TEXT/DIALOGUE/Chapter07/BanbaDialogue.dialogue.txt" ; B1C4F2
-      dialogueChapter07TineDialogue .include "TEXT/DIALOGUE/Chapter07/TineDialogue.dialogue.txt" ; B1C557
+      dialogueChapter07TineLinda_Dialogue .include "TEXT/DIALOGUE/Chapter07/TineLinda_Dialogue.dialogue.txt" ; B1C557
       dialogueChapter07DahnaSeized1 .include "TEXT/DIALOGUE/Chapter07/DahnaSeized1.dialogue.txt" ; B1C5BF
       dialogueChapter07DahnaSeized2 .include "TEXT/DIALOGUE/Chapter07/DahnaSeized2.dialogue.txt" ; B1C776
       dialogueChapter07AresDahnaVisit .include "TEXT/DIALOGUE/Chapter07/AresDahnaVisit.dialogue.txt" ; B1C7A4
-      dialogueChapter07ArthurTineTalk .include "TEXT/DIALOGUE/Chapter07/ArthurTineTalk.dialogue.txt" ; B1C8CB
+      dialogueChapter07ArthurAmid_TineLindaTalk .include "TEXT/DIALOGUE/Chapter07/ArthurAmid_TineLindaTalk.dialogue.txt" ; B1C8CB
       dialogueChapter07LeonsterSeized .include "TEXT/DIALOGUE/Chapter07/LeonsterSeized.dialogue.txt" ; B1CB51
       dialogueChapter07Ending .include "TEXT/DIALOGUE/Chapter07/Ending.dialogue.txt" ; B1CB9A
       dialogueChapter07KutuzovFenrirFound .include "TEXT/DIALOGUE/Chapter07/KutuzovFenrirFound.dialogue.txt" ; B1CCFF
@@ -3108,7 +3049,7 @@
       dialogueChapter07BanbaBattleQuote .include "TEXT/DIALOGUE/Chapter07/BanbaBattleQuote.dialogue.txt" ; B1D342
       dialogueChapter07FotlaBattleQuote .include "TEXT/DIALOGUE/Chapter07/FotlaBattleQuote.dialogue.txt" ; B1D35B
       dialogueChapter07EriuBattleQuote .include "TEXT/DIALOGUE/Chapter07/EriuBattleQuote.dialogue.txt" ; B1D372
-      dialogueChapter07TineBattleQuote .include "TEXT/DIALOGUE/Chapter07/TineBattleQuote.dialogue.txt" ; B1D38C
+      dialogueChapter07TineLinda_BattleQuote .include "TEXT/DIALOGUE/Chapter07/TineLinda_BattleQuote.dialogue.txt" ; B1D38C
       dialogueChapter07BloomBattleQuote .include "TEXT/DIALOGUE/Chapter07/BloomBattleQuote.dialogue.txt" ; B1D3A0
 
       .include "EVENTS/Chapter09/EventChapter09Opening.asm"
@@ -3122,7 +3063,7 @@
       .include "EVENTS/Chapter09/EventChapter09SeliphAltenaTalk.asm"
       .include "EVENTS/Chapter09/EventChapter09HannibalNotRecruited.asm"
       .include "EVENTS/Chapter09/EventChapter09LutheciaSeized.asm"
-      .include "EVENTS/Chapter09/EventChapter09CoirpreHannibalTalk.asm"
+      .include "EVENTS/Chapter09/EventChapter09CoirpreCharlot_HannibalTalk.asm"
       .include "EVENTS/Chapter09/EventChapter09GrutiaSpawn.asm"
       .include "EVENTS/Chapter09/EventChapter09GrutiaSeized.asm"
       .include "EVENTS/Chapter09/EventChapter09ThraciaSpawn.asm"
@@ -3163,25 +3104,7 @@
       .include "EVENTS/ChapterFinal/EventChapterFinal_1A1.asm"
       .include "EVENTS/ChapterFinal/EventChapterFinal_1A2.asm"
 
-    rlASMCChapterFinalJuliaRecruitment ; B1/E8D9
-
-      .al
-      .autsiz
-      .databank ?
-
-      lda #Julia
-      jsl rlGetUnitRAMDataPointerByID
-      bcs +
-
-        jsl rlGetSelectedUnitDeploymentOffset
-        tax
-        lda #FS_Player
-        jsl rlChangeFactionSlotOfFieldedSelectedUnit
-
-      +
-      rtl
-
-      .databank 0
+      .dsection FinalChapterJuliaRecruitmentASMCSection
 
       dialogueEpilogue_Febail .include "TEXT/DIALOGUE/Epilogue/Febail.dialogue.txt" ; B1E8EF
       dialogueEpilogue_Febail_WithLover .include "TEXT/DIALOGUE/Epilogue/Febail_WithLover.dialogue.txt" ; B1E8F5
@@ -3271,9 +3194,9 @@
       .include "EVENTS/Chapter07/EventChapter07DahnaSeized.asm"
       .include "EVENTS/Chapter07/EventChapter07_102.asm"
       .include "EVENTS/Chapter07/EventChapter07Ending.asm"
-      .include "EVENTS/Chapter07/EventChapter07ArthurTineTalk.asm"
+      .include "EVENTS/Chapter07/EventChapter07ArthurAmid_TineLindaTalk.asm"
       .include "EVENTS/Chapter07/EventChapter07AresDahnaVisit.asm"
-      .include "EVENTS/Chapter07/EventChapter07TineDialogue.asm"
+      .include "EVENTS/Chapter07/EventChapter07TineLinda_Dialogue.asm"
       .include "EVENTS/Chapter07/EventChapter07VillageSpeedRing.asm"
       .include "EVENTS/Chapter07/EventChapter07VillageBarrierBladeAnyone.asm"
       .include "EVENTS/Chapter07/EventChapter07Village1.asm"
@@ -3380,10 +3303,10 @@
       dialogueChapter04VillageSafeguardSilvia5 .include "TEXT/DIALOGUE/Chapter04/VillageSafeguardSilvia5.dialogue.txt" ; B2D3F9
       dialogueChapter06CreidneIucharAdjacent .include "TEXT/DIALOGUE/Chapter06/CreidneIucharAdjacent.dialogue.txt" ; B2D497
       dialogueChapter06CreidneIucharbaAdjacent .include "TEXT/DIALOGUE/Chapter06/CreidneIucharbaAdjacent.dialogue.txt" ; B2D4B5
-      dialogueChapter06CreidneBrotherAdjacent1 .include "TEXT/DIALOGUE/Chapter06/CreidneBrotherAdjacent1.dialogue.txt" ; B2D4D3
-      dialogueChapter06CreidneIucharAdjacent2 .include "TEXT/DIALOGUE/Chapter06/CreidneIucharAdjacent2.dialogue.txt" ; B2D4F7
-      dialogueChapter06CreidneIucharbaAdjacent2 .include "TEXT/DIALOGUE/Chapter06/CreidneIucharbaAdjacent2.dialogue.txt" ; B2D547
-      dialogueChapter06CreidneBrotherAdjacent3 .include "TEXT/DIALOGUE/Chapter06/CreidneBrotherAdjacent3.dialogue.txt" ; B2D56F
+      dialogueChapter06Piece_CreidneBrotherAdjacent1 .include "TEXT/DIALOGUE/Chapter06/Piece_CreidneBrotherAdjacent1.dialogue.txt" ; B2D4D3
+      dialogueChapter06Piece_CreidneIucharAdjacent .include "TEXT/DIALOGUE/Chapter06/Piece_CreidneIucharAdjacent.dialogue.txt" ; B2D4F7
+      dialogueChapter06Piece_CreidneIucharbaAdjacent .include "TEXT/DIALOGUE/Chapter06/Piece_CreidneIucharbaAdjacent.dialogue.txt" ; B2D547
+      dialogueChapter06Piece_CreidneBrotherAdjacent3 .include "TEXT/DIALOGUE/Chapter06/Piece_CreidneBrotherAdjacent3.dialogue.txt" ; B2D56F
       dialogueChapter06Village2Seliph .include "TEXT/DIALOGUE/Chapter06/Village2Seliph.dialogue.txt" ; B2D578
       dialogueChapter03DewBragiTower1 .include "TEXT/DIALOGUE/Chapter03/DewBragiTower1.dialogue.txt" ; B2D726
       dialogueChapter03DewBragiTower2 .include "TEXT/DIALOGUE/Chapter03/DewBragiTower2.dialogue.txt" ; B2D766
@@ -3474,8 +3397,8 @@
       dialogueChapter09HannibalNotRecruited .include "TEXT/DIALOGUE/Chapter09/HannibalNotRecruited.dialogue.txt" ; B39EE2
       dialogueChapter09LutheciaSeized .include "TEXT/DIALOGUE/Chapter09/LutheciaSeized.dialogue.txt" ; B39F67
       dialogueChapter09LutheciaSeizedNoCoirpre .include "TEXT/DIALOGUE/Chapter09/LutheciaSeizedNoCoirpre.dialogue.txt" ; B3A11B
-      dialogueChapter09CoirpreHannibalTalk .include "TEXT/DIALOGUE/Chapter09/CoirpreHannibalTalk.dialogue.txt" ; B3A1E1
-      dialogueChapter09UnusedJedahKapathogiaSeizedResponse .include "TEXT/DIALOGUE/Chapter09/UnusedJedahKapathogiaSeizedResponse.dialogue.txt" ; B3A303
+      dialogueChapter09CoirpreCharlot_HannibalTalk .include "TEXT/DIALOGUE/Chapter09/CoirpreCharlot_HannibalTalk.dialogue.txt" ; B3A1E1
+      dialogueChapter09UnusedJudahKapathogiaSeizedResponse .include "TEXT/DIALOGUE/Chapter09/UnusedJudahKapathogiaSeizedResponse.dialogue.txt" ; B3A303
       dialogueChapter09UnusedMusarCharge .include "TEXT/DIALOGUE/Chapter09/UnusedMusarCharge.dialogue.txt" ; B3A37C
       dialogueChapter09GrutiaSeized .include "TEXT/DIALOGUE/Chapter09/GrutiaSeized.dialogue.txt" ; B3A406
       dialogueChapter09GrutiaSeizedAltenaRecruited .include "TEXT/DIALOGUE/Chapter09/GrutiaSeizedAltenaRecruited.dialogue.txt" ; B3A4E8
@@ -3555,19 +3478,19 @@
       dialogueEpilogue_Chalphy .include "TEXT/DIALOGUE/Epilogue/Chalphy.dialogue.txt" ; B3D00B
       dialogueEpilogue_Silesse .include "TEXT/DIALOGUE/Epilogue/Silesse.dialogue.txt" ; B3D016
 
-      dialogueChapter07LeneSeliphTalk .include "TEXT/DIALOGUE/Chapter07/LeneSeliphTalk.dialogue.txt" ; B3D021
+      dialogueChapter07LeneLaylea_SeliphTalk .include "TEXT/DIALOGUE/Chapter07/LeneLaylea_SeliphTalk.dialogue.txt" ; B3D021
       dialogueChapter07FinnNannaTalk .include "TEXT/DIALOGUE/Chapter07/FinnNannaTalk.dialogue.txt" ; B3D0CB
       dialogueChapter07FinnLanaTalk .include "TEXT/DIALOGUE/Chapter07/FinnLanaTalk.dialogue.txt" ; B3D1F5
       dialogueChapter07FinnLarceiTalk .include "TEXT/DIALOGUE/Chapter07/FinnLarceiTalk.dialogue.txt" ; B3D385
 
-      dialogueChapter08FebailSeliphTalk .include "TEXT/DIALOGUE/Chapter08/FebailSeliphTalk.dialogue.txt" ; B3D507
+      dialogueChapter08FebailAsaello_SeliphTalk .include "TEXT/DIALOGUE/Chapter08/FebailAsaello_SeliphTalk.dialogue.txt" ; B3D507
       dialogueChapter08HerminaHawkTalk .include "TEXT/DIALOGUE/Chapter08/HerminaHawkTalk.dialogue.txt" ; B3D5E1
       dialogueChapter08FeeCedTalk .include "TEXT/DIALOGUE/Chapter08/FeeCedTalk.dialogue.txt" ; B3D79A
       dialogueChapter08NannaAresTalk .include "TEXT/DIALOGUE/Chapter08/NannaAresTalk.dialogue.txt" ; B3D982
       dialogueChapter08CedSeliphTalk .include "TEXT/DIALOGUE/Chapter08/CedSeliphTalk.dialogue.txt" ; B3DCCE
-      dialogueChapter08SeliphTineTalk .include "TEXT/DIALOGUE/Chapter08/SeliphTineTalk.dialogue.txt" ; B3DF3B
+      dialogueChapter08Seliph_TineLindaTalk .include "TEXT/DIALOGUE/Chapter08/Seliph_TineLindaTalk.dialogue.txt" ; B3DF3B
       dialogueChapter08JuliaSeliphTalk .include "TEXT/DIALOGUE/Chapter08/JuliaSeliphTalk.dialogue.txt" ; B3E0B4
-      dialogueChapter08ArthurFeeTalk .include "TEXT/DIALOGUE/Chapter08/ArthurFeeTalk.dialogue.txt" ; B3E1B7
+      dialogueChapter08ArthurAmid_FeeHerminaTalk .include "TEXT/DIALOGUE/Chapter08/ArthurAmid_FeeHerminaTalk.dialogue.txt" ; B3E1B7
       dialogueChapter08FinnLeifTalk .include "TEXT/DIALOGUE/Chapter08/FinnLeifTalk.dialogue.txt" ; B3E2C1
 
       dialogueChapter09FebailPattyTalk .include "TEXT/DIALOGUE/Chapter09/FebailPattyTalk.dialogue.txt" ; B3E4F6
@@ -3757,7 +3680,15 @@
 
     .here
 
-    ; aUnknownD13C85 .text ROM[$113C85:$113D09]
+    * = $113C85
+    .logical $D13C85
+
+      aWorldMapMarkerShadowTilemap .text ROM[$113C85:$113D09]
+
+      ; D1/3D09
+
+    .here
+
 
     * = $1468A3
     .logical $D468A3

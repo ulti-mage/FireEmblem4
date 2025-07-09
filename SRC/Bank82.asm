@@ -15,7 +15,6 @@
 
     .endweak
 
-
     .section Code828299Section
 
       procFadeIn ; 82/8299
@@ -83,11 +82,11 @@
 
         PROC_HALT
 
-      procUnknown8282D3 ; 82/82D3
+      procMainLoopChangeFade ; 82/82D3
 
-        .structProcInfo "Bt", rlProcUnknown8282D3Init, rlProcUnknown8282D3Cycle, aProcUnknown8282D3Code
+        .structProcInfo "Bt", rlProcMainLoopChangeFadeInit, rlProcMainLoopChangeFadeCycle, aProcMainLoopChangeFadeCode
 
-      rlProcUnknown8282D3Init ; 82/82DB
+      rlProcMainLoopChangeFadeInit ; 82/82DB
       
         .al
         .autsiz
@@ -100,7 +99,7 @@
         bit #INIDISP_ForcedBlank
         bne +
 
-          bit #INIDISP_Brightness
+          bit #INIDISP_Setting(false, 15)
           beq +
 
             lda #(`procFadeOut)<<8
@@ -114,8 +113,8 @@
 
         .databank 0
 
-      rlProcUnknown8282D3Cycle ; 82/82FC
-      
+      rlProcMainLoopChangeFadeCycle ; 82/82FC
+
         .al
         .autsiz
         .databank ?
@@ -125,7 +124,7 @@
         bne +
 
           bit #INIDISP_Setting(false, 15)
-          bne ++
+          bne _End
 
         +
         lda aProcSystem.aBody0,b,x
@@ -142,12 +141,12 @@
 
         jsl rlProcEngineFreeProc
 
-        +
+        _End
         rtl
 
         .databank 0
 
-      aProcUnknown8282D3Code ; 82/8322
+      aProcMainLoopChangeFadeCode ; 82/8322
 
         PROC_HALT
 
@@ -218,11 +217,11 @@
 
         PROC_HALT
 
-      procUnknown828364 ; 82/8364
+      procMainLoopChangeFadeByTimer ; 82/8364
 
-        .structProcInfo "Bt", rlProcUnknown828364Init, rlProcUnknown828364Cycle, aProcUnknown828364Code
+        .structProcInfo "Bt", rlProcMainLoopChangeFadeByTimerInit, rlProcMainLoopChangeFadeByTimerCycle, aProcMainLoopChangeFadeByTimerCode
 
-      rlProcUnknown828364Init ; 82/836C
+      rlProcMainLoopChangeFadeByTimerInit ; 82/836C
 
         .al
         .autsiz
@@ -249,7 +248,7 @@
 
         .databank 0
 
-      rlProcUnknown828364Cycle ; 82/838D
+      rlProcMainLoopChangeFadeByTimerCycle ; 82/838D
 
         .al
         .autsiz
@@ -276,13 +275,13 @@
         rep #$20
 
         jsl rlProcEngineFreeProc
-        
+
         _End
         rtl
 
         .databank 0
 
-      aProcUnknown828364Code ; 82/83B3
+      aProcMainLoopChangeFadeByTimerCode ; 82/83B3
 
         PROC_HALT
 
@@ -947,7 +946,28 @@
 
     .endsection Code82921ESection
 
+    .section Code829478Section
 
+      rlCreateProcHaltEvent ; 82/9478
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Halt until $0002 of $7F4C07 is set
+
+        lda #(`$828B2B)<<8
+        sta lR44+1
+        lda #<>$828B2B
+        sta lR44
+        jsl rlEventEngineCreateProc
+        rtl
+
+        .databank 0
+
+        ; 82/9487
+
+    .endsection Code829478Section
 
     .section Code82E41BSection
 

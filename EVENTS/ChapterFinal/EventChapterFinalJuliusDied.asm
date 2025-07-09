@@ -10,7 +10,7 @@
     FACTION_UNIT_DEATH FS_ChFinalBelhalla, AnyAI, JuliusChFinal
     YIELD
 
-    RUN_ASM rlASMCUnknownB1E8B8
+    RUN_ASM rlASMCJuliusDeathFactionDeathFadeHalt
     YIELD
 
     RUN_EVENT_CONDITION
@@ -71,7 +71,7 @@
     YIELD
 
     SET_CAMERA_TO_EVENT_UNIT_SLOT_1
-    RUN_ASM rlASMCUnknownB1E8BD
+    RUN_ASM rlASMCRestorePhaseMusic
     YIELD
 
     END_EVENT
@@ -105,7 +105,7 @@
     YIELD
 
     SET_CAMERA_TO_EVENT_UNIT_SLOT_1
-    RUN_ASM rlASMCUnknownB1E8BD
+    RUN_ASM rlASMCRestorePhaseMusic
     YIELD
 
     END_EVENT
@@ -122,18 +122,18 @@
 
     .databank 0
 
-  rlASMCUnknownB1E8B8 ; B1/E8B8
+  rlASMCJuliusDeathFactionDeathFadeHalt ; B1/E8B8
 
     .al
     .autsiz
     .databank ?
 
-    jsl $829478
+    jsl rlCreateProcHaltEvent
     rtl
 
     .databank 0
 
-  rlASMCUnknownB1E8BD ; B1/E8BD
+  rlASMCRestorePhaseMusic ; B1/E8BD
 
     .al
     .autsiz
@@ -143,6 +143,7 @@
     bne +
 
       jsl $81AB26
+
       lda #(`$828AF2)<<8
       sta lR44+1
       lda #<>$828AF2

@@ -37,7 +37,6 @@
       aChapterPrologueEventHeader ; 90/8000
 
         .word ChapterPrologue
-
         .long aChapterPrologueOpeningEvent
         .long aChapterPrologueMapEvents
 
@@ -79,7 +78,6 @@
         CHECK_UNIT_DIED FlagPrologue_MidirDied, Midir
           EC_NOP_00
 
-        ; This gets checked for in the Sigurd-Arvis talk.
         CHECK_UNIT_DIED FlagPrologue_AzelleDied, Azelle
           EC_NOP_00
 

@@ -10,6 +10,7 @@
       rlResetHDMAEngine ; 82/C006
       
         .al
+        .xl
         .autsiz
         .databank ?
 
@@ -21,11 +22,11 @@
         ldx #size(aHDMASystem) - 2
         lda #0
         
-        -
-        sta aHDMASystem.wFlag,b,x
-        dec x
-        dec x
-        bpl -
+          -
+          sta aHDMASystem.wFlag,b,x
+          dec x
+          dec x
+          bpl -
 
         ldx #7 * size(aHDMASystem.aTypeOffset)
         sep #$20

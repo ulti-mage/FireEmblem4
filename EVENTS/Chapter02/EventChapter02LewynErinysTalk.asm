@@ -19,12 +19,12 @@
 
     .rept 4
 
-      FILL_EVENT_UNIT_SLOT ErinysSquad, EventUnitSlot1
-      MOVE_TEMPORARY_TO_COORDS ErinysSquad, [-1, -1], [53, 0], 4, EventUnitSlot1, 6, true, true
+      FILL_EVENT_UNIT_SLOT ErinysSquadPegasusKnight, EventUnitSlot1
+      MOVE_TEMPORARY_TO_COORDS ErinysSquadPegasusKnight, [-1, -1], [53, 0], 4, EventUnitSlot1, 6, true, true
       WAIT_UNIT_SPRITE_DECOMPRESSED
 
       RUN_EVENT_CONDITION
-        REMOVE_UNIT ErinysSquad
+        REMOVE_UNIT ErinysSquadPegasusKnight
 
     .endrept
 

@@ -1,11 +1,11 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,Commander4,10,21,1,1,FS_Ch02Infini,0
+ID_01,InfiniCommanderDukeKnight,10,21,1,1,FS_Ch02Infini,0
 ID_02,InfiniLanceKnight,9,21,0,1,FS_Ch02Infini,1
 ID_03,InfiniLanceKnight,11,21,0,1,FS_Ch02Infini,2
 ID_04,MackilyLanceArmor,40,34,0,1,FS_Ch02Mackily,0
 ID_05,MackilyLanceArmor,57,36,0,1,FS_Ch02Mackily,0
-ID_06,BanditCh01_02,14,5,0,4,FS_Ch02Infini,0
-ID_07,BanditCh01_02,12,7,0,4,FS_Ch02Infini,0
-ID_08,BanditCh01_02,11,6,0,4,FS_Ch02Infini,0
-ID_09,BanditCh01_02,13,6,0,4,FS_Ch02Infini,0
+ID_06,BanditCh01Ch02,14,5,0,4,FS_Ch02Infini,0
+ID_07,BanditCh01Ch02,12,7,0,4,FS_Ch02Infini,0
+ID_08,BanditCh01Ch02,11,6,0,4,FS_Ch02Infini,0
+ID_09,BanditCh01Ch02,13,6,0,4,FS_Ch02Infini,0
 ID_10,$FFFF,0,0,0,0,0,0

@@ -34,7 +34,7 @@
     .databank ?
 
     jsl $9ED42A
-    jsl $829478
+    jsl rlCreateProcHaltEvent
     rtl
 
     .databank 0

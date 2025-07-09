@@ -1,8 +1,7 @@
 
-
     .section Code8B8345Section
 
-      rlLoadPortraitIntoSlot ; 8B/8345
+      rlLoadWorldMapPortraitIntoSlot ; 8B/8345
 
         .al
         .autsiz

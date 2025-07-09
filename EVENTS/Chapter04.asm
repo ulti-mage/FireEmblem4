@@ -81,11 +81,11 @@
 
         REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter04Start
 
-        LOAD_FACTION_GROUP FS_Player, FG_Ch04Sigurd
-        LOAD_FACTION_GROUP FS_Ch04Civilians, FG_Ch04Civilians
-        LOAD_FACTION_GROUP FS_Ch04Tofa, FG_Ch04Tofa
-        LOAD_FACTION_GROUP FS_Ch04Zaxon, FG_Ch04Zaxon
-        LOAD_FACTION_GROUP FS_Ch04Silesse, FG_Ch04Silesse
+        LOAD_FACTION_GROUP FS_Player,         FG_Ch04Sigurd
+        LOAD_FACTION_GROUP FS_Ch04Civilians,  FG_Ch04Civilians
+        LOAD_FACTION_GROUP FS_Ch04Tofa,       FG_Ch04Tofa
+        LOAD_FACTION_GROUP FS_Ch04Zaxon,      FG_Ch04Zaxon
+        LOAD_FACTION_GROUP FS_Ch04Silesse,    FG_Ch04Silesse
 
         macroSetFactionsAllies  [FS_Player,       FS_Ch04Civilians]
         macroSetFactionsEnemies [FS_Player,       FS_Ch04Tofa]

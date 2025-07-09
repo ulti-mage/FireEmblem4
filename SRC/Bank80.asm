@@ -1,5 +1,4 @@
 
-
     .section Code808223Section
 
       rlEnableVBlank ; 80/8223

@@ -20,7 +20,7 @@
     MOVE_TEMPORARY_BY_SCRIPT EldiganCh01, [11, 22], 4, MAP_SPRITE_GREEN, _ScriptedMovementEldigan
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
-    MOVE_TEMPORARY_BY_SCRIPT CrossKnight2, [11, 22], 4, MAP_SPRITE_GREEN, _ScriptedMovementCrossKnight
+    MOVE_TEMPORARY_BY_SCRIPT CrossKnightCh03Cavalier, [11, 22], 4, MAP_SPRITE_GREEN, _ScriptedMovementCrossKnight
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     PAUSE 150

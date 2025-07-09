@@ -1,14 +1,14 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,Draco,$29,$19,$00,$03,$06,$05
-ID_02,Gallus,$2B,$19,$00,$03,$06,$06
-ID_03,Anguilla,$29,$1B,$00,$03,$06,$07
-ID_04,Ovis,$2B,$1B,$00,$03,$06,$08
-ID_05,Tigris,$28,$19,$00,$03,$06,$09
-ID_06,Simia,$2D,$19,$00,$03,$06,$0A
-ID_07,Bovis,$27,$1A,$00,$03,$06,$0B
-ID_08,Mus,$28,$18,$00,$03,$06,$0C
-ID_09,IshtarChFinal,$26,$14,$01,$01,$06,$00
-ID_10,BelhallaHero,$26,$15,$00,$01,$06,$01
-ID_11,BelhallaHighPriest,$25,$14,$00,$01,$06,$02
-ID_12,BelhallaSniper,$25,$13,$00,$01,$06,$03
-ID_13,BelhallaSage,$24,$14,$00,$01,$06,$04
+ID_01,Draco,41,25,0,3,FS_ChFinalBelhalla,5
+ID_02,Gallus,43,25,0,3,FS_ChFinalBelhalla,6
+ID_03,Anguilla,41,27,0,3,FS_ChFinalBelhalla,7
+ID_04,Ovis,43,27,0,3,FS_ChFinalBelhalla,8
+ID_05,Tigris,40,25,0,3,FS_ChFinalBelhalla,9
+ID_06,Simia,45,25,0,3,FS_ChFinalBelhalla,10
+ID_07,Bovis,39,26,0,3,FS_ChFinalBelhalla,11
+ID_08,Mus,40,24,0,3,FS_ChFinalBelhalla,12
+ID_09,IshtarChFinal,38,20,1,1,FS_ChFinalBelhalla,0
+ID_10,BelhallaHero,38,21,0,1,FS_ChFinalBelhalla,1
+ID_11,BelhallaHighPriest,37,20,0,1,FS_ChFinalBelhalla,2
+ID_12,BelhallaSniper,37,19,0,1,FS_ChFinalBelhalla,3
+ID_13,BelhallaSage,36,20,0,1,FS_ChFinalBelhalla,4

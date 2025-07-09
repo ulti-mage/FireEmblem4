@@ -1,12 +1,12 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,LeonsterCh05LanceKnight,$3A,$30,0,1,FS_Ch05Leonster,0
-ID_02,LeonsterCh05LanceKnight,$3B,$30,0,1,FS_Ch05Leonster,1
-ID_03,LeonsterCh05LanceKnight,$3A,$2F,0,1,FS_Ch05Leonster,2
-ID_04,LeonsterCh05LanceKnight,$3B,$2F,0,1,FS_Ch05Leonster,3
-ID_05,LeonsterCh05LanceKnight,$3A,$2E,0,1,FS_Ch05Leonster,4
-ID_06,LeonsterCh05LanceKnight,$3B,$2E,0,1,FS_Ch05Leonster,5
-ID_07,LeonsterCh05LanceKnight,$3A,$2D,0,1,FS_Ch05Leonster,6
-ID_08,LeonsterCh05LanceKnight,$3B,$2D,0,1,FS_Ch05Leonster,7
-ID_09,Ethlyn,$3A,$2C,0,1,FS_Ch05Leonster,8
-ID_10,Quan,$3B,$2C,1,1,FS_Ch05Leonster,9
+ID_01,LeonsterCh05LanceKnight,58,48,0,1,FS_Ch05Leonster,0
+ID_02,LeonsterCh05LanceKnight,59,48,0,1,FS_Ch05Leonster,1
+ID_03,LeonsterCh05LanceKnight,58,47,0,1,FS_Ch05Leonster,2
+ID_04,LeonsterCh05LanceKnight,59,47,0,1,FS_Ch05Leonster,3
+ID_05,LeonsterCh05LanceKnight,58,46,0,1,FS_Ch05Leonster,4
+ID_06,LeonsterCh05LanceKnight,59,46,0,1,FS_Ch05Leonster,5
+ID_07,LeonsterCh05LanceKnight,58,45,0,1,FS_Ch05Leonster,6
+ID_08,LeonsterCh05LanceKnight,59,45,0,1,FS_Ch05Leonster,7
+ID_09,Ethlyn,58,44,0,1,FS_Ch05Leonster,8
+ID_10,Quan,59,44,1,1,FS_Ch05Leonster,9
 ID_11,$FFFF,0,0,0,0,0,0

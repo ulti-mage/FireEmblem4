@@ -1,5 +1,5 @@
 {DIALOGUE_FONT_0}イザークは王位を継ぐべき{DIALOGUE_NL}
-{DIALOGUE_WM_HIGHLIGHT $04}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceNoInheritorsSubstitutes}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceNoInheritorsChildren}{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_FONT_0}この国を第二の祖国と信じる{DIALOGUE_NL}
+{DIALOGUE_WM_HIGHLIGHT WMH_Isaach}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceNoInheritorsSubstitutes}{DIALOGUE_ASMC rlASMCEpilogueWorldMapIsaachPieceNoInheritorsChildren}{DIALOGUE_WM_CLEAR_HIGHLIGHT}{DIALOGUE_FONT_0}この国を第二の祖国と信じる{DIALOGUE_NL}
 セリスにとって､{DIALOGUE_NL}
 人々の悲しみはこらえようもなかった｡{DIALOGUE_NL}
 人々はセリスに願った｡{DIALOGUE_NL}

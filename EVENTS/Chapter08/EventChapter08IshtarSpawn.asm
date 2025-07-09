@@ -57,7 +57,7 @@
     lda #$001E
     sta $7E4EAD
     jsl $9EF1D9
-    jsl $829478
+    jsl rlCreateProcHaltEvent
     rtl
 
     .databank 0
@@ -79,7 +79,7 @@
     lda #10
     sta $7E4EAD
     jsl $9EF353
-    jsl $829478
+    jsl rlCreateProcHaltEvent
     rtl
 
     .databank 0

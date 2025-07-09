@@ -1,10 +1,10 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
 ID_01,Papilio,7,2,1,4,FS_Ch03Sylvale,0
-ID_02,ThraciaArmy1,8,1,0,4,FS_Ch03Sylvale,1
-ID_03,ThraciaArmy1,6,1,0,4,FS_Ch03Sylvale,2
-ID_04,ThraciaArmy1,9,2,0,4,FS_Ch03Sylvale,3
-ID_05,ThraciaArmy1,5,2,0,4,FS_Ch03Sylvale,4
-ID_06,ThraciaArmy1,7,4,0,4,FS_Ch03Sylvale,5
-ID_07,ThraciaArmy1,9,4,0,4,FS_Ch03Sylvale,6
-ID_08,ThraciaArmy1,5,4,0,4,FS_Ch03Sylvale,7
+ID_02,PapilioSquadDragonrider,8,1,0,4,FS_Ch03Sylvale,1
+ID_03,PapilioSquadDragonrider,6,1,0,4,FS_Ch03Sylvale,2
+ID_04,PapilioSquadDragonrider,9,2,0,4,FS_Ch03Sylvale,3
+ID_05,PapilioSquadDragonrider,5,2,0,4,FS_Ch03Sylvale,4
+ID_06,PapilioSquadDragonrider,7,4,0,4,FS_Ch03Sylvale,5
+ID_07,PapilioSquadDragonrider,9,4,0,4,FS_Ch03Sylvale,6
+ID_08,PapilioSquadDragonrider,5,4,0,4,FS_Ch03Sylvale,7
 ID_09,$FFFF,0,0,0,0,0,0

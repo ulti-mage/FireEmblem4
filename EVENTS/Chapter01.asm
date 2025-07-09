@@ -63,7 +63,6 @@
       aChapter01EventHeader ; 86/C85C
 
         .word Chapter01
-
         .long aChapter01OpeningEvent
         .long aChapter01MapEvents
 
@@ -71,11 +70,11 @@
 
         REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter01Brigands
 
-        LOAD_FACTION_GROUP FS_Player,     FG_Ch01Sigurd
-        LOAD_FACTION_GROUP FS_Ch01Genoa,   FG_Ch01Genoa
-        LOAD_FACTION_GROUP FS_Ch01Marpha,  FG_Ch01Marpha
-        LOAD_FACTION_GROUP FS_Ch01Verdane, FG_Ch01Verdane
-        LOAD_FACTION_GROUP FS_Ch01Nordion, FG_Ch01Nordion
+        LOAD_FACTION_GROUP FS_Player,       FG_Ch01Sigurd
+        LOAD_FACTION_GROUP FS_Ch01Genoa,    FG_Ch01Genoa
+        LOAD_FACTION_GROUP FS_Ch01Marpha,   FG_Ch01Marpha
+        LOAD_FACTION_GROUP FS_Ch01Verdane,  FG_Ch01Verdane
+        LOAD_FACTION_GROUP FS_Ch01Nordion,  FG_Ch01Nordion
 
         macroSetFactionsEnemies [FS_Player,      FS_Ch01Genoa]
         macroSetFactionsEnemies [FS_Player,      FS_Ch01Marpha]
@@ -180,7 +179,7 @@
         CHECK_TALK FlagAlways, Ayra, Quan
           EVENT FlagAlways, EventChapter01AyraQuanTalk
 
-        CHECK_TALK FlagChapter01_CrossKnightTalk, AnyCharacter, CrossKnight
+        CHECK_TALK FlagChapter01_CrossKnightTalk, AnyCharacter, CrossKnightCh01Cavalier
           EVENT FlagAlways, EventChapter01CrossknightTalk
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Midir, AnyFactionSlot, Munnir
@@ -467,7 +466,7 @@
 
         .structChapterTalkEventEntry Chapter01, FlagChapter01_SigurdAyraTalk, Sigurd, Ayra
         .structChapterTalkEventEntry Chapter01, FlagChapter01_EdainJamkeTalk, Edain, Jamke
-        .structChapterTalkEventEntry Chapter01, FlagChapter01_CrossKnightTalk, AnyCharacter, CrossKnight
+        .structChapterTalkEventEntry Chapter01, FlagChapter01_CrossKnightTalk, AnyCharacter, CrossKnightCh01Cavalier
         .word $FFFF
 
       aUnknown86CC70 ; 86/CC70

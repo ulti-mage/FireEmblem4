@@ -7,7 +7,6 @@
 
     .endweak
 
-
     .section Code848000Section
 
       rlUnknown848000 ; 84/8000
@@ -494,7 +493,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         sep #$20
         lda #2
-        sta structExtendedPersonalCharacterDataRAM.LeadershipStars,b,x
+        sta structExtendedCharacterDataRAM.LeadershipStars,b,x
         rep #$20
         plb
         rts
@@ -511,7 +510,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         sep #$20
         lda #3
-        sta structExtendedPersonalCharacterDataRAM.LeadershipStars,b,x
+        sta structExtendedCharacterDataRAM.LeadershipStars,b,x
         rep #$20
         plb
         rts
@@ -1393,7 +1392,7 @@
         sta $7E0000+structCharacterDataRAM.Type,x
         rep #$20
 
-        lda #size(structPersonalCharacterDataRAM) + size(structExtendedPersonalCharacterDataRAM)
+        lda #size(structPersonalCharacterDataRAM) + size(structExtendedCharacterDataRAM)
         jsl rlAllocateRAMArea
 
         lda lR25+1
@@ -1489,7 +1488,7 @@
         sta $7E0000+structCharacterDataRAM.Type,x
         rep #$20
 
-        lda #size(structPersonalCharacterDataRAM) + size(structExtendedPersonalCharacterDataRAM) + size(structCharacterConstantData)
+        lda #size(structPersonalCharacterDataRAM) + size(structExtendedCharacterDataRAM) + size(structCharacterConstantData)
         jsl rlAllocateRAMArea
 
         lda lR25+1
@@ -1510,7 +1509,7 @@
         sta $7E0000+structCharacterDataRAM.ConstantData+1,x
         lda lR25
         clc
-        adc #size(structPersonalCharacterDataRAM) + size(structExtendedPersonalCharacterDataRAM)
+        adc #size(structPersonalCharacterDataRAM) + size(structExtendedCharacterDataRAM)
         sta $7E0000+structCharacterDataRAM.ConstantData,x
 
         lda #0
@@ -1771,31 +1770,31 @@
 
         sep #$20
         lda $830000+structStaticCharacterROMEntry.HP,x
-        sta structExtendedPersonalCharacterDataRAM.HP,b,y
+        sta structExtendedCharacterDataRAM.HP,b,y
         lda $830000+structStaticCharacterROMEntry.Strength,x
-        sta structExtendedPersonalCharacterDataRAM.Strength,b,y
+        sta structExtendedCharacterDataRAM.Strength,b,y
         lda $830000+structStaticCharacterROMEntry.Magic,x
-        sta structExtendedPersonalCharacterDataRAM.Magic,b,y
+        sta structExtendedCharacterDataRAM.Magic,b,y
         lda $830000+structStaticCharacterROMEntry.Skill,x
-        sta structExtendedPersonalCharacterDataRAM.Skill,b,y
+        sta structExtendedCharacterDataRAM.Skill,b,y
         lda $830000+structStaticCharacterROMEntry.Speed,x
-        sta structExtendedPersonalCharacterDataRAM.Speed,b,y
+        sta structExtendedCharacterDataRAM.Speed,b,y
         lda $830000+structStaticCharacterROMEntry.Defense,x
-        sta structExtendedPersonalCharacterDataRAM.Defense,b,y
+        sta structExtendedCharacterDataRAM.Defense,b,y
         lda $830000+structStaticCharacterROMEntry.Resistance,x
-        sta structExtendedPersonalCharacterDataRAM.Resistance,b,y
+        sta structExtendedCharacterDataRAM.Resistance,b,y
         lda $830000+structStaticCharacterROMEntry.Luck,x
-        sta structExtendedPersonalCharacterDataRAM.Luck,b,y
+        sta structExtendedCharacterDataRAM.Luck,b,y
         lda $830000+structStaticCharacterROMEntry.Class,x
-        sta structExtendedPersonalCharacterDataRAM.Class,b,y
+        sta structExtendedCharacterDataRAM.Class,b,y
         lda $830000+structStaticCharacterROMEntry.Level,x
-        sta structExtendedPersonalCharacterDataRAM.Level,b,y
+        sta structExtendedCharacterDataRAM.Level,b,y
         lda $830000+structStaticCharacterROMEntry.LeadershipStars,x
-        sta structExtendedPersonalCharacterDataRAM.LeadershipStars,b,y
+        sta structExtendedCharacterDataRAM.LeadershipStars,b,y
 
         lda #0
-        sta structExtendedPersonalCharacterDataRAM.TalkTarget,b,y
-        sta structExtendedPersonalCharacterDataRAM.Experience,b,y
+        sta structExtendedCharacterDataRAM.TalkTarget,b,y
+        sta structExtendedCharacterDataRAM.Experience,b,y
         rep #$20
 
         lda $830000+structStaticCharacterROMEntry.Money,x
@@ -1808,7 +1807,7 @@
         jsl rlUnsignedMultiply16By16
 
         lda wR12
-        sta structExtendedPersonalCharacterDataRAM.Money,b,y
+        sta structExtendedCharacterDataRAM.Money,b,y
 
         ply
         plx
@@ -3344,66 +3343,66 @@
         sta lR18
 
         ldy #0
-        lda structExtendedPersonalCharacterDataRAM.HP,b,x
+        lda structExtendedCharacterDataRAM.HP,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #2
-        lda structExtendedPersonalCharacterDataRAM.Strength,b,x    
+        lda structExtendedCharacterDataRAM.Strength,b,x    
         and #$00FF
         sta [lR18],y
 
         ldy #4
-        lda structExtendedPersonalCharacterDataRAM.Magic,b,x
+        lda structExtendedCharacterDataRAM.Magic,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #6
-        lda structExtendedPersonalCharacterDataRAM.Skill,b,x
+        lda structExtendedCharacterDataRAM.Skill,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #8
-        lda structExtendedPersonalCharacterDataRAM.Speed,b,x
+        lda structExtendedCharacterDataRAM.Speed,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #10
-        lda structExtendedPersonalCharacterDataRAM.Defense,b,x
+        lda structExtendedCharacterDataRAM.Defense,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #12
-        lda structExtendedPersonalCharacterDataRAM.Resistance,b,x
+        lda structExtendedCharacterDataRAM.Resistance,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #$0E
-        lda structExtendedPersonalCharacterDataRAM.Luck,b,x
+        lda structExtendedCharacterDataRAM.Luck,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #$10
-        lda structExtendedPersonalCharacterDataRAM.Class,b,x
+        lda structExtendedCharacterDataRAM.Class,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #$12
-        lda structExtendedPersonalCharacterDataRAM.Level,b,x
+        lda structExtendedCharacterDataRAM.Level,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #$16
-        lda structExtendedPersonalCharacterDataRAM.Money,b,x
+        lda structExtendedCharacterDataRAM.Money,b,x
         sta [lR18],y
 
         ldy #$18
-        lda structExtendedPersonalCharacterDataRAM.Experience,b,x
+        lda structExtendedCharacterDataRAM.Experience,b,x
         and #$00FF
         sta [lR18],y
 
         ldy #$1A
-        lda structExtendedPersonalCharacterDataRAM.TalkTarget,b,x
+        lda structExtendedCharacterDataRAM.TalkTarget,b,x
         and #$00FF
         sta [lR18],y
 
@@ -3444,7 +3443,7 @@
         beq +
 
           jsl rlGetSelectedUnitExtendedPersonalDataPointer
-          lda structExtendedPersonalCharacterDataRAM.HP,b,x
+          lda structExtendedCharacterDataRAM.HP,b,x
           and #$00FF
           cmp #81
           bcc _End
@@ -3511,7 +3510,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         jsl rlGetClassStrength
         clc
-        adc structExtendedPersonalCharacterDataRAM.Strength,b,x
+        adc structExtendedCharacterDataRAM.Strength,b,x
         and #$00FF
         cmp #31
         bcc _End
@@ -3578,7 +3577,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         jsl rlGetClassMagic
         clc
-        adc structExtendedPersonalCharacterDataRAM.Magic,b,x
+        adc structExtendedCharacterDataRAM.Magic,b,x
         and #$00FF
         cmp #31
         bcc _End
@@ -3645,7 +3644,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         jsl rlGetClassSkill
         clc
-        adc structExtendedPersonalCharacterDataRAM.Skill,b,x
+        adc structExtendedCharacterDataRAM.Skill,b,x
         and #$00FF
         cmp #31
         bcc _End
@@ -3712,7 +3711,7 @@
           jsl rlGetSelectedUnitExtendedPersonalDataPointer
           jsl rlGetClassSpeed
           clc
-          adc structExtendedPersonalCharacterDataRAM.Speed,b,x
+          adc structExtendedCharacterDataRAM.Speed,b,x
           and #$00FF
           cmp #31
           bcc _End
@@ -3760,7 +3759,7 @@
         sta wR34
 
         jsl rlGetActiveWeaponStatBonus
-        cmp #$000E
+        cmp #SafeguardStatBoost
         bne +
 
           lda wR34
@@ -3789,7 +3788,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         jsl rlGetClassDefense
         clc
-        adc structExtendedPersonalCharacterDataRAM.Defense,b,x
+        adc structExtendedCharacterDataRAM.Defense,b,x
         and #$00FF
         cmp #31
         bcc _End
@@ -3837,7 +3836,7 @@
         sta wR34
 
         jsl rlGetActiveWeaponStatBonus
-        cmp #$000F
+        cmp #BarrierBladeStatBoost
         bne +
 
           lda wR34
@@ -3850,10 +3849,10 @@
         bit #$0004
         beq +
 
-          lda $4C
+          lda wR34
           clc
           adc #5
-          sta $4C
+          sta wR34
 
         +
         ldx wSelectedUnitDataRAMPointer,b
@@ -3866,7 +3865,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         jsl rlGetClassResistance
         clc
-        adc structExtendedPersonalCharacterDataRAM.Resistance,b,x
+        adc structExtendedCharacterDataRAM.Resistance,b,x
         and #$00FF
         cmp #31
         bcc _End
@@ -3967,7 +3966,7 @@
         .autsiz
         .databank ?
 
-        ; returns class movement + filled 4C with possible leg ring
+        ; returns class movement + filled wR34 with possible leg ring
         ; or canto movement as number
 
         phb
@@ -4030,7 +4029,7 @@
         beq +
 
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
-        lda structExtendedPersonalCharacterDataRAM.Luck,b,x
+        lda structExtendedCharacterDataRAM.Luck,b,x
         and #$00FF
         
         -
@@ -4093,7 +4092,7 @@
         beq +
 
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
-        lda structExtendedPersonalCharacterDataRAM.Level,b,x
+        lda structExtendedCharacterDataRAM.Level,b,x
         and #$00FF
 
         -
@@ -4126,7 +4125,7 @@
         beq +
 
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
-        lda structExtendedPersonalCharacterDataRAM.LeadershipStars,b,x
+        lda structExtendedCharacterDataRAM.LeadershipStars,b,x
         and #$00FF
         
         -
@@ -4163,7 +4162,7 @@
         bne +
 
           jsl rlGetSelectedUnitExtendedPersonalDataPointer
-          lda structExtendedPersonalCharacterDataRAM.Experience,b,x
+          lda structExtendedCharacterDataRAM.Experience,b,x
           and #$00FF
 
           -
@@ -4201,7 +4200,7 @@
         beq +
 
           jsl rlGetSelectedUnitExtendedPersonalDataPointer
-          lda structExtendedPersonalCharacterDataRAM.TalkTarget,b,x
+          lda structExtendedCharacterDataRAM.TalkTarget,b,x
           and #$00FF
           sta wRoutineVariable1,b
           stz wR10
@@ -4251,7 +4250,7 @@
         pla
 
         sep #$20
-        sta structExtendedPersonalCharacterDataRAM.TalkTarget,b,x
+        sta structExtendedCharacterDataRAM.TalkTarget,b,x
         rep #$20
 
         plx
@@ -4279,7 +4278,7 @@
         bcs +
 
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
-        lda structExtendedPersonalCharacterDataRAM.Money,b,x
+        lda structExtendedCharacterDataRAM.Money,b,x
         
         -
         plx
@@ -4313,7 +4312,7 @@
 
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
         pla
-        sta structExtendedPersonalCharacterDataRAM.Money,b,x
+        sta structExtendedCharacterDataRAM.Money,b,x
         
         -
         plx
@@ -4513,7 +4512,7 @@
 
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
-        lda structExtendedPersonalCharacterDataRAM.Class,b,x
+        lda structExtendedCharacterDataRAM.Class,b,x
         and #$00FF
 
         -
@@ -4827,7 +4826,7 @@
         pla
 
         sep #$20
-        sta structExtendedPersonalCharacterDataRAM.Class,b,x
+        sta structExtendedCharacterDataRAM.Class,b,x
         rep #$20
 
         plx
@@ -6587,19 +6586,19 @@
         beq +
 
           jsl rlGetSelectedUnitExtendedPersonalDataPointer
-          lda structExtendedPersonalCharacterDataRAM.Level,b,x
+          lda structExtendedCharacterDataRAM.Level,b,x
           and #$00FF
           cmp #30
           bcs _NoEXP
 
             sep #$20
-            lda structExtendedPersonalCharacterDataRAM.Experience,b,x
+            lda structExtendedCharacterDataRAM.Experience,b,x
             clc
             adc wRoutineVariable1
             cmp #100
             bcs ++
 
-              sta structExtendedPersonalCharacterDataRAM.Experience,b,x
+              sta structExtendedCharacterDataRAM.Experience,b,x
               rep #$20
 
         +
@@ -6615,10 +6614,10 @@
         +
         sec
         sbc #100
-        sta structExtendedPersonalCharacterDataRAM.Experience,b,x
+        sta structExtendedCharacterDataRAM.Experience,b,x
         rep #$20
 
-        lda structExtendedPersonalCharacterDataRAM.Level,b,x
+        lda structExtendedCharacterDataRAM.Level,b,x
         and #$00FF
         inc a
         cmp #30
@@ -6627,10 +6626,10 @@
           sep #$20
           lda wRoutineVariable1
           sec
-          sbc structExtendedPersonalCharacterDataRAM.Experience,b,x
+          sbc structExtendedCharacterDataRAM.Experience,b,x
           sta wRoutineVariable1
           lda #0
-          sta structExtendedPersonalCharacterDataRAM.Experience,b,x
+          sta structExtendedCharacterDataRAM.Experience,b,x
           rep #$20
 
         +
@@ -6673,7 +6672,7 @@
         phx
         phy
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
-        lda structExtendedPersonalCharacterDataRAM.Level,b,x
+        lda structExtendedCharacterDataRAM.Level,b,x
         and #$00FF
         inc a
         cmp #31
@@ -6683,7 +6682,7 @@
 
         +
         sep #$20
-        sta structExtendedPersonalCharacterDataRAM.Level,b,x
+        sta structExtendedCharacterDataRAM.Level,b,x
         rep #$20
 
         lda wTotalLevelUpCount
@@ -6852,7 +6851,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.HP,b,x
+        lda structExtendedCharacterDataRAM.HP,b,x
         cmp #80
         bcs ++
 
@@ -6864,7 +6863,7 @@
             lda #80
 
           +
-          sta structExtendedPersonalCharacterDataRAM.HP,b,x
+          sta structExtendedCharacterDataRAM.HP,b,x
           rep #$20
           plx
           plp
@@ -6898,7 +6897,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.Strength,b,x
+        lda structExtendedCharacterDataRAM.Strength,b,x
         cmp #15
         bcs ++
 
@@ -6910,7 +6909,7 @@
             lda #15
 
           +
-          sta structExtendedPersonalCharacterDataRAM.Strength,b,x
+          sta structExtendedCharacterDataRAM.Strength,b,x
           rep #$20
           plx
           plp
@@ -6944,7 +6943,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.Magic,b,x
+        lda structExtendedCharacterDataRAM.Magic,b,x
         cmp #15
         bcs ++
 
@@ -6956,7 +6955,7 @@
             lda #15
 
           +
-          sta structExtendedPersonalCharacterDataRAM.Magic,b,x
+          sta structExtendedCharacterDataRAM.Magic,b,x
           rep #$20
           plx
           plp
@@ -6990,7 +6989,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.Skill,b,x
+        lda structExtendedCharacterDataRAM.Skill,b,x
         cmp #15
         bcs ++
 
@@ -7002,7 +7001,7 @@
             lda #15
 
           +
-          sta structExtendedPersonalCharacterDataRAM.Skill,b,x
+          sta structExtendedCharacterDataRAM.Skill,b,x
           rep #$20
           plx
           plp
@@ -7036,7 +7035,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.Speed,b,x
+        lda structExtendedCharacterDataRAM.Speed,b,x
         cmp #15
         bcs ++
 
@@ -7048,7 +7047,7 @@
             lda #15
 
           +
-          sta structExtendedPersonalCharacterDataRAM.Speed,b,x
+          sta structExtendedCharacterDataRAM.Speed,b,x
           rep #$20
           plx
           plp
@@ -7082,7 +7081,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.Defense,b,x
+        lda structExtendedCharacterDataRAM.Defense,b,x
         cmp #15
         bcs ++
 
@@ -7094,7 +7093,7 @@
             lda #15
 
           +
-          sta structExtendedPersonalCharacterDataRAM.Defense,b,x
+          sta structExtendedCharacterDataRAM.Defense,b,x
           rep #$20
           plx
           plp
@@ -7128,7 +7127,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.Resistance,b,x
+        lda structExtendedCharacterDataRAM.Resistance,b,x
         cmp #15
         bcs ++
 
@@ -7140,7 +7139,7 @@
             lda #15
 
           +
-          sta structExtendedPersonalCharacterDataRAM.Resistance,b,x
+          sta structExtendedCharacterDataRAM.Resistance,b,x
           rep #$20
           plx
           plp
@@ -7174,7 +7173,7 @@
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
         sep #$20
-        lda structExtendedPersonalCharacterDataRAM.Luck,b,x
+        lda structExtendedCharacterDataRAM.Luck,b,x
         cmp #30
         bcs ++
 
@@ -7186,7 +7185,7 @@
             lda #30
 
           +
-          sta structExtendedPersonalCharacterDataRAM.Luck,b,x
+          sta structExtendedCharacterDataRAM.Luck,b,x
           rep #$20
           plx
           plp
@@ -7405,7 +7404,7 @@
 
         jsl rlGetSelectedUnitExtendedPersonalDataPointer
 
-        lda structExtendedPersonalCharacterDataRAM.Money,b,x
+        lda structExtendedCharacterDataRAM.Money,b,x
         clc
         adc wRoutineVariable1,b
         bcs +
@@ -7421,7 +7420,7 @@
         lda #50000
 
         +
-        sta structExtendedPersonalCharacterDataRAM.Money,b,x
+        sta structExtendedCharacterDataRAM.Money,b,x
         tya
         ply
         plx

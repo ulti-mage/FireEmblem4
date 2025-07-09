@@ -27,7 +27,7 @@
       FlagChapter02_PlayerAboveNordion          := 29
       FlagChapter02_InfiniDukeKnightNearCastle  := 30
       FlagChapter02_NoCastlesDestroyed          := 31
-        ; No clue what the last 2 were planned for
+        ; No clue what the previous 2 were planned for
       FlagChapter02_ElliotBattleQuote           := 32
       FlagChapter02_PhilipBattleQuote           := 33
       FlagChapter02_BordeauxBattleQuote         := 34
@@ -715,7 +715,7 @@
 
           AI_0B
           AI_END
-    
+
         +
         AI_02 $00
         AI_INTERACT_WITH_UNIT Sigurd, $01

@@ -1,8 +1,8 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,BrigandCh07,$02,$22,0,8,FS_Ch07Ulster,0
-ID_02,BrigandCh07,$26,$2C,0,6,FS_Ch07Ulster,0
-ID_03,BrigandCh07,$27,$2D,0,6,FS_Ch07Ulster,0
-ID_04,BrigandCh07,$39,$2B,0,6,FS_Ch07Ulster,0
-ID_05,BrigandCh07,$3A,$2B,0,6,FS_Ch07Ulster,0
-ID_06,BrigandCh07,$3B,$2C,0,6,FS_Ch07Ulster,0
+ID_01,BrigandCh07,2,34,0,8,FS_Ch07Ulster,0
+ID_02,BrigandCh07,38,44,0,6,FS_Ch07Ulster,0
+ID_03,BrigandCh07,39,45,0,6,FS_Ch07Ulster,0
+ID_04,BrigandCh07,57,43,0,6,FS_Ch07Ulster,0
+ID_05,BrigandCh07,58,43,0,6,FS_Ch07Ulster,0
+ID_06,BrigandCh07,59,44,0,6,FS_Ch07Ulster,0
 ID_07,$FFFF,0,0,0,0,0,0

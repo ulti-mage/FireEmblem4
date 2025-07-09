@@ -1,11 +1,11 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
 ID_01,EldiganCh01,16,5,1,1,FS_Ch01Nordion,0
-ID_02,CrossKnight,16,4,0,1,FS_Ch01Nordion,1
-ID_03,CrossKnight,16,6,0,1,FS_Ch01Nordion,2
-ID_04,CrossKnight,17,5,0,1,FS_Ch01Nordion,3
-ID_05,CrossKnight,17,4,0,1,FS_Ch01Nordion,4
-ID_06,CrossKnight,17,6,0,1,FS_Ch01Nordion,5
-ID_07,CrossKnight,18,5,0,1,FS_Ch01Nordion,6
-ID_08,CrossKnight,18,4,0,1,FS_Ch01Nordion,7
-ID_09,CrossKnight,18,6,0,1,FS_Ch01Nordion,8
+ID_02,CrossKnightCh01Cavalier,16,4,0,1,FS_Ch01Nordion,1
+ID_03,CrossKnightCh01Cavalier,16,6,0,1,FS_Ch01Nordion,2
+ID_04,CrossKnightCh01Cavalier,17,5,0,1,FS_Ch01Nordion,3
+ID_05,CrossKnightCh01Cavalier,17,4,0,1,FS_Ch01Nordion,4
+ID_06,CrossKnightCh01Cavalier,17,6,0,1,FS_Ch01Nordion,5
+ID_07,CrossKnightCh01Cavalier,18,5,0,1,FS_Ch01Nordion,6
+ID_08,CrossKnightCh01Cavalier,18,4,0,1,FS_Ch01Nordion,7
+ID_09,CrossKnightCh01Cavalier,18,6,0,1,FS_Ch01Nordion,8
 ID_10,$FFFF,0,0,0,0,0,0

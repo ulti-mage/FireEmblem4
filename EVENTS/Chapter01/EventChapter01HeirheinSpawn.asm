@@ -59,14 +59,14 @@
     DIALOGUE dialogueChapter01HeirheinSpawn2
     YIELD
 
-    MOVE_TEMPORARY_BY_SCRIPT CrossKnight, [29, 10], 5, MAP_SPRITE_YELLOW, _ScriptedMovementCrossKnight
+    MOVE_TEMPORARY_BY_SCRIPT CrossKnightCh01Cavalier, [29, 10], 5, MAP_SPRITE_YELLOW, _ScriptedMovementCrossKnight
     WAIT_UNIT_SPRITE_DECOMPRESSED
 
     WAIT_UNTIL_MAP_SPRITES_HALTING
     YIELD
 
     RUN_EVENT_CONDITION
-      REMOVE_UNIT CrossKnight
+      REMOVE_UNIT CrossKnightCh01Cavalier
 
     PAUSE 10
     YIELD

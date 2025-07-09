@@ -7,7 +7,6 @@
 
     .endweak
 
-
     .section EpilogueDialogueWorldMapCodeSection
 
       rlASMCEpilogueWorldMapSilesseCheckNoInheritors ; 8D/B63D
@@ -45,7 +44,7 @@
 
         ldx #LewnysSonEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         sta aDialogue.wUnit1,b
@@ -53,7 +52,7 @@
 
           ldx #LewnysDaughterEpilogueID
           txa
-          sta $7F547E
+          sta wEpilogueSavedUnitID2
           lda aEpilogueMainCharacters,x
           and #$00FF
           sta aDialogue.wUnit1,b
@@ -61,8 +60,8 @@
           bra _End
 
         _Dialogue
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Silesse_Inherited)<<8
         sta lR18+1
@@ -81,13 +80,13 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
         bne _Dialogue
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LewnysDaughterEpilogueID
         beq +
 
@@ -136,13 +135,13 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
         bne _Dialogue
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LewnysDaughterEpilogueID
         beq +
 
@@ -191,7 +190,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
@@ -214,7 +213,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
           tax
@@ -223,8 +222,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Silesse_Piece_RulersLover)<<8
             sta lR18+1
@@ -243,7 +242,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LewnysDaughterEpilogueID
         beq _End
 
@@ -253,8 +252,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #2
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot1
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Silesse_Piece_RulersSister)<<8
             sta lR18+1
@@ -275,7 +274,7 @@
 
         ldx #CedEpilogueID
         txa
-        sta $7F5480
+        sta wEpilogueSavedUnitID3
         lda aEpilogueMainCharacters,x
         and #$00FF
         sta aDialogue.wUnit1,b
@@ -283,20 +282,20 @@
 
           ldx #HawkEpilogueID
           txa
-          sta $7F5480
+          sta wEpilogueSavedUnitID3
           lda aEpilogueMainCharacters,x
           and #$00FF
           sta aDialogue.wUnit1,b
           bne _Dialogue
 
             lda #0
-            sta $7F5480
+            sta wEpilogueSavedUnitID3
             bra _End
 
         _Dialogue
         lda aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Silesse_Piece_CedHawk)<<8
         sta lR18+1
@@ -315,7 +314,7 @@
         .autsiz
         .databank ?
 
-        lda $7F5480
+        lda wEpilogueSavedUnitID3
         beq _End
 
           tax
@@ -324,8 +323,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Silesse_Piece_CedHawksLover)<<8
             sta lR18+1
@@ -357,8 +356,8 @@
           beq _End
 
         _Dialogue
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Silesse_Piece_FeeHermina)<<8
         sta lR18+1
@@ -422,8 +421,8 @@
           bra _End
 
         +
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_NewThracia_Inherited)<<8
         sta lR18+1
@@ -553,8 +552,8 @@
         sta aDialogue.wUnit1,b
         beq +
 
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_LeifsLover)<<8
           sta lR18+1
@@ -579,8 +578,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_Finn)<<8
           sta lR18+1
@@ -605,8 +604,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_Hannibal)<<8
           sta lR18+1
@@ -627,7 +626,7 @@
 
         ldx #CharlotEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         sta aDialogue.wUnit1,b
@@ -635,20 +634,20 @@
 
           ldx #CoirpreEpilogueID
           txa
-          sta $7F547E
+          sta wEpilogueSavedUnitID2
           lda aEpilogueMainCharacters,x
           and #$00FF
           sta aDialogue.wUnit1,b
           bne +
 
             lda #0
-            sta $7F547E
+            sta wEpilogueSavedUnitID2
             bra _End
 
         +
         lda aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_CharlotCoirpre)<<8
         sta lR18+1
@@ -667,7 +666,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
           tax
@@ -676,8 +675,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_CharlotCoirpresLover)<<8
             sta lR18+1
@@ -702,8 +701,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_Asaello)<<8
           sta lR18+1
@@ -728,8 +727,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_AsaellosLover)<<8
           sta lR18+1
@@ -754,8 +753,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Piece_NewThracia_Daisy)<<8
           sta lR18+1
@@ -911,35 +910,35 @@
 
         ldx #ShannanEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne +
 
           ldx #ScathachEpilogueID
           txa
-          sta $7F547E
+          sta wEpilogueSavedUnitID2
           lda aEpilogueMainCharacters,x
           and #$00FF
           bne +
 
             ldx #LarceiEpilogueID
             txa
-            sta $7F547E
+            sta wEpilogueSavedUnitID2
             lda aEpilogueMainCharacters,x
             and #$00FF
             bne +
 
               lda #0
-              sta $7F547E
+              sta wEpilogueSavedUnitID2
               bra _End
 
         +
         sta aDialogue.wUnit1,b
-        sta $7F547C
+        sta wEpilogueSavedUnitID1
 
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Isaach_Inherited)<<8
         sta lR18+1
@@ -1010,7 +1009,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
@@ -1033,7 +1032,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
           tax
@@ -1042,8 +1041,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Isaach_Piece_RulersLover)<<8
             sta lR18+1
@@ -1062,13 +1061,13 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #ScathachEpilogueID
         beq +
 
           ldx #ScathachEpilogueID
           txa
-          sta $7F5480
+          sta wEpilogueSavedUnitID3
           lda aEpilogueMainCharacters,x
           and #$00FF
           sta aDialogue.wUnit1,b
@@ -1077,20 +1076,20 @@
         +
         ldx #DalvinEpilogueID
         txa
-        sta $7F5480
+        sta wEpilogueSavedUnitID3
         lda aEpilogueMainCharacters,x
         and #$00FF
         sta aDialogue.wUnit1,b
         bne +
 
           lda #0
-          sta $7F5480
+          sta wEpilogueSavedUnitID3
           bra _End
 
         +
         lda aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Isaach_Piece_ScathachDalvin)<<8
         sta lR18+1
@@ -1109,7 +1108,7 @@
         .autsiz
         .databank ?
 
-        lda $7F5480
+        lda wEpilogueSavedUnitID3
         beq _End
 
           tax
@@ -1118,8 +1117,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Isaach_Piece_ScathachDalvinsLover)<<8
             sta lR18+1
@@ -1138,7 +1137,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LarceiEpilogueID
         beq +
 
@@ -1156,8 +1155,8 @@
         beq _End
 
         +
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Isaach_Piece_LarceiCreidne)<<8
         sta lR18+1
@@ -1182,8 +1181,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Isaach_Piece_Deimne)<<8
           sta lR18+1
@@ -1208,8 +1207,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Isaach_Piece_DeimnesLover)<<8
           sta lR18+1
@@ -1234,8 +1233,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Isaach_Piece_Muirne)<<8
           sta lR18+1
@@ -1254,7 +1253,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #ScathachEpilogueID
         beq +
 
@@ -1265,7 +1264,7 @@
           bne _Dialogue
 
         +
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LarceiEpilogueID
         beq +
 
@@ -1319,13 +1318,13 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
         bne _Dialogue
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #ScathachEpilogueID
         beq +
 
@@ -1335,7 +1334,7 @@
           bne _Dialogue
 
         +
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LarceiEpilogueID
         beq +
 
@@ -1376,7 +1375,7 @@
         jsl rlDialoguePushToActivePointerStack
 
         _End
-        lda $7F547C
+        lda wEpilogueSavedUnitID1
         sta aDialogue.wUnit1,b
         rtl
 
@@ -1425,35 +1424,35 @@
 
         ldx #AresEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne +
 
           ldx #DiarmuidEpilogueID
           txa
-          sta $7F547E
+          sta wEpilogueSavedUnitID2
           lda aEpilogueMainCharacters,x
           and #$00FF
           bne +
 
             ldx #NannaEpilogueID
             txa
-            sta $7F547E
+            sta wEpilogueSavedUnitID2
             lda aEpilogueMainCharacters,x
             and #$00FF
             bne +
 
               lda #0
-              sta $7F547E
+              sta wEpilogueSavedUnitID2
               bra _End
 
         +
         sta aDialogue.wUnit1,b
-        sta $7F547C
+        sta wEpilogueSavedUnitID1
 
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Agustria_Inherited)<<8
         sta lR18+1
@@ -1472,7 +1471,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
@@ -1495,13 +1494,13 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
         bne _Dialogue
 
-          lda $7F547E
+          lda wEpilogueSavedUnitID2
           cmp #DiarmuidEpilogueID
           beq +
 
@@ -1511,7 +1510,7 @@
             bne _Dialogue
 
           +
-          lda $7F547E
+          lda wEpilogueSavedUnitID2
           cmp #NannaEpilogueID
           beq +
 
@@ -1544,8 +1543,8 @@
 
         _Dialogue
         lda aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Agustria_Piece_Start)<<8
         sta lR18+1
@@ -1564,7 +1563,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
           tax
@@ -1573,8 +1572,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Agustria_Piece_RulersLover)<<8
             sta lR18+1
@@ -1606,8 +1605,8 @@
           beq _End
 
         +
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Agustria_Piece_LayleaLene)<<8
         sta lR18+1
@@ -1626,13 +1625,13 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #DiarmuidEpilogueID
         beq +
 
           ldx #DiarmuidEpilogueID
           txa
-          sta $7F5480
+          sta wEpilogueSavedUnitID3
           lda aEpilogueMainCharacters,x
           and #$00FF
           sta aDialogue.wUnit1,b
@@ -1641,19 +1640,19 @@
         +
         ldx #TristanEpilogueID
         txa
-        sta $7F5480
+        sta wEpilogueSavedUnitID3
         lda aEpilogueMainCharacters,x
         and #$00FF
         sta aDialogue.wUnit1,b
         bne _Dialogue
 
           lda #0
-          sta $7F5480
+          sta wEpilogueSavedUnitID3
           bra _End
 
         _Dialogue
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Agustria_Piece_DiarmuidTristan)<<8
         sta lR18+1
@@ -1672,7 +1671,7 @@
         .autsiz
         .databank ?
 
-        lda $7F5480
+        lda wEpilogueSavedUnitID3
         beq _End
 
           tax
@@ -1681,8 +1680,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Agustria_Piece_DiarmuidTristansLover)<<8
             sta lR18+1
@@ -1701,7 +1700,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #NannaEpilogueID
         beq _End
 
@@ -1718,8 +1717,8 @@
             beq _End
 
           +
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Agustria_Piece_NannaJeanne)<<8
           sta lR18+1
@@ -1738,13 +1737,13 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         tax
         lda aEpilogueSupportingCharacters,x
         and #$00FF
         bne _Dialogue
 
-          lda $7F547E
+          lda wEpilogueSavedUnitID2
           cmp #DiarmuidEpilogueID
           beq +
 
@@ -1754,7 +1753,7 @@
             bne _Dialogue
 
           +
-          lda $7F547E
+          lda wEpilogueSavedUnitID2
           cmp #NannaEpilogueID
           beq +
 
@@ -1793,7 +1792,7 @@
         jsl rlDialoguePushToActivePointerStack
         
         _End
-        lda $7F547C
+        lda wEpilogueSavedUnitID1
         sta aDialogue.wUnit1,b
         rtl
 
@@ -1836,7 +1835,7 @@
         lda aEpilogueMainCharacters,x
         and #$00FF
         sta aDialogue.wUnit1,b
-        sta $7F547C
+        sta wEpilogueSavedUnitID1
         beq +
         bra _Dialogue
 
@@ -1845,12 +1844,12 @@
           lda aEpilogueMainCharacters,x
           and #$00FF
           sta aDialogue.wUnit1,b
-          sta $7F547C
+          sta wEpilogueSavedUnitID1
           beq _End
 
         _Dialogue
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Verdane_Inherited)<<8
         sta lR18+1
@@ -1897,8 +1896,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Verdane_Piece_JamkesSonLover)<<8
           sta lR18+1
@@ -1917,7 +1916,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547C
+        lda wEpilogueSavedUnitID1
         sta aDialogue.wUnit1,b
         rtl
 
@@ -1947,8 +1946,8 @@
 
           _Dialogue
           lda aDialogue.wUnit1,b
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_SoloQueen)<<8
           sta lR18+1
@@ -1984,8 +1983,8 @@
             beq _End
 
               lda aDialogue.wUnit1,b
-              ldx #4
-              jsl rlLoadPortraitIntoSlot
+              ldx #WM_PortraitSlot2
+              jsl rlLoadWorldMapPortraitIntoSlot
 
               lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_QueenAndJulia)<<8
               sta lR18+1
@@ -2187,8 +2186,8 @@
 
         _Dialogue
         sta aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Velthomer_Ruler)<<8
         sta lR18+1
@@ -2213,8 +2212,8 @@
         beq _End
 
           sta aDialogue.wUnit1,b
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Velthomer_AzellesSonLover)<<8
           sta lR18+1
@@ -2244,8 +2243,8 @@
           beq _End
 
             sta aDialogue.wUnit1,b
-            ldx #2
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot1
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Velthomer_AzellesChildren)<<8
             sta lR18+1
@@ -2266,40 +2265,40 @@
 
         ldx #ArthurEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #AmidEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #TineEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #LindaEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         lda #0
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         bra _End
 
         _Dialogue
         sta aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Friege_Ruler)<<8
         sta lR18+1
@@ -2318,7 +2317,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
           tax
@@ -2327,8 +2326,8 @@
           beq _End
 
             sta aDialogue.wUnit1,b
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Friege_RulersLover)<<8
             sta lR18+1
@@ -2347,7 +2346,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
         cmp #ArthurEpilogueID
@@ -2373,8 +2372,8 @@
 
         _Dialogue
         sta aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Friege_RulersSister)<<8
         sta lR18+1
@@ -2405,8 +2404,8 @@
 
         +
         sta aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Edda_Ruler)<<8
         sta lR18+1
@@ -2431,8 +2430,8 @@
         beq _End
 
           sta aDialogue.wUnit1,b
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Edda_RulersLover)<<8
           sta lR18+1
@@ -2462,8 +2461,8 @@
           beq _End
 
             sta aDialogue.wUnit1,b
-            ldx #2
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot1
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Edda_RulersSister)<<8
             sta lR18+1
@@ -2484,40 +2483,40 @@
 
         ldx #LexSonEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #LexDaughterEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #IucharEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #IucharbaEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         lda #0
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         bra _End
 
         _Dialogue
         sta aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_Ruler)<<8
         sta lR18+1
@@ -2536,7 +2535,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
           tax
@@ -2547,8 +2546,8 @@
 
           _Dialogue
           sta aDialogue.wUnit1,b
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_RulersLover)<<8
           sta lR18+1
@@ -2567,7 +2566,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LexSonEpilogueID
         bne _End
 
@@ -2577,8 +2576,8 @@
           beq _End
 
             sta aDialogue.wUnit1,b
-            ldx #2
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot1
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_RulersSister)<<8
             sta lR18+1
@@ -2597,7 +2596,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #IucharEpilogueID
         beq _End
 
@@ -2607,8 +2606,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #2
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot1
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_Iuchar)<<8
             sta lR18+1
@@ -2627,7 +2626,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #IucharEpilogueID
         beq _End
 
@@ -2637,8 +2636,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_IucharsLover)<<8
             sta lR18+1
@@ -2657,7 +2656,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #IucharbaEpilogueID
         beq _End
 
@@ -2667,8 +2666,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #2
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot1
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_Iucharba)<<8
             sta lR18+1
@@ -2687,7 +2686,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #IucharbaEpilogueID
         beq _End
 
@@ -2697,8 +2696,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_IucharbasLover)<<8
             sta lR18+1
@@ -2719,40 +2718,40 @@
 
         ldx #FebailEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #PattyEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #LesterEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         ldx #LanaEpilogueID
         txa
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         lda aEpilogueMainCharacters,x
         and #$00FF
         bne _Dialogue
 
         lda #0
-        sta $7F547E
+        sta wEpilogueSavedUnitID2
         bra _End
 
         _Dialogue
         sta aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Yngvi_Ruler)<<8
         sta lR18+1
@@ -2771,7 +2770,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         beq _End
 
           tax
@@ -2782,8 +2781,8 @@
 
             _Dialogue
             sta aDialogue.wUnit1,b
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Yngvi_RulersLover)<<8
             sta lR18+1
@@ -2802,7 +2801,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #FebailEpilogueID
         beq _Febail
 
@@ -2826,8 +2825,8 @@
 
         _Dialogue
         sta aDialogue.wUnit1,b
-        ldx #2
-        jsl rlLoadPortraitIntoSlot
+        ldx #WM_PortraitSlot1
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Yngvi_RulersSister)<<8
         sta lR18+1
@@ -2846,7 +2845,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LesterEpilogueID
         beq _End
 
@@ -2856,8 +2855,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #2
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot1
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Yngvi_Lester)<<8
             sta lR18+1
@@ -2876,7 +2875,7 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LesterEpilogueID
         beq _End
 
@@ -2886,8 +2885,8 @@
           sta aDialogue.wUnit1,b
           beq _End
 
-            ldx #4
-            jsl rlLoadPortraitIntoSlot
+            ldx #WM_PortraitSlot2
+            jsl rlLoadWorldMapPortraitIntoSlot
 
             lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Yngvi_LestersLover)<<8
             sta lR18+1
@@ -2906,11 +2905,11 @@
         .autsiz
         .databank ?
 
-        lda $7F547E
+        lda wEpilogueSavedUnitID2
         cmp #LesterEpilogueID
         beq _End
 
-          lda $7F547E
+          lda wEpilogueSavedUnitID2
           cmp #LanaEpilogueID
           beq _End
 
@@ -2920,8 +2919,8 @@
             sta aDialogue.wUnit1,b
             beq _End
 
-              ldx #2
-              jsl rlLoadPortraitIntoSlot
+              ldx #WM_PortraitSlot1
+              jsl rlLoadWorldMapPortraitIntoSlot
 
               lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Yngvi_Lana)<<8
               sta lR18+1
@@ -2945,8 +2944,8 @@
         and #$00FF
         beq _End
 
-          ldx #2
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot1
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Chalphy_Oifey)<<8
           sta lR18+1
@@ -2971,8 +2970,8 @@
         sta aDialogue.wUnit1,b
         beq _End
 
-          ldx #4
-          jsl rlLoadPortraitIntoSlot
+          ldx #WM_PortraitSlot2
+          jsl rlLoadWorldMapPortraitIntoSlot
 
           lda #(`dialogueChapterEpilogueWorldMap_Grannvale_Piece_Chalphy_OifeysLover)<<8
           sta lR18+1

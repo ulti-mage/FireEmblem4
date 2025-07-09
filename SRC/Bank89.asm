@@ -72,13 +72,13 @@
         sty wR3
         sta wR2
 
-        -
-        lda #$00FF
-        sta aBG3TilemapBuffer,x
-        inc x
-        inc x
-        dec wR1
-        bne -
+          -
+          lda #$00FF
+          sta aBG3TilemapBuffer,x
+          inc x
+          inc x
+          dec wR1
+          bne -
 
         lda wR0
         clc
@@ -274,7 +274,7 @@
         lda #$6200
         sta wR1
         phx
-        jsl $80A58C
+        jsl rlDMAByPointer
 
         plx
         ldx #$001E

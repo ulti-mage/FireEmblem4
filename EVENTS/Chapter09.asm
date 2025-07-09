@@ -1,65 +1,65 @@
 
     .weak
 
-      FlagChapter09_KapathogiaSeizedCheck         :=  0
-      FlagChapter09_LutheciaSeizedCheck           :=  1
-      FlagChapter09_GrutiaSeizedCheck             :=  2
-      FlagChapter09_ThraciaSeizedCheck            :=  3
-      FlagChapter09_AltenaCharge                  :=  4
-      FlagChapter09_HannibalDefend                :=  5
-      FlagChapter09_CoirpreHostage                :=  6
-      FlagChapter09_LeifAltenaTalk                :=  7
-      FlagChapter09_AltenaRespawn                 :=  8
-      FlagChapter09_TravantSpawnAltenaDead        :=  9
-      FlagChapter09_HannibalCharge                := 10
-      FlagChapter09_SeliphAltenaTalk              := 11
-      FlagChapter09_HannibalNotRecruited          := 12
-      FlagChapter09_LutheciaSeized                := 13
-      FlagChapter09_CoirpreHannibalTalk           := 14
-      FlagChapter09_GrutiaSpawn                   := 15
-      FlagChapter09_GrutiaSeized                  := 16
-      FlagChapter09_ThraciaSpawn                  := 17
-      FlagChapter09_ArionCharge                   := 18
+      FlagChapter09_KapathogiaSeizedCheck             :=  0
+      FlagChapter09_LutheciaSeizedCheck               :=  1
+      FlagChapter09_GrutiaSeizedCheck                 :=  2
+      FlagChapter09_ThraciaSeizedCheck                :=  3
+      FlagChapter09_AltenaCharge                      :=  4
+      FlagChapter09_HannibalDefend                    :=  5
+      FlagChapter09_CoirpreHostage                    :=  6
+      FlagChapter09_LeifAltenaTalk                    :=  7
+      FlagChapter09_AltenaRespawn                     :=  8
+      FlagChapter09_TravantSpawnAltenaDead            :=  9
+      FlagChapter09_HannibalCharge                    := 10
+      FlagChapter09_SeliphAltenaTalk                  := 11
+      FlagChapter09_HannibalNotRecruited              := 12
+      FlagChapter09_LutheciaSeized                    := 13
+      FlagChapter09_CoirpreCharlot_HannibalTalk       := 14
+      FlagChapter09_GrutiaSpawn                       := 15
+      FlagChapter09_GrutiaSeized                      := 16
+      FlagChapter09_ThraciaSpawn                      := 17
+      FlagChapter09_ArionCharge                       := 18
 
-      FlagChapter09_CharlotHannibalAdjacent       := 20
+      FlagChapter09_CharlotHannibalAdjacent           := 20
 
-      FlagChapter09_AltenaArionBattleQuote        := 24
-      FlagChapter09_AltenaBattleQuote             := 25
-      FlagChapter09_HannibalBattleQuote           := 26
-      FlagChapter09_KanatzBattleQuote             := 27
-      FlagChapter09_DistlerBattleQuote            := 28
-      FlagChapter09_MusarBattleQuote              := 29
-      FlagChapter09_JudahBattleQuote              := 30
-      FlagChapter09_ArionBattleQuote              := 31
-      FlagChapter09_TravantBattleQuote            := 32
+      FlagChapter09_AltenaArionBattleQuote            := 24
+      FlagChapter09_AltenaBattleQuote                 := 25
+      FlagChapter09_HannibalBattleQuote               := 26
+      FlagChapter09_KanatzBattleQuote                 := 27
+      FlagChapter09_DistlerBattleQuote                := 28
+      FlagChapter09_MusarBattleQuote                  := 29
+      FlagChapter09_JudahBattleQuote                  := 30
+      FlagChapter09_ArionBattleQuote                  := 31
+      FlagChapter09_TravantBattleQuote                := 32
 
-      FlagChapter09_OifeyAlive                    := 34
-      FlagChapter09_LeifFinnAlive                 := 35
-      FlagChapter09_HannibalDiedCheck             := 36
-      FlagChapter09_TravantDiedCheck              := 37
-      FlagChapter09_AltenaDiedCheck               := 38
-      FlagChapter09_ArionDiedCheck                := 39
-      FlagChapter09_LeifAltenaTalkCheck           := 40
-      FlagChapter09_CoirpreHannibalTalkCheck      := 41
-      FlagChapter09_SeliphAltenaTalkCheck         := 42
-      FlagChapter09_SetRamparts                   := 43
-      FlagChapter09_RemoveRamparts                := 44
-      FlagChapter09_PlayerNearThracia             := 45
-      FlagChapter09_JuliaCaptureReturn            := 46
-      FlagChapter09_CharlotHannibalAdjacentCheck  := 47
-      FlagChapter09_MusarDiedCheck                := 48
-      FlagChapter09_HawkLutheciaVisitCheck        := 49
-      FlagChapter09_LeifAltenaBattleQuote         := 50
-      FlagChapter09_FinnAltenaBattleQuote         := 51
-      FlagChapter09_LeifTravantBattleQuote        := 52
-      FlagChapter09_FinnTravantBattleQuote        := 53
-      FlagChapter09_SeliphArionBattleQuote        := 54
+      FlagChapter09_OifeyAlive                        := 34
+      FlagChapter09_LeifFinnAlive                     := 35
+      FlagChapter09_HannibalDiedCheck                 := 36
+      FlagChapter09_TravantDiedCheck                  := 37
+      FlagChapter09_AltenaDiedCheck                   := 38
+      FlagChapter09_ArionDiedCheck                    := 39
+      FlagChapter09_LeifAltenaTalkCheck               := 40
+      FlagChapter09_CoirpreCharlot_HannibalTalkCheck  := 41
+      FlagChapter09_SeliphAltenaTalkCheck             := 42
+      FlagChapter09_SetRamparts                       := 43
+      FlagChapter09_RemoveRamparts                    := 44
+      FlagChapter09_PlayerNearThracia                 := 45
+      FlagChapter09_JuliaCaptureReturn                := 46
+      FlagChapter09_CharlotHannibalAdjacentCheck      := 47
+      FlagChapter09_MusarDiedCheck                    := 48
+      FlagChapter09_HawkLutheciaVisitCheck            := 49
+      FlagChapter09_LeifAltenaBattleQuote             := 50
+      FlagChapter09_FinnAltenaBattleQuote             := 51
+      FlagChapter09_LeifTravantBattleQuote            := 52
+      FlagChapter09_FinnTravantBattleQuote            := 53
+      FlagChapter09_SeliphArionBattleQuote            := 54
 
-      FS_Player                                   :=  0
-      FS_Ch09Kapathogia                           :=  1
-      FS_Ch09Luthecia                             :=  2
-      FS_Ch09Grutia                               :=  3
-      FS_Ch09Thracia                              :=  4
+      FS_Player                                       :=  0
+      FS_Ch09Kapathogia                               :=  1
+      FS_Ch09Luthecia                                 :=  2
+      FS_Ch09Grutia                                   :=  3
+      FS_Ch09Thracia                                  :=  4
 
     .endweak
 
@@ -75,22 +75,22 @@
 
         REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter09Start
 
-        LOAD_FACTION_GROUP FS_Player, FG_Ch09Seliph
+        LOAD_FACTION_GROUP FS_Player,         FG_Ch09Seliph
         LOAD_FACTION_GROUP FS_Ch09Kapathogia, FG_Ch09Kapathogia
-        LOAD_FACTION_GROUP FS_Ch09Luthecia, FG_Ch09Luthecia
-        LOAD_FACTION_GROUP FS_Ch09Grutia, FG_Ch09Grutia
-        LOAD_FACTION_GROUP FS_Ch09Thracia, FG_Ch09Thracia
+        LOAD_FACTION_GROUP FS_Ch09Luthecia,   FG_Ch09Luthecia
+        LOAD_FACTION_GROUP FS_Ch09Grutia,     FG_Ch09Grutia
+        LOAD_FACTION_GROUP FS_Ch09Thracia,    FG_Ch09Thracia
 
-        macroSetFactionsEnemies [FS_Player, FS_Ch09Kapathogia]
-        macroSetFactionsEnemies [FS_Player, FS_Ch09Luthecia]
-        macroSetFactionsEnemies [FS_Player, FS_Ch09Grutia]
-        macroSetFactionsEnemies [FS_Player, FS_Ch09Thracia]
+        macroSetFactionsEnemies [FS_Player,         FS_Ch09Kapathogia]
+        macroSetFactionsEnemies [FS_Player,         FS_Ch09Luthecia]
+        macroSetFactionsEnemies [FS_Player,         FS_Ch09Grutia]
+        macroSetFactionsEnemies [FS_Player,         FS_Ch09Thracia]
         macroSetFactionsAllies  [FS_Ch09Kapathogia, FS_Ch09Luthecia]
         macroSetFactionsAllies  [FS_Ch09Kapathogia, FS_Ch09Grutia]
         macroSetFactionsAllies  [FS_Ch09Kapathogia, FS_Ch09Thracia]
-        macroSetFactionsAllies  [FS_Ch09Luthecia, FS_Ch09Grutia]
-        macroSetFactionsAllies  [FS_Ch09Luthecia, FS_Ch09Thracia]
-        macroSetFactionsAllies  [FS_Ch09Grutia, FS_Ch09Thracia]
+        macroSetFactionsAllies  [FS_Ch09Luthecia,   FS_Ch09Grutia]
+        macroSetFactionsAllies  [FS_Ch09Luthecia,   FS_Ch09Thracia]
+        macroSetFactionsAllies  [FS_Ch09Grutia,     FS_Ch09Thracia]
 
         DEPLOY_UNIT_GROUP UNITGroupChapter09Start
 
@@ -134,8 +134,8 @@
         CHECK_TALK FlagChapter09_SeliphAltenaTalkCheck, Altena, Seliph
           EVENT FlagChapter09_SeliphAltenaTalk, EventChapter09SeliphAltenaTalk
 
-        CHECK_CHILD_TALK FlagChapter09_CoirpreHannibalTalkCheck, Charlot, Hannibal
-          EVENT FlagChapter09_CoirpreHannibalTalk, EventChapter09CoirpreHannibalTalk
+        CHECK_CHILD_TALK FlagChapter09_CoirpreCharlot_HannibalTalkCheck, Charlot, Hannibal
+          EVENT FlagChapter09_CoirpreCharlot_HannibalTalk, EventChapter09CoirpreCharlot_HannibalTalk
 
         CHECK_UNIT_IN_AREA FlagChapter09_PlayerNearThracia, AnyCharacter, pack([42, 36]), pack([62, 55]), FS_Player
           EC_NOP_00
@@ -186,7 +186,7 @@
           EVENT FlagAlways, EventChapter09HannibalAltenaTalk
 
         CHECK_CHILD_TALK FlagAlways, Patty, Coirpre
-          EVENT FlagAlways, EventChapter09PattyCoirpreTalk
+          EVENT FlagAlways, EventChapter09PattyDaisy_CoirpreCharlotTalk
 
         CHECK_TALK FlagAlways, Julia, Seliph
           EVENT FlagAlways, EventChapter09JuliaSeliphTalk
@@ -311,7 +311,7 @@
         BREAK_TURN_EVENT_CHECKS
 
         CHECK_FLAG_SET FlagChapter09_KapathogiaSeizedCheck
-          CHECK_FLAG_UNSET FlagChapter09_CoirpreHannibalTalk
+          CHECK_FLAG_UNSET FlagChapter09_CoirpreCharlot_HannibalTalk
             EVENT FlagChapter09_HannibalNotRecruited, EventChapter09HannibalNotRecruited
         BREAK_STATE_CHECKS
 
@@ -334,7 +334,7 @@
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 
-        CHECK_ALL_FLAGS_IN_LIST_SET [FlagChapter09_GrutiaSeizedCheck, FlagChapter09_CoirpreHannibalTalk, FlagChapter09_CharlotHannibalAdjacentCheck]
+        CHECK_ALL_FLAGS_IN_LIST_SET [FlagChapter09_GrutiaSeizedCheck, FlagChapter09_CoirpreCharlot_HannibalTalk, FlagChapter09_CharlotHannibalAdjacentCheck]
           EVENT FlagChapter09_CharlotHannibalAdjacent, EventChapter09CharlotHannibalAdjacent
         BREAK_STATE_CHECKS
 
@@ -509,8 +509,8 @@
       aChapter09TalkEvents ; 86/F951
 
         .structChapterTalkEventEntry Chapter09, FlagChapter09_LeifAltenaTalkCheck, Leif, Altena
-        .structChapterTalkEventEntry Chapter09, FlagChapter09_CoirpreHannibalTalkCheck, Coirpre, Hannibal
-        .structChapterTalkEventEntry Chapter09, FlagChapter09_CoirpreHannibalTalkCheck, Charlot, Hannibal
+        .structChapterTalkEventEntry Chapter09, FlagChapter09_CoirpreCharlot_HannibalTalkCheck, Coirpre, Hannibal
+        .structChapterTalkEventEntry Chapter09, FlagChapter09_CoirpreCharlot_HannibalTalkCheck, Charlot, Hannibal
         .structChapterTalkEventEntry Chapter09, FlagChapter09_SeliphAltenaTalkCheck, Seliph, Altena
         .structChapterTalkEventEntry Chapter09, FlagChapter09_SeliphAltenaTalkCheck, Altena, Seliph
         .word $FFFF

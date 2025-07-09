@@ -1,14 +1,14 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
 ID_01,ElliotCh01,22,1,1,1,FS_Ch01Heirhein,0
-ID_02,HeirheinCh01,23,1,0,1,FS_Ch01Heirhein,1
-ID_03,HeirheinCh01,21,1,0,1,FS_Ch01Heirhein,2
-ID_04,HeirheinCh01,22,2,0,1,FS_Ch01Heirhein,3
-ID_05,HeirheinCh01,23,2,0,1,FS_Ch01Heirhein,4
-ID_06,HeirheinCh01,21,2,0,1,FS_Ch01Heirhein,5
-ID_07,HeirheinCh01,22,3,0,1,FS_Ch01Heirhein,6
-ID_08,HeirheinCh01,23,3,0,1,FS_Ch01Heirhein,7
-ID_09,HeirheinCh01,21,3,0,1,FS_Ch01Heirhein,8
-ID_10,HeirheinCh01,22,4,0,1,FS_Ch01Heirhein,9
-ID_11,HeirheinCh01,23,4,0,1,FS_Ch01Heirhein,10
-ID_12,HeirheinCh01,21,4,0,1,FS_Ch01Heirhein,11
+ID_02,ElliotSquadCh01LanceKnight,23,1,0,1,FS_Ch01Heirhein,1
+ID_03,ElliotSquadCh01LanceKnight,21,1,0,1,FS_Ch01Heirhein,2
+ID_04,ElliotSquadCh01LanceKnight,22,2,0,1,FS_Ch01Heirhein,3
+ID_05,ElliotSquadCh01LanceKnight,23,2,0,1,FS_Ch01Heirhein,4
+ID_06,ElliotSquadCh01LanceKnight,21,2,0,1,FS_Ch01Heirhein,5
+ID_07,ElliotSquadCh01LanceKnight,22,3,0,1,FS_Ch01Heirhein,6
+ID_08,ElliotSquadCh01LanceKnight,23,3,0,1,FS_Ch01Heirhein,7
+ID_09,ElliotSquadCh01LanceKnight,21,3,0,1,FS_Ch01Heirhein,8
+ID_10,ElliotSquadCh01LanceKnight,22,4,0,1,FS_Ch01Heirhein,9
+ID_11,ElliotSquadCh01LanceKnight,23,4,0,1,FS_Ch01Heirhein,10
+ID_12,ElliotSquadCh01LanceKnight,21,4,0,1,FS_Ch01Heirhein,11
 ID_13,$FFFF,0,0,0,0,0,0

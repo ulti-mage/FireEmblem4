@@ -13,7 +13,7 @@
       CASTLE_NAME dialogueCastleNameNordion, CASLTE_NAME_YELLOW, 150
       YIELD
 
-      MOVE_TEMPORARY_BY_SCRIPT CrossKnight, [29, 10], 4, MAP_SPRITE_YELLOW, _ScriptedMovementCrossKnight
+      MOVE_TEMPORARY_BY_SCRIPT CrossKnightCh01Cavalier, [29, 10], 4, MAP_SPRITE_YELLOW, _ScriptedMovementCrossKnight
       WAIT_UNIT_SPRITE_DECOMPRESSED
 
       WAIT_UNTIL_MAP_SPRITES_HALTING

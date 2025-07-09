@@ -1,12 +1,12 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,Vaja,$2A,$18,1,1,FS_Ch05Phinora,0
-ID_02,PhinoraGuardFireMage,$2A,$1B,0,1,FS_Ch05Phinora,1
-ID_03,PhinoraGuardPriest,$29,$1A,0,1,FS_Ch05Phinora,2
-ID_04,PhinoraGuardPriest,$2B,$1A,0,1,FS_Ch05Phinora,3
-ID_05,VelthomerCh05FireMageDesert,$32,$12,0,1,FS_Ch05Velthomer,0
-ID_06,VelthomerCh05FireMageDesert,$34,$1B,0,1,FS_Ch05Velthomer,0
-ID_07,VelthomerCh05FireMageDesert,$25,$25,0,1,FS_Ch05Velthomer,0
-ID_08,VelthomerCh05FireMageDesert,$2D,$23,0,1,FS_Ch05Velthomer,0
-ID_09,VelthomerCh05FireMageDesert,$2F,$2B,0,1,FS_Ch05Velthomer,0
-ID_10,VelthomerCh05FireMageDesert,$26,$2D,0,1,FS_Ch05Velthomer,0
+ID_01,Vaja,42,24,1,1,FS_Ch05Phinora,0
+ID_02,PhinoraGuardFireMage,42,27,0,1,FS_Ch05Phinora,1
+ID_03,PhinoraGuardPriest,41,26,0,1,FS_Ch05Phinora,2
+ID_04,PhinoraGuardPriest,43,26,0,1,FS_Ch05Phinora,3
+ID_05,VelthomerCh05FireMageDesert,50,18,0,1,FS_Ch05Velthomer,0
+ID_06,VelthomerCh05FireMageDesert,52,27,0,1,FS_Ch05Velthomer,0
+ID_07,VelthomerCh05FireMageDesert,37,37,0,1,FS_Ch05Velthomer,0
+ID_08,VelthomerCh05FireMageDesert,45,35,0,1,FS_Ch05Velthomer,0
+ID_09,VelthomerCh05FireMageDesert,47,43,0,1,FS_Ch05Velthomer,0
+ID_10,VelthomerCh05FireMageDesert,38,45,0,1,FS_Ch05Velthomer,0
 ID_11,$FFFF,0,0,0,0,0,0

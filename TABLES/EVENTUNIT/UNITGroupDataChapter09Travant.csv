@@ -1,12 +1,12 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,TravantCh09,$34,$27,1,2,FS_Ch09Thracia,0
-ID_02,TravantSquadCh09,$34,$26,0,2,FS_Ch09Thracia,1
-ID_03,TravantSquadCh09,$33,$26,0,2,FS_Ch09Thracia,2
-ID_04,TravantSquadCh09,$35,$26,0,2,FS_Ch09Thracia,3
-ID_05,TravantSquadCh09,$34,$25,0,2,FS_Ch09Thracia,4
-ID_06,TravantSquadCh09,$32,$26,0,2,FS_Ch09Thracia,5
-ID_07,TravantSquadCh09,$36,$26,0,2,FS_Ch09Thracia,6
-ID_08,TravantSquadCh09,$33,$25,0,2,FS_Ch09Thracia,7
-ID_09,TravantSquadCh09,$35,$25,0,2,FS_Ch09Thracia,8
-ID_10,TravantSquadCh09,$34,$24,0,2,FS_Ch09Thracia,9
+ID_01,TravantCh09,52,39,1,2,FS_Ch09Thracia,0
+ID_02,TravantSquadCh09,52,38,0,2,FS_Ch09Thracia,1
+ID_03,TravantSquadCh09,51,38,0,2,FS_Ch09Thracia,2
+ID_04,TravantSquadCh09,53,38,0,2,FS_Ch09Thracia,3
+ID_05,TravantSquadCh09,52,37,0,2,FS_Ch09Thracia,4
+ID_06,TravantSquadCh09,50,38,0,2,FS_Ch09Thracia,5
+ID_07,TravantSquadCh09,54,38,0,2,FS_Ch09Thracia,6
+ID_08,TravantSquadCh09,51,37,0,2,FS_Ch09Thracia,7
+ID_09,TravantSquadCh09,53,37,0,2,FS_Ch09Thracia,8
+ID_10,TravantSquadCh09,52,36,0,2,FS_Ch09Thracia,9
 ID_11,$FFFF,0,0,0,0,0,0

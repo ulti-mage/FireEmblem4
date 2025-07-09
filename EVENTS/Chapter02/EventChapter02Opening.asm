@@ -104,9 +104,9 @@
 
     ; The bow knight is only used for this cutscene and is unused otherwise.
 
-    _UnitList := [(HeirheinBowKnight, 38)]
-    _UnitList..= [(HeirheinAxeKnight, 40)]
-    _UnitList..= [(HeirheinLanceKnight, 38)]
+    _UnitList := [(ElliotSquadCh02BowKnight, 38)]
+    _UnitList..= [(ElliotSquadCh02AxeKnight, 40)]
+    _UnitList..= [(ElliotSquadCh02LanceKnight, 38)]
     _UnitList..= [(ElliotCh02, 40)]
 
     .for _Unit, _Time in _UnitList

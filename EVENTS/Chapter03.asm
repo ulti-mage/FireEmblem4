@@ -123,7 +123,7 @@
         CHECK_UNIT_IN_AREA FlagChapter03_DewOnBragiTower, Dew, pack([7, 16]), pack([7, 16]), FS_Player
           EVENT FlagAlways, EventChapter03DewBragiTower
 
-        CHECK_TALK FlagChapter03_SylvaleCommanderTalk, AnyCharacter, Commander14
+        CHECK_TALK FlagChapter03_SylvaleCommanderTalk, AnyCharacter, SylvaleBlockadeCommanderLanceArmor
           EVENT FlagAlways, EventChapter03SylvaleCommanderTalk
 
         CHECK_TALK FlagAlways, Lex, Ayra
@@ -452,7 +452,7 @@
       aChapter03TalkEvents ; 86/D783
 
         .structChapterTalkEventEntry Chapter03, FlagChapter03_LachesisEldiganTalk, Lachesis, EldiganCh03
-        .structChapterTalkEventEntry Chapter03, FlagChapter03_SylvaleCommanderTalk, AnyCharacter, Commander14
+        .structChapterTalkEventEntry Chapter03, FlagChapter03_SylvaleCommanderTalk, AnyCharacter, SylvaleBlockadeCommanderLanceArmor
         .word $FFFF
 
       aUnknown86D795 ; 86/D795

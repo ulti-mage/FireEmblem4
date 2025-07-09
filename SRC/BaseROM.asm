@@ -1,12 +1,4 @@
 
-.weak
-  WARNINGS :?= "None"
-.endweak
-
-GUARD_FE4_BASEROM :?= false
-.if (!GUARD_FE4_BASEROM)
-  GUARD_FE4_BASEROM := true
-
   ; Fill the base ROM in parts to prevent
   ; pc wrap warnings.
 
@@ -16,5 +8,3 @@ GUARD_FE4_BASEROM :?= false
     * := bank
     .binary "../fe4.sfc", bank, $8000
   .endfor
-
-.endif ; GUARD_FE4_BASEROM

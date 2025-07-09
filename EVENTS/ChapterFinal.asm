@@ -14,20 +14,20 @@
       FlagChapterFinal_IucharbaBrianBattleQuote         := 10
       FlagChapterFinal_BelhallaSpawn                    := 11
       FlagChapterFinal_ThraciaSpawn                     := 12
-      FlagChapterFinal_TineHildaBattleQuote             := 13
+      FlagChapterFinal_TineLinda_HildaBattleQuote       := 13
       FlagChapterFinal_SeliphJuliaTalkManfroyDead       := 14
       FlagChapterFinal_AltenaArionTalk                  := 15
       FlagChapterFinal_ArthurHildaBattleQuote           := 16
       FlagChapterFinal_FebailScipioBattleQuote          := 17
       FlagChapterFinal_LesterScipioBattleQuote          := 18
-      FlagChapterFinal_TineIshtarBattleQuote            := 19
+      FlagChapterFinal_TineLinda_IshtarBattleQuote      := 19
       FlagChapterFinal_SeliphManfroyBattleQuote         := 20
       FlagChapterFinal_SeliphJuliaTalkManfroyAlive      := 21
       FlagChapterFinal_AltenaArionBattleQuote           := 22
       FlagChapterFinal_JuliusDied                       := 23
 
       FlagChapterFinal_DaisyLoverTalkSet                := 25
-      FlagChapterFinal_LarceiLoverTalkSet               := 26
+      FlagChapterFinal_LarceiCreidneLoverTalkSet        := 26
       FlagChapterFinal_PattyLoverTalkSet                := 27
       FlagChapterFinal_JeanneLoverTalkSet               := 28
       FlagChapterFinal_LanaMuirneLoverTalkSet           := 29
@@ -200,13 +200,13 @@
           EVENT FlagAlways, EventChapterFinalAmidLindaTalk
 
         CHECK_CHILD_TALK FlagAlways, Tine, Seliph
-          EVENT FlagAlways, EventChapterFinalTineSeliphTalk
+          EVENT FlagAlways, EventChapterFinalTineLinda_SeliphTalk
 
         CHECK_CHILD_TALK FlagAlways, Tine, Ced
-          EVENT FlagAlways, EventChapterFinalTineCedTalk
+          EVENT FlagAlways, EventChapterFinalTineLinda_CedHawkTalk
 
         CHECK_CHILD_TALK FlagAlways, Tine, Leif
-          EVENT FlagAlways, EventChapterFinalTineLeifTalk
+          EVENT FlagAlways, EventChapterFinalTineLinda_LeifTalk
 
         CHECK_TALK FlagAlways, Daisy, Deimne
           EVENT FlagAlways, EventChapterFinalDaisyDeimneTalk
@@ -218,37 +218,37 @@
           EVENT FlagAlways, EventChapterFinalMuirneAsaelloTalk
 
         CHECK_CHILD_TALK FlagAlways, Lana, Seliph
-          EVENT FlagAlways, EventChapterFinalLanaSeliphTalk
+          EVENT FlagAlways, EventChapterFinalLanaMuirne_SeliphTalk
 
         CHECK_TALK FlagAlways, Lana, Febail
           EVENT FlagAlways, EventChapterFinalLanaFebailTalk
 
         CHECK_CHILD_TALK FlagAlways, Lana, Scathach
-          EVENT FlagAlways, EventChapterFinalLanaScathachTalk
+          EVENT FlagAlways, EventChapterFinalLanaMuirne_ScathachDalvinTalk
 
         CHECK_CHILD_TALK FlagAlways, Larcei, Seliph
-          EVENT FlagAlways, EventChapterFinalLarceiSeliphTalk
+          EVENT FlagAlways, EventChapterFinalLarceiCreidne_SeliphTalk
 
         CHECK_CHILD_TALK FlagAlways, Larcei, Iuchar
-          EVENT FlagAlways, EventChapterFinalLarceiIucharTalk
+          EVENT FlagAlways, EventChapterFinalLarceiCreidne_IucharTalk
 
         CHECK_CHILD_TALK FlagAlways, Larcei, Iucharba
-          EVENT FlagAlways, EventChapterFinalLarceiIucharbaTalk
+          EVENT FlagAlways, EventChapterFinalLarceiCreidne_IucharbaTalk
 
         CHECK_CHILD_TALK FlagAlways, Larcei, Shannan
-          EVENT FlagAlways, EventChapterFinalLarceiShannanTalk
+          EVENT FlagAlways, EventChapterFinalLarceiCreidne_ShannanTalk
 
         CHECK_CHILD_TALK FlagAlways, Patty, Seliph
-          EVENT FlagAlways, EventChapterFinalPattySeliphTalk
+          EVENT FlagAlways, EventChapterFinalPattyDaisy_SeliphTalk
 
         CHECK_CHILD_TALK FlagAlways, Patty, Shannan
-          EVENT FlagAlways, EventChapterFinalPattyShannanTalk
+          EVENT FlagAlways, EventChapterFinalPattyDaisy_ShannanTalk
 
         CHECK_TALK FlagAlways, Patty, Lester
           EVENT FlagAlways, EventChapterFinalPattyLesterTalk
 
         CHECK_CHILD_TALK FlagAlways, Nanna, Seliph
-          EVENT FlagAlways, EventChapterFinalNannaSeliphTalk
+          EVENT FlagAlways, EventChapterFinalNannaJeanne_SeliphTalk
 
         CHECK_TALK FlagAlways, Nanna, Ares
           EVENT FlagAlways, EventChapterFinalNannaAresTalk
@@ -257,10 +257,10 @@
           EVENT FlagAlways, EventChapterFinalNannaLeifTalk
 
         CHECK_CHILD_TALK FlagAlways, Fee, Seliph
-          EVENT FlagAlways, EventChapterFinalFeeSeliphTalk
+          EVENT FlagAlways, EventChapterFinalFeeHermina_SeliphTalk
 
         CHECK_CHILD_TALK FlagAlways, Fee, Arthur
-          EVENT FlagAlways, EventChapterFinalFeeArthurTalk
+          EVENT FlagAlways, EventChapterFinalFeeHermina_ArthurAmidTalk
 
         CHECK_TALK FlagAlways, Fee, Oifey
           EVENT FlagAlways, EventChapterFinalFeeOifeyTalk
@@ -278,10 +278,10 @@
           SET_PRECOMBAT_DIALOGUE FlagChapterFinal_IucharbaBrianBattleQuote, dialogueChapterFinalIucharba_BrianBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Tine, AnyFactionSlot, HildaChFinal
-          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineHildaBattleQuote, dialogueChapterFinalTineLinda_HildaBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineLinda_HildaBattleQuote, dialogueChapterFinalTineLinda_HildaBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Linda, AnyFactionSlot, HildaChFinal
-          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineHildaBattleQuote, dialogueChapterFinalTineLinda_HildaBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineLinda_HildaBattleQuote, dialogueChapterFinalTineLinda_HildaBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Arthur, AnyFactionSlot, HildaChFinal
           SET_PRECOMBAT_DIALOGUE FlagChapterFinal_ArthurHildaBattleQuote, dialogueChapterFinalArthur_HildaBattleQuote, $46
@@ -293,10 +293,10 @@
           SET_PRECOMBAT_DIALOGUE FlagChapterFinal_LesterScipioBattleQuote, dialogueChapterFinalLester_ScipioBattleQuote, $43
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Tine, AnyFactionSlot, IshtarChFinal
-          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineIshtarBattleQuote, dialogueChapterFinalTineLinda_IshtarBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineLinda_IshtarBattleQuote, dialogueChapterFinalTineLinda_IshtarBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Linda, AnyFactionSlot, IshtarChFinal
-          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineIshtarBattleQuote, dialogueChapterFinalTineLinda_IshtarBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapterFinal_TineLinda_IshtarBattleQuote, dialogueChapterFinalTineLinda_IshtarBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Seliph, AnyFactionSlot, Manfroy
           SET_PRECOMBAT_DIALOGUE FlagChapterFinal_SeliphManfroyBattleQuote, dialogueChapterFinalSeliph_ManfroyBattleQuote, $7A
@@ -377,7 +377,7 @@
         BREAK_STATE_CHECKS
 
         CHECK_FLAG_UNSET FlagChapterFinal_HildaBattleQuote
-          CHECK_FLAG_IN_LIST_SET [FlagChapterFinal_TineHildaBattleQuote, FlagChapterFinal_ArthurHildaBattleQuote]
+          CHECK_FLAG_IN_LIST_SET [FlagChapterFinal_TineLinda_HildaBattleQuote, FlagChapterFinal_ArthurHildaBattleQuote]
             SET_FLAG FlagChapterFinal_HildaBattleQuote
         BREAK_STATE_CHECKS
 
@@ -387,7 +387,7 @@
         BREAK_STATE_CHECKS
 
         CHECK_FLAG_UNSET FlagChapterFinal_IshtarBattleQuote
-          CHECK_FLAG_SET FlagChapterFinal_TineIshtarBattleQuote
+          CHECK_FLAG_SET FlagChapterFinal_TineLinda_IshtarBattleQuote
             SET_FLAG FlagChapterFinal_IshtarBattleQuote
         BREAK_STATE_CHECKS
 
@@ -509,10 +509,10 @@
             SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LanaMuirneLoverTalkSet, [Lana, Muirne], [Seliph, Seliph]
             SET_TALK_TARGET_IF_MARRIED FlagChapterFinal_LanaMuirneLoverTalkSet, Lana, Febail
             SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LanaMuirneLoverTalkSet, [Lana, Muirne], [Scathach, Dalvin]
-            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiLoverTalkSet, [Larcei, Creidne], [Seliph, Seliph]
-            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiLoverTalkSet, [Larcei, Creidne], [Iuchar, Iuchar]
-            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiLoverTalkSet, [Larcei, Creidne], [Iucharba, Iucharba]
-            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiLoverTalkSet, [Larcei, Creidne], [Shannan, Shannan]
+            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiCreidneLoverTalkSet, [Larcei, Creidne], [Seliph, Seliph]
+            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiCreidneLoverTalkSet, [Larcei, Creidne], [Iuchar, Iuchar]
+            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiCreidneLoverTalkSet, [Larcei, Creidne], [Iucharba, Iucharba]
+            SET_TALK_TARGET_IF_CHILDREN_MARRIED FlagChapterFinal_LarceiCreidneLoverTalkSet, [Larcei, Creidne], [Shannan, Shannan]
           BREAK_STATE_CHECKS
         BREAK_TURN_EVENT_CHECKS
 

@@ -239,7 +239,7 @@
       .databank ?
 
       jsl $9EF1FA
-      jsl $829478
+      jsl rlCreateProcHaltEvent
       rtl
 
       .databank 0

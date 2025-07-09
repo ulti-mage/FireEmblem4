@@ -1,69 +1,69 @@
 
     .weak
 
-      FlagChapter07_AedSeizedCheck                :=  0
-      FlagChapter07_MelgenSeizedCheck             :=  1
-      FlagChapter07_DahnaSeizedCheck              :=  2
-      FlagChapter07_UlsterSeizedCheck             :=  3
-      FlagChapter07_BramselWaiting                :=  4
+      FlagChapter07_AedSeizedCheck                  :=  0
+      FlagChapter07_MelgenSeizedCheck               :=  1
+      FlagChapter07_DahnaSeizedCheck                :=  2
+      FlagChapter07_UlsterSeizedCheck               :=  3
+      FlagChapter07_BramselWaiting                  :=  4
 
-      FlagChapter07_MelgenSpawn                   :=  6
-      FlagChapter07_AresThreatensBramsel          :=  7
+      FlagChapter07_MelgenSpawn                     :=  6
+      FlagChapter07_AresThreatensBramsel            :=  7
 
-      FlagChapter07_UlsterSpawn                   := 10
-      FlagChapter07_BloomCharge                   := 11
-      FlagChapter07_AresRecruitment               := 12
-      FlagChapter07_BanbaDialogue                 := 13
+      FlagChapter07_UlsterSpawn                     := 10
+      FlagChapter07_BloomCharge                     := 11
+      FlagChapter07_AresRecruitment                 := 12
+      FlagChapter07_BanbaDialogue                   := 13
 
-      FlagChapter07_TineDialogue                  := 20
+      FlagChapter07_TineLinda_Dialogue              := 20
 
-      FlagChapter07_KutuzovBattleQuote            := 24
-      FlagChapter07_LizaBattleQuote               := 25
-      FlagChapter07_IshtoreBattleQuoteCheck       := 26
-      FlagChapter07_JavarroBattleQuote            := 27
-      FlagChapter07_BramselBattleQuote            := 28
-      FlagChapter07_BanbaBattleQuote              := 29
-      FlagChapter07_BanbaTriangleAttackQuote      := 30
-      FlagChapter07_FotlaBattleQuote              := 31
-      FlagChapter07_FotlaTriangleAttackQuote      := 32
-      FlagChapter07_EriuBattleQuote               := 33
-      FlagChapter07_EriuTriangleAttackQuote       := 34
-      FlagChapter07_TineBattleQuote               := 35
-      FlagChapter07_BloomBattleQuote              := 36
+      FlagChapter07_KutuzovBattleQuote              := 24
+      FlagChapter07_LizaBattleQuote                 := 25
+      FlagChapter07_IshtoreBattleQuoteCheck         := 26
+      FlagChapter07_JavarroBattleQuote              := 27
+      FlagChapter07_BramselBattleQuote              := 28
+      FlagChapter07_BanbaBattleQuote                := 29
+      FlagChapter07_BanbaTriangleAttackQuote        := 30
+      FlagChapter07_FotlaBattleQuote                := 31
+      FlagChapter07_FotlaTriangleAttackQuote        := 32
+      FlagChapter07_EriuBattleQuote                 := 33
+      FlagChapter07_EriuTriangleAttackQuote         := 34
+      FlagChapter07_TineLinda_BattleQuote           := 35
+      FlagChapter07_BloomBattleQuote                := 36
 
-      FlagChapter07_AresDahnaVisitCheck           := 38
+      FlagChapter07_AresDahnaVisitCheck             := 38
 
-      FlagChapter07_ArthurTineTalkCheck           := 40
+      FlagChapter07_ArthurAmid_TineLindaTalkCheck   := 40
 
-      FlagChapter07_JuliaCaptureReturn            := 42
-      FlagChapter07_AresDied                      := 43
-      FlagChapter07_SetUlsterRampart              := 44
-      FlagChapter07_JavarroDied                   := 45
+      FlagChapter07_JuliaCaptureReturn              := 42
+      FlagChapter07_AresDied                        := 43
+      FlagChapter07_SetUlsterRampart                := 44
+      FlagChapter07_JavarroDied                     := 45
 
-      FlagChapter07_LeonsterSeizedCheck           := 47
-      FlagChapter07_KutuzovFenrirFound            := 48
-      FlagChapter07_IshtoreBattleQuote            := 49
-      FlagChapter07_LizaDied                      := 50
-      FlagChapter07_IshtoreDied                   := 51
-      FlagChapter07_IshtoreDeathQuoteLizaAlive    := 52
-      FlagChapter07_DahnaArmyTalkCheck            := 53
-      FlagChapter07_DaisyShannanAdjacentCheck     := 54
-      FlagChapter07_RemoveUlsterRampart           := 55
-      FlagChapter07_DalvinTristanAdjacentCheck    := 56
-      FlagChapter07_DalvinTristanAdjacent         := 57
-      FlagChapter07_ArthurTineBattleQuote         := 58
-      FlagChapter07_AresBramselBattleQuote        := 59
-      FlagChapter07_AresJavarroBattleQuote        := 60
-      FlagChapter07_TineBloomBattleQuote          := 61
-      FlagChapter07_ArthurBloomBattleQuote        := 62
-      FlagChapter07_LeifBloomBattleQuote          := 63
+      FlagChapter07_LeonsterSeizedCheck             := 47
+      FlagChapter07_KutuzovFenrirFound              := 48
+      FlagChapter07_IshtoreBattleQuote              := 49
+      FlagChapter07_LizaDied                        := 50
+      FlagChapter07_IshtoreDied                     := 51
+      FlagChapter07_IshtoreDeathQuoteLizaAlive      := 52
+      FlagChapter07_DahnaArmyTalkCheck              := 53
+      FlagChapter07_DaisyShannanAdjacentCheck       := 54
+      FlagChapter07_RemoveUlsterRampart             := 55
+      FlagChapter07_DalvinTristanAdjacentCheck      := 56
+      FlagChapter07_DalvinTristanAdjacent           := 57
+      FlagChapter07_ArthurAmid_TineLindaBattleQuote := 58
+      FlagChapter07_AresBramselBattleQuote          := 59
+      FlagChapter07_AresJavarroBattleQuote          := 60
+      FlagChapter07_TineLinda_BloomBattleQuote      := 61
+      FlagChapter07_ArthurAmid_BloomBattleQuote     := 62
+      FlagChapter07_LeifBloomBattleQuote            := 63
 
-      FS_Player                                   :=  0
-      FS_Ch07Aed                                  :=  1
-      FS_Ch07Dahna                                :=  2
-      FS_Ch07Melgen                               :=  3
-      FS_Ch07Ulster                               :=  4
-      FS_Ch07Leif                                 :=  5
+      FS_Player                                     :=  0
+      FS_Ch07Aed                                    :=  1
+      FS_Ch07Dahna                                  :=  2
+      FS_Ch07Melgen                                 :=  3
+      FS_Ch07Ulster                                 :=  4
+      FS_Ch07Leif                                   :=  5
 
     .endweak
 
@@ -133,23 +133,23 @@
         CHECK_UNIT_DIED FlagAlways, AnyCharacter, FS_Player
           SET_PERMANENT_FLAG PermanentFlagPlayerDeathInGen2
         
-        CHECK_CHILD_TALK FlagChapter07_ArthurTineTalkCheck, Arthur, Tine
-          EVENT FlagAlways, EventChapter07ArthurTineTalk
+        CHECK_CHILD_TALK FlagChapter07_ArthurAmid_TineLindaTalkCheck, Arthur, Tine
+          EVENT FlagAlways, EventChapter07ArthurAmid_TineLindaTalk
 
         CHECK_CHILD_TALK FlagAlways, Shannan, Patty
-          EVENT FlagAlways, EventChapter07ShannanPattyTalk
+          EVENT FlagAlways, EventChapter07Shannan_PattyDaisyTalk
 
         CHECK_TALK FlagAlways, Seliph, Shannan
           EVENT FlagAlways, EventChapter07SeliphShannanTalk
 
         CHECK_CHILD_TALK FlagAlways, Oifey, Diarmuid
-          EVENT FlagAlways, EventChapter07OifeyDiarmuidTalk
+          EVENT FlagAlways, EventChapter07Oifey_DiarmuidTristanTalk
 
         CHECK_CHILD_TALK FlagAlways, Larcei, Shannan
-          EVENT FlagAlways, EventChapter07LarceiShannanTalk
+          EVENT FlagAlways, EventChapter07LarceiCreidne_ShannanTalk
 
         CHECK_CHILD_TALK FlagAlways, Patty, Seliph
-          EVENT FlagAlways, EventChapter07PattySeliphTalk
+          EVENT FlagAlways, EventChapter07PattyDaisy_SeliphTalk
 
         CHECK_TALK FlagAlways, Ares, Seliph
           EVENT FlagAlways, EventChapter07AresSeliphTalk
@@ -164,10 +164,10 @@
           EVENT FlagAlways, EventChapter07TristanJeanneTalk
 
         CHECK_CHILD_TALK FlagAlways, Tine, Seliph
-          EVENT FlagAlways, EventChapter07TineSeliphTalk
+          EVENT FlagAlways, EventChapter07TineLinda_SeliphTalk
 
         CHECK_CHILD_TALK FlagAlways, Lene, Seliph
-          EVENT FlagAlways, EventChapter07LeneSeliphTalk
+          EVENT FlagAlways, EventChapter07LeneLaylea_SeliphTalk
 
         CHECK_TALK FlagAlways, AdultFinn, Nanna
           EVENT FlagAlways, EventChapter07FinnNannaTalk
@@ -260,10 +260,10 @@
           SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_EriuTriangleAttackQuote, dialogueChapter07EriuTriangleAttack, 0
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Arthur, AnyFactionSlot, Tine
-          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurTineBattleQuote, dialogueChapter07ArthurTineBattleQuote, $43
+          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurAmid_TineLindaBattleQuote, dialogueChapter07ArthurAmid_TineLindaBattleQuote, $43
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Amid, AnyFactionSlot, Linda
-          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurTineBattleQuote, dialogueChapter07ArthurTineBattleQuote, $43
+          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurAmid_TineLindaBattleQuote, dialogueChapter07ArthurAmid_TineLindaBattleQuote, $43
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Ares, AnyFactionSlot, Bramsel
           SET_PRECOMBAT_DIALOGUE FlagChapter07_AresBramselBattleQuote, dialogueChapter07AresBramselBattleQuote, $43
@@ -272,16 +272,16 @@
           SET_PRECOMBAT_DIALOGUE FlagChapter07_AresJavarroBattleQuote, dialogueChapter07AresJavarroBattleQuote, $43
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Tine, AnyFactionSlot, BloomCh07
-          SET_PRECOMBAT_DIALOGUE FlagChapter07_TineBloomBattleQuote, dialogueChapter07TineBloomBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapter07_TineLinda_BloomBattleQuote, dialogueChapter07TineLinda_BloomBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Linda, AnyFactionSlot, BloomCh07
-          SET_PRECOMBAT_DIALOGUE FlagChapter07_TineBloomBattleQuote, dialogueChapter07TineBloomBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapter07_TineLinda_BloomBattleQuote, dialogueChapter07TineLinda_BloomBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Arthur, AnyFactionSlot, BloomCh07
-          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurBloomBattleQuote, dialogueChapter07ArthurBloomBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurAmid_BloomBattleQuote, dialogueChapter07ArthurAmid_BloomBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Amid, AnyFactionSlot, BloomCh07
-          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurBloomBattleQuote, dialogueChapter07ArthurBloomBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapter07_ArthurAmid_BloomBattleQuote, dialogueChapter07ArthurAmid_BloomBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Leif, AnyFactionSlot, BloomCh07
           SET_PRECOMBAT_DIALOGUE FlagChapter07_LeifBloomBattleQuote, dialogueChapter07LeifBloomBattleQuote, $46
@@ -314,10 +314,10 @@
           SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_EriuBattleQuote, dialogueChapter07EriuBattleQuote, 0
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Tine
-          SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_TineBattleQuote, dialogueChapter07TineBattleQuote, 0
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_TineLinda_BattleQuote, dialogueChapter07TineLinda_BattleQuote, 0
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, Linda
-          SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_TineBattleQuote, dialogueChapter07TineBattleQuote, 0
+          SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_TineLinda_BattleQuote, dialogueChapter07TineLinda_BattleQuote, 0
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, AnyCharacter, AnyFactionSlot, BloomCh07
           SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_BloomBattleQuote, dialogueChapter07BloomBattleQuote, 0
@@ -347,9 +347,9 @@
               SET_BATTLE_OR_DEATH_QUOTE FlagChapter07_IshtoreDeathQuoteLizaAlive, dialogueDeathQuoteGen2EnemyNPCIshtoreLizaAlive, 1
         BREAK_STATE_CHECKS
 
-        CHECK_FLAG_UNSET FlagChapter07_TineBattleQuote
-          CHECK_FLAG_SET FlagChapter07_ArthurTineBattleQuote
-            SET_FLAG FlagChapter07_TineBattleQuote
+        CHECK_FLAG_UNSET FlagChapter07_TineLinda_BattleQuote
+          CHECK_FLAG_SET FlagChapter07_ArthurAmid_TineLindaBattleQuote
+            SET_FLAG FlagChapter07_TineLinda_BattleQuote
         BREAK_STATE_CHECKS
 
         CHECK_FLAG_UNSET FlagChapter07_BramselBattleQuote
@@ -363,7 +363,7 @@
         BREAK_STATE_CHECKS
 
         CHECK_FLAG_UNSET FlagChapter07_BloomBattleQuote
-          CHECK_FLAG_IN_LIST_SET [FlagChapter07_TineBloomBattleQuote, FlagChapter07_ArthurBloomBattleQuote, FlagChapter07_LeifBloomBattleQuote]
+          CHECK_FLAG_IN_LIST_SET [FlagChapter07_TineLinda_BloomBattleQuote, FlagChapter07_ArthurAmid_BloomBattleQuote, FlagChapter07_LeifBloomBattleQuote]
             SET_FLAG FlagChapter07_BloomBattleQuote
         BREAK_STATE_CHECKS
 
@@ -427,7 +427,7 @@
         BREAK_TURN_EVENT_CHECKS
 
         CHECK_TURN_PHASE_AI_ACTOR AnyTurn, FS_Ch07Ulster, 4, AnyCharacter
-          EVENT FlagChapter07_TineDialogue, EventChapter07TineDialogue
+          EVENT FlagChapter07_TineLinda_Dialogue, EventChapter07TineLinda_Dialogue
         BREAK_TURN_EVENT_CHECKS
 
         CHECK_ALL_FLAGS_IN_LIST_SET [FlagChapter07_DalvinTristanAdjacentCheck, FlagChapter07_MelgenSeizedCheck]
@@ -727,8 +727,8 @@
 
       aChapter07TalkEvents ; 86/EDD6
 
-        .structChapterTalkEventEntry Chapter07, FlagChapter07_ArthurTineTalkCheck, Arthur, Tine
-        .structChapterTalkEventEntry Chapter07, FlagChapter07_ArthurTineTalkCheck, Amid, Linda
+        .structChapterTalkEventEntry Chapter07, FlagChapter07_ArthurAmid_TineLindaTalkCheck, Arthur, Tine
+        .structChapterTalkEventEntry Chapter07, FlagChapter07_ArthurAmid_TineLindaTalkCheck, Amid, Linda
         .structChapterTalkEventEntry Chapter07, FlagChapter07_DahnaArmyTalkCheck, AnyCharacter, DahnaBlockadeMyrmidon
         .word $FFFF
 

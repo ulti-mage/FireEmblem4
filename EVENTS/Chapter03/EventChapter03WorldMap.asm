@@ -9,7 +9,7 @@
     WM_SCROLL [10 * 16, 23 * 16]
     YIELD
 
-    WM_MARKER [204, 108], 0, 6
+    WM_MARKER [204, 108], WMM_Slot0, WMM_AgustiToMadino
     WM_DIALOGUE dialogueChapter03WorldMap1
     YIELD
 

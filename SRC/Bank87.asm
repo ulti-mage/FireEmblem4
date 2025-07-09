@@ -63,7 +63,7 @@
 
       aValidPersonalSkillTable .block ; 87/A1EA
 
-        .long 0                               ; SkillIDUnknown1
+        .long 0                               ; SkillIDDummy
         .long 0                               ; SkillIDCanto
         .long 0                               ; SkillIDPavise
         .long UnitSkill1Wrath
@@ -98,7 +98,7 @@
 
       aValidClassSkillTable .block ; 87/A244
 
-        .word 0                       ; SkillIDUnknown1
+        .word 0                       ; SkillIDDummy
         .word ClassSkillCanto
         .word ClassSkillPavise
         .word ClassSkillWrath
@@ -133,7 +133,7 @@
 
       aValidItemSkillTable .block; 87/A280
 
-        .word 0                 ; SkillIDUnknown1
+        .word 0                 ; SkillIDDummy
         .word ItemSkillCanto
         .word 0                 ; SkillIDPavise
         .word 0                 ; SkillIDWrath
@@ -1254,12 +1254,12 @@
         plx
         sep #$20
         lda $830000+structDynamicCharacterROMEntry.Class,x
-        sta structExtendedPersonalCharacterDataRAM.Class,b,y
+        sta structExtendedCharacterDataRAM.Class,b,y
         lda $830000+structDynamicCharacterROMEntry.Level,x
-        sta structExtendedPersonalCharacterDataRAM.Level,b,y
+        sta structExtendedCharacterDataRAM.Level,b,y
         lda #0
-        sta structExtendedPersonalCharacterDataRAM.LeadershipStars,b,y
-        sta structExtendedPersonalCharacterDataRAM.Experience,b,y
+        sta structExtendedCharacterDataRAM.LeadershipStars,b,y
+        sta structExtendedCharacterDataRAM.Experience,b,y
         rep #$20
 
         ; So... FE4 just autopromotes player units on spawn 
@@ -1290,7 +1290,7 @@
         lda wR12
         clc
         adc #2000
-        sta structExtendedPersonalCharacterDataRAM.Money,b,y
+        sta structExtendedCharacterDataRAM.Money,b,y
 
         jsl rlGetSelectedUnitLevel
         sta wR0
@@ -1341,7 +1341,7 @@
         jsr rlGetChildAdjustedBaseStat
 
         sep #$20
-        sta structExtendedPersonalCharacterDataRAM.HP,b,y
+        sta structExtendedCharacterDataRAM.HP,b,y
         rep #$20
         inc x
         inc x
@@ -1355,8 +1355,8 @@
         jsl rlGetRandomNumber100
         inc a
         clc
-        adc structExtendedPersonalCharacterDataRAM.Luck,b,y
-        sta structExtendedPersonalCharacterDataRAM.Luck,b,y
+        adc structExtendedCharacterDataRAM.Luck,b,y
+        sta structExtendedCharacterDataRAM.Luck,b,y
 
         pla
         sta wR3

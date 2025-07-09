@@ -4,7 +4,6 @@
       rlGetTextSpeedOption        :?= address($87BEF1)
       rlUnknown85AB3F             :?= address($85AB3F)
       rlUnknown878459             :?= address($878459)
-      rlDMAByPointer              :?= address($80A58C)
       rlUnknown808FAD             :?= address($808FAD)
       rlUnknown808FA3             :?= address($808FA3)
       rsEventCommand52            :?= address($91CC80)
@@ -294,7 +293,7 @@
         ; Clear both slots
         jsl rlUnknown918166
 
-        jsr rsDialogueGetTextSpeed
+        jsr rsDialogueGetOptionsTextSpeed
         sta aDialogue.wTextSpeed,b
         sta aDialogue.wPauseTimer,b
 
@@ -1407,10 +1406,10 @@
         lda aDialogue.wSlotOffset,b
         bne +
 
-        jsl rlDMAByStruct
-          .structDMAToVRAM aBG3TilemapBuffer, $0400, $80, $B000
+          jsl rlDMAByStruct
+            .structDMAToVRAM aBG3TilemapBuffer, $0400, $80, $B000
 
-        bra _End
+          bra _End
 
         +
         jsl rlDMAByStruct
@@ -3636,10 +3635,10 @@
         .autsiz
         .databank ?
 
-        cmp #$00FD
+        cmp #DS_Options
         bne +
 
-          jsr rsDialogueGetTextSpeed
+          jsr rsDialogueGetOptionsTextSpeed
 
         +
         sta aDialogue.wTextSpeed,b
@@ -3647,7 +3646,7 @@
 
         .databank 0
 
-      rsDialogueGetTextSpeed ; 91/90E2
+      rsDialogueGetOptionsTextSpeed ; 91/90E2
 
         .al
         .autsiz

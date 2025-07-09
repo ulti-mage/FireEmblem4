@@ -210,7 +210,7 @@
     lda wEventUnitSlot2ID,b
     sta wR1
     jsl $9EF0CF
-    jsl $829478
+    jsl rlCreateProcHaltEvent
     rtl
 
     .databank 0

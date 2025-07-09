@@ -33,7 +33,7 @@
       FlagChapter10_SeliphKilledArvis             := 49
       FlagChapter10_SeliphAtSeaCheck              := 50
       FlagChapter10_SeliphAtSea                   := 51
-      FlagChapter10_TineHildaBattleQuote          := 52
+      FlagChapter10_TineLinda_HildaBattleQuote    := 52
       FlagChapter10_SeliphHildaBattleQuote        := 53
 
       FS_Player                                   :=  0
@@ -147,16 +147,16 @@
           EVENT FlagAlways, EventChapter10OifeySeliphTalk
 
         CHECK_CHILD_TALK FlagAlways, Coirpre, Altena
-          EVENT FlagAlways, EventChapter10CoirpreAltenaTalk
+          EVENT FlagAlways, EventChapter10CoirpreCharlot_AltenaTalk
 
         CHECK_CHILD_TALK FlagAlways, Deimne, Daisy
-          EVENT FlagAlways, EventChapter10LesterPattyTalk
+          EVENT FlagAlways, EventChapter10LesterDeimne_PattyDaisyTalk
 
         CHECK_CHILD_TALK FlagAlways, Nanna, Leif
-          EVENT FlagAlways, EventChapter10NannaLeifTalk
+          EVENT FlagAlways, EventChapter10NannaJeanne_LeifTalk
 
         CHECK_CHILD_TALK FlagAlways, Asaello, Muirne
-          EVENT FlagAlways, EventChapter10FebailLanaTalk
+          EVENT FlagAlways, EventChapter10FebailAsaello_LanaMuirneTalk
 
         CHECK_TALK FlagAlways, Seliph, Lene
           EVENT FlagAlways, EventChapter10SeliphLeneTalk
@@ -207,10 +207,10 @@
           SET_PRECOMBAT_DIALOGUE FlagChapter10_SeliphArvisBattleQuote, dialogueChapter10SeliphArvisBattleQuote, $74
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Tine, AnyFactionSlot, HildaCh10
-          SET_PRECOMBAT_DIALOGUE FlagChapter10_TineHildaBattleQuote, dialogueChapter10TineHildaBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapter10_TineLinda_HildaBattleQuote, dialogueChapter10TineLinda_HildaBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Linda, AnyFactionSlot, HildaCh10
-          SET_PRECOMBAT_DIALOGUE FlagChapter10_TineHildaBattleQuote, dialogueChapter10TineHildaBattleQuote, $46
+          SET_PRECOMBAT_DIALOGUE FlagChapter10_TineLinda_HildaBattleQuote, dialogueChapter10TineLinda_HildaBattleQuote, $46
 
         CHECK_UNITS_FIGHTING FlagAlways, FS_Player, Seliph, AnyFactionSlot, HildaCh10
           SET_BATTLE_OR_DEATH_QUOTE FlagChapter10_SeliphHildaBattleQuote, dialogueChapter10SeliphHildaBattleQuote, 0
@@ -239,7 +239,7 @@
         BREAK_ACTION_EVENT_CHECKS
 
         CHECK_FLAG_UNSET FlagChapter10_HildaBattleQuote
-          CHECK_FLAG_IN_LIST_SET [FlagChapter10_TineHildaBattleQuote, FlagChapter10_SeliphHildaBattleQuote]
+          CHECK_FLAG_IN_LIST_SET [FlagChapter10_TineLinda_HildaBattleQuote, FlagChapter10_SeliphHildaBattleQuote]
             SET_FLAG FlagChapter10_HildaBattleQuote
         BREAK_STATE_CHECKS
 

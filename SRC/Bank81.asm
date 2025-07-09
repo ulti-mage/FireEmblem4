@@ -1,5 +1,4 @@
 
-
     .section Code818ECBSection
 
       rlCreateMapScrollScriptFromCoordinates ; 81/8ECB

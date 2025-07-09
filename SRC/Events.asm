@@ -48,9 +48,9 @@
         lda #<>$80F1D5
         sta aProcSystem.wInput0,b
 
-        lda #(`procUnknown8282D3)<<8
+        lda #(`procMainLoopChangeFade)<<8
         sta lR44+1
-        lda #<>procUnknown8282D3
+        lda #<>procMainLoopChangeFade
         sta lR44
         jsl rlProcEngineCreateProc
         rtl
@@ -112,9 +112,9 @@
         lda #<>$80C0B6
         sta aProcSystem.wInput0,b
 
-        lda #(`procUnknown8282D3)<<8
+        lda #(`procMainLoopChangeFade)<<8
         sta lR44+1
-        lda #<>procUnknown8282D3
+        lda #<>procMainLoopChangeFade
         sta lR44
         jsl rlProcEngineCreateProc
         rts
@@ -9592,9 +9592,9 @@
         lda #<>$80B122
         sta aProcSystem.wInput0,b
 
-        lda #(`procUnknown828364)<<8
+        lda #(`procMainLoopChangeFadeByTimer)<<8
         sta lR44+1
-        lda #<>procUnknown828364
+        lda #<>procMainLoopChangeFadeByTimer
         sta lR44
         jsl rlProcEngineCreateProc
 
@@ -10497,6 +10497,8 @@
         .autsiz
         .databank ?
 
+        ; EVENT_4E
+
         php
         phb
         phy
@@ -10546,9 +10548,9 @@
         lda #<>$80B3A2
         sta aProcSystem.wInput0,b
 
-        lda #(`procUnknown8282D3)<<8
+        lda #(`procMainLoopChangeFade)<<8
         sta lR44+1
-        lda #<>procUnknown8282D3
+        lda #<>procMainLoopChangeFade
         sta lR44
         jsl rlProcEngineCreateProc
 
@@ -10584,9 +10586,9 @@
           lda #2
           sta wScreenFadingProcInput,b
 
-          lda #(`procUnknown828364)<<8
+          lda #(`procMainLoopChangeFadeByTimer)<<8
           sta lR44+1
-          lda #<>procUnknown828364
+          lda #<>procMainLoopChangeFadeByTimer
           sta lR44
           jsl rlProcEngineCreateProc
 
@@ -10728,7 +10730,7 @@
         inc y
         lda [lR22],y
 
-        jsl rlLoadPortraitIntoSlot
+        jsl rlLoadWorldMapPortraitIntoSlot
 
         ply
         inc y
@@ -11084,9 +11086,9 @@
         lda #<>$80C0B6
         sta aProcSystem.wInput0,b
 
-        lda #(`procUnknown8282D3)<<8
+        lda #(`procMainLoopChangeFade)<<8
         sta lR44+1
-        lda #<>procUnknown8282D3
+        lda #<>procMainLoopChangeFade
         sta lR44
         jsl rlProcEngineCreateProc
 

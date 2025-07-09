@@ -16,9 +16,9 @@
 
         php
         jsl rlClearAllFadeProcs
-        lda #(`procUnknown8282D3)<<8
+        lda #(`procMainLoopChangeFade)<<8
         sta lR44+1
-        lda #<>procUnknown8282D3
+        lda #<>procMainLoopChangeFade
         sta lR44
         jsl rlProcEngineFindProc
         bcc +

@@ -22,40 +22,6 @@ $20 = start player phase?
 $21 = before enemy action?
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       rlUnknown9599E7 ; 95/99E7
 
         .al
@@ -1753,9 +1719,10 @@ $21 = before enemy action?
         inc y
         inc y
 
+        _87D1
         ldx wNextFreeSpriteOffset,b
         clc
-        
+
         _Loop
         lda structSpriteEntry.X,b,y
         bpl _SmallSprite
@@ -1842,7 +1809,54 @@ $21 = before enemy action?
 
         .databank 0
 
-        ; 80/885F
+      rlPushToOAMBufferTimed ; 80/885F
+
+        .al
+        .autsiz
+        .databank ?
+
+        ; Inputs:
+        ; Y: Pointer to sprite array
+        ; DB: Bank of sprite array
+        ; wR0: X Coordinate base in pixels
+        ; wR1: Y Coordinate base in pixels
+        ; wR2: Timer
+        ; wR4: Sprite base
+        ; wR5: Attribute base
+
+        ; Only pushes sprite when timer >= sprite count
+
+        lda wR2
+        beq _End
+
+          lda $0000,b,y
+          bne +
+
+        _End
+        rtl
+
+        +
+        cmp wR2
+        bcs +
+
+          sta wR2
+
+        +
+        inc y
+        inc y
+        jml rlPushToOAMBuffer._87D1
+
+        .databank 0
+
+        ; 80/8875
+
+
+
+
+
+
+
+
 
 
 
@@ -2520,11 +2534,19 @@ $21 = before enemy action?
 
         .databank 0
 
-      rlUnknown848776 ; 84/8776
+      rlGetUnitByCoordinates ; 84/8776
 
         .al
         .autsiz
         .databank ?
+
+        ; Input:
+        ; wR0 = X coordinate
+        ; wR1 = Y coordinate
+
+        ; Output:
+        ; CLC if unit found, filled wSelectedUnitDataRAMPointer
+        ; SEC if no unit at coordinates
 
         phb
         phk
@@ -3950,13 +3972,13 @@ BF
 
           stz $0302,b
 
-          lda #$B1E1
-          sta $0ECF,b
+          lda #<>$80B1E1
+          sta aProcSystem.wInput0,b
 
-          lda #(`$8282D3)<<8
-          sta $62+1
-          lda #<>$8282D3
-          sta $62
+          lda #(`procMainLoopChangeFade)<<8
+          sta lR44+1
+          lda #<>procMainLoopChangeFade
+          sta lR44
           jsl rlProcEngineCreateProc
 
         +
@@ -5656,9 +5678,9 @@ BF
 
         lda #<>$80BFFB
         sta aProcSystem.wInput0,b
-        lda #(`procUnknown8282D3)<<8
+        lda #(`procMainLoopChangeFade)<<8
         sta lR44+1
-        lda #<>procUnknown8282D3
+        lda #<>procMainLoopChangeFade
         sta lR44
         jsl rlProcEngineCreateProc
         bra ++
@@ -9074,8 +9096,8 @@ BF
         sta aProcSystem.aBody7,b,x
 
         stz $0302,b
-        jsl $88CD53
-        jsl $88CD61
+        jsl rlUnknown88CD53
+        jsl rlUnknown88CD61
 
         lda #1
         sta aProcSystem.aBody4,b,x
@@ -11012,270 +11034,146 @@ BF
 
 
 
-      rlUnknown8B84E5 ; 8B/84E5
+
+
+
+
+
+
+
+      procWorldMapMarkerShadowFadeIn ; 8B/8B59
+
+        .structProcInfo "CN", rlProcWorldMapMarkerShadowFadeInInit, rlProcWorldMapMarkerShadowFadeInCycle, aProcWorldMapMarkerShadowFadeInCode
+
+      rlProcWorldMapMarkerShadowFadeInInit ; 8B/8B61
 
         .al
         .autsiz
         .databank ?
 
-        lda wR0
-        sta $7F5420,x
-        lda wR1
-        sta $7F5430,x
-        tya
-        sta $7F5440,x
-        lda #$FFFF
-        sta $7F5400,x
+        ; fades in WMM shadow
 
-        sep #$20
-        lda #$16
-        sta bBufferTS
-        rep #$20
-
-        phx
-        tyx
-        phy
-        jsr (aUnknown8B8538,x)
-
-        jsl rlDMAByStruct
-
-          .structDMAToVRAM $7E7B88, 32 * 21 * size(word), $80, $A800
-
-        ply
-        tyx
-        lda $8B85FF,x
-        sta wBufferBG2HOFS
-        lda $8B865F,x
-        sta wBufferBG2VOFS
-        plx
-
-        ldx #14
         lda #0
-
-          -
-          sta aBGPaletteBuffer.aPalette1+$10,b,x
-          sta aBGPaletteBuffer.aPalette5+$10,b,x
-          dec x
-          dec x
-          bpl -
-
+        sta $7F8089
         rtl
 
         .databank 0
 
-      aUnknown8B8538 ; 8B/8538
-
-        .word <>rsUnknown8B85C4 ; $00
-        .word <>rsUnknown8B85C4 ; $01
-        .word <>rsUnknown8B8598 ; $02
-        .word <>rsUnknown8B85C4 ; $03
-        .word <>rsUnknown8B85C4 ; $04
-        .word <>rsUnknown8B8598 ; $05
-        .word <>rsUnknown8B8598 ; $06
-        .word $85F0             ; $07
-        .word <>rsUnknown8B8598 ; $08
-        .word <>rsUnknown8B8598 ; $09
-        .word <>rsUnknown8B8598 ; $0A
-        .word <>rsUnknown8B8598 ; $0B
-        .word <>rsUnknown8B8598 ; $0C
-        .word <>rsUnknown8B8598 ; $0D
-        .word <>rsUnknown8B8598 ; $0E
-        .word <>rsUnknown8B8598 ; $0F
-        .word <>rsUnknown8B8598 ; $10
-        .word <>rsUnknown8B8598 ; $11
-        .word <>rsUnknown8B8598 ; $12
-        .word <>rsUnknown8B8598 ; $13
-        .word <>rsUnknown8B8598 ; $14
-        .word <>rsUnknown8B8598 ; $15
-        .word <>rsUnknown8B8598 ; $16
-        .word <>rsUnknown8B8598 ; $17
-        .word <>rsUnknown8B8598 ; $18
-        .word <>rsUnknown8B8598 ; $19
-        .word <>rsUnknown8B8598 ; $1A
-        .word <>rsUnknown8B8598 ; $1B
-        .word <>rsUnknown8B8598 ; $1C
-        .word <>rsUnknown8B8598 ; $1D
-        .word <>rsUnknown8B8598 ; $1E
-        .word <>rsUnknown8B8598 ; $1F
-        .word <>rsUnknown8B8598 ; $20
-        .word <>rsUnknown8B8598 ; $21
-        .word <>rsUnknown8B8598 ; $22
-        .word <>rsUnknown8B8598 ; $23
-        .word <>rsUnknown8B8598 ; $24
-        .word <>rsUnknown8B8598 ; $25
-        .word <>rsUnknown8B8598 ; $26
-        .word <>rsUnknown8B8598 ; $27
-        .word <>rsUnknown8B8598 ; $28
-        .word <>rsUnknown8B8598 ; $29
-        .word <>rsUnknown8B8598 ; $2A
-        .word <>rsUnknown8B8598 ; $2B
-        .word <>rsUnknown8B8598 ; $2C
-        .word <>rsUnknown8B8598 ; $2D
-        .word <>rsUnknown8B8598 ; $2E
-        .word <>rsUnknown8B8598 ; $2F
-
-      rsUnknown8B8598 ; 8B/8598
+      rlProcWorldMapMarkerShadowFadeInCycle ; 8B/8B69
 
         .al
         .autsiz
         .databank ?
 
-        sep #$20
-        rep #$10
-        ldx #<>$D13C85
-        stx DecompressionVariables.lSource
-        lda #`$D13C85
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-
-        ; Red palette
-
-        ldx #14
-        
-          -
-          lda $8CDCB0,x
-          sta $7ECB88,x
-          dec x
-          dec x
-          bpl -
-
-        rts
-
-        .databank 0
-
-      rsUnknown8B85C4 ; 8B/85C4
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        rep #$10
-        ldx #<>$D13C85
-        stx DecompressionVariables.lSource
-        lda #`$D13C85
-        sta DecompressionVariables.lSource+2
-        ldx #<>$7E7B88
-        stx DecompressionVariables.lDest
-        lda #`$7E7B88
-        sta DecompressionVariables.lDest+2
-        rep #$30
-        jsl rlDecompressor
-
-        ldx #14
-
-        ; Blue palette
-
-          -
-          lda $8CDC30,x
-          sta $7ECB88,x
-          dec x
-          dec x
-          bpl -
-
-        rts
-
-        .databank 0
-
-        ; 8B/85F0
-
-
-
-
-
-
-
-      rsUnknown8B86CB ; 8B/86CB
-
-        .al
-        .autsiz
-        .databank ?
-
-        lda #14
-        
-          _Loop
-          lda $7F5400,x
-          beq _Next
-
-            lda $7F5420,x
-            sta wR0
-            lda $7F5430,x
-            sta wR1
-            lda $7F5440,x
-            tay
-
-            phx
-            jsr rsUnknown8B86EF
-            plx
-
-          _Next
-          dec x
-          dec x
-          bpl _Loop
-
-        rts
-
-        .databank 0
-
-      rsUnknown8B86EF ; 8B/86EF
-
-        .al
-        .autsiz
-        .databank ?
-
-        sep #$20
-        lda #$8B
-        pha
-        plb
-        rep #$20
-
-        lda $7F5410,x
-        sta wR2
-        lda $8740,b,y
-        tay
-
-        lda #0
-        sta wR5
-        sta wR4
-
-        phy
-        phx
-        jsl $80885F
-        plx
-        ply
+        lda $7F8089
 
         lda wVBlankEnabledFramecount
-        and #$0007
+        and #$0003
         bne _End
 
-          lda $7F5410,x
+          lda #16
+          sta aPaletteFading.wMaxSteps,b
           clc
-          adc #1
-          cmp #48
-          bcs _End
+          jsl rlFadePaletteToColors
 
-            sta $7F5410,x
-            lda $0000,b,y
-            cmp $7F5410,x
-            bne _End
+            .addr aWorldMapMarkerPalette
+            .word 5
+            .word aBGPaletteBuffer.aPalette1 + $10 - aBGPaletteBuffer
 
-              lda #(`$8B8B59)<<8
-              sta lR44+1
-              lda #<>$8B8B59
-              sta lR44
-              jsl rlProcEngineCreateProc
+          bcs +
 
         _End
-        rts
+        lda aPaletteFading.wCurrentStep,b
+        sta $7F8089
+        rtl
+
+        +
+        jsl rlProcEngineFreeProc
+
+        lda #(`procWorldMapMarkerShadowFadeOut)<<8
+        sta lR44+1
+        lda #<>procWorldMapMarkerShadowFadeOut
+        sta lR44
+        jsl rlProcEngineCreateProc
+        bra _End
 
         .databank 0
 
-        ; 8B/8740
+      aProcWorldMapMarkerShadowFadeInCode ; 8B/8BA3
+
+        PROC_HALT
+
+        ; 8B/8BA5
+
+
+
+      procWorldMapMarkerShadowFadeOut ; 8B/8BF4
+
+        .structProcInfo "CF", rlProcWorldMapMarkerShadowFadeOutInit, rlProcWorldMapMarkerShadowFadeOutCycle, aProcWorldMapMarkerShadowFadeOutCode
+
+      rlProcWorldMapMarkerShadowFadeOutInit ; 8B/8BFC
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #0
+        sta $7F808D
+        rtl
+
+        .databank 0
+
+      rlProcWorldMapMarkerShadowFadeOutCycle ; 8B/8C04
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda $7F808D
+
+        lda wVBlankEnabledFramecount
+        and #$0001
+        bne _End
+
+          lda #0
+          sta aPaletteFading.wDesiredColor,b
+          lda #16
+          sta aPaletteFading.wMaxSteps,b
+          clc
+          jsl rlFadePaletteToBlack
+            .word <>aWorldMapMarkerShadowFadeOutData
+
+          bcs +
+
+        _End
+        lda aPaletteFading.wCurrentStep,b
+        sta $7F808D
+        rtl
+
+        +
+        jsl rlProcEngineFreeProc
+        bra _End
+
+        .databank 0
+
+      aWorldMapMarkerShadowFadeOutData ; 8B/8C32
+
+        .word aBGPaletteBuffer.aPalette1 + $10 - aBGPaletteBuffer
+        .word 5
+        .word $FFFF
+
+      aProcWorldMapMarkerShadowFadeOutCode ; 8B/8C38
+
+        PROC_HALT
+
+        ; 8B/8C3A
+
+
+
+
+
+
+
 
 
 
@@ -11288,9 +11186,9 @@ BF
         .autsiz
         .databank ?
 
-        lda #(`procUnknown828364)<<8
+        lda #(`procMainLoopChangeFadeByTimer)<<8
         sta lR44+1
-        lda #<>procUnknown828364
+        lda #<>procMainLoopChangeFadeByTimer
         sta lR44
         jsl rlProcEngineFindProc
         bcs +
@@ -11306,22 +11204,22 @@ BF
               lda #2
               sta wScreenFadingProcInput,b
 
-              lda #<>$80F2BE
+              lda #<>rsUnknown80F2BE
               sta aProcSystem.wInput0,b
 
-              lda #(`procUnknown828364)<<8
+              lda #(`procMainLoopChangeFadeByTimer)<<8
               sta lR44+1
-              lda #<>procUnknown828364
+              lda #<>procMainLoopChangeFadeByTimer
               sta lR44
               jsl rlProcEngineCreateProc
 
               lda #2
               sta wUnknown00171C,b
               jsl rlUnknown9180BC
-        
+
         +
-        jsr $8B8275
-        jsr rsUnknown8B86CB
+        jsr rsHandleWorldMapPortraits
+        jsr rsHandleWorldMapMarkers
 
         lda aDialogue.wStatus,b
         beq +
@@ -11357,22 +11255,6 @@ BF
 
 
 
-
-
-      rlUnknown8B86BF ; 8B/86BF
-
-        .al
-        .autsiz
-        .databank ?
-
-        lda #0
-        sta $7F5400,x
-        sta $7F5410,x
-        rtl
-
-        .databank 0
-
-        ; 8B/86CA
 
 
 
@@ -11433,7 +11315,7 @@ BF
 
         .databank 0
 
-      rlDecompressPortraitToSlot ; 8A/B49A
+      rlDecompressWorldMapPortraitToSlot ; 8A/B49A
 
         .al
         .autsiz
@@ -11516,101 +11398,35 @@ BF
 
 
 
-      rlDMAByPointer ; 80/A58C
-
-        .al
-        .autsiz
-        .databank ?
-
-        ; Input:
-        ; wR0 = Size
-        ; wR1 = destination
-        ; lR18 = source
-
-        phb
-        php
-        phk
-        plb
-
-        ldx wDMAArrayPosition,b
-        sep #$20
-        lda #2
-        sta aDMAArray + structDMAToVRAM.TransferType,b,x
-        rep #$20
-
-        lda lR18
-        sta aDMAArray + structDMAToVRAM.Source,b,x
-        lda lR18+1
-        sta aDMAArray + structDMAToVRAM.Source + 1,b,x
-        lda wR0
-        sta aDMAArray + structDMAToVRAM.Count,b,x
-
-        sep #$20
-        lda #$80
-        sta aDMAArray + structDMAToVRAM.Mode,b,x
-        rep #$20
-
-        lda wR1
-        sta aDMAArray + structDMAToVRAM.Destination,b,x
-        lda #0
-        sta aDMAArray + size(structDMAToVRAM),b,x
-        txa
-        clc
-        adc #size(structDMAToVRAM)
-        sta wDMAArrayPosition,b
-
-        sep #$20
-        lda #1
-        sta bDMAArrayFlag,b
-
-        lda bBufferINIDISP
-        bpl +
-
-          jsl $80A34F
-
-        +
-        plp
-        plb
-        rtl
-
-        .databank 0
-
-        ; 80/A5D9
 
 
 
-
-
-
-
-
-
-      rlFadeInPortraitSlot ; 8B/821F
+      rlFadeInWorldMapPortraitSlot ; 8B/821F
 
         .al
         .autsiz
         .databank ?
 
         lda wR0
-        sta aPortraitSlotXCoodinate,x
+        sta aWorldMapPortrait.wXPosition[0],x
         lda wR1
-        sta aPortraitSlotYCoodinate,x
+        sta aWorldMapPortrait.wYPosition[0],x
         lda #$FFFF
-        sta aPortraitSlotEnabledFlag,x
+        sta aWorldMapPortrait.wStatus[0],x
 
         txa
         sta $078C,b
 
-        lda #(`procFadeInPortraitSlot)<<8
+        lda #(`procFadeInWorldMapPortraitSlot)<<8
         sta lR44+1
-        lda #<>procFadeInPortraitSlot
+        lda #<>procFadeInWorldMapPortraitSlot
         sta lR44
         jsl rlProcEngineCreateProc
         rtl
 
         .databank 0
 
-      rlFadeOutPortraitSlot ; 8B/8245
+      rlFadeOutWorldMapPortraitSlot ; 8B/8245
 
         .al
         .autsiz
@@ -11625,32 +11441,135 @@ BF
         txa
         sta $078C,b
 
-        lda #(`procFadeOutPortraitSlot)<<8
+        lda #(`procFadeOutWorldMapPortraitSlot)<<8
         sta lR44+1
-        lda #<>procFadeOutPortraitSlot
+        lda #<>procFadeOutWorldMapPortraitSlot
         sta lR44
         jsl rlProcEngineCreateProc
         rtl
 
         .databank 0
 
-      rlUnknown8B8261 ; 8B/8261
+      rlMoveWorldMapPortraitSlot ; 8B/8261
 
         .al
         .autsiz
         .databank ?
 
         lda wR0
-        sta aPortraitSlotXCoodinate,x
+        sta aWorldMapPortrait.wXPosition[0],x
         lda wR1
-        sta aPortraitSlotYCoodinate,x
+        sta aWorldMapPortrait.wYPosition[0],x
         lda #$FFFF
-        sta aPortraitSlotEnabledFlag,x
+        sta aWorldMapPortrait.wStatus[0],x
         rtl
 
         .databank 0
 
-        ; 8B/8275
+      rsHandleWorldMapPortraits ; 8B/8275
+
+        .al
+        .autsiz
+        .databank ?
+
+        ldx #6 * size(word)
+
+          _Loop
+          lda aWorldMapPortrait.wStatus[0],x
+          beq _Next
+
+            lda aWorldMapPortrait.wXPosition[0],x
+            sta wR0
+            lda aWorldMapPortrait.wYPosition[0],x
+            sta wR1
+            phx
+            jsl rlHandleWorldMapPortraitEffect
+            plx
+
+          _Next
+          dec x
+          dec x
+          bpl _Loop
+
+        rts
+
+        .databank 0
+
+      rlHandleWorldMapPortraitEffect ; 8B/8295
+
+        .al
+        .autsiz
+        .databank ?
+
+        sep #$20
+        lda #`aWorldMapPortraitSprite
+        pha
+        plb
+        rep #$20
+
+        ldy #<>aWorldMapPortraitSprite
+        lda aWorldMapPortraitAttributeBase,x
+        sta wR5
+        lda aWorldMapPortraitSpriteBase,x
+        sta wR4
+        jsl rlPushToOAMBuffer
+        rtl
+
+        .databank 0
+
+      aWorldMapPortraitAttributeBase ; 8B/82B1
+
+        .word OAMTileAndAttr(0, 2, 0, false, false)
+        .word OAMTileAndAttr(0, 3, 0, false, false)
+        .word OAMTileAndAttr(0, 4, 0, false, false)
+        .word OAMTileAndAttr(0, 5, 0, false, false)
+        .word OAMTileAndAttr(0, 6, 0, false, false)
+        .word OAMTileAndAttr(0, 7, 0, false, false)
+
+      aWorldMapPortraitSpriteBase ; 8B/82BD
+
+        .word $0080
+        .word $00C0
+        .word $0100
+        .word $0140
+        .word $0180
+        .word $01C0
+
+      aWorldMapPortraitSprite ; 8B/82C9
+
+        _Sprites := [[(  32,   48), $21, SpriteLarge, $002A, 3, 0, false, false]]
+        _Sprites..= [[(  16,   48), $21, SpriteLarge, $0028, 3, 0, false, false]]
+        _Sprites..= [[(   0,   48), $21, SpriteLarge, $0026, 3, 0, false, false]]
+        _Sprites..= [[(  32,   32), $21, SpriteLarge, $000A, 3, 0, false, false]]
+        _Sprites..= [[(  16,   32), $21, SpriteLarge, $0008, 3, 0, false, false]]
+        _Sprites..= [[(   0,   32), $21, SpriteLarge, $0006, 3, 0, false, false]]
+        _Sprites..= [[(  32,   16), $21, SpriteLarge, $0024, 3, 0, false, false]]
+        _Sprites..= [[(  16,   16), $21, SpriteLarge, $0022, 3, 0, false, false]]
+        _Sprites..= [[(   0,   16), $21, SpriteLarge, $0020, 3, 0, false, false]]
+        _Sprites..= [[(  32,    0), $21, SpriteLarge, $0004, 3, 0, false, false]]
+        _Sprites..= [[(  16,    0), $21, SpriteLarge, $0002, 3, 0, false, false]]
+        _Sprites..= [[(   0,    0), $21, SpriteLarge, $0000, 3, 0, false, false]]
+
+        .structSpriteArray aWorldMapPortraitSprite._Sprites
+
+      aWorldMapPortraitSpriteMirrored ; 8B/8307
+
+        _Sprites := [[(   0,   48), $21, SpriteLarge, $002A, 3, 0, true, false]]
+        _Sprites..= [[(  16,   48), $21, SpriteLarge, $0028, 3, 0, true, false]]
+        _Sprites..= [[(  32,   48), $21, SpriteLarge, $0026, 3, 0, true, false]]
+        _Sprites..= [[(   0,   32), $21, SpriteLarge, $000A, 3, 0, true, false]]
+        _Sprites..= [[(  16,   32), $21, SpriteLarge, $0008, 3, 0, true, false]]
+        _Sprites..= [[(  32,   32), $21, SpriteLarge, $0006, 3, 0, true, false]]
+        _Sprites..= [[(   0,   16), $21, SpriteLarge, $0024, 3, 0, true, false]]
+        _Sprites..= [[(  16,   16), $21, SpriteLarge, $0022, 3, 0, true, false]]
+        _Sprites..= [[(  32,   16), $21, SpriteLarge, $0020, 3, 0, true, false]]
+        _Sprites..= [[(   0,    0), $21, SpriteLarge, $0004, 3, 0, true, false]]
+        _Sprites..= [[(  16,    0), $21, SpriteLarge, $0002, 3, 0, true, false]]
+        _Sprites..= [[(  32,    0), $21, SpriteLarge, $0000, 3, 0, true, false]]
+
+        .structSpriteArray aWorldMapPortraitSpriteMirrored._Sprites
+
+        ; 8B/8345
 
 
 
@@ -11660,11 +11579,19 @@ BF
 
 
 
-      procFadeInPortraitSlot ; 8B/8C83
 
-        .structProcInfo "FN", rlProcFadeInPortraitSlotInit, rlProcFadeInPortraitSlotCycle, aProcFadeInPortraitSlotCode
 
-      rlProcFadeInPortraitSlotInit ; 8B/8C8B
+
+
+
+
+
+
+      procFadeInWorldMapPortraitSlot ; 8B/8C83
+
+        .structProcInfo "FN", rlProcFadeInWorldMapPortraitSlotInit, rlProcFadeInWorldMapPortraitSlotCycle, aProcFadeInWorldMapPortraitSlotCode
+
+      rlProcFadeInWorldMapPortraitSlotInit ; 8B/8C8B
 
         .al
         .autsiz
@@ -11674,14 +11601,13 @@ BF
         lda #$001E
         sta aProcSystem.aBody0,b,x
 
-        ; Portrait slot
         lda $078C,b
         sta aProcSystem.aBody1,b,x
         rtl
 
         .databank 0
 
-      rlProcFadeInPortraitSlotCycle ; 8B/8C98
+      rlProcFadeInWorldMapPortraitSlotCycle ; 8B/8C98
 
         .al
         .autsiz
@@ -11719,15 +11645,15 @@ BF
 
         .databank 0
 
-      aProcFadeInPortraitSlotCode ; 8B/8E17
+      aProcFadeInWorldMapPortraitSlotCode ; 8B/8E17
         
         PROC_HALT
 
-      procFadeOutPortraitSlot ; 8B/8E19
+      procFadeOutWorldMapPortraitSlot ; 8B/8E19
 
-        .structProcInfo "FF", rlProcFadeOutPortraitSlotInit, rlProcFadeOutPortraitSlotCycle, aProcFadeOutPortraitSlotCode
+        .structProcInfo "FF", rlProcFadeOutWorldMapPortraitSlotInit, rlProcFadeOutWorldMapPortraitSlotCycle, aProcFadeOutWorldMapPortraitSlotCode
 
-      rlProcFadeOutPortraitSlotInit ; 8B/8E21
+      rlProcFadeOutWorldMapPortraitSlotInit ; 8B/8E21
 
         .al
         .autsiz
@@ -11741,7 +11667,7 @@ BF
 
         .databank 0
 
-      rlProcFadeOutPortraitSlotCycle ; 8B/8E2E
+      rlProcFadeOutWorldMapPortraitSlotCycle ; 8B/8E2E
 
         .al
         .autsiz
@@ -11777,7 +11703,7 @@ BF
 
         tax
         lda #0
-        sta aPortraitSlotEnabledFlag,x
+        sta aWorldMapPortrait.wStatus[0],x
         plx
 
         jsl rlProcEngineFreeProc
@@ -11785,7 +11711,7 @@ BF
 
         .databank 0
 
-      aProcFadeOutPortraitSlotCode ; 8B/8F27
+      aProcFadeOutWorldMapPortraitSlotCode ; 8B/8F27
 
         PROC_HALT
 
@@ -12112,32 +12038,7 @@ BF
 
 
 
-      rlUnknown8B87C5 ; 8B/87C5
 
-        .al
-        .autsiz
-        .databank ?
-
-        jsl rlDialogueFreeHDMA
-
-        ldx #(32 * 32) * size(word) - 2
-        lda #$00FF
-
-          -
-          sta aBG2TilemapBuffer.Page1,x
-          dec x
-          dec x
-          bpl -
-
-        jsl rlDMAByStruct
-
-          .structDMAToVRAM aBG2TilemapBuffer.Page1, 32 * 21 * size(word), $80, $A800
-
-        rtl
-
-        .databank 0
-
-        ; 8B/87E5
 
 
 
@@ -14032,9 +13933,9 @@ BF
         sta $088B,b
         lda #<>$80B6B6
         sta aProcSystem.wInput0,b
-        lda #(`procUnknown828364)<<8
+        lda #(`procMainLoopChangeFadeByTimer)<<8
         sta lR44+1
-        lda #<>procUnknown828364
+        lda #<>procMainLoopChangeFadeByTimer
         sta lR44
         jsl rlProcEngineCreateProc
         jsl rlUnknown91C611
@@ -14765,20 +14666,21 @@ BF
         .databank ?
 
         lda $7F808B
-        sta wPortraitFadingCurrentStep,b
-        lda #16
-        sta wPortraitFadingMaxSteps,b
-        clc
-        jsl rlUnknown9F8EE1
 
-          .word $9BA8
+        sta aPaletteFading.wCurrentStep,b
+        lda #16
+        sta aPaletteFading.wMaxSteps,b
+        clc
+        jsl rlFadePaletteToColors
+
+          .addr $7E9BA8
           .word $0010
           .word $0180
 
         bcs +
 
           -
-          lda wPortraitFadingCurrentStep,b
+          lda aPaletteFading.wCurrentStep,b
           sta $7F808B
           rtl
 
@@ -14815,19 +14717,20 @@ BF
         .databank ?
 
         lda $7F808D
-        sta wPortraitFadingCurrentStep,b
+        sta aPaletteFading.wCurrentStep,b
         lda #0
-        sta wPortraitFadingDesiredColor,b
+        sta aPaletteFading.wDesiredColor,b
         lda #8
-        sta wPortraitFadingMaxSteps,b
+        sta aPaletteFading.wMaxSteps,b
         clc
-        jsl rlUnknown9F8F4F
+        jsl rlFadePaletteToBlack
+
           .word $E23D
 
         bcs +
 
         -
-        lda wPortraitFadingCurrentStep,b
+        lda aPaletteFading.wCurrentStep,b
         sta $7F808D
         rtl
 
@@ -14886,19 +14789,19 @@ BF
         .databank ?
 
         lda $7F808F
-        sta wPortraitFadingCurrentStep,b
+        sta aPaletteFading.wCurrentStep,b
         lda #0
-        sta wPortraitFadingDesiredColor,b
+        sta aPaletteFading.wDesiredColor,b
         lda #8
-        sta wPortraitFadingMaxSteps,b
+        sta aPaletteFading.wMaxSteps,b
         clc
-        jsl rlUnknown9F8F4F
+        jsl rlFadePaletteToBlack
           .word <>aUnknown8AE297
 
         bcs +
 
           -
-          lda wPortraitFadingCurrentStep,b
+          lda aPaletteFading.wCurrentStep,b
           sta $7F808F
           rtl
 
@@ -14997,7 +14900,7 @@ BF
         sta wR2
 
         -
-        lda wPortraitFadingDesiredColor,b
+        lda aPaletteFading.wDesiredColor,b
         cmp aBGPaletteBuffer,b,x
         beq +
 
@@ -15005,8 +14908,8 @@ BF
           tay
           lda aBGPaletteBuffer,b,x
           tax
-          lda wPortraitFadingCurrentStep,b
-          jsl rlUnknown9F8FE3
+          lda aPaletteFading.wCurrentStep,b
+          jsl rlFadeFromToColorByStep
           plx
           sta aBGPaletteBuffer,b,x
 
@@ -15026,26 +14929,31 @@ BF
 
 
 
-      rlUnknown9F8EE1 ; 9F/8EE1
+      rlFadePaletteToColors ; 9F/8EE1
 
         .al
         .autsiz
         .databank ?
 
-        lda wPortraitFadingMaxSteps,b
+        ; Call followed by:
+        ; .addr palette source in bank $7E
+        ; .word color count
+        ; .word palette destination offset
+
+        lda aPaletteFading.wMaxSteps,b
         bcc +
 
           lsr a
-        
+
         +
         inc a
-        cmp wPortraitFadingCurrentStep,b
+        cmp aPaletteFading.wCurrentStep,b
         bcs +
 
           lda #1,s
           adc #6
           sta #1,s
-          stz wPortraitFadingCurrentStep,b
+          stz aPaletteFading.wCurrentStep,b
           sec
           rtl
 
@@ -15071,9 +14979,9 @@ BF
         plb
 
         ldy #0
-        
+
           -
-          stx $1B47,b
+          stx aPaletteFading.wCurrentPaletteBufferOffset,b
           sty wR4
           lda (wR3),y
           cmp aBGPaletteBuffer,b,x
@@ -15082,10 +14990,10 @@ BF
             tay
             lda aBGPaletteBuffer,b,x
             tax
-            lda wPortraitFadingCurrentStep,b
-            jsl rlUnknown9F8FE3
+            lda aPaletteFading.wCurrentStep,b
+            jsl rlFadeFromToColorByStep
             ldy wR4
-            ldx $1B47,b
+            ldx aPaletteFading.wCurrentPaletteBufferOffset,b
             sta aBGPaletteBuffer,b,x
 
           +
@@ -15096,7 +15004,7 @@ BF
           dec wR5
           bne -
 
-        inc wPortraitFadingCurrentStep,b
+        inc aPaletteFading.wCurrentStep,b
         plb
         ply
         plx
@@ -15105,26 +15013,34 @@ BF
 
         .databank 0
 
-      rlUnknown9F8F4F ; 9F/8F4F
+      rlFadePaletteToBlack ; 9F/8F4F
 
         .al
         .autsiz
         .databank ?
 
-        lda wPortraitFadingMaxSteps,b
+        ; Call followed by:
+        ; .addr fade data
+
+        ; Fade data contains:
+        ; .word palette destination offset
+        ; .word color count
+        ; $FFFF terminator
+
+        lda aPaletteFading.wMaxSteps,b
         bcc +
 
           lsr a
 
         +
         inc a
-        cmp wPortraitFadingCurrentStep,b
+        cmp aPaletteFading.wCurrentStep,b
         bcs +
 
           lda #1,s
           adc #2
           sta #1,s
-          stz wPortraitFadingCurrentStep,b
+          stz aPaletteFading.wCurrentStep,b
           sec
           rtl
 
@@ -15158,7 +15074,7 @@ BF
         cmp #$FFFF
         bne -
 
-        inc wPortraitFadingCurrentStep,b
+        inc aPaletteFading.wCurrentStep,b
         plx
         clc
         rtl
@@ -15174,7 +15090,7 @@ BF
 
 
 
-      rlUnknown9F8FE3 ; 9F/8FE3
+      rlFadeFromToColorByStep ; 9F/8FE3
 
         .al
         .autsiz
@@ -15182,9 +15098,13 @@ BF
 
         ; Adjusts the input colors to the destination color
 
+        ; Input:
         ; A = step index
         ; X = current color word
         ; Y = desired color word
+
+        ; Output:
+        ; A = adjusted color
 
         pha
         pha
@@ -15284,7 +15204,7 @@ BF
 
         +
         dec a
-        cmp wPortraitFadingMaxSteps,b
+        cmp aPaletteFading.wMaxSteps,b
         bne +
 
           tya
@@ -15293,11 +15213,11 @@ BF
         +
         phx
         inc a
-        sta $02
+        sta wR1
         tya
         sec
         sbc #1,s
-        sta $00
+        sta wR0
         bpl +
 
           eor #$FFFF
@@ -15308,8 +15228,8 @@ BF
         and #$FF00
         sta WRDIVA
         sep #$21
-        lda wPortraitFadingMaxSteps,b
-        sbc $02
+        lda aPaletteFading.wMaxSteps,b
+        sbc wR1
         inc a
         sta WRDIVB
         rep #$20
@@ -15318,18 +15238,18 @@ BF
         nop
         nop
         lda RDDIV
-        bit $00
+        bit wR0
         bpl +
 
           eor #$FFFF
           inc a
 
         +
-        sta $00
+        sta wR0
         pla
         xba
         clc
-        adc $00
+        adc wR0
         xba
         and #$00FF
         rts
@@ -15549,7 +15469,7 @@ BF
         plb
         rep #$20
         ldy #<>$8ADBB6
-        
+
         _Push
         lda #0
         sta wR4
@@ -19540,7 +19460,7 @@ BF
         sta aActionStructUnit1.ObtainedStealMoney
         sta aActionStructUnit1.GainedExperience
         jsl rlUnknown9EAC5A
-        jsl rlUnknown829478
+        jsl rlCreateProcHaltEvent
         rtl
 
         .databank 0
@@ -19780,24 +19700,7 @@ BF
 
 
 
-      rlUnknown829478 ; 82/9478
 
-        .al
-        .autsiz
-        .databank ?
-
-        ; Halt until $0002 of $7F4C07 is set
-
-        lda #(`procUnknown828B2B)<<8
-        sta lR44+1
-        lda #<>procUnknown828B2B
-        sta lR44
-        jsl rlEventEngineCreateProc
-        rtl
-
-        .databank 0
-
-        ; 82/9487
 
 
 
@@ -21632,7 +21535,7 @@ D0 04         bne _End
         lda bBufferINIDISP
         bpl +
 
-          jsl $80A34F
+          jsl rlProcessDMAStructArray
 
         +
         lda bUnknown0536,b
@@ -21696,6 +21599,8 @@ D0 04         bne _End
         .al
         .autsiz
         .databank ?
+
+        ; Get gendered battle sprite?
 
         ; wR0 = ClassID
         ; wR1 = Gender
@@ -21827,17 +21732,24 @@ D0 04         bne _End
         .autsiz
         .databank ?
 
+        ; Get class' main battle weapon type
+        ; 0 = sword
+        ; 1 = lance
+        ; 2 = axe
+        ; 3 = bow
+        ; 4 = magic
+
         phy
         phx
         cmp #$FFFF
         bne _CLC
 
-        lda wR0
-        tax
-        lda aUnkown9E8687,x
-        and #$00FF
-        sec
-        bra +
+          lda wR0
+          tax
+          lda aUnkown9E8687,x
+          and #$00FF
+          sec
+          bra +
 
         _CLC
         clc
@@ -21851,8 +21763,78 @@ D0 04         bne _End
 
       aUnkown9E8687 ; 9E/8687
 
-01 01 03 02 00 00 00 01 00 01 01 03 00 01 02 00 00 00 01 01 01 03 00 00 03 00 01 01 01 01 01 02 03 00 01 02 03 00 02 02 02 02 03 02 00 00 00 00 04 04 00 04 04 04 04 04 04 04 04 04 04 04 04 00 00 00 00 03 03 03 03 04
-  
+        .byte 1 ; Cavalier
+        .byte 1 ; LanceKnight
+        .byte 3 ; BowKnight
+        .byte 2 ; AxeKnight
+        .byte 0 ; FreeKnight
+        .byte 0 ; Troubadour
+        .byte 0 ; KnightLord
+        .byte 1 ; DukeKnight
+        .byte 0 ; MasterKnight
+        .byte 1 ; Paladin
+        .byte 1 ; PaladinF
+        .byte 3 ; ArchKnight
+        .byte 0 ; Ranger
+        .byte 1 ; MageKnight
+        .byte 2 ; GreatKnight
+        .byte 0 ; PegasusRider
+        .byte 0 ; PegasusKnight
+        .byte 0 ; FalconKnight
+        .byte 1 ; Dragonrider
+        .byte 1 ; Dragonknight
+        .byte 1 ; Dragonmaster
+        .byte 3 ; Archer
+        .byte 0 ; Myrmidon
+        .byte 0 ; Swordmaster
+        .byte 3 ; Sniper
+        .byte 0 ; Hero
+        .byte 1 ; General
+        .byte 1 ; Emperor
+        .byte 1 ; Baron
+        .byte 1 ; Soldier
+        .byte 1 ; SpearSoldier
+        .byte 2 ; AxeSoldier
+        .byte 3 ; BowSoldier
+        .byte 0 ; SwordSoldier
+        .byte 1 ; LanceArmor
+        .byte 2 ; AxeArmor
+        .byte 3 ; BowArmor
+        .byte 0 ; SwordArmor
+        .byte 2 ; Barbarian
+        .byte 2 ; Fighter
+        .byte 2 ; Brigand
+        .byte 2 ; Warrior
+        .byte 3 ; Hunter
+        .byte 2 ; Pirate
+        .byte 0 ; JuniorLord
+        .byte 0 ; WarMage
+        .byte 0 ; Prince
+        .byte 0 ; Princess
+        .byte 4 ; WarMageF
+        .byte 4 ; Queen
+        .byte 0 ; Dancer
+        .byte 4 ; Priest
+        .byte 4 ; Mage
+        .byte 4 ; FireMage
+        .byte 4 ; ThunderMage
+        .byte 4 ; WindMage
+        .byte 4 ; HighPriest
+        .byte 4 ; Bishop
+        .byte 4 ; Sage
+        .byte 4 ; Bard
+        .byte 4 ; Priestess
+        .byte 4 ; DarkMage
+        .byte 4 ; DarkBishop
+        .byte 0 ; Thief
+        .byte 0 ; Rogue
+        .byte 0 ; Civilian
+        .byte 0 ; Child
+        .byte 3 ; Ballistician
+        .byte 3 ; IronBallistician
+        .byte 3 ; KillerBallistician
+        .byte 3 ; GreatBallistician
+        .byte 4 ; DarkPrince
 
       ; 9E/86CF
 
@@ -21866,12 +21848,105 @@ D0 04         bne _End
 
 
 
-      aUnknown9EB50D ; 9E/B50D
 
-        .long $ADF4CB
-        .long $AAA0F6
+      aBattleMapSpriteData ; 9E/B50D
 
-        ; 9E/B513
+CB F4 AD F6 A0 AA D1 ED AD 6C 96 AA 4E EA AD C3 92 AA C6 E6 AD 26 8F AA 0B F1 AD 26 8F AA 90 F8 AD 00 9A AA D9 FB AD 2F 9D AA 00 00 D5 F6 A0 AA 01 ; Cavalier
+B1 10 D5 F6 A0 AA 01 0A D5 6C 96 AA AD 06 D5 C3 92 AA 33 03 D5 26 8F AA 0F 0D D5 26 8F AA DD 14 D5 00 9A AA 25 18 D5 2F 9D AA 75 1B D5 F6 A0 AA 01 ; LanceKnight
+CB F4 AD F6 A0 AA D1 ED AD 6C 96 AA 4E EA AD C3 92 AA C6 E6 AD 26 8F AA 0B F1 AD 26 8F AA 90 F8 AD 00 9A AA D9 FB AD 2F 9D AA 00 00 D5 F6 A0 AA 01 ; BowKnight
+B1 10 D5 F6 A0 AA 01 0A D5 6C 96 AA AD 06 D5 C3 92 AA 33 03 D5 26 8F AA 0F 0D D5 26 8F AA DD 14 D5 00 9A AA 25 18 D5 2F 9D AA 75 1B D5 F6 A0 AA 01 ; AxeKnight
+B1 10 D5 F6 A0 AA 01 0A D5 6C 96 AA AD 06 D5 C3 92 AA 33 03 D5 26 8F AA 0F 0D D5 26 8F AA DD 14 D5 00 9A AA 25 18 D5 2F 9D AA 75 1B D5 F6 A0 AA 01 ; FreeKnight
+B1 10 D5 FB 8C AC 01 0A D5 18 FF AB AD 06 D5 3D FA AB 33 03 D5 9A F5 AB 0F 0D D5 9A F5 AB DD 14 D5 BF 83 AC 25 18 D5 42 88 AC 75 1B D5 FB 8C AC 01 ; Troubadour
+CB F4 AD D6 87 A5 D1 ED AD 5A FF A4 4E EA AD 4A FC A4 C6 E6 AD 26 F9 A4 0B F1 AD 26 F9 A4 90 F8 AD 2D 82 A5 D9 FB AD DD 84 A5 00 00 D5 D6 87 A5 01 ; KnightLord
+CB F4 AD 6D F9 A2 D1 ED AD BF F0 A2 4E EA AD 85 ED A2 C6 E6 AD 71 EA A2 0B F1 AD 71 EA A2 90 F8 AD 8E F3 A2 D9 FB AD 6B F6 A2 00 00 D5 6D F9 A2 01 ; DukeKnight
+CB F4 AD 40 CE A5 D1 ED AD B8 BB A5 4E EA AD 53 B5 A5 C6 E6 AD 39 AF A5 0B F1 AD 39 AF A5 90 F8 AD D7 C1 A5 D9 FB AD E4 C7 A5 00 00 D5 40 CE A5 01 ; MasterKnight
+CB F4 AD DB B1 A7 D1 ED AD 1A A1 A7 4E EA AD 12 9B A7 C6 E6 AD 36 95 A7 0B F1 AD 36 95 A7 90 F8 AD A4 A6 A7 D9 FB AD 2D AC A7 00 00 D5 DB B1 A7 01 ; Paladin
+CB F4 AD 7B 8F A7 D1 ED AD 22 FF A6 4E EA AD 4B F9 A6 C6 E6 AD 92 F3 A6 0B F1 AD 92 F3 A6 90 F8 AD C2 84 A7 D9 FB AD F9 89 A7 00 00 D5 7B 8F A7 01 ; PaladinF
+CB F4 AD 07 D6 A0 D1 ED AD 50 CE A0 4E EA AD EA CB A0 C6 E6 AD 92 C9 A0 0B F1 AD 92 C9 A0 90 F8 AD F2 D0 A0 D9 FB AD 5A D3 A0 00 00 D5 07 D6 A0 01 ; ArchKnight
+CB F4 AD 0B B0 A4 D1 ED AD DB A7 A4 4E EA AD EB A4 A4 C6 E6 AD E9 A1 A4 0B F1 AD E9 A1 A4 90 F8 AD A5 AA A4 D9 FB AD 3B AD A4 00 00 D5 0B B0 A4 01 ; Ranger
+CB F4 AD DD EF AB D1 ED AD 15 E0 AB 4E EA AD 4A DA AB C6 E6 AD B1 D4 AB 0B F1 AD B1 D4 AB 90 F8 AD 25 E5 AB D9 FB AD 44 EA AB 00 00 D5 DD EF AB 01 ; MageKnight
+CB F4 AD 8E 8A A3 D1 ED AD 5F 82 A3 4E EA AD 6D FF A2 C6 E6 AD 7C FC A2 0B F1 AD 7C FC A2 90 F8 AD 30 85 A3 D9 FB AD C2 87 A3 00 00 D5 8E 8A A3 01 ; GreatKnight
+B8 28 D5 F4 E6 A7 F3 23 D5 E8 D9 A7 34 21 D5 BB D5 A7 E2 1E D5 86 D1 A7 30 26 D5 86 D1 A7 4C 2B D5 05 DE A7 65 2D D5 82 E2 A7 DC 2F D5 F4 E6 A7 01 ; PegasusRider
+B8 28 D5 09 CD A7 F3 23 D5 F9 BF A7 34 21 D5 BF BB A7 E2 1E D5 88 B7 A7 30 26 D5 88 B7 A7 4C 2B D5 09 C4 A7 65 2D D5 79 C8 A7 DC 2F D5 09 CD A7 01 ; PegasusKnight
+B8 28 D5 0C F5 A3 F3 23 D5 AB DE A3 34 21 D5 86 D7 A3 E2 1E D5 D9 CF A3 30 26 D5 D9 CF A3 4C 2B D5 4B E6 A3 65 2D D5 AA ED A3 DC 2F D5 0C F5 A3 01 ; FalconKnight
+B5 A7 AD 1A E5 A2 7A A3 AD 26 D7 A2 50 A1 AD 34 D3 A2 97 9F AD C0 CE A2 78 A5 AD C0 CE A2 C5 A9 AD D4 DB A2 7F AB AD FB DF A2 79 AD AD 1A E5 A2 01 ; Dragonrider
+B5 A7 AD 89 F4 A1 7A A3 AD 3B E6 A1 50 A1 AD 5B E2 A1 97 9F AD F1 DD A1 78 A5 AD F1 DD A1 C5 A9 AD 31 EB A1 7F AB AD 62 EF A1 79 AD AD 89 F4 A1 01 ; Dragonknight
+B5 A7 AD D8 AD A2 7A A3 AD 0C 9F A2 50 A1 AD 16 9B A2 97 9F AD 97 96 A2 78 A5 AD 97 96 A2 C5 A9 AD 1B A4 A2 7F AB AD 6E A8 A2 79 AD AD D8 AD A2 01 ; Dragonmaster
+90 9A AD 09 C8 A0 11 98 AD 72 C4 A0 F4 96 AD 52 C3 A0 BD 95 AD 52 C2 A0 5A 99 AD 52 C2 A0 D2 9B AD 9B C5 A0 12 9D AD CA C6 A0 4B 9E AD 09 C8 A0 00 ; Archer
+79 CC AD 54 ED AA CA C8 AD E1 E6 AA E8 C6 AD BC E3 AA 6D C5 AD 8C E0 AA 27 CA AD 8C E0 AA D6 CE AD 3C E8 AA 39 D0 AD 0D EA AA 33 D2 AD 54 ED AA 00 ; Myrmidon
+79 CC AD 7B 8B AA CA C8 AD 67 84 AA E8 C6 AD 2E 81 AA 6D C5 AD 02 FE A9 27 CA AD 02 FE A9 D6 CE AD DA 85 AA 39 D0 AD D2 87 AA 33 D2 AD 7B 8B AA 00 ; Swordmaster
+90 9A AD CC B1 AA 11 98 AD 30 AE AA F4 96 AD F9 AC AA BD 95 AD 0F AC AA 5A 99 AD 0F AC AA D2 9B AD 56 AF AA 12 9D AD 8A B0 AA 4B 9E AD CC B1 AA 00 ; Sniper
+79 CC AD E7 9D A4 CA C8 AD F2 95 A4 E8 C6 AD 5E 92 A4 6D C5 AD D0 8E A4 27 CA AD D0 8E A4 D6 CE AD 8F 97 A4 39 D0 AD C1 99 A4 33 D2 AD E7 9D A4 00 ; Hero
+AC FB AC B9 D0 A4 05 F4 AC 2D C7 A4 29 F0 AC 97 C4 A4 8F EC AC 98 C1 A4 A3 F7 AC 98 C1 A4 EE FF AC 6F CA A4 5A 83 AD 75 CD A4 45 87 AD B9 D0 A4 00 ; General
+AC FB AC A3 AB A3 05 F4 AC 78 99 A3 29 F0 AC A2 93 A3 8F EC AC 58 8D A3 A3 F7 AC 58 8D A3 EE FF AC A1 9F A3 5A 83 AD 42 A5 A3 45 87 AD A3 AB A3 00 ; Emperor
+AC FB AC 59 F8 A0 05 F4 AC 6D E5 A0 29 F0 AC 8B DF A0 8F EC AC AB D8 A0 A3 F7 AC AB D8 A0 EE FF AC A0 EB A0 5A 83 AD 63 F1 A0 45 87 AD 59 F8 A0 00 ; Baron
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; Soldier
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; SpearSoldier
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; AxeSoldier
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; BowSoldier
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; SwordSoldier
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; LanceArmor
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; AxeArmor
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; BowArmor
+93 DF AC F4 8C A0 2B D9 AC 01 85 A0 06 D6 AC A2 82 A0 1C D3 AC 00 80 A0 16 DC AC 00 80 A0 2A E3 AC 84 87 A0 15 E6 AC 50 8A A0 77 E9 AC F4 8C A0 00 ; SwordArmor
+4F 90 AD AC AB A0 B0 8D AD 3A A4 A0 5B 8C AD 0F A2 A0 10 8B AD 53 9F A0 00 8F AD 53 9F A0 C6 91 AD F2 A6 A0 0D 93 AD 3A A9 A0 7A 94 AD AC AB A0 00 ; Barbarian
+4F 90 AD 49 9C A0 B0 8D AD 98 94 A0 5B 8C AD 67 92 A0 10 8B AD C2 8F A0 00 8F AD C2 8F A0 C6 91 AD 61 97 A0 0D 93 AD B1 99 A0 7A 94 AD 49 9C A0 00 ; Fighter
+4F 90 AD B9 E1 A6 B0 8D AD E9 D9 A6 5B 8C AD A8 D7 A6 10 8B AD FD D4 A6 00 8F AD FD D4 A6 C6 91 AD CB DC A6 0D 93 AD 0D DF A6 7A 94 AD B9 E1 A6 00 ; Brigand
+ED DC AD D3 A6 AC 0A D8 AD 19 9A AC EA D5 AD 48 96 AC 9B D3 AD BF 91 AC 75 DA AD BF 91 AC 86 DF AD 5E 9E AC DC E1 AD 4F A2 AC 63 E4 AD D3 A6 AC 00 ; Warrior
+ED DC AD 6B BE A4 0A D8 AD 7E B7 A4 EA D5 AD 8A B5 A4 9B D3 AD E0 B2 A4 75 DA AD E0 B2 A4 86 DF AD CD B9 A4 DC E1 AD E8 BB A4 63 E4 AD 6B BE A4 00 ; Hunter
+4F 90 AD B0 F0 A6 B0 8D AD 36 E9 A6 5B 8C AD 17 E7 A6 10 8B AD 70 E4 A6 00 8F AD 70 E4 A6 C6 91 AD F4 EB A6 0D 93 AD 33 EE A6 7A 94 AD B0 F0 A6 00 ; Pirate
+0C 6B D6 0D E3 A4 3A 69 D6 00 DB A4 0A 68 D6 AD D7 A4 61 67 D6 11 D4 A4 DE 69 D6 11 D4 A4 35 6C D6 21 DD A4 E1 6C D6 51 DF A4 2A 6E D6 0D E3 A4 00 ; JuniorLord
+13 C0 AD FD B0 A6 4A BD AD BA A3 A6 C7 BB AD A0 9F A6 86 BA AD EB 9B A6 85 BE AD EB 9B A6 99 C1 AD 84 A7 A6 D4 C2 AD E5 AB A6 36 C4 AD FD B0 A6 00 ; WarMage
+0C 6B D6 C4 9C A8 3A 69 D6 92 94 A8 0A 68 D6 1B 91 A8 61 67 D6 85 8D A8 DE 69 D6 85 8D A8 35 6C D6 CC 96 A8 E1 6C D6 F2 98 A8 2A 6E D6 C4 9C A8 00 ; Prince
+13 C0 AD 4F B7 A8 4A BD AD AC A9 A8 C7 BB AD 52 A5 A8 86 BA AD E3 A0 A8 85 BE AD E3 A0 A8 99 C1 AD E3 AD A8 D4 C2 AD 73 B2 A8 36 C4 AD 4F B7 A8 00 ; Princess
+13 C0 AD 12 97 A6 4A BD AD 97 8A A6 C7 BB AD 86 86 A6 86 BA AD C9 82 A6 85 BE AD C9 82 A6 99 C1 AD 87 8E A6 D4 C2 AD 93 92 A6 36 C4 AD 12 97 A6 00 ; WarMageF
+13 C0 AD 36 CA A8 4A BD AD 6A C1 A8 C7 BB AD CA BE A8 86 BA AD 3F BC A8 85 BE AD 3F BC A8 99 C1 AD F0 C3 A8 D4 C2 AD 08 C7 A8 36 C4 AD 36 CA A8 00 ; Queen
+CB B4 AD 6A 9E A1 F1 B1 AD A1 96 A1 68 B0 AD 76 93 A1 0F AF AD 90 90 A1 35 B3 AD 90 90 A1 66 B6 AD CB 98 A1 AA B7 AD 43 9B A1 3C B9 AD 6A 9E A1 00 ; Dancer
+13 C0 AD 76 8A A8 4A BD AD 7A 82 A8 C7 BB AD 9A FF A7 86 BA AD D3 FC A7 85 BE AD D3 FC A7 99 C1 AD F6 84 A8 D4 C2 AD 64 87 A8 36 C4 AD 76 8A A8 00 ; Priest
+13 C0 AD ED D1 A6 4A BD AD 64 C9 A6 C7 BB AD A5 C6 A6 86 BA AD 02 C4 A6 85 BE AD 02 C4 A6 99 C1 AD 07 CC A6 D4 C2 AD D2 CE A6 36 C4 AD ED D1 A6 00 ; Mage
+13 C0 AD 28 CD A3 4A BD AD 79 C5 A3 C7 BB AD 08 C3 A3 86 BA AD E9 C0 A3 85 BE AD E9 C0 A3 99 C1 AD D4 C7 A3 D4 C2 AD 82 CA A3 36 C4 AD 28 CD A3 00 ; FireMage
+13 C0 AD 22 9E AB 4A BD AD 68 96 AB C7 BB AD 23 94 AB 86 BA AD 08 92 AB 85 BE AD 08 92 AB 99 C1 AD D0 98 AB D4 C2 AD 8E 9B AB 36 C4 AD 22 9E AB 00 ; ThunderMage
+13 C0 AD 35 C6 AC 4A BD AD C3 BE AC C7 BB AD 94 BC AC 86 BA AD 7A BA AC 85 BE AD 7A BA AC 99 C1 AD 2B C1 AC D4 C2 AD A0 C3 AC 36 C4 AD 35 C6 AC 00 ; WindMage
+13 C0 AD 1D F0 A5 4A BD AD EF E7 A5 C7 BB AD 7B E5 A5 86 BA AD 5F E3 A5 85 BE AD 5F E3 A5 99 C1 AD 5B EA A5 D4 C2 AD 72 ED A5 36 C4 AD 1D F0 A5 00 ; HighPriest
+13 C0 AD 71 8D A1 4A BD AD 38 84 A1 C7 BB AD 93 81 A1 86 BA AD DF FE A0 85 BE AD DF FE A0 99 C1 AD 04 87 A1 D4 C2 AD 23 8A A1 36 C4 AD 71 8D A1 00 ; Bishop
+13 C0 AD 83 EA A8 4A BD AD 25 E2 A8 C7 BB AD BE DF A8 86 BA AD 73 DD A8 85 BE AD 73 DD A8 99 C1 AD BF E4 A8 D4 C2 AD A1 E7 A8 36 C4 AD 83 EA A8 00 ; Sage
+13 C0 AD DF B8 A0 4A BD AD 79 B2 A0 C7 BB AD 70 B0 A0 86 BA AD 8B AE A0 85 BE AD 8B AE A0 99 C1 AD 6B B4 A0 D4 C2 AD 9D B6 A0 36 C4 AD DF B8 A0 00 ; Bard
+13 C0 AD 7B EB A9 4A BD AD 52 E4 A9 C7 BB AD 5E E2 A9 86 BA AD FE DF A9 85 BE AD FE DF A9 99 C1 AD AD E6 A9 D4 C2 AD 03 E9 A9 36 C4 AD 7B EB A9 00 ; Priestess
+13 C0 AD 5C BF A1 4A BD AD 5A B7 A1 C7 BB AD AD B4 A1 86 BA AD 49 B2 A1 85 BE AD 49 B2 A1 99 C1 AD CF B9 A1 D4 C2 AD AB BC A1 36 C4 AD 5C BF A1 00 ; DarkMage
+13 C0 AD 51 AF A1 4A BD AD A2 A6 A1 C7 BB AD 09 A4 A1 86 BA AD A7 A1 A1 85 BE AD A7 A1 A1 99 C1 AD F4 A8 A1 D4 C2 AD EF AB A1 36 C4 AD 51 AF A1 00 ; DarkBishop
+E2 72 D6 EF 81 AB EE 70 D6 13 FD AA C6 6F D6 AF FB AA D6 6E D6 0F FA AA DC 71 D6 0F FA AA 08 74 D6 B0 FE AA F4 74 D6 5B 80 AB 07 76 D6 EF 81 AB 00 ; Thief
+E2 72 D6 28 B2 AB EE 70 D6 5A AD AB C6 6F D6 FA AB AB D6 6E D6 5B AA AB DC 71 D6 5B AA AB 08 74 D6 EB AE AB F4 74 D6 A1 B0 AB 07 76 D6 28 B2 AB 00 ; Rogue
+CB B4 AD 63 CF AA F1 B1 AD 9F CB AA 68 B0 AD 3C CA AA 0F AF AD 0D C9 AA 35 B3 AD 0D C9 AA 66 B6 AD C7 CC AA AA B7 AD 0C CE AA 3C B9 AD 63 CF AA 00 ; Civilian
+CB B4 AD 6A BF AA F1 B1 AD 2A BC AA 68 B0 AD 27 BB AA 0F AF AD 0A BA AA 35 B3 AD 0A BA AA 66 B6 AD 3B BD AA AA B7 AD 5A BE AA 3C B9 AD 6A BF AA 00 ; Child
+43 63 D6 AD FB A8 18 61 D6 6F F4 A8 1E 60 D6 12 F1 A8 0D 5F D6 7E ED A8 27 62 D6 25 F8 A8 44 64 D6 68 FF A8 56 65 D6 5D 83 A9 52 66 D6 80 86 A9 01 ; Ballistician
+43 63 D6 57 98 A9 18 61 D6 58 91 A9 1E 60 D6 FB 8D A9 0D 5F D6 62 8A A9 27 62 D6 D4 94 A9 44 64 D6 0A 9C A9 56 65 D6 F7 9F A9 52 66 D6 09 A3 A9 01 ; IronBallistician
+43 63 D6 D6 B4 A9 18 61 D6 B1 AD A9 1E 60 D6 61 AA A9 0D 5F D6 C8 A6 A9 27 62 D6 47 B1 A9 44 64 D6 69 B8 A9 56 65 D6 3E BC A9 52 66 D6 43 BF A9 01 ; KillerBallistician
+43 63 D6 EF D0 A9 18 61 D6 7D C9 A9 1E 60 D6 50 C6 A9 0D 5F D6 D8 C2 A9 27 62 D6 2F CD A9 44 64 D6 C6 D4 A9 56 65 D6 F4 D8 A9 52 66 D6 22 DC A9 01 ; GreatBallistician
+13 C0 AD 03 80 A6 4A BD AD 23 F8 A5 C7 BB AD 54 F5 A5 86 BA AD 28 F3 A5 85 BE AD 28 F3 A5 99 C1 AD 54 FA A5 D4 C2 AD 17 FD A5 36 C4 AD 03 80 A6 00 ; DarkPrince
+CB F4 AD 04 A9 A5 D1 ED AD 44 97 A5 4E EA AD 12 91 A5 C6 E6 AD CE 8A A5 0B F1 AD CE 8A A5 90 F8 AD 62 9D A5 D9 FB AD C9 A2 A5 00 00 D5 04 A9 A5 01 ; MasterKnightFemale
+CB F4 AD 52 CF AB D1 ED AD 33 BF AB 4E EA AD 9C B9 AB C6 E6 AD E8 B3 AB 0B F1 AD E8 B3 AB 90 F8 AD 3D C4 AB D9 FB AD B0 C9 AB 00 00 D5 52 CF AB 01 ; MageKnightFemale
+B5 A7 AD 89 C9 A2 7A A3 AD 7F BB A2 50 A1 AD B2 B7 A2 97 9F AD 60 B3 A2 78 A5 AD 60 B3 A2 C5 A9 AD 4E C0 A2 7F AB AD 69 C4 A2 79 AD AD 89 C9 A2 01 ; DragonRiderFemale
+B5 A7 AD C1 D8 A1 7A A3 AD 4B CA A1 50 A1 AD 7B C6 A1 97 9F AD 3C C2 A1 78 A5 AD 3C C2 A1 C5 A9 AD 61 CF A1 7F AB AD 9D D3 A1 79 AD AD C1 D8 A1 01 ; DragonknightFemale
+B5 A7 AD 07 91 A2 7A A3 AD 28 82 A2 50 A1 AD 4A FE A1 97 9F AD D6 F9 A1 78 A5 AD D6 F9 A1 C5 A9 AD 3F 87 A2 7F AB AD A1 8B A2 79 AD AD 07 91 A2 01 ; DragonmasterFemale
+90 9A AD E9 C0 A0 11 98 AD 74 BD A0 F4 96 AD 63 BC A0 BD 95 AD 5A BB A0 5A 99 AD 5A BB A0 D2 9B AD AE BE A0 12 9D AD C8 BF A0 4B 9E AD E9 C0 A0 00 ; ArcherFemale
+79 CC AD CC DC AA CA C8 AD 84 D6 AA E8 C6 AD DC D3 AA 6D C5 AD AC D0 AA 27 CA AD AC D0 AA D6 CE AD 0B D8 AA 39 D0 AD A2 D9 AA 33 D2 AD CC DC AA 00 ; MyrmidonFemale
+79 CC AD 2A FA A9 CA C8 AD B6 F3 A9 E8 C6 AD 0C F1 A9 6D C5 AD CD ED A9 27 CA AD CD ED A9 D6 CE AD 3D F5 A9 39 D0 AD DD F6 A9 33 D2 AD 2A FA A9 00 ; SwordmasterFemale
+90 9A AD 74 AA AA 11 98 AD BB A6 AA F4 96 AD A4 A5 AA BD 95 AD 86 A4 AA 5A 99 AD 86 A4 AA D2 9B AD F6 A7 AA 12 9D AD 2C A9 AA 4B 9E AD 74 AA AA 00 ; SniperFemale
+79 CC AD 78 8A A4 CA C8 AD 44 83 A4 E8 C6 AD 19 80 A4 6D C5 AD 94 FC A3 27 CA AD 94 FC A3 D6 CE AD FC 84 A4 39 D0 AD EA 86 A4 33 D2 AD 78 8A A4 00 ; HeroFemale
+13 C0 AD D7 F9 A7 4A BD AD 46 F1 A7 C7 BB AD 34 EE A7 86 BA AD 5C EB A7 85 BE AD 5C EB A7 99 C1 AD 12 F4 A7 D4 C2 AD C6 F6 A7 36 C4 AD D7 F9 A7 00 ; PriestFemale
+13 C0 AD 84 C1 A6 4A BD AD 52 BA A6 C7 BB AD 22 B8 A6 86 BA AD D4 B5 A6 85 BE AD D4 B5 A6 99 C1 AD A0 BC A6 D4 C2 AD 0D BF A6 36 C4 AD 84 C1 A6 00 ; MageFemale
+13 C0 AD 34 BE A3 4A BD AD A0 B6 A3 C7 BB AD 91 B4 A3 86 BA AD 6E B2 A3 85 BE AD 6E B2 A3 99 C1 AD E8 B8 A3 D4 C2 AD 9E BB A3 36 C4 AD 34 BE A3 00 ; FireMageFemale
+13 C0 AD 6F 8F AB 4A BD AD 16 88 AB C7 BB AD F7 85 AB 86 BA AD A2 83 AB 85 BE AD A2 83 AB 99 C1 AD 5A 8A AB D4 C2 AD DD 8C AB 36 C4 AD 6F 8F AB 00 ; ThunderMageFemale
+13 C0 AD E2 B7 AC 4A BD AD 05 B0 AC C7 BB AD 97 AD AC 86 BA AD 39 AB AC 85 BE AD 39 AB AC 99 C1 AD 6E B2 AC D4 C2 AD 0D B5 AC 36 C4 AD E2 B7 AC 00 ; WindMageFemale
+13 C0 AD A2 E0 A5 4A BD AD FA D8 A5 C7 BB AD B3 D6 A5 86 BA AD 58 D4 A5 85 BE AD 58 D4 A5 99 C1 AD 55 DB A5 D4 C2 AD 20 DE A5 36 C4 AD A2 E0 A5 00 ; HighPriestFemale
+13 C0 AD 64 DA A8 4A BD AD 23 D2 A8 C7 BB AD A3 CF A8 86 BA AD 61 CD A8 85 BE AD 61 CD A8 99 C1 AD 71 D4 A8 D4 C2 AD 8F D7 A8 36 C4 AD 64 DA A8 00 ; SageFemale
+E2 72 D6 46 F8 AA EE 70 D6 A2 F3 AA C6 6F D6 61 F2 AA D6 6E D6 D4 F0 AA DC 71 D6 D4 F0 AA 08 74 D6 34 F5 AA F4 74 D6 C1 F6 AA 07 76 D6 46 F8 AA 00 ; ThiefFemale
+E2 72 D6 88 A8 AB EE 70 D6 C8 A3 AB C6 6F D6 71 A2 AB D6 6E D6 DF A0 AB DC 71 D6 DF A0 AB 08 74 D6 5D A5 AB F4 74 D6 0D A7 AB 07 76 D6 88 A8 AB 00 ; RogueFemale
+CB B4 AD 97 C7 AA F1 B1 AD 46 C3 AA 68 B0 AD E1 C1 AA 0F AF AD 8F C0 AA 35 B3 AD 8F C0 AA 66 B6 AD 99 C4 AA AA B7 AD 13 C6 AA 3C B9 AD 97 C7 AA 00 ; CivilianFemale
+CB B4 AD EA B8 AA F1 B1 AD 7F B5 AA 68 B0 AD 89 B4 AA 0F AF AD 5C B3 AA 35 B3 AD 5C B3 AA 66 B6 AD 93 B6 AA AA B7 AD BF B7 AA 3C B9 AD EA B8 AA 00 ; ChildFemale
+CB F4 AD 10 F6 A4 D1 ED AD 49 ED A4 4E EA AD 2A EA A4 C6 E6 AD 05 E7 A4 0B F1 AD 05 E7 A4 90 F8 AD 3A F0 A4 D9 FB AD 13 F3 A4 00 00 D5 10 F6 A4 01 ; 
+
+; 9E/C6FB
 
 
 
@@ -21881,6 +21956,12 @@ D0 04         bne _End
 
 
 
+
+
+
+
+E9 C0 A3 - fire mage 
+$A3C0E9
 
 
       rlUnknown9E9D3B ; 9E/9D3B
@@ -22037,8 +22118,8 @@ D0 04         bne _End
 
         lda #0
         sta aProcSystem.aHeaderBitfield,b,x
-        jsl $88CD53
-        jsl $88CD61
+        jsl rlUnknown88CD53
+        jsl rlUnknown88CD61
         ply
         rtl
 
@@ -22183,9 +22264,9 @@ D0 04         bne _End
         adc wR0
         and #$0003
         tax
-        lda aUnknown9EB50D+1,x
+        lda aBattleMapSpriteData+1,x
         sta lR18+1
-        lda aUnknown9EB50D,x
+        lda aBattleMapSpriteData,x
         sta lR18
 
         lda #(`aDecompressionBuffer)<<8
@@ -22315,16 +22396,16 @@ D0 04         bne _End
         sta wR1
         lda $7F456E
         sta wR10
-        lda #$0031
+        lda #49
         sta wR11
         jsl rlUnsignedMultiply16By16
         lda wR12
         clc
         adc wR1
         tax
-        lda aUnknown9EB50D+1,x
+        lda aBattleMapSpriteData+1,x
         sta lR18+1
-        lda aUnknown9EB50D,x
+        lda aBattleMapSpriteData,x
         sta lR18
         lda #(`aDecompressionBuffer)<<8
         sta lR19+1
@@ -22363,15 +22444,15 @@ D0 04         bne _End
         phx
         ldx #2
 
-        -
-        lda aUnknown9E88F4,x
-        sta $7EFC88
-        sta $7EFC8E
-        sta $7EFC94
-        sta $7EFC9A
-        dec x
-        dec x
-        bpl -
+          -
+          lda aUnknown9E88F4,x
+          sta $7EFC88
+          sta $7EFC8E
+          sta $7EFC94
+          sta $7EFC9A
+          dec x
+          dec x
+          bpl -
 
         lda aUnknown9E88F4 + 4
         sta $7EFCA0
@@ -22399,13 +22480,15 @@ D0 04         bne _End
         .autsiz
         .databank ?
 
+        ; dma shadows?
+
         phy
         phx
         lda #(`$ADFF80)<<8
         sta lR18+1
         lda #<>$ADFF80
         sta lR18
-        lda #$0040
+        lda #$0040 ; size
         sta wR0
 
         lda bBufferOBSEL
@@ -26698,17 +26781,6 @@ F1 F0 8C 02 F1 8C 1A F1 8C 31 F1 8C 4D F1 8C 68 F1 8C 86 F1 8C A2 F1 8C
 
 
 
-      rlUnknown8B87A0 ; 8B/87A0
-
-        .al
-        .autsiz
-        .databank ?
-
-        rtl
-
-        .databank 0
-
-        ; 8B/87A1
 
 
 
@@ -26766,9 +26838,9 @@ F1 F0 8C 02 F1 8C 1A F1 8C 31 F1 8C 4D F1 8C 68 F1 8C 86 F1 8C A2 F1 8C
 
         lda #<>$80B6B6
         sta aProcSystem.wInput0,b
-        lda #(`procUnknown8282D3)<<8
+        lda #(`procMainLoopChangeFade)<<8
         sta lR44+1
-        lda #<>procUnknown8282D3
+        lda #<>procMainLoopChangeFade
         sta lR44
         jsl rlProcEngineCreateProc
         plx
@@ -26854,6 +26926,1151 @@ FD DF 85 01 01 81 40 83 41 83 6A 83 81 00 00 ; anime
 
 
 
+      rlUnknown9EF60F ; 9E/F60F
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #(`procBelhallaMagesAttack)<<8
+        sta lR44+1
+        lda #<>procBelhallaMagesAttack
+        sta lR44
+        jsl rlProcEngineCreateProc
+        rtl
+
+        .databank 0
+
+      procBelhallaMagesAttack ; 9E/F61E
+
+        .structProcInfo "ON", rlProcBelhallaMagesAttackInit, rlProcBelhallaMagesAttackCycle, aProcBelhallaMagesAttackCode
+
+        ; Belhalla attack
+
+      rlProcBelhallaMagesAttackInit ; 9E/F626
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #0
+        sta aProcSystem.aHeaderBitfield,b,x
+        sta aProcSystem.aBody5,x
+        sta aProcSystem.aBody6,x
+        sta $7F57F0
+        sta $7F4C07
+
+        lda #1
+        sta $7F50CB
+
+        jsl rlUnknown88CD53
+        jsl rlUnknown88CD61
+        rtl
+
+        .databank 0
+
+      rlProcBelhallaMagesAttackCycle ; 9E/F64C
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+      aProcBelhallaMagesAttackCode ; 9E/F64D
+
+        PROC_CALL rlUnknown9EF79D
+        PROC_JUMP_IF_BITS_SET _MagesAttacked, $0002
+
+        -
+        PROC_YIELD 1
+        PROC_CALL rlUnknown9EF822
+        PROC_JUMP_IF_BITS_UNSET -, $0004
+
+        PROC_YIELD 1
+        PROC_JUMP aProcBelhallaMagesAttackCode
+
+        ; Check targets to hit
+        _MagesAttacked
+        PROC_CALL rlUnknown9EF703
+        PROC_SET_ONCYCLE $C9FD
+        PROC_YIELD 16
+        PROC_CALL $9F85A3
+        PROC_YIELD 2
+        PROC_CALL $9F85CC
+        PROC_YIELD 2
+        PROC_CALL $9F85F5
+        PROC_YIELD 2
+        PROC_CALL $9F861F
+        PROC_YIELD 2
+        PROC_CALL $9F86BF
+
+        PROC_JUMP_IF_BITS_UNSET _F6FA, $0002
+
+        -
+        PROC_YIELD 1
+        PROC_CALL $9F86B0
+        PROC_JUMP_IF_BITS_UNSET -, $0001
+
+        PROC_CALL $9F8677
+        PROC_YIELD 2
+        PROC_CALL $9EE228
+
+        -
+        PROC_CALL $9EE23D
+        PROC_YIELD 1
+        PROC_JUMP_IF_BITS_UNSET -, $0004
+
+        PROC_SET_UNK_TIMER 5
+
+        ; Meteors fall
+        -
+        PROC_CALL rlUnknown9EF724
+        PROC_CALL $9EFAD4
+        PROC_CALL $9F8020
+        PROC_YIELD 128
+        PROC_CALL $9F8349
+        PROC_CALL $9F8473
+        PROC_YIELD 1
+        PROC_JUMP_WHILE_UNK_TIMER -
+
+        PROC_CALL rlUnknown9EF791
+
+        -
+        PROC_CALL $9EE279
+        PROC_YIELD 1
+        PROC_JUMP_IF_BITS_UNSET -, $0004
+
+        _F6FA
+        PROC_YIELD 16
+        PROC_CALL rlUnknown9EF76F
+        PROC_END
+
+      rlUnknown9EF703 ; 9E/F703
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #4
+        sta $7F508B
+        sta $7F5089
+        lda #$8401
+        sta $7F508F
+        lda #$00FF
+        sta $7F5099
+        lda #0
+        sta $7F509F
+        rtl
+
+        .databank 0
+
+      rlUnknown9EF724 ; 9E/F724
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda aProcSystem.aBody6,x
+        asl a
+        tax
+        lda aUnknown9EF765+1,x
+        and #$00FF
+        tay
+        lda aUnknown9EF765,x
+        and #$00FF
+        tax
+        lda $7E4EBB
+        jsl $9E8D25
+
+        lda wR0
+        and #$00FF
+        sta wR0
+        lda wR1
+        and #$00FF
+        sta wR1
+
+        lda wR1
+        xba
+        ora wR0
+        sta $7F509B
+
+        plx
+        lda aProcSystem.aBody6,x
+        inc a
+        sta aProcSystem.aBody6,x
+        rtl
+
+        .databank 0
+
+      aUnknown9EF765 ; 9E/F765
+
+        .word $3106
+        .word $3007
+        .word $2F05
+        .word $2E07
+        .word $2D06
+
+      rlUnknown9EF76F ; 9E/F76F
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda $7F4C07
+        ora #$0002
+        sta $7F4C07
+
+        jsl $88CD4C
+        jsl rlUnknown88CD5A
+
+        ldx #$00DE
+
+          -
+          lda $8C9520,x
+          sta aOAMPaletteBuffer.aPalette1,b,x
+          dec x
+          dec x
+          bpl -
+
+        rtl
+
+        .databank 0
+
+      rlUnknown9EF791 ; 9E/F791
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda aProcSystem.aHeaderBitfield,b,x
+        and #~$0002
+        sta aProcSystem.aHeaderBitfield,b,x
+        plx
+        rtl
+
+        .databank 0
+
+      rlUnknown9EF79D ; 9E/F79D
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda aProcSystem.aHeaderBitfield,b,x
+        and #~$0002
+        and #~$0004
+        sta aProcSystem.aHeaderBitfield,b,x
+
+        lda aProcSystem.aBody5,x
+        asl a
+        tax
+        lda aBelhallaAttackingMagePositions,x
+        cmp #$FFFF
+        beq _End
+
+          pha
+          and #$00FF
+          sta wR0
+          pla
+          xba
+          and #$00FF
+          sta wR1
+          jsl rlGetUnitByCoordinates
+          bcs +
+
+            lda #1,s
+            tax
+            lda aProcSystem.aBody5,x
+            tax
+            lda aBelhallaAttackingMageDirections,x
+            and #$00FF
+            sta aProcSystem.wInput0
+
+            lda #(`procUnknown9EF837)<<8
+            sta lR44+1
+            lda #<>procUnknown9EF837
+            sta lR44
+            jsl rlProcEngineCreateProc
+
+            tay
+            lda #1,s
+            tax
+            tya
+            sta aProcSystem.aBody4,b,x
+
+          +
+          lda #1,s
+          tax
+          lda aProcSystem.aBody5,x
+          inc a
+          sta aProcSystem.aBody5,x
+          bra +
+
+        _End
+        lda #1,s
+        tax
+        lda aProcSystem.aHeaderBitfield,b,x
+        ora #$0002
+        sta aProcSystem.aHeaderBitfield,b,x
+
+        +
+        plx
+        rtl
+
+        .databank 0
+
+      aBelhallaAttackingMagePositions ; 9E/F811
+
+        .byte pack([4, 50])
+        .byte pack([8, 49])
+        .byte pack([4, 48])
+        .byte pack([8, 47])
+        .byte pack([4, 46])
+        .word $FFFF
+
+      aBelhallaAttackingMageDirections ; 9E/F81D
+
+        .byte 4
+        .byte 0
+        .byte 4
+        .byte 0
+        .byte 4
+
+      rlUnknown9EF822 ; 9E/F822
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda aProcSystem.aBody4,b,x
+        jsl $8280F8
+        bcc +
+
+          lda aProcSystem.aHeaderBitfield,b,x
+          ora #$0004
+          sta aProcSystem.aHeaderBitfield,b,x
+
+        +
+        plx
+        rtl
+
+        .databank 0
+
+      procUnknown9EF837 ; 9E/F837
+
+        .structProcInfo "ON", rlProcUnknown9EF837Init, rlProcUnknown9EF837Cycle1, aProcUnknown9EF837Code
+
+      rlProcUnknown9EF837Init ; 9E/F83F
+
+        .al
+        .autsiz
+        .databank ?
+
+        phy
+        phx
+        phb
+
+        jsl rlUnknown9EFA17
+
+        pea #$7F00
+        plb
+        plb
+
+        lda #0
+        sta $4580,b
+        sta $4582,b
+        sta $4584,b
+        sta $7F545A
+        sta $7F5472
+        sta $7F5091
+        sta $7F5093
+        sta $7F4C07
+
+        lda #2
+        sta $7F4C87
+
+        lda aScriptedUnitMapAction + structScriptedMapAttack.wDeploymentOffset
+        sta aActionStructUnit1.DeploymentNumber
+        sta aActionStructUnit2.DeploymentNumber
+
+        lda aScriptedUnitMapAction + structScriptedMapAttack.wClass
+        sta @l wR0
+        lda aScriptedUnitMapAction + structScriptedMapAttack.wGender
+        sta @l wR1
+        lda aScriptedUnitMapAction + structScriptedMapAttack.wCharacterID
+        sta @l wR2
+        jsl $9E85A4
+        sta aMapAction.wBattleClassID,b
+
+        lda aScriptedUnitMapAction + structScriptedMapAttack.wXTilePosition
+        sta $4552,b
+        lda aScriptedUnitMapAction + structScriptedMapAttack.wYTilePosition
+        sta $4554,b
+        lda #$FFFF
+        jsl $9E866F
+        sta aMapAction.wWeaponType,b
+
+        lda #$FFFF
+        sta $7E4EDD
+
+        lda #0
+        sta aMapAction.wUnknown7F4450,b
+        sta aMapAction.wUnknown7F4556,b
+        sta aMapAction.wUnknown7F4558,b
+        sta aMapAction.wUnknown7F454C,b
+
+        lda aProcSystem.wInput0
+        sta aMapAction.wUnknown7F455E,b
+        sta aMapAction.wUnknown7F4560,b
+
+        lda #1
+        sta aMapAction.wUnknown7F4562
+
+        lda #4
+        sta $508B,b
+        sta $5089,b
+        plb
+
+        ; Set MapScrollPixels
+        lda aMapAction.wYTilePosition
+        tay
+        lda aMapAction.wXTilePosition
+        tax
+        jsl $9E8D25
+
+        lda #$8000
+        sta $7F508F
+        lda wR0
+        and #$00FF
+        sta wR0
+        lda wR1
+        and #$00FF
+        sta wR1
+
+        lda wR1
+        xba
+        ora wR0
+        sta $7F5099
+        sta $7F509B
+
+        lda #(`$81841B)<<8
+        sta $0015E4+1
+        lda #<>$81841B
+        sta $0015E4
+
+        lda aActiveSpriteSystem.wFlag
+        sta $7F4BD9
+
+        lda aActiveSpriteSystem.wFlag
+        ora #$4000
+        sta aActiveSpriteSystem.wFlag
+
+        plx
+        lda $000302
+        sta aProcSystem.aBody7,x
+        stz $0302,b
+
+        lda $7F4EAF
+        sta $7E4EBF
+        ply
+        rtl
+
+        .databank 0
+
+      rlProcUnknown9EF837Cycle1 ; 9E/F94D
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        phy
+        phb
+        php
+
+        sep #$20
+        lda #$7F
+        pha
+        rep #$20
+        plb
+
+        lda aMapAction.wUnknown7F455E
+        asl a
+        clc
+        adc aMapAction.wUnknown7F455E
+        asl a
+        sta wR0
+        lda aMapAction.wBattleClassID
+        sta wR10
+        lda #49
+        sta wR11
+        jsl rlUnsignedMultiply16By16
+
+        lda wR12
+        clc
+        adc wR0
+        adc #3
+        tax
+        lda aBattleMapSpriteData+1,x
+        sta lR18+1
+        lda aBattleMapSpriteData,x
+        sta lR18
+        lda #(`aDecompressionBuffer)<<8
+        sta lR19+1
+        lda #<>aDecompressionBuffer
+        clc
+        adc #0
+        sta lR19
+        plp
+        plb
+        jsl rlAppendDecompList
+        phb
+        php
+        sep #$20
+        lda #$7F
+        pha
+        rep #$20
+        plb
+
+        ; Load map weapon slashing graphics
+        lda #(`$ACCC17)<<8
+        sta lR18+1
+        lda #<>$ACCC17
+        sta lR18
+        lda #(`aDecompressionBuffer)<<8
+        sta lR19+1
+        lda #<>aDecompressionBuffer
+        clc
+        adc #$4000
+        sta lR19
+        plp
+        plb
+        jsl rlAppendDecompList
+        ply
+        plx
+        lda #<>rlProcUnknown9EF837Cycle2
+        sta aProcSystem.aHeaderOnCycle,b,x
+        rtl
+
+        .databank 0
+
+      rlProcUnknown9EF837Cycle2 ; 9E/F9DF
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+      aProcUnknown9EF837Code ; 9E/F9E0
+
+        PROC_YIELD 42
+        PROC_SET_ONCYCLE rlUnknown9ED337
+        PROC_YIELD 32
+        PROC_CALL rlUnknown9E99F7
+        PROC_YIELD 2
+        PROC_CALL $9E89F1
+        PROC_CALL $9EB3DE
+        PROC_YIELD 1
+        PROC_CALL rlUnknown9EFA4F
+        PROC_YIELD 32
+        PROC_CALL rlUnknown9EFA9A
+        PROC_CALL $888197
+        PROC_YIELD 4
+        PROC_CALL $8881A7
+        PROC_YIELD 1
+        PROC_END
+
+      rlUnknown9EFA17 ; 9E/FA17
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        jsl rlGetSelectedUnitDeploymentOffset
+        sta aScriptedUnitMapAction + structScriptedMapAttack.wDeploymentOffset
+        jsl rlGetSelectedUnitClassID
+        sta aScriptedUnitMapAction + structScriptedMapAttack.wClass
+        jsl rlGetSelectedUnitGender
+        sta aScriptedUnitMapAction + structScriptedMapAttack.wGender
+        jsl rlGetSelectedUnitCharacterID
+        sta aScriptedUnitMapAction + structScriptedMapAttack.wCharacterID
+        jsl rlGetSelectedUnitDeploymentOffset
+        tax
+        lda aDeploymentTable._XTilePosition,x
+        sta aScriptedUnitMapAction + structScriptedMapAttack.wXTilePosition
+        lda aDeploymentTable._YTilePosition,x
+        sta aScriptedUnitMapAction + structScriptedMapAttack.wYTilePosition
+        plx
+        rtl
+
+        .databank 0
+
+      rlUnknown9EFA4F ; 9E/FA4F
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        php
+        sep #$20
+        lda #$7F
+        pha
+        rep #$20
+        plb
+
+        phy
+        phx
+        lda #0
+        sta $7F4580
+        sta $7F4582
+        sta aProcSystem.aHeaderBitfield,x
+
+        lda #1
+        sta $7F4584
+        lda $4599,b
+        sta $458A,b
+        sta $4587,b
+
+        lda $4598,b
+        sta lR18
+        lda $4598+1,b
+        sta lR18+1
+        lda $455E,b
+        sta wR0
+        lda #0
+        jsr $9E832C
+        stx $4589,b
+        sty $4586,b
+        plx
+        ply
+        plp
+        plb
+        rtl
+
+        .databank 0
+
+      rlUnknown9EFA9A ; 9E/FA9A
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda $7F45A4
+        tax
+        stz aActiveSpriteSystem.aTypeOffset,b,x
+        lda $7F45A6
+        tax
+        cpx #$FFFF
+        beq +
+
+          stz aActiveSpriteSystem.aTypeOffset,b,x
+
+        +
+        lda $7E4EA9
+        tax
+        jsl rlDeployedUnitUnsetHiddenIfAlive
+        plx
+        lda aProcSystem.aBody7,b,x
+        sta $0302,b
+        lda #$8000
+        sta $15E4+1,b
+        lda #$87C7
+        sta $15E4,b
+
+        lda $7F4BD9
+        sta aActiveSpriteSystem.wFlag,b
+        rtl
+
+        .databank 0
+
+      rlUnknown9EFAD4 ; 9E/FAD4
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #(`$9EFAE3)<<8
+        sta lR44+1
+        lda #<>$9EFAE3
+        sta lR44
+        jsl rlProcEngineCreateProc
+        rtl
+
+        .databank 0
+
+      procUnknown9EFAE3 ; 9E/FAE3
+
+        .structProcInfo "ON", rlProcUnknown9EFAE3Init, rlProcUnknown9EFAE3Cycle, aProcUnknown9EFAE3Code
+        
+      rlProcUnknown9EFAE3Init ; 9E/FAEB
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda #0
+        sta aProcSystem.aHeaderBitfield,b,x
+        sta $7F45CC
+        plx
+        rtl
+
+        .databank 0
+
+      aUnknown9EFAF8 ; 9E/FAF8
+
+        .long aUnknown9EFB07
+        .long aUnknown9EFB1B
+        .long aUnknown9EFB29
+        .long aUnknown9EFB37
+        .long aUnknown9EFB45
+
+      aUnknown9EFB07 ; 9E/FB07
+
+        .byte $05, $30
+        .byte $06, $30
+        .byte $07, $30
+        .byte $05, $31
+        .byte $06, $31
+        .byte $07, $31
+        .byte $05, $32
+        .byte $06, $32
+        .byte $07, $32
+        .word $FFFF
+
+      aUnknown9EFB1B ; 9E/FB1B
+
+        .byte $06, $2F
+        .byte $07, $2F
+        .byte $06, $30
+        .byte $07, $30
+        .byte $06, $31
+        .byte $07, $31
+        .word $FFFF
+
+      aUnknown9EFB29 ; 9E/FB29
+
+        .byte $05, $2E
+        .byte $06, $2E
+        .byte $05, $2F
+        .byte $06, $2F
+        .byte $05, $30
+        .byte $06, $30
+        .word $FFFF
+
+      aUnknown9EFB37 ; 9E/FB37
+
+        .byte $06, $2D
+        .byte $07, $2D
+        .byte $06, $2E
+        .byte $07, $2E
+        .byte $06, $2F
+        .byte $07, $2F
+        .word $FFFF
+
+      aUnknown9EFB45 ; 9E/FB45
+
+        .byte $06, $2C
+        .byte $05, $2D
+        .byte $06, $2D
+        .byte $07, $2D
+        .byte $05, $2E
+        .byte $06, $2E
+        .byte $07, $2E
+        .word $FFFF
+
+      rlProcUnknown9EFAE3Cycle ; 9E/FB55
+
+        .al
+        .autsiz
+        .databank ?
+
+        rtl
+
+        .databank 0
+
+      aProcUnknown9EFAE3Code ; 9E/FB56
+
+        PROC_YIELD 1
+
+        -
+        PROC_YIELD 1
+        PROC_CALL rlUnknown9EFB80
+        PROC_JUMP_IF_BITS_UNSET -, $0004
+
+        -
+        PROC_YIELD 1
+        PROC_CALL rlUnknown9EFBB6
+        PROC_CALL rlUnknown9EFB9B
+        PROC_JUMP_IF_BITS_UNSET -, $0004
+
+        PROC_CALL rlUnknown9EFC9B
+        PROC_YIELD 16
+        PROC_END
+
+      rlUnknown9EFB80 ; 9E/FB80
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda aProcSystem.aHeaderBitfield,b,x
+        and #~$0004
+        sta aProcSystem.aHeaderBitfield,b,x
+
+        lda $7F4580
+        beq +
+
+          lda aProcSystem.aHeaderBitfield,b,x
+          ora #$0004
+          sta aProcSystem.aHeaderBitfield,b,x
+
+        +
+        plx
+        rtl
+
+        .databank 0
+
+      rlUnknown9EFB9B ; 9E/FB9B
+
+        .al
+        .autsiz
+        .databank ?
+
+        phx
+        lda aProcSystem.aHeaderBitfield,b,x
+        and #~$0004
+        sta aProcSystem.aHeaderBitfield,b,x
+
+        lda $7F4580
+        bne +
+
+          lda aProcSystem.aHeaderBitfield,b,x
+          ora #$0004
+          sta aProcSystem.aHeaderBitfield,b,x
+
+        +
+        plx
+        rtl
+
+        .databank 0
+
+      rlUnknown9EFBB6 ; 9E/FBB6
+
+        .al
+        .autsiz
+        .databank ?
+
+        phy
+        phx
+        lda $7F4580
+        bne +
+
+          jml _End
+
+        +
+        lda $7F45CC
+        bne _FC23
+
+          jsl rlUnknown9EFC47
+
+          lda #9
+          xba
+          lsr a
+          lsr a
+          lsr a
+          tax
+          ldy #0
+
+            -
+            lda aBGPaletteBuffer,b,x
+            sta wR0
+
+            phb
+            php
+            sep #$20
+            lda #$7F
+            pha
+            rep #$20
+            plb
+
+            lda wR0
+            sta $45AC,b,y
+
+            plp
+            plb
+
+            inc x
+            inc x
+            inc y
+            inc y
+            cpy #$0020
+            bne -
+
+          ldx #$01E2
+
+            -
+            lda #$7FFF
+            sta aBGPaletteBuffer,b,x
+            inc x
+            inc x
+            cpx #$0200
+            bne -
+
+          lda #1
+          sta $7F45CC
+          lda #$0091
+          sta wR0
+          lda $7F509B
+          and #$00FF
+          jsl $9EB4BB
+          ora wR0
+          jsl $80900D ; sound
+        
+        _FC23
+        lda #(`$7F45AC)<<8
+        sta lR18+1
+        lda #<>$7F45AC
+        clc
+        adc #2
+        sta lR18
+        ldy #$000F
+        lda #$00F1
+        jsl $959F43
+        bcc _End
+
+          lda #0
+          sta $7F4580
+
+        _End
+        plx
+        ply
+        rtl
+
+        .databank 0
+
+      rlUnknown9EFC47 ; 9E/FC47
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        phk
+        plb
+        phx
+        phy
+        lda $7F57F0
+        asl a
+        clc
+        adc $7F57F0
+        tax
+        lda aUnknown9EFAF8,x
+        sta lR18
+        lda aUnknown9EFAF8+1,x
+        sta lR18+1
+        ldy #0
+
+        _Loop
+        lda [lR18],y
+        cmp #$FFFF
+        beq _End
+
+          and #$00FF
+          sta wR0
+          inc y
+          lda [$24],y
+          and #$00FF
+          sta wR1
+          phy
+          jsl rlGetUnitByCoordinates
+          bcs _Next
+
+            jsl rlGetSelectedUnitDeploymentOffset
+            tax
+            lda aDeploymentTable._State,x
+            ora #DeploymentStateGrayed
+            sta aDeploymentTable._State,x
+
+          _Next
+          ply
+          inc y
+          bra _Loop
+
+        _End
+        ply
+        plx
+        plb
+        rtl
+
+        .databank 0
+
+      rlUnknown9EFC9B ; 9E/FC9B
+
+        .al
+        .autsiz
+        .databank ?
+
+        phb
+        phk
+        plb
+        phx
+        phy
+        lda #0
+        sta aProcSystem.aHeaderBitfield,b,x
+        sta $7F45CC
+
+        lda $7F57F0
+        asl a
+        clc
+        adc $7F57F0
+        tax
+        lda aUnknown9EFAF8,x
+        sta lR18
+        lda aUnknown9EFAF8+1,x
+        sta lR18+1
+        ldy #0
+        
+        _Loop
+        lda [lR18],y
+        cmp #$FFFF
+        beq _End
+
+          and #$00FF
+          sta wR0
+          inc y
+          lda [lR18],y
+          and #$00FF
+          sta wR1
+          phy
+          jsl rlGetUnitByCoordinates
+          bcs _Next
+
+            jsl rlGetSelectedUnitDeploymentOffset
+            tax
+            lda aDeploymentTable._State,x
+            and #~DeploymentStateGrayed
+            sta aDeploymentTable._State,x
+
+          _Next
+          ply
+          inc y
+          bra _Loop
+
+        _End
+        lda $7F57F0
+        inc a
+        sta $7F57F0
+
+        ply
+        plx
+        plb
+        rtl
+
+        .databank 0
+
+        ; 9E/FD02
+
+        ; fill 0
+
+
+
+
+
+
+
+
+
+      rlUnknown88CD53 ; 88/CD53
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #$8000
+        tsb $07E8,b
+        rtl
+
+        .databank 0
+
+      rlUnknown88CD5A ; 88/CD5A
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #$0001
+        trb $07E8,b
+        rtl
+
+        .databank 0
+
+      rlUnknown88CD61 ; 88/CD61
+
+        .al
+        .autsiz
+        .databank ?
+
+        lda #$0001
+        tsb $07E8,b
+        rtl
+
+        .databank 0
+
+        ; 88/CD68
+
+
+
+
+
+
+
+
+      rlUnknown9ED337 ; 9E/D337
+
+        .al
+        .autsiz
+        .databank ?
+
+        phy
+        phx
+        lda #0
+        sta $7F4580
+        sta $7F4582
+        sta $7F4584
+        sta $7F5091
+        sta aProcSystem.aHeaderBitfield,b,x
+
+        lda #$FFFF
+        sta $7F45A4
+        sta $7F45A6
+        jsl $9E88CE
+        jsl $9E87A4
+        lda #0
+        jsl $9E8867
+        plx
+        lda #$D1F3
+        sta aProcSystem.aHeaderOnCycle,b,x
+        ply
+        rtl
+
+        .databank 0
+
+        ; 9E/D372
 
 
 

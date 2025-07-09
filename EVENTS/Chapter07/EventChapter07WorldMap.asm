@@ -49,8 +49,8 @@
     .databank ?
 
     lda aDialogue.wUnit1,b
-    ldx #8
-    jsl rlLoadPortraitIntoSlot
+    ldx #WM_PortraitSlot4
+    jsl rlLoadWorldMapPortraitIntoSlot
     rtl
 
     .databank 0

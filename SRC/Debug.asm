@@ -1,15 +1,12 @@
 
-  .weak
+    .weak
 
-    rlDMAByStruct                                 :?= address($80A4BD)
-    rlDrawMenuTextLine                            :?= address($879354)
-    rlDrawMenuTextNumber                          :?= address($89A18C)
+      rlDrawMenuTextLine                            :?= address($879354)
+      rlDrawMenuTextNumber                          :?= address($89A18C)
 
-  .endweak
+    .endweak
 
-
-    * = $09C6F9
-    .logical $89C6F9
+    .section DebugMenuSection
 
       rlDrawDebugMenu ; 89/C6F9
 
@@ -2313,7 +2310,7 @@
 
         .long aDebugSkillRenewal
         .long aDebugSkillParagon
-        .long aDebugSkillEscape       ; Unknown7
+        .long aDebugSkillEscape
         .long 0                       ; Recover
         .long aDebugSkillBargain
         .long aDebugSkillReturn
@@ -4062,5 +4059,4 @@
 
       ; 89/EB26
 
-    .here
-
+    .endsection DebugMenuSection

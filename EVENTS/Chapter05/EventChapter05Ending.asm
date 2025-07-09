@@ -184,24 +184,24 @@
     YIELD
 
     RUN_ASM rlASMCCheckAnyNonPlayerLeaderAlive
-    JUMP_FALSE _C6C8
+    JUMP_FALSE _SkipMeteors
 
       ; 9D/C6BE
 
       MAP_SCROLL [0, 41], 2
       YIELD
 
-      RUN_ASM rlASMCUnknown9DC735
+      RUN_ASM rlASMCBelhallaMagesAttack
       YIELD
 
-    _C6C8
+    _SkipMeteors ; 9D/C6C8
     MAP_SCROLL [0, 48], 2
     YIELD
 
     FILL_EVENT_UNIT_SLOT_BY_COORDS [6, 53], EventUnitSlot1
     FILL_EVENT_UNIT_SLOT_BY_COORDS [6, 54], EventUnitSlot2
 
-    RUN_ASM rlASMCUnknown9DC73E
+    RUN_ASM rlASMCArvisAttacksSigurd
     YIELD
 
     RUN_ASM $8294CF
@@ -276,19 +276,19 @@
       MAP_PAUSE 8
       MAP_END
 
-    rlASMCUnknown9DC735 ; 9D/C735
+    rlASMCBelhallaMagesAttack ; 9D/C735
 
       .al
       .autsiz
       .databank ?
 
       jsl $9EF60F
-      jsl $829478
+      jsl rlCreateProcHaltEvent
       rtl
 
       .databank 0
 
-    rlASMCUnknown9DC73E ; 9D/C73E
+    rlASMCArvisAttacksSigurd ; 9D/C73E
 
       .al
       .autsiz
@@ -327,7 +327,7 @@
       lda wEventUnitSlot2ID,b
       sta wR1
       jsl $9EF0CF
-      jsl $829478
+      jsl rlCreateProcHaltEvent
       rtl
 
       .databank 0

@@ -1,5 +1,5 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,Commander1,28,50,1,1,FS_Ch01Marpha,0
+ID_01,MarphaCommanderChargeFighter,28,50,1,1,FS_Ch01Marpha,0
 ID_02,MarphaChargeBarbarian,28,49,0,1,FS_Ch01Marpha,1
 ID_03,MarphaChargeBarbarian,28,51,0,1,FS_Ch01Marpha,2
 ID_04,MarphaChargeBarbarian,29,50,0,1,FS_Ch01Marpha,3

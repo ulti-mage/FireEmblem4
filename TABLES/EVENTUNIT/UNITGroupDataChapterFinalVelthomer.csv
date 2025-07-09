@@ -1,10 +1,10 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,Manfroy,$3D,$04,1,1,FS_ChFinalVelthomer,0
-ID_02,VelthomerDarkMage,$3D,$07,0,1,FS_ChFinalVelthomer,1
-ID_03,VelthomerDarkMage,$3C,$06,0,1,FS_ChFinalVelthomer,2
-ID_04,VelthomerDarkMage,$3E,$06,0,1,FS_ChFinalVelthomer,3
-ID_05,VelthomerDarkMage,$3D,$08,0,1,FS_ChFinalVelthomer,4
-ID_06,VelthomerDarkMage,$3C,$07,0,1,FS_ChFinalVelthomer,5
-ID_07,VelthomerDarkMage,$3E,$07,0,1,FS_ChFinalVelthomer,6
-ID_08,Julia,$3B,$08,1,5,FS_ChFinalBelhalla,0
+ID_01,Manfroy,61,4,1,1,FS_ChFinalVelthomer,0
+ID_02,VelthomerDarkMage,61,7,0,1,FS_ChFinalVelthomer,1
+ID_03,VelthomerDarkMage,60,6,0,1,FS_ChFinalVelthomer,2
+ID_04,VelthomerDarkMage,62,6,0,1,FS_ChFinalVelthomer,3
+ID_05,VelthomerDarkMage,61,8,0,1,FS_ChFinalVelthomer,4
+ID_06,VelthomerDarkMage,60,7,0,1,FS_ChFinalVelthomer,5
+ID_07,VelthomerDarkMage,62,7,0,1,FS_ChFinalVelthomer,6
+ID_08,Julia,59,8,1,5,FS_ChFinalBelhalla,0
 ID_09,$FFFF,0,0,0,0,0,0

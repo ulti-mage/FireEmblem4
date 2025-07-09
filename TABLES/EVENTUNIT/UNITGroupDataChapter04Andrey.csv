@@ -1,11 +1,11 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,AndreyCh04,$3C,$30,1,3,FS_Ch04Zaxon,0
-ID_02,BeigenritterCh04BowKnight,$3C,$31,0,3,FS_Ch04Zaxon,1
-ID_03,BeigenritterCh04BowKnight,$3C,$2F,0,3,FS_Ch04Zaxon,2
-ID_04,BeigenritterCh04BowKnight,$3B,$30,0,3,FS_Ch04Zaxon,3
-ID_05,BeigenritterCh04BowKnight,$3B,$31,0,3,FS_Ch04Zaxon,4
-ID_06,BeigenritterCh04BowKnight,$3B,$2F,0,3,FS_Ch04Zaxon,5
-ID_07,BeigenritterCh04BowKnight,$3A,$30,0,3,FS_Ch04Zaxon,6
-ID_08,BeigenritterCh04BowKnight,$3A,$31,0,3,FS_Ch04Zaxon,7
-ID_09,BeigenritterCh04BowKnight,$3A,$2F,0,3,FS_Ch04Zaxon,8
+ID_01,AndreyCh04,60,48,1,3,FS_Ch04Zaxon,0
+ID_02,AndreySquadCh04BowKnight,60,49,0,3,FS_Ch04Zaxon,1
+ID_03,AndreySquadCh04BowKnight,60,47,0,3,FS_Ch04Zaxon,2
+ID_04,AndreySquadCh04BowKnight,59,48,0,3,FS_Ch04Zaxon,3
+ID_05,AndreySquadCh04BowKnight,59,49,0,3,FS_Ch04Zaxon,4
+ID_06,AndreySquadCh04BowKnight,59,47,0,3,FS_Ch04Zaxon,5
+ID_07,AndreySquadCh04BowKnight,58,48,0,3,FS_Ch04Zaxon,6
+ID_08,AndreySquadCh04BowKnight,58,49,0,3,FS_Ch04Zaxon,7
+ID_09,AndreySquadCh04BowKnight,58,47,0,3,FS_Ch04Zaxon,8
 ID_10,$FFFF,0,0,0,0,0,0

@@ -1,8 +1,8 @@
 .structUNITEntry 1,CharacterID,DestinationX,DestinationY,GroupLeaderFlag,AI,FactionSlot,FormationID
-ID_01,ArionChFinal,$3D,$3A,1,1,FS_ChFinalThracia,0
-ID_02,DragonknightChFinal,$3C,$3A,0,1,FS_ChFinalThracia,1
-ID_03,DragonknightChFinal,$3C,$3B,0,1,FS_ChFinalThracia,2
-ID_04,DragonknightChFinal,$3C,$39,0,1,FS_ChFinalThracia,3
-ID_05,DragonknightChFinal,$3C,$3C,0,1,FS_ChFinalThracia,4
-ID_06,DragonknightChFinal,$3C,$38,0,1,FS_ChFinalThracia,5
+ID_01,ArionChFinal,61,58,1,1,FS_ChFinalThracia,0
+ID_02,ArionSquadChFinalDragonknight,60,58,0,1,FS_ChFinalThracia,1
+ID_03,ArionSquadChFinalDragonknight,60,59,0,1,FS_ChFinalThracia,2
+ID_04,ArionSquadChFinalDragonknight,60,57,0,1,FS_ChFinalThracia,3
+ID_05,ArionSquadChFinalDragonknight,60,60,0,1,FS_ChFinalThracia,4
+ID_06,ArionSquadChFinalDragonknight,60,56,0,1,FS_ChFinalThracia,5
 ID_07,$FFFF,0,0,0,0,0,0

@@ -1,6 +1,6 @@
 {DIALOGUE_FONT_0}そんな中で､{DIALOGUE_NL}
 英雄ジャムカ王子の血を引く{DIALOGUE_NL}
-{DIALOGUE_PAUSE 20}{DIALOGUE_WM_FADE_IN_PORTRAIT $02, [152, 28]}{DIALOGUE_UNIT1_NAME}{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdanePieceJamkesSonNoLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdanePieceJamkesSonLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdaneLoadRuler}{DIALOGUE_FONT_0}の帰国は､{DIALOGUE_NL}
+{DIALOGUE_PAUSE 20}{DIALOGUE_WM_FADE_IN_PORTRAIT WM_PortraitSlot1, [152, 28]}{DIALOGUE_UNIT1_NAME}{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdanePieceJamkesSonNoLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdanePieceJamkesSonLover}{DIALOGUE_ASMC rlASMCEpilogueWorldMapVerdaneLoadRuler}{DIALOGUE_FONT_0}の帰国は､{DIALOGUE_NL}
 人々を勇気づけ､多くの若者たちが{DIALOGUE_NL}
 {DIALOGUE_UNIT1_NAME}のもとに集った｡{DIALOGUE_NL}
 ヴェルダンの統一戦争は{DIALOGUE_NL}
