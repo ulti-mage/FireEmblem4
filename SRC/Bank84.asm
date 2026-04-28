@@ -6300,7 +6300,7 @@
 
                     lda #0
                     sta wRoutineVariable1,b
-                    jsl rlSetEquippedInventorySlot
+                    jsl rlSetSelectedUnitEquippedWeaponBitfield
 
                   +
                   jsl rlSaveEquippedWeaponStatBonus
@@ -16011,7 +16011,7 @@
 
         lda #0
         sta wRoutineVariable1,b
-        jsl rlSetEquippedInventorySlot
+        jsl rlSetSelectedUnitEquippedWeaponBitfield
 
         sep #$20
         lda #`aCharacterData
@@ -16478,7 +16478,7 @@
 
         .databank 0
 
-      rlGetSelectedUnitFirstInventoryItem ; 84/F2EB
+      rlGetSelectedUnitEquippedWeaponBitfield ; 84/F2EB
 
         .al
         .autsiz
@@ -16492,7 +16492,7 @@
 
         jsl rlGetSelectedUnitInventoryRAMPointer
 
-        lda $0000,b,x
+        lda structInventoryDataRAM.EquippedWeaponBitfield,b,x
         and #$00FF
 
         plx
@@ -16502,7 +16502,7 @@
 
         .databank 0
 
-      rlSetEquippedInventorySlot ; 84/F2FE
+      rlSetSelectedUnitEquippedWeaponBitfield ; 84/F2FE
 
         .al
         .autsiz
@@ -16513,6 +16513,7 @@
         phk
         plb
         phx
+
         jsl rlGetSelectedUnitInventoryRAMPointer
 
         sep #$20
@@ -16844,7 +16845,7 @@
 
         lda #0
         sta wRoutineVariable1,b
-        jsl rlSetEquippedInventorySlot
+        jsl rlSetSelectedUnitEquippedWeaponBitfield
 
         jsl rlGetSelectedUnitInventoryRAMPointer
 
@@ -17452,7 +17453,7 @@
 
         lda #0
         sta wRoutineVariable1,b
-        jsl rlSetEquippedInventorySlot
+        jsl rlSetSelectedUnitEquippedWeaponBitfield
 
         ldy #1
 
@@ -17555,13 +17556,13 @@
         beq _F9E3
 
         jsl rlGetItemRAMStructEntryByInventorySlot
-        jsl $87E0C9
-        jsl $87E3D6
+        jsl rlGetItemROMPointerByItemRAMStructEntry
+        jsl $87E3D6 ; get item cost
         sta $1A
-        jsl $87E3BE
+        jsl rlGetItemMaxDurability2
         sta $1C
-        jsl $80A1AB
-        lda #$0014
+        jsl $80A1AB ; divide
+        lda #20
         sta $1C
         jsl $80A1AB
 

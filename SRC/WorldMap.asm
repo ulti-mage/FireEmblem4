@@ -409,55 +409,6 @@
 
       aWorldMapMarkerSprites .include "../TABLES/SYSTEM/WorldMapMarkerSprites.csv.asm" ; 8B/8740
 
-      ;  .addr aWorldMapSprite1  ; $00 - evans to yngvi
-      ;  .addr aWorldMapSprite2  ; $02 - ribaut to dahna
-      ;  .addr aWorldMapSprite3  ; $04 - chalphy to yngvi
-      ;  .addr aWorldMapSprite8  ; $06 - agusti to madino
-      ;  .addr aWorldMapSprite9  ; $08 - madino to agusti
-      ;  .addr aWorldMapSprite13 ; $0A - zaxon to belhalla (ch5/6)
-      ;  .addr aWorldMapSprite4  ; $0C - belhallachp (chp/6/epi)
-      ;  .addr aWorldMapSprite5  ; $0E - grannvale duchies
-      ;  .addr aWorldMapSprite4  ; $10 - chalphy
-      ;  .addr aWorldMapSprite4  ; $12 - yngvi
-      ;  .addr aWorldMapSprite4  ; $14 - friege
-      ;  .addr aWorldMapSprite4  ; $16 - dozel
-      ;  .addr aWorldMapSprite6  ; $18 - velthomerchp
-      ;  .addr aWorldMapSprite4  ; $1A - edda
-      ;  .addr aWorldMapSprite4  ; $1C - silesse
-      ;  .addr aWorldMapSprite4  ; $1E - zaxonch4
-      ;  .addr aWorldMapSprite4  ; $20 - tofa
-      ;  .addr aWorldMapSprite10 ; $22 - orgahil to sailane
-      ;  .addr aWorldMapSprite11 ; $24 - silesse castles
-      ;  .addr aWorldMapSprite12 ; $26 - zaxonch5 to lubeck
-      ;  .addr aWorldMapSprite4  ; $28 - zaxonch5
-      ;  .addr aWorldMapSprite4  ; $2A - phinora
-      ;  .addr aWorldMapSprite4  ; $2C - velthomerch5
-      ;  .addr aWorldMapSprite4  ; $2E - belhallach5
-      ;  .addr aWorldMapSprite14 ; $30 - thracia to munster
-      ;  .addr aWorldMapSprite15 ; $32 - manster to meath unused
-      ;  .addr aWorldMapSprite16 ; $34 - thracia castles unused
-      ;  .addr aWorldMapSprite4  ; $36 - peruluke
-      ;  .addr aWorldMapSprite17 ; $38 - thracia to peruluke
-      ;  .addr aWorldMapSprite4  ; $3A - unknown1
-      ;  .addr aWorldMapSprite4  ; $3C - ribautch6
-      ;  .addr aWorldMapSprite4  ; $3E - isaach
-      ;  .addr aWorldMapSprite4  ; $40 - sofala
-      ;  .addr aWorldMapSprite4  ; $42 - ganeshire
-      ;  .addr aWorldMapSprite4  ; $44 - tirnanog
-      ;  .addr aWorldMapSprite4  ; $46 - leonsterch7
-      ;  .addr aWorldMapSprite4  ; $48 - aed
-      ;  .addr aWorldMapSprite4  ; $4A - dahna
-      ;  .addr aWorldMapSprite4  ; $4C - melgen
-      ;  .addr aWorldMapSprite4  ; $4E - ulsterch7
-      ;  .addr aWorldMapSprite4  ; $50 - ribautch7
-      ;  .addr aWorldMapSprite4  ; $52 - leonsterch8
-      ;  .addr aWorldMapSprite4  ; $54 - ulsterch8
-      ;  .addr aWorldMapSprite4  ; $56 - connacht
-      ;  .addr aWorldMapSprite4  ; $58 - munster
-      ;  .addr aWorldMapSprite4  ; $5A - meath
-      ;  .addr aWorldMapSprite4  ; $5C - tirnanog? unused
-      ;  .addr aWorldMapSprite4  ; $5E - unknown2
-
       rlUnknown8B87A0 ; 8B/87A0
 
         .al

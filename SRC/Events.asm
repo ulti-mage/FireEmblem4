@@ -2207,6 +2207,8 @@
         .autsiz
         .databank ?
 
+        ; CHECK_UNITS_WITHIN_DISTANCE
+
         ; wEventEngineArgument1 = CharacterID
         ; wEventEngineArgument2 = XPosition
         ; wEventEngineArgument3 = YPosition

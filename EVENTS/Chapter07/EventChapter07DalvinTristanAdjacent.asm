@@ -240,7 +240,7 @@
       cmp #11
       bge _False
 
-        jsl rlGetSelectedUnitFirstInventoryItem
+        jsl rlGetSelectedUnitEquippedWeaponBitfield
         cmp #0
         beq _False
 
@@ -254,7 +254,7 @@
             cmp #11
             bge _False
 
-              jsl rlGetSelectedUnitFirstInventoryItem
+              jsl rlGetSelectedUnitEquippedWeaponBitfield
               cmp #0
               beq _False
 
@@ -278,18 +278,3 @@
     .databank 0
 
     ; B2/9396
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

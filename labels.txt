@@ -30,14 +30,12 @@ al 83d938 .FactionRadosFactionNameOffsetsEntry
 al 87f40b .rlGetEventLocationTypeInteractionXOffset
 al 8db9bf .rlASMCEpilogueWorldMapNewThraciaPieceFinn
 al 8db9e3 .rlASMCEpilogueWorldMapNewThraciaPieceFinn:_End
-al b1860b .EventPrologueVillage4Pointer
 al 8aba90 .PortraitPaletteE5PortraitPalettePointersEntry
 al b0defa .dialogueChapter07AresJavarroBattleQuote
 al 8ff0b7 .EventChapter06DalvinCreidneTalkPointer
 al 8b981e .WMM_MelgenPointer
 al 8aba0c .PortraitPaletteB9PortraitPalettePointersEntry
 al 8b9d76 .PortraitRiddellSquadDukeKnightPortraitDataIDsEntry
-al 9df0d0 .dialogueEpilogueLover_Seliph_JuliaAlive_All
 al 82e77d .rlUnknown82E77D
 al 82e7a1 .rlUnknown82E77D:_SEC
 al 81e3d4 .aUNITGroupDataChapter10Miletos
@@ -725,6 +723,7 @@ al 8ab649 .PortraitGraphic70PortraitGraphicPointersEntry
 al 8ffda0 .EventChapterFinalAmidLindaTalkPointer
 al b29401 .rsEpiloguePlaceUnitOnMap
 al b1d60c .aEventChapter09HannibalDefend
+al 9ddb14 .dialogueEpilogue_CreidneLarcei_ShannanAlive_BrotherAlive
 al 91ce2a .rlUnknown91CE2A
 al 839da3 .RobertoSquadRangerNameCharacterNameOffsetsEntry
 al 86f88a .Ch09_Village4Chapter09LocationDataEntry
@@ -741,6 +740,7 @@ al 8b9e60 .PortraitHeltsokPortraitDataIDsEntry
 al 83dc96 .MeteorNameItemNameOffsetsEntry
 al 91aef2 .aDialogueChildrenCharacterIDs
 al 86cb59 .aChapter01EventData
+al 84faff .rlGetWeaponTriangleBonus
 al 83aeef .AgustiCommanderPaladinCharacterDataOffsetsEntry
 al 750 .wMapScrollDirectionIdentifier
 al 8ab925 .PortraitPalette6CPortraitPalettePointersEntry
@@ -838,6 +838,7 @@ al 839ac1 .CedNameCharacterNameOffsetsEntry
 al 839dc5 .FisherSquadAxeKnightHandAxeNameCharacterNameOffsetsEntry
 al 8ab85f .PortraitPalette2APortraitPalettePointersEntry
 al 83aeaf .HeirheinGuardLanceArmorCharacterDataOffsetsEntry
+al 8fef25 .EventChapterFinalPattyLesterTalkEventPointersEntry
 al 8b9ca2 .PortraitSofalaFighterPortraitDataIDsEntry
 al 8e9a43 .EventChapter04VillageSafeguardAnyonePointer
 al b2836b .FG_Ch06SeliphPointer
@@ -1139,7 +1140,6 @@ al 8fe8e6 .Event00DEventPointersEntry
 al 83f4c1 .PI_Javelin3PlayerItemTableEntry
 al 83f4c1 .PI_Javelin3PlayerItemTableEntry:Item
 al 839e71 .TolstoyNameCharacterNameOffsetsEntry
-al 8b9d02 .PortraitOvoSquadTroubadourPortraitDataIDsEntry
 al 81c3c4 .aUNITGroupDataChapter01Nordion
 al 81c3fc .aUNITGroupDataChapter01Nordion:ID_08UNITGroupDataChapter01NordionEntry
 al 81c402 .aUNITGroupDataChapter01Nordion:ID_08UNITGroupDataChapter01NordionEntry:FactionSlot
@@ -1222,7 +1222,6 @@ al 81c3db .aUNITGroupDataChapter01Nordion:ID_03UNITGroupDataChapter01NordionEntr
 al 81c3d4 .aUNITGroupDataChapter01Nordion:ID_03UNITGroupDataChapter01NordionEntry:CharacterID
 al 81c3d8 .aUNITGroupDataChapter01Nordion:ID_03UNITGroupDataChapter01NordionEntry:GroupLeaderFlag
 al 908d08 .aEventChapter01_043
-al 8ab7ed .PortraitPalette04PortraitPalettePointersEntry
 al 87a6d1 .rlGetClassSkills
 al 89d4be .aDebugEnemySkillText
 al 83e2f0 .SteelBladeDescriptionItemDescriptionOffsetsEntry
@@ -1246,6 +1245,7 @@ al 8ab3e8 .rlTryGetClassPortraitDataID
 al 8ab94f .PortraitPalette7APortraitPalettePointersEntry
 al 84e05f .rsActionStructGetBattleTriggerableSkillFlags
 al 8d9ad8 .dialogueClassNameThunderMage
+al 83dc28 .SilenceSwordNameItemNameOffsetsEntry
 al 8b9b96 .PortraitEvaPortraitDataIDsEntry
 al 838f6d .BaronClassDataOffsetsEntry
 al c46b41 .g4bppcLanceKnightMapMovementSprite
@@ -1322,6 +1322,7 @@ al 8d9683 .dialogueItemNameBraveBow
 al 8d996d .dialogueClassNamePaladin
 al 7eccca .wActionStructUnit1DeploymentNumber
 al 83ae89 .CimbaethSquadBarbarianCharacterDataOffsetsEntry
+al 8d9752 .dialogueItemNameJormungandr
 al 8db935 .rlASMCEpilogueWorldMapNewThraciaPieceStart
 al 8db999 .rlASMCEpilogueWorldMapNewThraciaPieceStart:_End
 al 91bc6d .rlASMCEpilogueLeifLoverCallAltenaAlive
@@ -1352,7 +1353,6 @@ al b0d2f9 .dialogueChapter02BeowulfWaltzBattleQuote
 al b39ee2 .dialogueChapter09HannibalNotRecruited
 al 91946e .rlDialogueSetFont5
 al 83852d .LindaLoveBaseLoveBaseOffsetsEntry
-al 8feead .EventChapter08HerminaHawkTalkEventPointersEntry
 al 82fc9b .rsCheckIfCurrentEpilogueCharacterGetsOwnEpilogue
 al 839b3b .InfiniSwordArmorNameCharacterNameOffsetsEntry
 al 8ab76f .PortraitGraphicD2PortraitGraphicPointersEntry
@@ -1371,6 +1371,7 @@ al 838f5b .DragonknightClassDataOffsetsEntry
 al 839c99 .MelgenGuardThunderMageNameCharacterNameOffsetsEntry
 al 83b053 .UlsterUnusedThunderMage1CharacterDataOffsetsEntry
 al 84bd1f .aEmptyFactionSlotHeader
+al 8df08d .dialogueChapterEpilogueWorldMap_Grannvale_Piece_Velthomer_AzellesSonLover
 al 83b177 .FriegeChFinalDarkBishopCharacterDataOffsetsEntry
 al 8d997b .dialogueClassNameRanger
 al 8fe9b2 .EventChapter02LewynErinysTalkEventPointersEntry
@@ -1478,6 +1479,7 @@ al 90847d .aEventChapter01Opening:_ScriptedMapScroll2
 al 83f517 .MadinoNameCastleNameOffsetsEntry
 al 86e52b .Ch05_Village4Chapter05LocationDataEntry
 al 89cb96 .aDebugSkillText
+al 9de138 .dialogueEpilogue_Leif_AltenaAlive_WithLover
 al b2e187 .dialogueChapter04ErinysSilviaAdjacent
 al 83ea94 .ValkyrieStaffItemDataOffsetsEntry
 al 8ab9be .PortraitPalette9FPortraitPalettePointersEntry
@@ -1560,6 +1562,7 @@ al 8d891c .EventChapter10MiletosSpawnPointer
 al 8d8867 .EventChapter10CivilianRescued6Pointer
 al 83dc1e .MiracleSwordNameItemNameOffsetsEntry
 al 84a4b2 .rlGetSelectedUnitTotalMagGrowth
+al 82fc29 .EDID_SeliphEpilogueDialogueIDRoutinesEntry
 al 87ab4f .rsCheckRingObtainable
 al 839ad3 .LeneNameCharacterNameOffsetsEntry
 al 91f65f .rsSaveChapterTurncountsLow
@@ -1630,6 +1633,7 @@ al 848556 .rlGetCharacterClass:_Dynamic
 al 84855e .rlGetCharacterClass:_End
 al 84855b .rlGetCharacterClass:_Enemy
 al 83e9ee .FireSwordItemDataOffsetsEntry
+al b284fb .dialogueChapter01WorldMap1
 al 87a611 .rlGetClassSklGrowth
 al 83b1df .PazanCharacterDataOffsetsEntry
 al 839c9b .LizaNameCharacterNameOffsetsEntry
@@ -1639,7 +1643,6 @@ al 8b9d60 .PortraitThraciaCh09CommanderDragonriderLutheciaChargePortraitDataIDsE
 al b1a9ba .ChFinal_Village2ChapterFinalLocationDataEntry
 al 8ab51a .PortraitGraphic0BPortraitGraphicPointersEntry
 al 8b9e84 .PortraitNikitaPortraitDataIDsEntry
-al 8ed9d8 .dialogueDeathQuoteGen1PlayerChulainn
 al 8ef134 .dialogueDeathQuoteGen2EnemyNPCJuliusChFinalJulia
 al 84b4fa .aArenaMoneyRewards
 al 839c69 .GaneishireFighterNameCharacterNameOffsetsEntry
@@ -1685,8 +1688,6 @@ al 86cc0f .aFactionGroupData06:_Locations
 al 86cbf1 .aFactionGroupData05
 al 86cbfe .aFactionGroupData05:_GroupAI
 al 86cbfa .aFactionGroupData05:_Locations
-al 86cbe4 .aFactionGroupData04
-al 86cbed .aFactionGroupData04:_Locations
 al 839c9f .MelgenLanceArmorNameCharacterNameOffsetsEntry
 al 908267 .aFactionGroupData02
 al 908274 .aFactionGroupData02:_GroupAI
@@ -1704,7 +1705,6 @@ al b19b2a .dialogueChapterPrologueSigurdHomeCastle
 al 8fecac .EventChapter09HannibalChargeEventPointersEntry
 al 8d9b33 .dialogueClassNameChild
 al 8ee50f .dialogueDeathQuoteGen1EnemyNPCMacBeth
-al 83afb7 .LubeckAxeArmorRightCharacterDataOffsetsEntry
 al 86d29e .aFactionGroupData0F
 al 86d2ab .aFactionGroupData0F:_GroupAI
 al 86d2a7 .aFactionGroupData0F:_Locations
@@ -1748,7 +1748,6 @@ al 8b9d52 .PortraitArionCh09PortraitDataIDsEntry
 al 85ab0a .aDialogueBoxHDMABottomDataValue
 al b2d061 .IucharbaEpilogueIDEpiloguePointersEntry
 al 839df3 .OvisNameCharacterNameOffsetsEntry
-al 87f00f .aCastle1BannerTileIndexes
 al 839eab .RolandNameCharacterNameOffsetsEntry
 al 84fe61 .rlGetSelectedUnitBattleResistance
 al 8fe8da .EventPrologueSigurdHomeCastleEventPointersEntry
@@ -1810,6 +1809,7 @@ al b1998e .dialogueChapterPrologueEnding1
 al 83b1ef .SenghorCharacterDataOffsetsEntry
 al 83ea1a .BrokenLanceAItemDataOffsetsEntry
 al 9db0ca .dialogueChapter03OrgahilSpawn2
+al 8ab508 .PortraitGraphic05PortraitGraphicPointersEntry
 al 83f4a0 .PI_BerserkSwordPlayerItemTableEntry
 al 83f4a0 .PI_BerserkSwordPlayerItemTableEntry:Item
 al 8ba072 .ClassPortraitDarkMageClassPortraitDataIDsEntry
@@ -2202,7 +2202,6 @@ al 8fee77 .EventChapter06DalvinCreidneTalkEventPointersEntry
 al 87a541 .rlGetClassSkill
 al 83b02f .UlsterGuardGeneralCharacterDataOffsetsEntry
 al 8497e5 .rlRemoveRingStatBonusFromSelectedUnit
-al 9dcad4 .aEventChapter05ArdenOnCliff
 al 86f342 .aChapter08Village4
 al 86f338 .aChapter08Village2
 al 86f33d .aChapter08Village3
@@ -2433,6 +2432,7 @@ al 8b9efa .PortraitForsetiPortraitDataIDsEntry
 al 8b9b76 .PortraitMackilyArcherPortraitDataIDsEntry
 al 83f49c .PI_SilverBlade2PlayerItemTableEntry
 al 83f49c .PI_SilverBlade2PlayerItemTableEntry:Item
+al 8ed9d8 .dialogueDeathQuoteGen1PlayerChulainn
 al 839e19 .CrotorNameCharacterNameOffsetsEntry
 al 8d9aaa .dialogueClassNameWarMageF
 al b1e512 .aEventChapterFinalAltenaArionTalk
@@ -2454,7 +2454,7 @@ al b1855f .aEventPrologueEnding:_ScriptedMovement2
 al b1857d .aEventPrologueEnding:_ScriptedMapScroll
 al 84e9e3 .rsActionStructStaffEffectReturn
 al 346 .aDMAArray
-al 7eccd8 .wActionStructAttacker
+al 83b25d .ThorntonChFinalCharacterDataOffsetsEntry
 al 8fe9cd .EventChapter02Village7EventPointersEntry
 al 89cf36 .aDebugRingDefenseText
 al b0d8b6 .dialogueChapter05TailtiuReptorBattleQuote
@@ -2563,12 +2563,12 @@ al 8eef22 .dialogueDeathQuoteGen2EnemyNPCRodan
 al 839aa7 .DaisyNameCharacterNameOffsetsEntry
 al 91afa4 .rlASMCLoadTineOrSubUnit
 al b2d56f .dialogueChapter06Piece_CreidneBrotherAdjacent3
-al 9dd789 .dialogueEpilogue_Dalvin_ShannanDead
 al 838497 .QuanLoverIDMaleLoveDataIDsEntry
 al 838497 .QuanLoverIDMaleLoveDataIDsEntry:UnitID
 al 839dd1 .ScipioSquadArchKnightNameCharacterNameOffsetsEntry
 al 83f55d .GenoaNameCastleNameOffsetsEntry
 al 839aff .VerdaneFighterNameCharacterNameOffsetsEntry
+al 8ab8ec .PortraitPalette59PortraitPalettePointersEntry
 al 72e .wUnknown00072E
 al 72a .wUnknown00072A
 al 72c .wUnknown00072C
@@ -2581,7 +2581,6 @@ al 87ede0 .rlBuildDeadPlayerCharacterList:_Next
 al 83e9d0 .IronSwordItemDataOffsetsEntry
 al 8ab86e .PortraitPalette2FPortraitPalettePointersEntry
 al 838f79 .LanceArmorClassDataOffsetsEntry
-al 899feb .aUnknown899FEB
 al 8ee426 .dialogueDeathQuoteGen1EnemyNPCSandima
 al 83eac8 .BrokenHolyBowItemDataOffsetsEntry
 al b0f64e .dialogueEpilogueLover_Lester_BrigidsChildrenAlive_Noble
@@ -2634,7 +2633,6 @@ al 8fed81 .EventChapterFinalThraciaSpawnEventPointersEntry
 al 83f48b .PI_IronSword3PlayerItemTableEntry
 al 83f48b .PI_IronSword3PlayerItemTableEntry:Item
 al 838157 .aGreatKnightMapSpriteAssignment
-al 83b1b7 .WisemanCharacterDataOffsetsEntry
 al 91800a .aProcUnknown918000Code
 al 83dcde .ThiefStaffNameItemNameOffsetsEntry
 al 8e8362 .aEventChapter02BeowulfTalkNoMoney
@@ -2677,6 +2675,8 @@ al 86d1d9 .aChapter02ShopData
 al 8ab706 .PortraitGraphicAFPortraitGraphicPointersEntry
 al 9dcaa6 .aEventChapter05ReptorDied
 al 8ab973 .PortraitPalette86PortraitPalettePointersEntry
+al 869bc3 .rsEventCheck1Parameter
+al 869bd0 .rsEventCheck1Parameter:_SEC
 al 839d5f .ChronosChildFemaleNameCharacterNameOffsetsEntry
 al 839bbd .GrauenritterCh03GreatKnightNameCharacterNameOffsetsEntry
 al 8eecc5 .dialogueDeathQuoteGen2EnemyNPCHannibal
@@ -2693,7 +2693,6 @@ al 86d346 .aFactionGroup0DAI5
 al 838206 .aSwordSoldierMapSpriteAssignment
 al 8fedd5 .EventChapter02DeirdreEthlynTalkEventPointersEntry
 al 8ee8db .dialogueDeathQuoteGen1EnemyNPCEthlyn
-al 83b189 .DracoCharacterDataOffsetsEntry
 al 828acd .rlProcUnknown828AC3Init
 al 86d31f .aFactionGroup0DAI1
 al 86d339 .aFactionGroup0DAI2
@@ -2715,7 +2714,6 @@ al 86f465 .aFactionGroup2EAI3
 al 86f454 .aFactionGroup2EAI2
 al 8fe928 .EventChapter01GenoaSeizedEventPointersEntry
 al 86f477 .aFactionGroup2EAI8
-al 4218 .JOY1
 al 849852 .rlDecreaseStatusDuration
 al 84989f .rlDecreaseStatusDuration:_CLC
 al 8ee58d .dialogueDeathQuoteGen1EnemyNPCErinys
@@ -2976,7 +2974,6 @@ al 81eae4 .aUNITGroupDataChapterFinalBelhalla:ID_24UNITGroupDataChapterFinalBelh
 al 81eae8 .aUNITGroupDataChapterFinalBelhalla:ID_24UNITGroupDataChapterFinalBelhallaEntry:GroupLeaderFlag
 al 9198b3 .rlUnknown9198B3
 al 9198d0 .rlUnknown9198B3:_98D0
-al 8ab9eb .PortraitPaletteAEPortraitPalettePointersEntry
 al 86d231 .FG_Ch02SigurdPointer
 al b2b6b6 .dialogueChapterFinalUnusedSeliphLewynTalk
 al 9086a5 .aEventChapter01SigurdAyraTalk
@@ -3023,7 +3020,6 @@ al 83af1f .MadinoCommanderDukeKnightCharacterDataOffsetsEntry
 al b2d1bd .aJamkesSonEpiloguePointers
 al 87f0ac .aVillageDestroyedPattern1States
 al 82eff4 .rsAddNewRAMAreaEntry
-al b1d62d .aEventChapter09CoirpreHostage
 al 87be2d .rsCheckIfUnitInSpecialCombatEffectTable
 al 87be4d .rsCheckIfUnitInSpecialCombatEffectTable:_SEC
 al 87be52 .rsCheckIfUnitInSpecialCombatEffectTable:_CLC
@@ -3051,6 +3047,7 @@ al 7e2020 .wAIGroupLeaderDeploymentOffset
 al 83f559 .VerdaneNameCastleNameOffsetsEntry
 al 8d954b .dialogueItemNameThiefSword
 al 82e520 .rlUnknown82E520
+al 8fee23 .EventChapter05LexAzelleTalkEventPointersEntry
 al 91bab5 .rlASMCSetYngviEpilogue
 al b2f7be .dialogueChapter02UnusedTired
 al 86d159 .Ch02_NordionChapter02LocationDataEntry
@@ -3065,6 +3062,7 @@ al 87f28a .aVillageDestroyedPattern4State3Tiles
 al 8ee572 .dialogueDeathQuoteGen1EnemyNPCClement
 al 4209 .VTIME
 al 90a07d .dialogueChapter01ElliotBattleQuote
+al 9dcad4 .aEventChapter05ArdenOnCliff
 al 83e38e .HelDescriptionItemDescriptionOffsetsEntry
 al 8d93a7 .dialogueCharacterNameJeanne
 al 87a641 .rlGetClassDefGrowth
@@ -3152,7 +3150,6 @@ al 83e354 .YewfelleDescriptionItemDescriptionOffsetsEntry
 al 8fecf7 .Event168EventPointersEntry
 al b1a9f6 .aChapterFinalMapChangeData
 al 8fea21 .EventChapter03EldiganApproachesSigurdEventPointersEntry
-al 89c968 .aDebugFactionRelationOther
 al 829239 .rlProcEventPauseCycle
 al 86e57e .aChapter05MapChangeData
 al 8ab598 .PortraitGraphic35PortraitGraphicPointersEntry
@@ -3168,6 +3165,7 @@ al 8283b2 .rlProcMainLoopChangeFadeByTimerCycle:_End
 al 8497cd .rlAddRingStatBonusToSelectedUnit
 al 8ab736 .PortraitGraphicBFPortraitGraphicPointersEntry
 al 8ff8e6 .EventChapter10SeliphFeeTalkPointer
+al 8b9f78 .PortraitDialogueBatu1PortraitDataIDsEntry
 al 83e358 .BrokenBowBDescriptionItemDescriptionOffsetsEntry
 al 84c593 .rlDeleteFactionsUnitsOfAISetting
 al 84c5cb .rlDeleteFactionsUnitsOfAISetting:_End
@@ -3187,6 +3185,7 @@ al 7f4560 .aMapAction:wUnknown7F4560
 al 7f454e .aMapAction:wBattleClassID
 al 7f454c .aMapAction:wUnknown7F454C
 al 7f4554 .aMapAction:wYTilePosition
+al 87a4f9 .rlGetClassBaseHP
 al 8d988a .dialogueItemNameSkillRing
 al 8fdac4 .dialogueChapter08VillagePowerRing
 al 81806f .rlUnknown81806F
@@ -3198,13 +3197,12 @@ al 7e2022 .wAIUnitCounter
 al 83e398 .HealStaffDescriptionItemDescriptionOffsetsEntry
 al afaf23 .dialogueChapterFinalLarceiCreidne_ShannanTalk
 al 8feb8c .EventChapter06CreidneIucharbaAdjacentEventPointersEntry
-al 86904d .rsChapterEventConditionCommand45
-al 869091 .rsChapterEventConditionCommand45:_End
 al 809d5c .rlHardwareResetScreenPosMathHDMA
 al 8b9f74 .PortraitDialogueDaganPortraitDataIDsEntry
 al 87be58 .rsCheckIfUnitInSpecialCombatEffectEntry
 al 87be65 .rsCheckIfUnitInSpecialCombatEffectEntry:_SEC
 al 87be68 .rsCheckIfUnitInSpecialCombatEffectEntry:_CLC
+al 89e150 .aDebugCombatItemText
 al 83e33a .SteelAxeDescriptionItemDescriptionOffsetsEntry
 al 83b193 .GallusCharacterDataOffsetsEntry
 al 83dcba .LoptousNameItemNameOffsetsEntry
@@ -3497,13 +3495,14 @@ al 83aed9 .WaltzCharacterDataOffsetsEntry
 al 86ebff .aChapter07AedCastle
 al 839b97 .CrossKnightCh03CavalierNameCharacterNameOffsetsEntry
 al 83ae01 .MidirCharacterDataOffsetsEntry
-al 86d7c5 .aFactionGroup12AI3
 al 8ba086 .ClassPortraitDarkPrinceClassPortraitDataIDsEntry
 al 8fee2c .EventChapter05TailtiuAzelleTalkEventPointersEntry
 al 8d9974 .dialogueClassNameArchKnight
 al 86d7d3 .aFactionGroup12AI4
 al 8ba056 .ClassPortraitPrincessClassPortraitDataIDsEntry
 al 8b9b32 .PortraitVerdaneBarbarianPortraitDataIDsEntry
+al 86cbe4 .aFactionGroupData04
+al 86cbed .aFactionGroupData04:_Locations
 al 8ab823 .PortraitPalette16PortraitPalettePointersEntry
 al 82fce7 .rsEpilogueDialogueIDMaleCheckIfWithLoverAndTargetAlive
 al 90828e .aFactionGroupData03
@@ -3672,9 +3671,7 @@ al 818770 .rsActiveSpriteCommand07
 al 8184c4 .rsActiveSpriteCommand00
 al 8184fa .rsActiveSpriteCommand01
 al 818585 .rsActiveSpriteCommand02
-al 8ba07a .ClassPortraitCivilianClassPortraitDataIDsEntry
-al 818629 .rsActiveSpriteCommand09
-al b08903 .dialogueChapter05SigurdByronTalk
+al 8186b1 .rsActiveSpriteCommand03
 al 4214 .RDDIV
 al 8db8b4 .rlASMCEpilogueWorldMapNewThraciaCheckInherited
 al 8db8ec .rlASMCEpilogueWorldMapNewThraciaCheckInherited:_End
@@ -3688,6 +3685,7 @@ al 81863d .rsActiveSpriteCommand0A
 al 81878e .rsActiveSpriteCommand0B
 al 83b205 .ShisalCharacterDataOffsetsEntry
 al 87f25c .aVillageDestroyedPattern4States
+al 83e3ec .BrokenWindTomeBDescriptionItemDescriptionOffsetsEntry
 al b0e363 .dialogueChapter09UnusedAltenaArionBattleQuote
 al 8ab9a3 .PortraitPalette96PortraitPalettePointersEntry
 al 82e7a6 .rlUnknown82E7A6
@@ -6059,7 +6057,6 @@ al 91874d .rsUnknown91872C:_End
 al 86c7ab .FG_Ch02InfiniFactionGroupPointersEntry
 al b3cfa8 .dialogueEpilogue_Isaach
 al 7d4 .wMapScrollScriptOffset
-al 8dfddd .aEventChapter04WorldMap
 al 91bb0d .EpilogueRegionVerdaneEpilogueRegionsEntry
 al 81c2ac .aUNITGroupDataChapter01Marpha
 al 81c2bc .aUNITGroupDataChapter01Marpha:ID_03UNITGroupDataChapter01MarphaEntry
@@ -6241,12 +6238,12 @@ al 81c308 .aUNITGroupDataChapter01Marpha:ID_12UNITGroupDataChapter01MarphaEntry:
 al 8fba54 .EventChapter08FebailAsaello_SpawnPointer
 al 84bbcd .aDefaultFactionData
 al 83ae43 .DaisyCharacterDataOffsetsEntry
+al 8ab9b8 .PortraitPalette9DPortraitPalettePointersEntry
 al 8ab7e1 .aPortraitPalettePointers
 al 908ab7 .aEventChapter01EldiganRetreat
 al 8ba034 .ClassPortraitSpearSoldierClassPortraitDataIDsEntry
 al 87ac56 .rlSaveLoverDataToBuffer
 al 91baab .rlASMCSetAgustriaEpilogue
-al 86e6eb .aFactionGroup1EAI1
 al 818529 .rsUnknown818529
 al 91d0e0 .EventChapter06OifeyGroupSpawnPointer
 al 82c21f .rsHDMACodeSetOnCycle
@@ -6719,7 +6716,6 @@ al 86e662 .FG_Ch05ByronPointer
 al 90820a .aChapterPrologueEvansCastle
 al 839d53 .DarkBishopCh10NameCharacterNameOffsetsEntry
 al 87e38a .aDummyItemName
-al 83e3ec .BrokenWindTomeBDescriptionItemDescriptionOffsetsEntry
 al afab91 .dialogueChapterFinalLanaMuirne_ScathachDalvinTalk
 al 8ab8b0 .PortraitPalette45PortraitPalettePointersEntry
 al 8ab5a1 .PortraitGraphic38PortraitGraphicPointersEntry
@@ -6742,6 +6738,7 @@ al 8b981e .WMM_YngviPointer
 al 84a6f1 .rlGetEnemyUnitConstantDataPointer
 al 86cb84 .aChapter01GenoaCastle
 al 91ccfd .rsEventCommand56
+al 84e364 .rsActionStructCheckIfDoubling
 al 8fede4 .EventChapter02SilviaSigurdTalkEventPointersEntry
 al 83839d .CastleGate2NameTerrainNameOffsetsEntry
 al 86f886 .Ch09_Village2Chapter09LocationDataEntry
@@ -6759,12 +6756,15 @@ al 908484 .EventChapter01EdainGroupSpawnPointer
 al 8b9d4e .PortraitGrutiaCommanderKillerBallisticianPortraitDataIDsEntry
 al 82fc35 .EDID_LewnysDaughterEpilogueDialogueIDRoutinesEntry
 al b0a50e .dialogueChapter05EthlynDiedQuanDead
+al 8d90bc .dialogueCastleNameSylvale
 al b3d1f5 .dialogueChapter07FinnLanaTalk
+al 8b9c90 .PortraitRotenritterUnusedCommanderFireMagePortraitDataIDsEntry
 al b0cf76 .EventChapter05AyraArdenTalkPointer
 al 91af2c .aDialogueChildrenGenerationIDs
 al 8dbd93 .rlASMCEpilogueWorldMapIsaachPieceDeimnesLover
 al 8dbdb7 .rlASMCEpilogueWorldMapIsaachPieceDeimnesLover:_End
 al b1a9cc .aChapterFinalDozelCastle
+al 84f2eb .rlGetSelectedUnitEquippedWeaponBitfield
 al 83e344 .BrokenAxeADescriptionItemDescriptionOffsetsEntry
 al b2d085 .EpilogueRegionNewThraciaEndEpilogueRegionEndDialoguePointersEntry
 al 1e00 .aSpriteExtBuffer
@@ -6794,8 +6794,8 @@ al 8eeea1 .dialogueDeathQuoteGen2EnemyNPCArvisCh10
 al 9dde3f .dialogueEpilogue_Piece_Deimne_MuirneAlive_WithLover_Unused
 al 421a .JOY2
 al 421c .JOY3
+al 4218 .JOY1
 al 421e .JOY4
-al 8b9ea2 .PortraitBottsmanPortraitDataIDsEntry
 al aeb0d3 .dialogueChapter03EdainBrigidTalk
 al 8feb9b .EventChapter06DeimneIsaachVisitEventPointersEntry
 al 8d97ee .dialogueItemNameBerserkStaff
@@ -6857,7 +6857,6 @@ al 87bccf .rsActionStructCheckForSiblingCrit
 al b1dcb4 .EventChapter09VillageBarrierRingPointer
 al 9f .bBufferCOLDATA_3
 al 9e .bBufferCOLDATA_2
-al 9d .bBufferCOLDATA_1
 al 9c .bBufferCOLDATA_0
 al 9daccf .dialogueChapter03ClaudTailtiuSpawn
 al 849900 .rlSaveExtendedCharacterDataToBuffer
@@ -6936,10 +6935,12 @@ al 8ab652 .PortraitGraphic73PortraitGraphicPointersEntry
 al 83af71 .TofaCommanderWarMageCharacterDataOffsetsEntry
 al b3ac94 .dialogueChapter09ArionBattleQuote
 al 8e9349 .aEventChapter04RaiseBridge
+al 84af00 .rlSetUnitUnfieldedInCastle
 al 83af5f .UnusedAnnandCharacterDataOffsetsEntry
 al 89e7e2 .aDebugMenuInputRoutines
 al 839c77 .SchmidtSquadNameCharacterNameOffsetsEntry
 al 9087c5 .EventChapter01NordionSpawnPointer
+al b28c62 .aEventChapter07AresThreatensBramsel
 al 8d99d9 .dialogueClassNameMyrmidon
 al 8fbb9e .rlASMCChapter08WarpAway
 al 420c .HDMAEN
@@ -7154,7 +7155,6 @@ al 839bef .AndreySquadCh04BowKnightNameCharacterNameOffsetsEntry
 al 8497ba .rlGetActiveRingStatBonusBitfield
 al 8b9e2a .PortraitPorcusPortraitDataIDsEntry
 al 9df966 .dialogueEpilogueLover_Deimne_MuirneAlive_All
-al 4016 .JOYWR
 al 908202 .aChapterPrologueYngviCastle
 al 9dbe7e .dialogueChapter03VillageDefense
 al b0cfe7 .dialogueChapterPrologueMidirGerrardBattleQuote
@@ -7270,16 +7270,15 @@ al b1e1d9 .aEventChapterFinalYngviSpawn
 al 82fb33 .EPrio_MainPointer
 al 8b9ac8 .PortraitTristanPortraitDataIDsEntry
 al 8b9aa2 .PortraitLexPortraitDataIDsEntry
+al 9dc0c8 .aEventChapter05SigurdByronTalk
 al b298ba .rlEpilogueMoveUnitsIntoBelhalla
 al 8dedc4 .dialogueChapterEpilogueWorldMapGrannvale
 al 8eefe1 .dialogueDeathQuoteGen2EnemyNPCHildaChFinal
 al 8ab565 .PortraitGraphic24PortraitGraphicPointersEntry
 al af818b .dialogueChapter09LeneCoirpreTalk
-al b2d497 .dialogueChapter06CreidneIucharAdjacent
 al 8fbb85 .rlASMCUnknown8FBB85
 al 91a005 .aDialogueCustomWidth16
 al 85a94e .aDialogueBoxFoldingHDMACode
-al 839eb7 .DiceChFinalNameCharacterNameOffsetsEntry
 al 8ab5f2 .PortraitGraphic53PortraitGraphicPointersEntry
 al b2bffc .dialogueEpilogue_AzellesDaughter_BrotherAlive_LoverDead
 al 848331 .ID_LoadMaleChildUnitLoadChildUnitRoutinesEntry
@@ -7419,11 +7418,11 @@ al 8b981e .WMM_UlsterCh08Pointer
 al 83e3ee .BrokenWindTomeCDescriptionItemDescriptionOffsetsEntry
 al 87ab4a .rsCheckWeaponOrStaffObtainable
 al 83e3d2 .PowerRingDescriptionItemDescriptionOffsetsEntry
-al 9dc229 .EventChapter05LeonsterSpawnPointer
 al 8ba06e .ClassPortraitBardClassPortraitDataIDsEntry
 al 82fd19 .EDID_Female_Married_PriorityPointer
 al 8ab541 .PortraitGraphic18PortraitGraphicPointersEntry
 al 86c76f .Chapter05DataChapterEventDataPointersEntry
+al 83af55 .UnusedArvisCharacterDataOffsetsEntry
 al 8feb38 .EventChapter05VelthomerSeizedEventPointersEntry
 al 8fead2 .EventChapter04Village6EventPointersEntry
 al 8fecca .EventChapter09ThraciaSeizedEventPointersEntry
@@ -7489,11 +7488,9 @@ al b1d97e .aEventChapter09GrutiaSeized
 al b1d9aa .aEventChapter09GrutiaSeized:_NoAltena
 al 83e2f2 .SilverBladeDescriptionItemDescriptionOffsetsEntry
 al 83afbf .LubeckAxeArmorLeftCharacterDataOffsetsEntry
-al 8ee7b9 .dialogueDeathQuoteGen1EnemyNPCByron
 al 81c060 .UNITGroupChapter10MiletosUNITGroupPointersEntry
 al 8fed72 .EventChapterFinalDozelSeizedEventPointersEntry
 al 8ab952 .PortraitPalette7BPortraitPalettePointersEntry
-al 8b9c48 .PortraitLubeckThunderMageRightPortraitDataIDsEntry
 al b19403 .dialogueChapterPrologueEvansSpawn
 al 83dcc4 .MendStaffNameItemNameOffsetsEntry
 al 83b023 .AedDarkMageLv1CharacterDataOffsetsEntry
@@ -7547,6 +7544,7 @@ al 8d93c0 .dialogueCharacterNameCoirpre
 al 91bcae .rlASMCEpilogueLesterLoverCallBrigidsChildrenAlive
 al 9dcb02 .Event0D8Pointer
 al 8e836f .EventChapter02BeowulfTalkSuccessPointer
+al 8ba07a .ClassPortraitCivilianClassPortraitDataIDsEntry
 al 8ab63a .PortraitGraphic6BPortraitGraphicPointersEntry
 al 8b8a3b .rsDecompressUnifiedThraciaMapHighlight
 al dd .wVBlankDisabledFramecount
@@ -7617,7 +7615,6 @@ al b1d2cc .dialogueChapter07IshtoreBattleQuoteLizaAlive
 al 8b9ff8 .aClassPortraitDataIDs
 al 84f1a8 .rsAddItemStatBonusIfRingByItemRAMStructEntry
 al 83b06b .OvoCharacterDataOffsetsEntry
-al 8b9bbe .PortraitPirateCh03PortraitDataIDsEntry
 al 84c7e4 .rlLoadUNITAsHidden
 al 84c873 .rlLoadUNITAsHidden:_SEC
 al 91d52e .EventChapter06VillageSkillRingPointer
@@ -7658,8 +7655,8 @@ al 86e51f .Ch05_PhinoraChapter05LocationDataEntry
 al 839e59 .KraffNameCharacterNameOffsetsEntry
 al 8d9a8a .dialogueClassNameJuniorLord
 al 8b9b08 .PortraitDiMaggioPortraitDataIDsEntry
-al 8b8782 .WMM_GaneishireWorldMapMarkerSpritesEntry
 al 8b97ac .WMM_RibautToDahnaPointer
+al 84a06a .rlGetSelectedUnitFactionNamePointer
 al 86f3ec .FG_Ch08Munster1Pointer
 al 8ec798 .dialogueChapter04Village1Default
 al 8fec1f .EventChapter07DahnaArmyTalkEventPointersEntry
@@ -7680,6 +7677,7 @@ al 839e9f .SleightonNameCharacterNameOffsetsEntry
 al 9dfed4 .dialogueEpilogueLover_CharlotCoirpre_HannibalDead_Noble
 al b283ff .aChapter06TalkEvents
 al 8e86f0 .EventChapter02Village4Pointer
+al b1ef75 .dialogueEpilogue_AmidArthur
 al 839bcb .TofaGuardWindMageNameCharacterNameOffsetsEntry
 al 86f4d1 .aChapter09OpeningEvent
 al 91ebbe .rlUnknown91EBBE
@@ -7881,8 +7879,6 @@ al 86980b .rsChapterEventConditionCommand6D
 al 869815 .rsChapterEventConditionCommand6E
 al 869830 .rsChapterEventConditionCommand6F
 al 839c5f .ArvisChPrologueNameCharacterNameOffsetsEntry
-al 86973f .rsChapterEventConditionCommand6B
-al 869763 .rsChapterEventConditionCommand6B:_End
 al 83ea32 .IronBowItemDataOffsetsEntry
 al b3aaae .dialogueChapter09Village5MusarAlive
 al 9da0a2 .dialogueChapter03SylvaleSpawn1
@@ -7897,7 +7893,6 @@ al d3 .wVBlankPointer
 al 8ab7a2 .PortraitGraphicE3PortraitGraphicPointersEntry
 al 83b04d .DahnaGuardMyrmidonCharacterDataOffsetsEntry
 al 8b9ba2 .PortraitMadinoBowArmorPortraitDataIDsEntry
-al 8d9752 .dialogueItemNameJormungandr
 al b2830b .Ch06_IsaachChapter06LocationDataEntry
 al d6f .wOptionSettings
 al 839bb9 .UnusedArvisNameCharacterNameOffsetsEntry
@@ -7906,6 +7901,7 @@ al 8ba000 .ClassPortraitFreeKnightClassPortraitDataIDsEntry
 al 91d5e5 .aEventChapter06DeimneIsaachVisit
 al 8e81ba .EventChapter02ElliotChargePointer
 al 8fea2d .EventChapter03EldiganDeathSigurdResponseEventPointersEntry
+al 848331 .aLoadChildUnitRoutines
 al 8d977f .dialogueItemNameMendStaff
 al 87e444 .rlGetItemSkills
 al 83af09 .MadinoGuardBishopCharacterDataOffsetsEntry
@@ -7995,6 +7991,7 @@ al 9183a2 .rsUnknown91830E:_SEC
 al 9183a5 .rsUnknown91830E:_CLC
 al 8ab922 .PortraitPalette6BPortraitPalettePointersEntry
 al 83e9f0 .EarthSwordItemDataOffsetsEntry
+al 8ffb9c .aEventChapterFinalPattyDaisy_SeliphTalk
 al 84d81d .rlActionStructGetBasicBattleData
 al 84d8cf .rlActionStructGetBasicBattleData:_End
 al b0dc39 .dialogueChapter06IucharbaDanannBattleQuote
@@ -8005,6 +8002,9 @@ al 83b0e5 .RiddellSquadTroubadourCharacterDataOffsetsEntry
 al 212d .TS
 al 212c .TM
 al b39f67 .dialogueChapter09LutheciaSeized
+al 8dc48a .rlASMCEpilogueWorldMapGrannvalePieceFriegeRuler
+al 8dc4d7 .rlASMCEpilogueWorldMapGrannvalePieceFriegeRuler:_Dialogue
+al 8dc4ef .rlASMCEpilogueWorldMapGrannvalePieceFriegeRuler:_End
 al 8d95a3 .dialogueItemNameThunderSword
 al b2d862 .dialogueChapter02MountainArmorTalk
 al 838143 .aRangerMapSpriteAssignment
@@ -8020,9 +8020,9 @@ al 83f503 .PI_SpeedRing1PlayerItemTableEntry
 al 83f503 .PI_SpeedRing1PlayerItemTableEntry:Item
 al 8ee556 .dialogueDeathQuoteGen1EnemyNPCBeowulf
 al 83e3c0 .ThiefBandDescriptionItemDescriptionOffsetsEntry
-al e9e .wAITemp000E9E
 al 83ea80 .HealStaffItemDataOffsetsEntry
 al 86f404 .FG_Ch08Munster2Pointer
+al 7eccdc .wBattleActivatedSkill
 al 83875e .LarceiLoveGrowthLoveGrowthOffsetsEntry
 al 9dd7ab .dialogueEpilogue_Piece_Dalvin_ShannanDead
 al 8d8d81 .EventChapter10Village5Pointer
@@ -8325,7 +8325,6 @@ al 8ab62b .PortraitGraphic66PortraitGraphicPointersEntry
 al 86de2e .aFactionGroup18AI1
 al 86de36 .aFactionGroup18AI3
 al 86de2f .aFactionGroup18AI2
-al 87be7c .rlUnknown87BE7C
 al 839bd5 .TofaCommanderWarMageNameCharacterNameOffsetsEntry
 al 86d156 .aChapter02LocationData
 al 86d157 .aChapter02LocationData:_Entries
@@ -8576,12 +8575,12 @@ al b2912a .Event11FPointer
 al 9d8d1c .EventChapter03OrgahilSpawnPointer
 al 8b9ee0 .PortraitGloriaPortraitDataIDsEntry
 al 83d93e .FactionLutheciaFactionNameOffsetsEntry
+al b1aa7d .aChapter10MapChangeBelhallaRightPath
 al 838251 .aWarMageFMapSpriteAssignment
 al 86d163 .Ch02_VillageBargainBandChapter02LocationDataEntry
 al 8feea1 .EventChapter07FinnNannaTalkEventPointersEntry
 al 8d9724 .dialogueItemNameTornado
 al aee93a .dialogueChapter06ArthurAmid_SeliphTalk
-al 839ebb .MarilynChFinalNameCharacterNameOffsetsEntry
 al c22a29 .g4bppcBrigandMapMovementSprite
 al 83ae63 .ArthurCharacterDataOffsetsEntry
 al 8b9e7c .PortraitKemalPortraitDataIDsEntry
@@ -8614,6 +8613,8 @@ al 8b9c7e .PortraitFriegeCh05LanceArmorPortraitDataIDsEntry
 al 8b9c2c .PortraitSilesseWindMageRiverPortraitDataIDsEntry
 al 8ab625 .PortraitGraphic64PortraitGraphicPointersEntry
 al 8fec04 .Event117EventPointersEntry
+al 86c7f9 .FG_Ch06RibautFactionGroupPointersEntry
+al 8b9aac .PortraitAyraPortraitDataIDsEntry
 al 53e .wUnknown053E
 al 53c .wUnknown053C
 al b1e0bd .EventChapterFinalFriegeSpawnPointer
@@ -8623,7 +8624,6 @@ al 918545 .rsDialogueHandleGraphicBufferClearing:_End
 al 91851d .rsDialogueHandleGraphicBufferClearing:_OuterLoop
 al 918521 .rsDialogueHandleGraphicBufferClearing:_InnerLoop
 al 9ddc0d .dialogueEpilogue_Creidne_ShannanAlive_DalvinAlive
-al 9dc0c8 .aEventChapter05SigurdByronTalk
 al 9d9140 .aEventChapter03VillageDefense
 al 91ece4 .rlUnknown91ECE4
 al b0bdd5 .dialogueEpilogue_LayleaLene_AresDead
@@ -8673,11 +8673,11 @@ al 83839f .VillageNameTerrainNameOffsetsEntry
 al 91a114 .aDialogueCustomWidth4A
 al 91a118 .aDialogueCustomWidth4B
 al 91a11b .aDialogueCustomWidth4C
+al 91a11f .aDialogueCustomWidth4D
 al 91a124 .aDialogueCustomWidth4F
 al 91a0f4 .aDialogueCustomWidth40
 al 86f4c9 .Chapter09Pointer
 al 91a0f9 .aDialogueCustomWidth42
-al 91a0fd .aDialogueCustomWidth43
 al 91a100 .aDialogueCustomWidth44
 al 91a102 .aDialogueCustomWidth45
 al 91a109 .aDialogueCustomWidth46
@@ -8705,6 +8705,7 @@ al 83f4e6 .PI_Light2PlayerItemTableEntry
 al 83f4e6 .PI_Light2PlayerItemTableEntry:Item
 al 911 .wUnknown000911
 al 91bac9 .rlASMCSetVelthomerEpilogue
+al b2d01d .ScathachEpilogueIDEpiloguePointersEntry
 al b0cc2b .aEventChapter03EdainBrigidTalk
 al c6315f .g4bppcKillerBallisticianMapMovementSprite
 al 839c03 .LamiaSquadMyrmidonSleepSwordNameCharacterNameOffsetsEntry
@@ -8734,8 +8735,8 @@ al 83f507 .PI_BarrierRing1PlayerItemTableEntry
 al 83f507 .PI_BarrierRing1PlayerItemTableEntry:Item
 al 82fe38 .aUnknown82FE38
 al b0be73 .dialogueEpilogue_Piece_LayleaLene_End
-al 8fee74 .EventChapter06DeimneMuirneTalkEventPointersEntry
 al 83b1f1 .NikitaCharacterDataOffsetsEntry
+al 8b9f8e .PortraitDialogueRahnaPortraitDataIDsEntry
 al 838328 .aIronBallisticianMapSpriteAssignment
 al 83b18f .OvisCharacterDataOffsetsEntry
 al 7feaec .aDialogueBoxHDMADataTableOdd
@@ -8743,6 +8744,9 @@ al 8fef04 .EventChapterFinalJeanneLeifTalkEventPointersEntry
 al 8b9b60 .PortraitMackilyLanceArmorPortraitDataIDsEntry
 al 8b9bd8 .PortraitOrgahilMyrmidonPortraitDataIDsEntry
 al b0c825 .dialogueEpilogue_AgustriaEnd_Multiple
+al 86c575 .rlUpdateMapChangeEvents
+al 86c5d3 .rlUpdateMapChangeEvents:_End
+al 86c590 .rlUpdateMapChangeEvents:_Loop
 al 8eedaf .dialogueDeathQuoteGen2EnemyNPCTravantCh09
 al 7e2000 .wAIUnknownBitfield7E2000
 al 839c29 .AndreyCh05NameCharacterNameOffsetsEntry
@@ -8773,8 +8777,8 @@ al 8d8833 .EventChapter10CivilianRescued2Pointer
 al 8b9f6a .PortraitDialogueScipioPortraitDataIDsEntry
 al 9dd400 .dialogueEpilogue_Piece_Shannan_End
 al 8ab5ce .PortraitGraphic47PortraitGraphicPointersEntry
+al 8b9ede .PortraitRivaPortraitDataIDsEntry
 al 867 .aMovingMapSpritesMapSprites
-al 8b9f8e .PortraitDialogueRahnaPortraitDataIDsEntry
 al 84f103 .rsGivePlayerItemIDToSelectedUnit
 al 8aba7e .PortraitPaletteDFPortraitPalettePointersEntry
 al 8fec37 .EventChapter08FebailAsaello_SpawnEventPointersEntry
@@ -9165,6 +9169,7 @@ al 2127 .WH1
 al 2128 .WH2
 al 2129 .WH3
 al 8feee9 .EventChapter10NannaJeanne_LeifTalkEventPointersEntry
+al 8b9e46 .PortraitGazackPortraitDataIDsEntry
 al 83d8ea .FactionSylvaleFactionNameOffsetsEntry
 al 8ede6f .dialogueDeathQuoteGen2PlayerHawk
 al 868f2f .rsChapterEventConditionCommand3B
@@ -9183,11 +9188,10 @@ al 83af99 .SilesseWindMageRiverCharacterDataOffsetsEntry
 al 8d9834 .dialogueItemNameRecoverRing
 al 8b9afa .PortraitLarceiPortraitDataIDsEntry
 al 86e527 .Ch05_Village2Chapter05LocationDataEntry
-al 8b98d1 .aWorldMapSprite11
+al 8ab8e3 .PortraitPalette56PortraitPalettePointersEntry
 al 839c17 .LubeckCommanderGeneralRightNameCharacterNameOffsetsEntry
 al 83adfd .FinnCharacterDataOffsetsEntry
 al 8d95e0 .dialogueItemNameWingclipper
-al 839c4b .FriegeCh05ThunderMageMaleNameCharacterNameOffsetsEntry
 al 8b9bb0 .PortraitMadinoLanceArmorRightPortraitDataIDsEntry
 al 7feb4a .aUnit1DataBuffer
 al 7feb66 .aUnit1DataBuffer:_Extended
@@ -9246,6 +9250,7 @@ al 7feba0 .aUnit1DataBuffer:_ROM:Skills3
 al 7feb9f .aUnit1DataBuffer:_ROM:Skills2
 al 8b9fd2 .PortraitDialogueArmoryPortraitDataIDsEntry
 al b0d9b9 .dialogueChapter05SigurdReptorBattleQuote
+al b1e58c .EventChapterFinalEndingPointer
 al 8eee4a .dialogueDeathQuoteGen2EnemyNPCJuliusCh10
 al 83e396 .BrokenFireTomeCDescriptionItemDescriptionOffsetsEntry
 al 8eb97a .dialogueChapter04SilesseSeizedDaccarDead
@@ -9274,7 +9279,8 @@ al 839c95 .DahnaBlockadeMyrmidonNameCharacterNameOffsetsEntry
 al 8ab8b9 .PortraitPalette48PortraitPalettePointersEntry
 al 83e30a .ThunderSwordDescriptionItemDescriptionOffsetsEntry
 al b0c165 .dialogueEpilogue_Tristan_AresDead_WithLover
-al 83af55 .UnusedArvisCharacterDataOffsetsEntry
+al 84e210 .rsActionStructAdjustVantageRoundOrder
+al 84e230 .rsActionStructAdjustVantageRoundOrder:_End
 al 839c89 .UlsterCommanderGeneralLeonsterChargeNameCharacterNameOffsetsEntry
 al 83d922 .FactionRibautFactionNameOffsetsEntry
 al 84f1e8 .aRingStatBonusTable
@@ -9287,13 +9293,11 @@ al 91eb52 .rlUnknown91EB0F:_Next
 al 89cbbe .aDebugMotherText
 al 8d95be .dialogueItemNameMystletainn
 al b2d25c .aAzellesSonEpiloguePointers
-al a0 .bBufferSETINI
 al 918c4e .rsDialogueCommand16
 al 84d6f2 .rsCheckIfFightingRecruitableEnemy
 al 8edae6 .dialogueDeathQuoteGen1PlayerLex
 al 83b031 .DahnaBlockadeMyrmidonCharacterDataOffsetsEntry
 al 818f9d .aDiagonalMapScrollLookupTable
-al 8ff9a7 .aEventChapterFinalTineLinda_LeifTalk
 al 448 .bDecompressionArrayFlag
 al 8384c3 .AresLoverIDMaleLoveDataIDsEntry
 al 8384c3 .AresLoverIDMaleLoveDataIDsEntry:UnitID
@@ -9311,7 +9315,6 @@ al 8e87da .aEventChapter02HeirheinSeized
 al 8fea54 .EventChapter03VillageRestoreEventPointersEntry
 al 839cdf .ConnachtLanceArmorBridgeNameCharacterNameOffsetsEntry
 al 8df1cb .dialogueChapterEpilogueWorldMap_Grannvale_Piece_Dozel_Iuchar
-al 8ab82f .PortraitPalette1APortraitPalettePointersEntry
 al 8b9ae0 .PortraitHerminaPortraitDataIDsEntry
 al 8fe985 .EventChapter01CrossknightTalkEventPointersEntry
 al 83e3b6 .BrokenStaffADescriptionItemDescriptionOffsetsEntry
@@ -9352,10 +9355,12 @@ al b2d26e .aOifeyEpiloguePointers
 al 84efa5 .rlUnknown84EFA5
 al 84efcf .rlUnknown84EFA5:_EFCF
 al 83dce8 .ParagonBandNameItemNameOffsetsEntry
+al 82fb7f .rsEpilogueStartRegionPriorityIfSonExists
 al b0ba33 .dialogueChapter05VajaBattleQuote
 al 83f510 .PI_KnightRingPlayerItemTableEntry
 al 83f510 .PI_KnightRingPlayerItemTableEntry:Item
 al 91907e .rlUnknown91907E
+al 839c2d .VajaNameCharacterNameOffsetsEntry
 al 4a9 .lBlockCopyDestination
 al c356d3 .g4bppcChildMapMovementSprite
 al b2f86a .Event1A9Pointer
@@ -9365,6 +9370,7 @@ al 8491b8 .rsFillUnitRAMExtendedPersonalData
 al 839e05 .MabelNameCharacterNameOffsetsEntry
 al 84fb5f .aLightWeaponDisdvantage
 al b2d18d .aDiarmuidEpiloguePointers
+al 87e2ee .BrokenWeaponDarkBrokenWeaponOffsetsEntry
 al b1ebdb .dialogueEpilogue_Piece_Lester_BrigidsChildrenDead
 al 86c742 .Chapter03ChapterEventPointersEntry
 al 8febbc .EventChapter07AresRecruitmentEventPointersEntry
@@ -9387,6 +9393,7 @@ al 8e8501 .EventChapter02ChulainnRecruitmentEvansPointer
 al 839adf .EvansGuardHunterNameCharacterNameOffsetsEntry
 al 86ebf5 .Ch07_VillageShieldRingChapter07LocationDataEntry
 al 82fa17 .EPrio_Son_LoverEpiloguePriorityRoutinesEntry
+al 83dcf0 .RecoverRingNameItemNameOffsetsEntry
 al 839aef .GenoaGuardFighterNameCharacterNameOffsetsEntry
 al 839afb .SandimaNameCharacterNameOffsetsEntry
 al 86f890 .aChapter09MeathCastle
@@ -9453,13 +9460,13 @@ al 8fef90 .aEventGen1HomeCastleSeized:_End
 al 8b9cca .PortraitLizaPortraitDataIDsEntry
 al 8b9aa6 .PortraitDeirdrePortraitDataIDsEntry
 al 8ba03c .ClassPortraitLanceArmorClassPortraitDataIDsEntry
-al 8282c3 .rlProcFadeOutCycle
 al 8b9d28 .PortraitMaykovPortraitDataIDsEntry
 al 210e .M7VOFS
 al 8edcab .dialogueDeathQuoteGen1PlayerErinys
 al 849bd3 .rlGetSelectedUnitTotalSkillEffect
 al 849c1c .rlGetSelectedUnitTotalSkillEffect:_End
 al 8b879e .WMM_Unknown3WorldMapMarkerSpritesEntry
+al 83d8ee .FactionAgustiFactionNameOffsetsEntry
 al 8ab892 .PortraitPalette3BPortraitPalettePointersEntry
 al 8389c9 .aHolyBloodGrowthBoostsOffsets
 al 8389d1 .aHolyBloodGrowthBoostsOffsets:OdHolyBloodDataOffsetsEntry
@@ -9494,6 +9501,7 @@ al 7e6b88 .aBG1TilemapBuffer:Page1
 al 8e98a4 .aEventChapter04DonovanSpawn
 al 83ead8 .BrokenHolyLightTomeItemDataOffsetsEntry
 al 8d9624 .dialogueItemNameGungnir
+al 839a9b .AdultFinnNameCharacterNameOffsetsEntry
 al 8b9dba .PortraitRotenritterCh10BowArmorPortraitDataIDsEntry
 al 83b1b5 .CrotorCharacterDataOffsetsEntry
 al 8b9bfa .PortraitTofaGuardWindMagePortraitDataIDsEntry
@@ -9533,6 +9541,7 @@ al b2fb06 .dialogueEpilogueLover_CharlotCoirpre_HannibalAlive_CreidneLarcei
 al 91b01c .aUnknown91B01C
 al 8dc20d .rlASMCEpilogueWorldMapVerdanePieceJamkesSonNoLover
 al 8dc227 .rlASMCEpilogueWorldMapVerdanePieceJamkesSonNoLover:_End
+al 91c57d .aUnknown91C57D
 al 8feb77 .EventChapter06VillageSkillRingEventPointersEntry
 al 83dcae .NosferatuNameItemNameOffsetsEntry
 al 869bc1 .rsEventTrue
@@ -9575,7 +9584,6 @@ al 80a6f9 .rlIncreaseFrameCounters
 al 8fe8bf .Event000EventPointersEntry
 al b19616 .dialogueChapterPrologueMunnirGerrardConversation
 al 8ffc5b .aEventChapterFinalNannaAresTalk
-al 8ab8ad .PortraitPalette44PortraitPalettePointersEntry
 al 9d912d .aEventChapter03VillageRestore
 al b1e2be .aEventChapterFinalFriegeSeized
 al 8b9fba .PortraitDialogueSlayderPortraitDataIDsEntry
@@ -9622,9 +9630,8 @@ al 91c979 .rlFillEventUnitSlot2
 al 8fef0a .EventChapterFinalLanaMuirne_SeliphTalkEventPointersEntry
 al b0c0e8 .dialogueEpilogue_Piece_Diarmuid_AresAlive
 al 86f97b .FG_Ch09SeliphPointer
-al 91c57d .aUnknown91C57D
+al 86e5d3 .aChapter05TalkEvents
 al 81822c .rlActiveSpriteRunOnCycle
-al 87e689 .rlUnknown87E689
 al 9ddc19 .dialogueEpilogue_Deimne_MuirneDead_WithLover
 al 8ab6fd .PortraitGraphicACPortraitGraphicPointersEntry
 al 8b9cb2 .PortraitAedDarkMageLv4PortraitDataIDsEntry
@@ -9635,7 +9642,6 @@ al 86ec17 .aChapter07LeonsterCastle
 al 828000 .aProcEngineMainProcActionTable
 al 90d7f5 .dialogueChapter06LarceiCreidne_IucharbaTalkIucharResponse
 al 8df291 .dialogueChapterEpilogueWorldMap_Grannvale_Piece_Yngvi_Lester
-al 8186b1 .rsActiveSpriteCommand03
 al 83ea72 .JormungandrItemDataOffsetsEntry
 al 8feda2 .Event1A1EventPointersEntry
 al b1cb51 .dialogueChapter07LeonsterSeized
@@ -9644,6 +9650,7 @@ al 8ba048 .ClassPortraitBrigandClassPortraitDataIDsEntry
 al 83e3f6 .BrokenLightTomeCDescriptionItemDescriptionOffsetsEntry
 al 81877f .rsActiveSpriteCommand08
 al 8ab8f8 .PortraitPalette5DPortraitPalettePointersEntry
+al 818629 .rsActiveSpriteCommand09
 al 9dca3a .Event0CAPointer
 al 8282fc .rlProcMainLoopChangeFadeCycle
 al 828321 .rlProcMainLoopChangeFadeCycle:_End
@@ -9689,12 +9696,11 @@ al 8b9b4e .PortraitPhilipSquadLanceArmorPortraitDataIDsEntry
 al 8ff49e .aEventChapter08Seliph_TineLindaTalk
 al 8b98e7 .WMM_ZaxonToLubeckPointer
 al 8feeb3 .EventChapter08NannaAresTalkEventPointersEntry
-al 8b8936 .WMH_AgustriaPointer
 al 90865d .EventChapter01GenoaSeizedPointer
 al 8d8dc2 .Event18DPointer
-al 8ab508 .PortraitGraphic05PortraitGraphicPointersEntry
 al 8b9f20 .PortraitDialogueDanannPortraitDataIDsEntry
 al 83e306 .FireSwordDescriptionItemDescriptionOffsetsEntry
+al 839b4b .MackilyBallisticianNameCharacterNameOffsetsEntry
 al 83f4af .PI_TyrfingPlayerItemTableEntry
 al 83f4af .PI_TyrfingPlayerItemTableEntry:Item
 al 83b1b1 .RogueCh08CharacterDataOffsetsEntry
@@ -9729,6 +9735,95 @@ al 838f85 .BrigandClassDataOffsetsEntry
 al 83ae19 .AyraCharacterDataOffsetsEntry
 al 8b9cc8 .PortraitMelgenGuardThunderMagePortraitDataIDsEntry
 al 8b8953 .rsDecompressSilesseMapHighlight
+al 81dfcc .aUNITGroupDataChapter09Travant
+al 81e00c .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry
+al 81e012 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81e00e .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:DestinationX
+al 81e00f .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:DestinationY
+al 81e011 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:AI
+al 81e013 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:FormationID
+al 81e00c .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:CharacterID
+al 81e010 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81dfd4 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry
+al 81dfda .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81dfd6 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:DestinationX
+al 81dfd7 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:DestinationY
+al 81dfd9 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:AI
+al 81dfdb .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:FormationID
+al 81dfd4 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:CharacterID
+al 81dfd8 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81dffc .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry
+al 81e002 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81dffe .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:DestinationX
+al 81dfff .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:DestinationY
+al 81e001 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:AI
+al 81e003 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:FormationID
+al 81dffc .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:CharacterID
+al 81e000 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81dfcc .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry
+al 81dfd2 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81dfce .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:DestinationX
+al 81dfcf .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:DestinationY
+al 81dfd1 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:AI
+al 81dfd3 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:FormationID
+al 81dfcc .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:CharacterID
+al 81dfd0 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81e004 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry
+al 81e00a .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81e006 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:DestinationX
+al 81e007 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:DestinationY
+al 81e009 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:AI
+al 81e00b .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:FormationID
+al 81e004 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:CharacterID
+al 81e008 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81e014 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry
+al 81e01a .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81e016 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:DestinationX
+al 81e017 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:DestinationY
+al 81e019 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:AI
+al 81e01b .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:FormationID
+al 81e014 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:CharacterID
+al 81e018 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81e01c .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry
+al 81e022 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81e01e .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:DestinationX
+al 81e01f .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:DestinationY
+al 81e021 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:AI
+al 81e023 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:FormationID
+al 81e01c .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:CharacterID
+al 81e020 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81dfdc .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry
+al 81dfe2 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81dfde .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:DestinationX
+al 81dfdf .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:DestinationY
+al 81dfe1 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:AI
+al 81dfe3 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:FormationID
+al 81dfdc .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:CharacterID
+al 81dfe0 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81dfec .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry
+al 81dff2 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81dfee .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:DestinationX
+al 81dfef .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:DestinationY
+al 81dff1 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:AI
+al 81dff3 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:FormationID
+al 81dfec .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:CharacterID
+al 81dff0 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81dff4 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry
+al 81dffa .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81dff6 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:DestinationX
+al 81dff7 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:DestinationY
+al 81dff9 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:AI
+al 81dffb .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:FormationID
+al 81dff4 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:CharacterID
+al 81dff8 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
+al 81dfe4 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry
+al 81dfea .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:FactionSlot
+al 81dfe6 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:DestinationX
+al 81dfe7 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:DestinationY
+al 81dfe9 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:AI
+al 81dfeb .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:FormationID
+al 81dfe4 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:CharacterID
+al 81dfe8 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
 al 8183f9 .aUnknown8183F9
 al 87a4e1 .rlGetClassPromotionLevel
 al 7ecccc .wActionStructUnit2DeploymentNumber
@@ -9743,7 +9838,7 @@ al 91d614 .aEventChapter06_0F5
 al 83f52d .EddaNameCastleNameOffsetsEntry
 al 87e1a7 .rlSetItemRAMStateAndOwner
 al 838af9 .AxeArmorClassNameClassNameOffsetsEntry
-al 8edf2c .dialogueDeathQuoteGen2PlayerAres
+al 83afb7 .LubeckAxeArmorRightCharacterDataOffsetsEntry
 al 81c04c .UNITGroupChapter08OpeningUNITGroupPointersEntry
 al b0f8f1 .dialogueEpilogueLover_LexSon_Noble
 al 83b237 .CilonCharacterDataOffsetsEntry
@@ -9784,11 +9879,11 @@ al b18398 .aEventPrologueLexAzelleSpawn:_UnusedMovementScript2
 al b18392 .aEventPrologueLexAzelleSpawn:_UnusedMovementScript1
 al 839acd .LanaNameCharacterNameOffsetsEntry
 al 839c27 .ByronNameCharacterNameOffsetsEntry
+al 86d7c5 .aFactionGroup12AI3
 al 8e9ad6 .aEventChapter04VillageSafeguardSilvia
 al 8ff0b7 .aEventChapter06DalvinCreidneTalk
 al 8b9ba6 .PortraitMadinoCommanderGeneralCenterPortraitDataIDsEntry
 al 91a1a5 .aDialogueCustomWidthAdjustTable
-al 839c39 .MagornSquadDragonknightNameCharacterNameOffsetsEntry
 al 84a566 .rlGetSelectedUnitTotalLuckGrowth
 al 87a6a1 .rlGetClassTerrainBonusType
 al 8d9641 .dialogueItemNameSteelAxe
@@ -9818,6 +9913,7 @@ al 81807a .rlActiveSpriteEngineClearAllSprites
 al aeed93 .dialogueChapter06Seliph_LanaMuirneTalk
 al 758 .wUnknown000758
 al 83b175 .HildaSquadChFinalBaronFortifyCharacterDataOffsetsEntry
+al 83b189 .DracoCharacterDataOffsetsEntry
 al 8ba046 .ClassPortraitFighterClassPortraitDataIDsEntry
 al 91afc2 .rlUnknown91AFC2
 al 7eccda .wActionStructDefender
@@ -9825,6 +9921,7 @@ al 91d54f .Event0EBPointer
 al 839895 .CivilianMovementMovementCostOffsetsEntry
 al 83b0ab .KanatzCharacterDataOffsetsEntry
 al 8aba24 .PortraitPaletteC1PortraitPalettePointersEntry
+al 86d1cf .aChapter02Village8
 al 83d8fc .FactionDozel1FactionNameOffsetsEntry
 al 8d99bd .dialogueClassNameDragonknight
 al 828111 .rlProcEngineFindProc
@@ -9865,7 +9962,6 @@ al 839e57 .NeneNameCharacterNameOffsetsEntry
 al 8185ee .rsUnknown8185EE
 al 86d1df .aChapter02MapChangeData
 al 86d70d .FG_Ch03SigurdPointer
-al 8ab6b2 .PortraitGraphic93PortraitGraphicPointersEntry
 al 83b007 .BrigandCh06CharacterDataOffsetsEntry
 al 86f86f .Chapter09DataPointer
 al 91d5af .EventChapter06Village2SeliphPointer
@@ -10186,6 +10282,7 @@ al 87f16a .aVillageDestroyedPattern2State3Tiles
 al 8b9af8 .PortraitPattyPortraitDataIDsEntry
 al 86f316 .aChapter08ConnachtCastle
 al b282fa .aChapter06EventData
+al b1859b .Event00APointer
 al 8b9d4c .PortraitJudahPortraitDataIDsEntry
 al 8b9fe4 .PortraitDialogueCivilianYoungManPortraitDataIDsEntry
 al 8fed21 .EventChapter10ChalphySpawnEventPointersEntry
@@ -10233,7 +10330,7 @@ al 83d8f2 .FactionMackilyFactionNameOffsetsEntry
 al 89d84d .aDebugSkillDismount
 al 84dc3f .aUnknown84DC3F
 al 85a946 .rlDialogueBoxFoldingHDMACycle2
-al 839be7 .AnnandSquadPegasusKnightNameCharacterNameOffsetsEntry
+al 83ea46 .IronBallistaItemDataOffsetsEntry
 al 83b12b .RotenritterCh10PriestCharacterDataOffsetsEntry
 al 86dd7d .aFactionGroupData18
 al 86dd8a .aFactionGroupData18:_GroupAI
@@ -10257,7 +10354,6 @@ al 86d723 .aFactionGroupData11:_Locations
 al 86d735 .aFactionGroupData12
 al 86d742 .aFactionGroupData12:_GroupAI
 al 86d73e .aFactionGroupData12:_Locations
-al 918b5f .rsUnknown918B5F
 al 908226 .aChapterPrologueVillageSpeedRing
 al 82fa09 .EPrio_FollowUp1EpiloguePriorityRoutinesEntry
 al 839b15 .PhilipNameCharacterNameOffsetsEntry
@@ -10402,9 +10498,7 @@ al 8aba5d .PortraitPaletteD4PortraitPalettePointersEntry
 al 8b9dd0 .PortraitRobertoSquadArchKnightPortraitDataIDsEntry
 al 87f186 .aVillageDestroyedPattern2State5Tiles
 al 8b9c14 .PortraitAnnand2PortraitDataIDsEntry
-al 84f2fe .rlSetEquippedInventorySlot
 al 7a .bBufferBG12NBA
-al 91a11f .aDialogueCustomWidth4D
 al 91a121 .aDialogueCustomWidth4E
 al 83f523 .NordionNameCastleNameOffsetsEntry
 al 839c73 .SofalaFighterNameCharacterNameOffsetsEntry
@@ -10430,7 +10524,6 @@ al 86c7ae .FG_Ch02MackilyFactionGroupPointersEntry
 al 8eec0c .dialogueDeathQuoteGen2EnemyNPCFotlaCh08
 al 84ada8 .rsApplyLevelUpSkillGain
 al b3d507 .dialogueChapter08FebailAsaello_SeliphTalk
-al b0f9e5 .dialogueEpilogueLover_Iuchar_CreidneLarcei
 al 8d9788 .dialogueItemNameRecoverStaff
 al 8feebc .EventChapter08JuliaSeliphTalkEventPointersEntry
 al 8feef5 .EventChapter10SeliphTineTalkEventPointersEntry
@@ -10508,6 +10601,7 @@ al 8182c0 .rsUnknown8182C0
 al 8182c5 .rsUnknown8182C0:_Loop
 al 81830e .rsUnknown8182C0:_Next
 al 8fee50 .EventChapter05AyraLexTalkEventPointersEntry
+al 83b1b7 .WisemanCharacterDataOffsetsEntry
 al 91ad0b .rlGetDeathQuote
 al 91ad4b .rlGetDeathQuote:_End
 al 8fedb1 .Event1A6EventPointersEntry
@@ -10604,14 +10698,15 @@ al 8fed6c .EventChapterFinalEddaSeizedEventPointersEntry
 al 83aea3 .ElliotCh01CharacterDataOffsetsEntry
 al b2d289 .aHerminaEpiloguePointers
 al 83ae47 .MuirneCharacterDataOffsetsEntry
+al 91d3de .EventChapter06LarceiCreidne_IucharTalkPointer
 al b1fa5e .dialogueEpilogueLover_Oifey_Peppy
 al 8fb461 .dialogueChapter02Village2
-al 8fb728 .dialogueChapter02Village3
+al 86cc48 .FG_Ch01HeirheinPointer
 al 8fb6ad .dialogueChapter02Village1
 al 8381e8 .aEmperorMapSpriteAssignment
 al 8fb623 .dialogueChapter02Village7
 al 8fb4fe .dialogueChapter02Village4
-al 84af00 .rlSetUnitUnfieldedInCastle
+al 8fb40d .dialogueChapter02Village5
 al 8fb2d7 .dialogueChapter02Village8
 al 908acb .EventChapter01MunnirRallyVanguardPointer
 al 8b86cb .rsHandleWorldMapMarkers
@@ -10636,12 +10731,14 @@ al 839d83 .ChalphyChildMaleNameCharacterNameOffsetsEntry
 al 83f4a8 .PI_SafeguardPlayerItemTableEntry
 al 83f4a8 .PI_SafeguardPlayerItemTableEntry:Item
 al 83af75 .TofaWindMageMountainCharacterDataOffsetsEntry
+al 8fed15 .EventChapter10ChronosSeizedEventPointersEntry
 al 868579 .rsUnknown868579
 al 8ab6ee .PortraitGraphicA7PortraitGraphicPointersEntry
 al 9ddfd3 .dialogueEpilogue_Muirne_DeimneAlive
 al b2ee5f .dialogueChapter06DeimneIsaachVisit
 al 828b14 .rlProcUnknown828AF2Cycle
 al 83ea9a .BerserkStaffItemDataOffsetsEntry
+al 8b9db8 .PortraitRotenritterCh10LanceArmorPortraitDataIDsEntry
 al 8384d5 .LesterLoverIDMaleLoveDataIDsEntry
 al 8384d5 .LesterLoverIDMaleLoveDataIDsEntry:UnitID
 al 839ba5 .OrgahilPirateHandAxeNameCharacterNameOffsetsEntry
@@ -10760,8 +10857,8 @@ al 83adf7 .NaoiseCharacterDataOffsetsEntry
 al 82816e .rsProcEngineRunProcOnCycleAndCode
 al 8281af .rsProcEngineRunProcOnCycleAndCode:_End
 al 828194 .rsProcEngineRunProcOnCycleAndCode:_Loop
+al b0f9e5 .dialogueEpilogueLover_Iuchar_CreidneLarcei
 al 869a13 .rlUnsetEventFlag
-al 8b9f78 .PortraitDialogueBatu1PortraitDataIDsEntry
 al 83f4db .PI_BolganonePlayerItemTableEntry
 al 83f4db .PI_BolganonePlayerItemTableEntry:Item
 al 82f8ed .rsEpilogueGetParentsEpilogueStates
@@ -10802,6 +10899,7 @@ al 8ff317 .aEventChapter07TineLinda_SeliphTalk
 al 83aff1 .RotenritterCh05FireMageCharacterDataOffsetsEntry
 al 8b9ff4 .PortraitDialogueJuliaHandPortraitDataIDsEntry
 al 838acf .GreatKnightClassNameClassNameOffsetsEntry
+al 83ea36 .SilverBowItemDataOffsetsEntry
 al 8b9d34 .PortraitKapathogiaBowArmorPortraitDataIDsEntry
 al 9d9505 .dialogueChapter03Opening2
 al 848345 .rsLoadMaleOrFemaleChildUnit
@@ -10834,7 +10932,6 @@ al 8ab907 .PortraitPalette62PortraitPalettePointersEntry
 al 8fea27 .EventChapter03LachesisEldiganTalkEventPointersEntry
 al 8b8762 .WMM_OrgahilToSailaneWorldMapMarkerSpritesEntry
 al b2d051 .LanaEpilogueIDEpiloguePointersEntry
-al 838fb5 .RogueClassDataOffsetsEntry
 al 86dc94 .Ch04_Village4Chapter04LocationDataEntry
 al 8ed8f0 .dialogueDeathQuoteGen1PlayerQuanLeave
 al 828a92 .rlProcUnknown828A88Init
@@ -10997,6 +11094,7 @@ al 8ede9b .dialogueDeathQuoteGen2PlayerTristan
 al 8feb5f .EventChapter06IsaachSeizedEventPointersEntry
 al 86f4b3 .aFactionGroup30AI4
 al 86d175 .Ch02_VillageArmorslayerChapter02LocationDataEntry
+al 86f4c7 .aFactionGroup30AI8
 al 8490d4 .rsCreateEnemyUnitRAMData
 al 91bc8b .rlASMCEpilogueDiarmuidLoverCallAresDead
 al 83b01f .AedDarkMageLv4CharacterDataOffsetsEntry
@@ -11011,10 +11109,10 @@ al c31ff7 .g4bppcThunderMageMapMovementSprite
 al 86f2ef .aChapter08LocationData
 al 86f2f0 .aChapter08LocationData:_Entries
 al 8e81ce .EventChapter02PhilipDefendPointer
-al e7b .bUnknown000E7B
 al 9190fb .rlUnknown9190FB
 al b2a872 .dialogueChapterFinalFriegeSpawn
 al 81c03c .UNITGroupChapter06StartUNITGroupPointersEntry
+al 8b9f76 .PortraitDialogueJuphielPortraitDataIDsEntry
 al 919420 .rlUnknown919420
 al 91944a .rlUnknown919420:_End
 al 91944b .rlUnknown919420:_944B
@@ -11054,10 +11152,7 @@ al 84eac0 .rsUnknown84EA37:_EAC0
 al 84ea76 .rsUnknown84EA37:_EA76
 al b08344 .Ch10_Village1Chapter10LocationDataEntry
 al 9dda8c .dialogueEpilogue_Larcei_ShannanAlive_ScathachDead
-al 818279 .rsUnknown818279
-al 81827e .rsUnknown818279:_Loop
-al 8182b9 .rsUnknown818279:_Next
-al 87e2ee .BrokenWeaponDarkBrokenWeaponOffsetsEntry
+al 8b8936 .WMH_AgustriaPointer
 al 8ff70d .aEventChapter10LeifAltenaTalk
 al 8ede21 .dialogueDeathQuoteGen2PlayerLeif
 al 8fef4f .EventSeliphDeathReactionEventPointersEntry
@@ -11117,7 +11212,6 @@ al 8ee63d .dialogueDeathQuoteGen1EnemyNPCPapilio
 al 91d551 .aEventChapter06CreidneIucharbaAdjacent
 al 8b99c9 .WMM_UnusedMansterToMeathPointer
 al 83b17b .ManfroyCharacterDataOffsetsEntry
-al 8fea8d .EventChapter04LowerBridgeEventPointersEntry
 al 81c000 .UNITGroupPrologueStartUNITGroupPointersEntry
 al 86dd25 .FG_Ch04SigurdPointer
 al 8b9f82 .PortraitDialogueByronPortraitDataIDsEntry
@@ -11542,6 +11636,7 @@ al c34c56 .g4bppcWarMageMapMovementSprite
 al 829051 .aProcWorldMapScrollCode
 al d4699e .aUnifiedThraciaMapHighlightTilemap
 al 8feecb .EventChapter09LeneCoirpreTalkEventPointersEntry
+al 8fea87 .EventChapter04DaccarAndreyPreparingEventPointersEntry
 al 82c236 .rsHDMACodeSetTimer
 al 90823f .aChapterPrologueMapChangeLoweredBridge
 al 9d8958 .EventChapter03SylvaleSpawnPointer
@@ -11566,7 +11661,6 @@ al 83b1f7 .NiklasCharacterDataOffsetsEntry
 al 8b876a .WMM_PhinoraWorldMapMarkerSpritesEntry
 al 8b9c5e .PortraitPhinoraGuardFireMagePortraitDataIDsEntry
 al 83b1e3 .KellerCharacterDataOffsetsEntry
-al 86ee18 .aFactionGroup2AAI2
 al 839d21 .GrutiaIronBallisticianNameCharacterNameOffsetsEntry
 al 8fed48 .EventChapter10Village5EventPointersEntry
 al b2d05d .LexDaughterEpilogueIDEpiloguePointersEntry
@@ -11591,10 +11685,6 @@ al 83f49b .PI_SilverBlade1PlayerItemTableEntry
 al 83f49b .PI_SilverBlade1PlayerItemTableEntry:Item
 al 8feb83 .Event0ECEventPointersEntry
 al 8ab820 .PortraitPalette15PortraitPalettePointersEntry
-al 91931d .rlUnknown91931D
-al 919355 .rlUnknown91931D:_9355
-al 919361 .rlUnknown91931D:_End
-al 919362 .rlUnknown91931D:_9362
 al 8b9f86 .PortraitDialogueOldLewynPortraitDataIDsEntry
 al 8aba03 .PortraitPaletteB6PortraitPalettePointersEntry
 al 90823b .aChapterPrologueMapChangeRaisedBridge
@@ -11621,6 +11711,7 @@ al 83f48e .PI_IronSword6PlayerItemTableEntry
 al 83f48e .PI_IronSword6PlayerItemTableEntry:Item
 al b0cf5c .aEventChapter05AyraChulainnTalk
 al 8180be .rlActiveSpriteEngineCreateSpriteLastSlot
+al 868864 .rsEventCheckChildTalk
 al 9d91da .aEventChapter03QuanDied
 al 9d9230 .aEventChapter03QuanDied:_ScriptedMovementEthlyn
 al 9d924c .aEventChapter03QuanDied:_ScriptedMovementQuan
@@ -11636,7 +11727,6 @@ al 83f4f2 .PI_PhysicStaff1PlayerItemTableEntry:Item
 al 8b9da4 .PortraitIshtarCh10PortraitDataIDsEntry
 al 8ee0da .dialogueDeathQuoteLoverHermina
 al 8fe9d3 .Event05CEventPointersEntry
-al 2120 .M7Y
 al 86c7b4 .FG_Ch03SigurdFactionGroupPointersEntry
 al 8d957a .dialogueItemNameSleepSword
 al 211c .M7B
@@ -11669,7 +11759,6 @@ al 86c7d2 .FG_Ch05SigurdFactionGroupPointersEntry
 al 8feaa5 .EventChapter04AndreyLeaveEventPointersEntry
 al 838f8d .JuniorLordClassDataOffsetsEntry
 al 8de325 .dialogueChapterEpilogueWorldMap_Piece_NewThracia_Asaello
-al 8b9b1e .PortraitGenoaGuardFighterPortraitDataIDsEntry
 al 82fa01 .EPrio_MainEpiloguePriorityRoutinesEntry
 al 83b0b7 .TravantSquadCh09CharacterDataOffsetsEntry
 al 89d4a6 .aDebugEnemyHPText
@@ -11712,7 +11801,6 @@ al 13e0 .aActiveSpriteSystem:aUnknown0013E0
 al 1300 .aActiveSpriteSystem:aUnknown001300
 al 1220 .aActiveSpriteSystem:aUnknown001220
 al b2977c .rlASMCEpilogueFriegeEntrance
-al 83e39e .PhysicStaffDescriptionItemDescriptionOffsetsEntry
 al 9df89f .dialogueEpilogueLover_Deimne_MuirneDead_CreidneLarcei
 al 83ead6 .BrokenWindTomeCItemDataOffsetsEntry
 al 83b215 .CastorCharacterDataOffsetsEntry
@@ -11747,6 +11835,7 @@ al 8b9b00 .PortraitTinePortraitDataIDsEntry
 al 8eb77e .dialogueChapter04DonovanBattleQuote
 al 83dc72 .BrokenAxeCNameItemNameOffsetsEntry
 al 8ab979 .PortraitPalette88PortraitPalettePointersEntry
+al 8dfddd .aEventChapter04WorldMap
 al 8498d9 .rlSetSelectedUnitCurrentHP
 al 8feb59 .EventChapter06LarceiCreidne_IucharbaTalkEventPointersEntry
 al 86c7b7 .FG_Ch03SylvaleFactionGroupPointersEntry
@@ -11806,6 +11895,7 @@ al 212a .WBGLOG
 al 839dc1 .FisherNameCharacterNameOffsetsEntry
 al 86e51b .Ch05_ZaxonChapter05LocationDataEntry
 al 8d99c6 .dialogueClassNameDragonmaster
+al 8ab9eb .PortraitPaletteAEPortraitPalettePointersEntry
 al 91ce2b .EventChapter06OpeningPointer
 al 8ecae4 .dialogueChapter04WorldMap2
 al 8eca72 .dialogueChapter04WorldMap1
@@ -11855,12 +11945,13 @@ al b1d7a1 .aEventChapter09HannibalCharge
 al 50 .wR36
 al 52 .wR37
 al 4c .wR34
-al 86c79c .FG_Ch01NordionFactionGroupPointersEntry
+al 48 .wR32
 al 89d4de .rsDebugMenuTab1Page7Effect
 al 89d570 .rsDebugMenuTab1Page7Effect:_Untraversable
 al 89d53d .rsDebugMenuTab1Page7Effect:_D53D
 al 46 .wR31
 al 86d6d3 .aChapter03ShopData
+al 86d875 .aChapter04MapEvents
 al 86ec5e .aChapter07MapChangeData
 al 8d975b .dialogueItemNameFenrir
 al 8b9d36 .PortraitKapathogiaSwordArmorPortraitDataIDsEntry
@@ -11885,7 +11976,6 @@ al 83af79 .DithorbaSquadPegasusKnightCharacterDataOffsetsEntry
 al 8e8234 .EventChapter02InfiniSpawnPointer
 al 83d8f8 .FactionFriege1FactionNameOffsetsEntry
 al 83af83 .AnnandSquadPegasusKnightCharacterDataOffsetsEntry
-al 8fed15 .EventChapter10ChronosSeizedEventPointersEntry
 al 8b8a01 .rsDecompressGrannvaleMapHighlight
 al 8d93ba .dialogueCharacterNameIucharba
 al 83aeb7 .PhilipSquadUnusedFireMageCharacterDataOffsetsEntry
@@ -11918,6 +12008,7 @@ al 89d702 .aUnknown89D702
 al b1f985 .dialogueEpilogueLover_AzellesSon_LindaTine
 al b2d06f .HawkEpilogueIDEpiloguePointersEntry
 al 8b9e44 .PortraitRogueCh08PortraitDataIDsEntry
+al 83b1af .KutuzovFenrirCharacterDataOffsetsEntry
 al 8b9f36 .PortraitDialogueAnnand1PortraitDataIDsEntry
 al 84fb52 .aStaffWeaponDisdvantage
 al 82fa19 .EPrio_Daughter_Main_NoPriorityEpiloguePriorityRoutinesEntry
@@ -11958,7 +12049,6 @@ al 8b9825 .WMM_GrannvaleDuchiesPointer
 al 84a7b1 .rlGetEnemyClassSpdGrowth
 al 839c9d .MelgenThunderMageElthunderNameCharacterNameOffsetsEntry
 al 583 .wCurrentItemDataROMPointer
-al 83b135 .RotenritterCh10DukeKnightCharacterDataOffsetsEntry
 al 8abab4 .PortraitPaletteF1PortraitPalettePointersEntry
 al 83e9f2 .ThunderSwordItemDataOffsetsEntry
 al 83821a .aSwordArmorMapSpriteAssignment
@@ -11986,7 +12076,7 @@ al 8fea81 .EventChapter04OpeningEventPointersEntry
 al b2932b .rlASMCCheckDalvinTristanFightCapable
 al b29385 .rlASMCCheckDalvinTristanFightCapable:_False
 al 8febda .EventChapter07VillageBarrierBladeAnyoneEventPointersEntry
-al 839ad5 .NannaNameCharacterNameOffsetsEntry
+al b1ab35 .FG_FinalVelthomerPointer
 al b0c8d1 .dialogueEpilogue_JamkesSon
 al 8d9360 .dialogueCharacterNameHannibal
 al 8db708 .rlASMCEpilogueWorldMapSilessePieceEnd
@@ -11999,7 +12089,6 @@ al 91910b .rlUnknown91910B
 al 9daf38 .dialogueChapter03OrgahilSpawn1
 al 9db142 .dialogueChapter03OrgahilSpawn3
 al 8d8d8f .EventChapter10HildaDiedPointer
-al 91f34b .rsUnknown91F34B
 al 839e77 .MannsteinNameCharacterNameOffsetsEntry
 al 8b9dca .PortraitDarkMageCh10SleepStaffPortraitDataIDsEntry
 al b1c557 .dialogueChapter07TineLinda_Dialogue
@@ -12021,7 +12110,6 @@ al 83f4d7 .PI_YewfellePlayerItemTableEntry
 al 83f4d7 .PI_YewfellePlayerItemTableEntry:Item
 al b2912c .EventChapter07DahnaArmyTalkPointer
 al 8aba36 .PortraitPaletteC7PortraitPalettePointersEntry
-al b1f46d .dialogueEpilogue_Piece_Iuchar
 al 83b093 .MeathBallisticianCharacterDataOffsetsEntry
 al 8eece6 .dialogueDeathQuoteGen2EnemyNPCKanatz
 al 8d9b16 .dialogueClassNameDarkBishop
@@ -12059,6 +12147,7 @@ al 8d9593 .dialogueItemNameFireSword
 al 8ab8c2 .PortraitPalette4BPortraitPalettePointersEntry
 al 8db887 .rlASMCEpilogueWorldMapNewThraciaCheckNoInheritors
 al 8db8b3 .rlASMCEpilogueWorldMapNewThraciaCheckNoInheritors:_End
+al 83b045 .JavarroCharacterDataOffsetsEntry
 al 87f017 .aCastle2BannerTileIndexes
 al 83afa1 .LamiaSquadMyrmidonBraveSwordCharacterDataOffsetsEntry
 al 82fd74 .EDID_HannibalPointer
@@ -12070,6 +12159,7 @@ al 84a87e .rlUnknown84A87E
 al 84a8c1 .rlUnknown84A87E:_End
 al 84a8c4 .rlUnknown84A87E:_CLC
 al b0abd0 .dialogueChapter05ReptorBetrayalResponse
+al b298e2 .rlEpilogueMoveUnitsOutOfBelhalla
 al 839d45 .RiddellSquadMageKnightNameCharacterNameOffsetsEntry
 al b2fa73 .EventChapter02ErinysSigurdTalkPointer
 al 838b0f .PrinceClassNameClassNameOffsetsEntry
@@ -12083,7 +12173,7 @@ al 8b9f30 .PortraitDialogueBanbaPortraitDataIDsEntry
 al 83b0ef .DarkBishopCh10CharacterDataOffsetsEntry
 al 83b209 .NazarlCharacterDataOffsetsEntry
 al 9da692 .dialogueChapter03LachesisEldiganTalk2
-al 8edddf .dialogueDeathQuoteGen2PlayerShannan
+al 86821e .rlUnknown86821E
 al 8b9c78 .PortraitFriegeCh05HeroPortraitDataIDsEntry
 al 8686f2 .rsUnknown8686F2
 al 1720 .wMapCurrentlyScrollingFlag
@@ -12108,7 +12198,6 @@ al 8ab7e7 .PortraitPalette02PortraitPalettePointersEntry
 al 8feee6 .EventChapter10LesterDeimne_PattyDaisyTalkEventPointersEntry
 al 8b9f64 .PortraitDialogueJuliusPortraitDataIDsEntry
 al 8fe728 .dialogueChapterFinalWorldMap4
-al 82c187 .aHDMAChannelTable
 al 8fe6cc .dialogueChapterFinalWorldMap2
 al 8fe6f5 .dialogueChapterFinalWorldMap3
 al 8fe65f .dialogueChapterFinalWorldMap1
@@ -12575,11 +12664,16 @@ al 86f905 .aChapter09MapChangeTopLeftRampart
 al 9d925b .EventChapter03EthlynDiedPointer
 al 8ff688 .EventChapter09PattyDaisy_CoirpreCharlotTalkPointer
 al 839cbf .UlsterUnusedThunderMage2NameCharacterNameOffsetsEntry
-al 84e210 .rsActionStructAdjustVantageRoundOrder
-al 84e230 .rsActionStructAdjustVantageRoundOrder:_End
+al 9d87a5 .aEventChapter03MadinoSeized
+al 9d8925 .aEventChapter03MadinoSeized:_ScriptedMovementDummy
+al 9d8905 .aEventChapter03MadinoSeized:_ScriptedMovementDeirdre
+al 9d88fc .aEventChapter03MadinoSeized:_ScriptedMovementClaudTailtiuLeave
+al 9d88ef .aEventChapter03MadinoSeized:_ScriptedMovementClaudAppear
+al 9d891a .aEventChapter03MadinoSeized:_ScriptedMovementManfroy
+al 9d88ed .aEventChapter03MadinoSeized:_ScriptedMovementTailtiuAppear
 al 84dbe1 .rsGetUnit1LeadershipBonus
 al 84fc38 .rlGetEnemySpeed
-al 84a06a .rlGetSelectedUnitFactionNamePointer
+al b2d160 .aAsaelloEpiloguePointers
 al 89ce08 .aDebugUnitType1Text
 al 7e3d87 .aItemRAMData
 al 7e3d87 .aItemRAMData:_Header
@@ -12613,7 +12707,6 @@ al 8d91d4 .dialogueCastleNamePeruluke
 al 83b041 .MelgenBallisticianCharacterDataOffsetsEntry
 al 8ab8ce .PortraitPalette4FPortraitPalettePointersEntry
 al 91bcc7 .rlASMCEpilogueClaudsSonLoverCall
-al b1860b .aEventPrologueVillage4
 al 8e930c .EventChapter04CuvuliChargePointer
 al 89dd6f .aDebugCombatAtkDefText
 al 839c53 .RotenritterCh05CommanderFireMageNameCharacterNameOffsetsEntry
@@ -12661,13 +12754,13 @@ al b0bfd9 .dialogueEpilogue_Piece_DiarmuidNanna_End
 al 83f4d6 .PI_KillerBowPlayerItemTableEntry
 al 83f4d6 .PI_KillerBowPlayerItemTableEntry:Item
 al 8ab520 .PortraitGraphic0DPortraitGraphicPointersEntry
-al 8b9e2c .PortraitArionChFinalPortraitDataIDsEntry
+al 2100 .INIDISP
 al 8ab92e .PortraitPalette6FPortraitPalettePointersEntry
 al 8b9fac .PortraitDialoguePurpleAndreyPortraitDataIDsEntry
 al 8b9ec2 .PortraitIndraCh09PortraitDataIDsEntry
 al b2d075 .LewnysSonEpilogueIDEpiloguePointersEntry
 al 8d917d .dialogueCastleNameGaneishire
-al 839bd1 .CuvuliNameCharacterNameOffsetsEntry
+al 84f2fe .rlSetSelectedUnitEquippedWeaponBitfield
 al 7eccc8 .wActionStructDefenderDeploymentNumber
 al 828b13 .rlProcUnknown828AF2Init
 al b0cea6 .EventChapter05SilviaClaudTalkPointer
@@ -12685,7 +12778,6 @@ al 8ab9fa .PortraitPaletteB3PortraitPalettePointersEntry
 al 839ac3 .DiarmuidNameCharacterNameOffsetsEntry
 al 81c018 .UNITGroupChapter02AgustiUNITGroupPointersEntry
 al 8e887a .EventChapter02InfiniSeizedPointer
-al 7eccdc .wBattleActivatedSkill
 al 86f2fc .Ch08_VillagePowerRingChapter08LocationDataEntry
 al 86d6b0 .aChapter03Village2
 al 83eab2 .KnightRingItemDataOffsetsEntry
@@ -12819,7 +12911,6 @@ al 8b9eee .PortraitJacksonChFinalPortraitDataIDsEntry
 al 8e9320 .aEventChapter04DaccarAndreyPreparing
 al 90d4db .dialogueChapter06SchmidtSpawn1
 al 90d53e .dialogueChapter06SchmidtSpawn2
-al 908a7d .Event032Pointer
 al 86ed47 .FG_Ch07SeliphPointer
 al 8b9c70 .PortraitReptorCh05PortraitDataIDsEntry
 al 9183d7 .rlUnknown9183D7
@@ -12852,7 +12943,6 @@ al 91f2ae .aSaveItemRAMData
 al 83af89 .AndreyCh04CharacterDataOffsetsEntry
 al b184a5 .aEventPrologueArvisSpawn
 al 83eaca .BrokenThunderTomeAItemDataOffsetsEntry
-al 89cb9c .aDebugSpeedText
 al e2 .wJoyRepeatInterval
 al 84a542 .rlGetSelectedUnitTotalResGrowth
 al 9da98b .dialogueChapter03EldiganBattleQuote
@@ -13117,6 +13207,7 @@ al 86c757 .Chapter10ChapterEventPointersEntry
 al 83f4cf .PI_IronBow1PlayerItemTableEntry
 al 83f4cf .PI_IronBow1PlayerItemTableEntry:Item
 al b2db86 .dialogueChapter08LeifNearMountain
+al 839c0d .LombardCh05NameCharacterNameOffsetsEntry
 al 8ababa .PortraitPaletteF3PortraitPalettePointersEntry
 al 8feed1 .EventChapter09HannibalAltenaTalkEventPointersEntry
 al b2ca64 .dialogueEpilogue_Piece_LewnysSon_Start1
@@ -13271,7 +13362,6 @@ al 838556 .aGen1LoveBases:EthlynGen1LoveBasesEntry:Midir
 al 838552 .aGen1LoveBases:EthlynGen1LoveBasesEntry:Alec
 al 91ad5c .rsTryFindDeathQuotePointer
 al 87f1be .aVillageDestroyedPattern2State9Tiles
-al b0cc53 .aEventChapter04SigurdClaudTalk
 al 8b9be8 .PortraitArvisPortraitDataIDsEntry
 al 8d91ad .dialogueCastleNameVerdane
 al 95 .bBufferWOBJLOG
@@ -13331,7 +13421,6 @@ al c40b74 .g4bppcSageFemaleMapMovementSprite
 al 83f4b9 .PI_IronLance5PlayerItemTableEntry
 al 83f4b9 .PI_IronLance5PlayerItemTableEntry:Item
 al 86e59f .aChapter05MapChangeVelthomerRampart
-al 8ab98b .PortraitPalette8EPortraitPalettePointersEntry
 al 83afc3 .ByronCharacterDataOffsetsEntry
 al b195fa .dialogueChapterPrologueGerrardBattleQuote
 al 91c0f4 .rsUnknown91C0F4
@@ -13398,7 +13487,6 @@ al 83aec1 .ElliotSquadCh02BowKnightCharacterDataOffsetsEntry
 al 8fea6c .EventChapter03FinnDiedEventPointersEntry
 al 838ac7 .PaladinFClassNameClassNameOffsetsEntry
 al 86d6ce .aChapter03VillageRestore
-al b1ab35 .FG_FinalVelthomerPointer
 al 8ab67c .PortraitGraphic81PortraitGraphicPointersEntry
 al 9dc103 .aEventChapter05AndreyCharge
 al 83f4f7 .PI_RescueStaffPlayerItemTableEntry
@@ -13501,7 +13589,7 @@ al 8384af .DalvinLoverIDMaleLoveDataIDsEntry
 al 8384af .DalvinLoverIDMaleLoveDataIDsEntry:UnitID
 al 83873c .LachesisLoveGrowthLoveGrowthOffsetsEntry
 al 839b33 .EveNameCharacterNameOffsetsEntry
-al 8ab8ec .PortraitPalette59PortraitPalettePointersEntry
+al 86ed27 .aUnknown86ED27
 al 86ed23 .aUnknown86ED23
 al 8b9df4 .PortraitFisherSquadAxeKnightHandAxePortraitDataIDsEntry
 al b29867 .rlASMCEpilogueChalphyExit
@@ -13523,6 +13611,7 @@ al 8e812a .aEventChapter02Opening:_812A
 al 8e8153 .aEventChapter02Opening:_ScriptedMovementElliotGroup
 al b28b02 .EventChapter07BramselWaitingPointer
 al 83dc68 .BraveAxeNameItemNameOffsetsEntry
+al 87e689 .rlUnknown87E689
 al 91d54f .Event0EEPointer
 al b38396 .dialogueChapter09Opening3
 al b2904c .EventChapter07Village1Pointer
@@ -13538,14 +13627,12 @@ al 85a8a1 .rlDialogueBoxUnfoldingHDMAInit
 al 839d97 .RotenritterCh10GreatKnightNameCharacterNameOffsetsEntry
 al 8ff3e9 .EventChapter08HerminaHawkTalkPointer
 al 839bff .ZaxonGuardGeneralNameCharacterNameOffsetsEntry
-al 89e150 .aDebugCombatItemText
 al 8edfee .dialogueDeathQuoteLoverJulia
 al 8d93ad .dialogueCharacterNameScathach
 al 8b9d92 .PortraitMiletosDarkMageJormungandrPortraitDataIDsEntry
 al 86d815 .aChapter04EventHeader
 al afa38e .dialogueChapterFinalTineLinda_CedHawkTalk
 al 84e4ed .rsActionStructWeaponTraitNormal
-al 91f188 .rsLoadDynamicCharacterROMData
 al 8fe94c .Event02FEventPointersEntry
 al 83d900 .FactionChalphy1FactionNameOffsetsEntry
 al 84f99d .rlUnknown84F99D
@@ -13577,7 +13664,9 @@ al 8b9c66 .PortraitMagornPortraitDataIDsEntry
 al b0f6ff .dialogueEpilogueLover_AmidArthur_NobleA
 al d1360f .aMunsterMapHighlightTilemap
 al 83b1f9 .AtlasCh04CharacterDataOffsetsEntry
-al 8ffb9c .aEventChapterFinalPattyDaisy_SeliphTalk
+al 9dc229 .EventChapter05LeonsterSpawnPointer
+al a0 .bBufferSETINI
+al 86e6eb .aFactionGroup1EAI1
 al 839ca3 .MelgenPriestNameCharacterNameOffsetsEntry
 al 8b9b48 .PortraitPhilipSquadBallisticianPortraitDataIDsEntry
 al b0cf90 .aEventChapter05BrigidAlecTalk
@@ -13587,6 +13676,7 @@ al 8fe979 .EventChapter01EthlynDiedEventPointersEntry
 al b18000 .EventPrologueOpeningPointer
 al 8b99ee .WMM_UnusedThraciaCastlesPointer
 al 8b9dfc .PortraitDagonPortraitDataIDsEntry
+al e7b .bUnknown000E7B
 al 8dff7f .aEventChapterEpilogueWorldMap
 al 8384c9 .IucharbaLoverIDMaleLoveDataIDsEntry
 al 8384c9 .IucharbaLoverIDMaleLoveDataIDsEntry:UnitID
@@ -13599,7 +13689,7 @@ al 87f178 .aVillageDestroyedPattern2State4Tiles
 al 9da312 .dialogueChapter03SigurdEldiganCloseByTalk
 al 83dc60 .BrokenLanceCNameItemNameOffsetsEntry
 al 81c024 .UNITGroupChapter04StartUNITGroupPointersEntry
-al 8b9aac .PortraitAyraPortraitDataIDsEntry
+al 83b135 .RotenritterCh10DukeKnightCharacterDataOffsetsEntry
 al 8ab6d0 .PortraitGraphic9DPortraitGraphicPointersEntry
 al 74 .bBufferBGMODE
 al 82e483 .rlRemoveRAMStructEntry
@@ -13636,6 +13726,7 @@ al aec0f6 .dialogueChapter04ErinysLewynTalk
 al 8b981e .WMM_RibautCh07Pointer
 al 81c066 .UNITGroupChapterFinalDozelUNITGroupPointersEntry
 al 83b02d .BloomCh07CharacterDataOffsetsEntry
+al 8ee7b9 .dialogueDeathQuoteGen1EnemyNPCByron
 al d9 .wVBlankFlag
 al b1dc43 .rlASMCChapter09WarpAway
 al b2d726 .dialogueChapter03DewBragiTower1
@@ -13727,7 +13818,7 @@ al 869b71 .aEventCheckParametersByIdentifier
 al b2d175 .aAresEpiloguePointers
 al 839e81 .DeweyNameCharacterNameOffsetsEntry
 al 9182f0 .rlUnknown9182F0
-al 8b9af2 .PortraitDiarmuidPortraitDataIDsEntry
+al 8b9d02 .PortraitOvoSquadTroubadourPortraitDataIDsEntry
 al 85aa31 .rsDialogueBoxHDMAWriteHiddenAreaToTable
 al 85aa80 .rsDialogueBoxHDMAWriteHiddenAreaToTable:_End
 al 85aa39 .rsDialogueBoxHDMAWriteHiddenAreaToTable:_Loop
@@ -13747,6 +13838,7 @@ al 80a6c3 .rlButtonCombinationResetCheck
 al 839cbd .EriuCh07NameCharacterNameOffsetsEntry
 al 89cd96 .aUnknown89CD96
 al 8ee2ab .dialogueDeathQuoteLoverLana
+al 839c0b .LamiaSquadThunderMageNameCharacterNameOffsetsEntry
 al 83b167 .BrianSquadTroubadourCharacterDataOffsetsEntry
 al 8384e7 .SilviaLoverIDFemaleLoveDataIDsEntry
 al 8384e7 .SilviaLoverIDFemaleLoveDataIDsEntry:UnitID
@@ -13781,25 +13873,24 @@ al 839d95 .RotenritterCh10ArchKnightNameCharacterNameOffsetsEntry
 al 86de02 .aFactionGroup17AI3
 al 86c820 .FG_Ch09GrutiaFactionGroupPointersEntry
 al 89e402 .rsDebugMenuTab3Page4
-al 86f4c7 .aFactionGroup30AI8
 al 89ddfc .rsDebugMenuTab3Page2
 al 83e390 .LoptousDescriptionItemDescriptionOffsetsEntry
 al 8fe967 .EventChapter01MunnirRallyVanguardEventPointersEntry
 al 8ff213 .aEventChapter07LarceiCreidne_ShannanTalk
 al b2ba2f .dialogueChapterFinalArionBattleQuote
+al 839c39 .MagornSquadDragonknightNameCharacterNameOffsetsEntry
 al b28b71 .EventChapter07MelgenSpawnPointer
-al 8b9f70 .PortraitDialogueBaran2PortraitDataIDsEntry
-al 8ffd74 .aEventChapterFinalArthurTineTalk
+al 8ff9a7 .aEventChapterFinalTineLinda_LeifTalk
 al 86ee34 .aFactionGroup2BAI2
 al b2c6b7 .dialogueEpilogue_LewynsSon_SisterDead
 al 83dc5a .GaeBolgNameItemNameOffsetsEntry
+al 8fec5e .EventChapter08Village2EventPointersEntry
 al 8fedf6 .EventChapter03MidirBrigidTalkEventPointersEntry
 al 82fa05 .EPrio_StartRegionEpiloguePriorityRoutinesEntry
 al 849b1d .rlGetSelectedUnitTotalStrengthEffect
 al 849b66 .rlGetSelectedUnitTotalStrengthEffect:_End
 al 82c0f8 .rlHDMAEngineMainLoop
 al 82c106 .rlHDMAEngineMainLoop:_Loop
-al b1e58c .EventChapterFinalEndingPointer
 al b185a5 .Event00FPointer
 al 83e2ee .IronBladeDescriptionItemDescriptionOffsetsEntry
 al 9d8eec .aEventChapter03Ending
@@ -14047,7 +14138,6 @@ al 81da53 .aUNITGroupDataChapter07Melgen:ID_10UNITGroupDataChapter07MelgenEntry:
 al 81da4c .aUNITGroupDataChapter07Melgen:ID_10UNITGroupDataChapter07MelgenEntry:CharacterID
 al 81da50 .aUNITGroupDataChapter07Melgen:ID_10UNITGroupDataChapter07MelgenEntry:GroupLeaderFlag
 al 8d93d2 .dialogueCharacterNameLester
-al 83b251 .IndraCh10CharacterDataOffsetsEntry
 al 8ab61c .PortraitGraphic61PortraitGraphicPointersEntry
 al b0f598 .dialogueEpilogueLover_Lester_BrigidsChildrenDead_Noble
 al 8e871a .Event05BPointer
@@ -14062,6 +14152,7 @@ al 80a70e .rlGetRandomNumber100
 al 818594 .rsUnknown818594
 al 8b9eba .PortraitMalderPortraitDataIDsEntry
 al 89d857 .aDebugSkillCharm
+al b1d62d .aEventChapter09CoirpreHostage
 al 8d9996 .dialogueClassNamePegasusRider
 al 8dc862 .rlASMCEpilogueWorldMapGrannvalePieceYngviLestersLover
 al 8dc88f .rlASMCEpilogueWorldMapGrannvalePieceYngviLestersLover:_End
@@ -14071,6 +14162,7 @@ al 8183a1 .rlUnknown818396:_OuterLoop
 al 8183a9 .rlUnknown818396:_InnerLoop
 al 8183e3 .rlUnknown818396:_Next
 al 818392 .rlUnknown818392
+al 839eb7 .DiceChFinalNameCharacterNameOffsetsEntry
 al b3cb05 .dialogueChapter10JuliusBattleQuote
 al 87e007 .rlUnknown87E007
 al b0c5e2 .dialogueEpilogue_Jeanne_LoverDead
@@ -14095,7 +14187,6 @@ al 8fbe13 .aEventChapter08CoulterCharge
 al 8febdd .EventChapter07Village1EventPointersEntry
 al 921 .wUnknown000921
 al 91f6fb .aSaveUnitJoinOrderData
-al 8fe99d .EventChapter02WaltzChargeEventPointersEntry
 al 8fec88 .EventChapter08LeifNearMountainEventPointersEntry
 al c33ddc .g4bppcDarkMageMapMovementSprite
 al 83b155 .RodanSquadHighPriestFortifyCharacterDataOffsetsEntry
@@ -14157,7 +14248,6 @@ al 91bace .rlASMCSetChalphyEpilogue
 al 83dc62 .IronAxeNameItemNameOffsetsEntry
 al 839acb .LarceiNameCharacterNameOffsetsEntry
 al 828f49 .rlProcMapScrollInit
-al 8e832b .EventChapter02WaltzChargePointer
 al 8d90a6 .dialogueEventDebug8D90A6
 al b0cbae .EventChapter03SigurdBrigidTalkPointer
 al b3eb37 .dialogueEpilogueLover_Asaello_DaisyAlive_JeanneNanna
@@ -14171,6 +14261,7 @@ al 8fc0d7 .aEventChapter08LindaOnTree
 al 91d4c6 .EventChapter06EndingPointer
 al 91d4c6 .aEventChapter06Ending
 al 91d4e2 .aEventChapter06Ending:_JuliaWasntCaptured
+al c21641 .g4bppcSwordmasterMapMovementSprite
 al 86e6f4 .aFactionGroup21AI1
 al 91f0a9 .aSaveStaticDynamicPersonalCharacterData
 al 87bce8 .aSiblingCritEntryPointers
@@ -14219,7 +14310,6 @@ al b0805f .aChapter10MapEvents
 al 86c7f6 .FG_Ch06Isaach1FactionGroupPointersEntry
 al 8fa22a .dialogueChapter02ClementBattleQuote
 al c4036c .g4bppcSageMapMovementSprite
-al 8fba90 .EventChapter08IshtarSpawnPointer
 al b2d063 .ClaudsSonEpilogueIDEpiloguePointersEntry
 al 8eddb7 .dialogueDeathQuoteGen2PlayerSeliph
 al 839d93 .RotenritterCh10CommanderMageKnightNameCharacterNameOffsetsEntry
@@ -14234,11 +14324,11 @@ al 8384fd .JeanneLoverIDFemaleLoveDataIDsEntry
 al 8384fd .JeanneLoverIDFemaleLoveDataIDsEntry:UnitID
 al 550 .wStructIndex
 al b2912a .Event118Pointer
+al c632e2 .g4bppcGreatBallisticianMapMovementSprite
 al b2f81c .aEventPrologueUnusedAlecEthlynTalk
 al 83ea4e .ElfireItemDataOffsetsEntry
 al 8b9d1a .PortraitMeathDragonriderLeonsterChargePortraitDataIDsEntry
 al 8b9f5a .PortraitDialogueMabelPortraitDataIDsEntry
-al 2100 .INIDISP
 al 838383 .ForestNameTerrainNameOffsetsEntry
 al 8b981e .WMM_BelhallaCh05Pointer
 al 8fe8e0 .Event00BEventPointersEntry
@@ -14275,7 +14365,7 @@ al 83f50f .PI_BargainBandPlayerItemTableEntry:Item
 al b0cca0 .EventChapter04EdainJamkeTalkPointer
 al 84f1c8 .rsRemoveItemStatBonusIfRing
 al 8f92b6 .dialogueChapter02InfiniSpawn2
-al b298e2 .rlEpilogueMoveUnitsOutOfBelhalla
+al 8d9205 .dialogueCastleNameGrutia
 al 7e52b7 .aChapterEventRAMData
 al 7e52b7 .aChapterEventRAMData:_Header
 al 7e52b8 .aChapterEventRAMData:_Header:MaxStructCount
@@ -14306,15 +14396,18 @@ al b190a5 .dialogueChapterPrologueDiMaggioYngviTakeover
 al 8b9d46 .PortraitLutheciaHeroFPortraitDataIDsEntry
 al 839df5 .SimiaNameCharacterNameOffsetsEntry
 al 8e9377 .aEventChapter04LowerBridge
-al 83ea46 .IronBallistaItemDataOffsetsEntry
 al 8fed54 .Event187EventPointersEntry
 al 83af17 .MadinoCommanderArchKnightCharacterDataOffsetsEntry
 al 83aefd .ZaneSquadLanceKnightCharacterDataOffsetsEntry
 al 8ab631 .PortraitGraphic68PortraitGraphicPointersEntry
 al 83f4b1 .PI_Armorslayer1PlayerItemTableEntry
 al 83f4b1 .PI_Armorslayer1PlayerItemTableEntry:Item
+al 818279 .rsUnknown818279
+al 81827e .rsUnknown818279:_Loop
+al 8182b9 .rsUnknown818279:_Next
 al 91897e .rsDialogueClearNextLineBGBuffer
 al b1aa53 .aChapter10MapChangeFriegeRightRampart
+al 91f34b .rsUnknown91F34B
 al 86f36c .aChapter08MapChangeConnachtBridge
 al 83dcbe .BrokenFireTomeBNameItemNameOffsetsEntry
 al 8b9bc8 .PortraitChagallCh03PortraitDataIDsEntry
@@ -14366,7 +14459,6 @@ al 8b8a3b .WMH_UnifiedThraciaPointer
 al 82f05a .rsCheckIfEntryFitsInRAMArea
 al b0e115 .dialogueChapter08TineLinda_IshtarBattleQuote
 al c26992 .g4bppcSwordSoldierMapMovementSprite
-al 86ed27 .aUnknown86ED27
 al 81e024 .aUNITGroupDataChapter09Grutia
 al 81e0ac .aUNITGroupDataChapter09Grutia:ID_18UNITGroupDataChapter09GrutiaEntry
 al 81e0b2 .aUNITGroupDataChapter09Grutia:ID_18UNITGroupDataChapter09GrutiaEntry:FactionSlot
@@ -14573,7 +14665,6 @@ al 91ebb2 .rlUnknown91EB76:_Next
 al 8b9f4a .PortraitDialogueDistlerPortraitDataIDsEntry
 al 84822d .aModifyChildrenDataRoutines
 al 89d64a .aDebugTerrainNamePointers
-al 8ab7a8 .PortraitGraphicE5PortraitGraphicPointersEntry
 al b08378 .aChapter10Village1
 al b08382 .aChapter10Village3
 al b0837d .aChapter10Village2
@@ -14583,13 +14674,11 @@ al 8aba6f .PortraitPaletteDAPortraitPalettePointersEntry
 al 86805d .rsUnknown86805D
 al 8b9d56 .PortraitArionSquadCh09DragonknightSleepSwordPortraitDataIDsEntry
 al 86ccfa .Chapter02Pointer
-al 86e6d0 .aFactionGroup1CAI1
 al 84fb4f .aAxeWeaponDisdvantage
 al 839d67 .MiletosDarkMageSleepNameCharacterNameOffsetsEntry
 al 86cc8a .aFactionGroup05AI2
 al 86cc7c .aFactionGroup05AI1
 al 83b015 .DanannCharacterDataOffsetsEntry
-al 82fc29 .EDID_SeliphEpilogueDialogueIDRoutinesEntry
 al 8384db .aFemaleLoveDataIDs
 al 8ab988 .PortraitPalette8DPortraitPalettePointersEntry
 al 86858b .rsUnknown86858B
@@ -14603,6 +14692,7 @@ al 8b9fe8 .PortraitDialogueCivilianSmallBoyPortraitDataIDsEntry
 al 8b9bd0 .PortraitPapilioSquadDragonriderPortraitDataIDsEntry
 al 83b01d .AedDarkMageLv7CharacterDataOffsetsEntry
 al 84ad00 .rsApplyLevelUpHPGain
+al 8ab7a8 .PortraitGraphicE5PortraitGraphicPointersEntry
 al 838750 .JuliaLoveGrowthLoveGrowthOffsetsEntry
 al 87e9d1 .rlGetEventLocationEntryCoordinatesByID
 al 8fef1c .EventChapterFinalLarceiCreidne_ShannanTalkEventPointersEntry
@@ -14770,6 +14860,7 @@ al 8d9716 .dialogueItemNameWind
 al 839bf7 .SilesseFighterNameCharacterNameOffsetsEntry
 al b0cca0 .aEventChapter04EdainJamkeTalk
 al 86dce9 .aChapter04MapChangeData
+al 83b251 .IndraCh10CharacterDataOffsetsEntry
 al 8ab5da .PortraitGraphic4BPortraitGraphicPointersEntry
 al 8eda8f .dialogueDeathQuoteGen1PlayerClaud
 al 82fa15 .EPrio_Male_LoverEpiloguePriorityRoutinesEntry
@@ -14812,7 +14903,6 @@ al b18627 .EventPrologueVillageSpeedRingPointer
 al 8eec67 .dialogueDeathQuoteGen2EnemyNPCCoulter
 al 83f4b6 .PI_IronLance2PlayerItemTableEntry
 al 83f4b6 .PI_IronLance2PlayerItemTableEntry:Item
-al 91bf35 .rsEventCommand0F
 al 91befd .rsEventCommand0D
 al 91bf17 .rsEventCommand0E
 al b2f8ba .EventChapter01MidirEdainTalkPointer
@@ -14840,7 +14930,6 @@ al 84bf25 .rlUnknown84BF25
 al 84bf62 .rlUnknown84BF25:_End
 al 84bf5f .rlUnknown84BF25:_BF5F
 al 83e9e0 .BarrierBladeItemDataOffsetsEntry
-al 838ad5 .FalconKnightClassNameClassNameOffsetsEntry
 al 8ab913 .PortraitPalette66PortraitPalettePointersEntry
 al ae9c8c .dialogueChapter02SigurdLewynTalk
 al 9dcad4 .EventChapter05ArdenOnCliffPointer
@@ -15281,10 +15370,12 @@ al b185fd .aEventPrologueVillage2
 al 8d93b4 .dialogueCharacterNameFebail
 al 8b9c18 .PortraitPamelaPortraitDataIDsEntry
 al b185ef .aEventPrologueVillage1
+al b1860b .aEventPrologueVillage4
 al 8383a3 .StoreNameTerrainNameOffsetsEntry
 al 8db853 .rlASMCEpilogueWorldMapSilessePieceFeeHerimna
 al 8db871 .rlASMCEpilogueWorldMapSilessePieceFeeHerimna:_Dialogue
 al 8db886 .rlASMCEpilogueWorldMapSilessePieceFeeHerimna:_End
+al 7eccd8 .wActionStructAttacker
 al 9ddc13 .dialogueEpilogue_Deimne_MuirneDead
 al 8fea4b .Event084EventPointersEntry
 al 839c55 .RotenritterCh05FireMageNameCharacterNameOffsetsEntry
@@ -15374,7 +15465,6 @@ al 8dbd08 .rlASMCEpilogueWorldMapIsaachPieceScathachDalvinsLover
 al 8dbd30 .rlASMCEpilogueWorldMapIsaachPieceScathachDalvinsLover:_End
 al 9dcb00 .aEventChapter05_0D7
 al 8fef28 .EventChapterFinalNannaJeanne_SeliphTalkEventPointersEntry
-al 8fea87 .EventChapter04DaccarAndreyPreparingEventPointersEntry
 al 8fea9c .EventChapter04AndreySpawnEventPointersEntry
 al 86f333 .aChapter08VillagePowerRing
 al 83afeb .FriegeCh05LanceArmorCharacterDataOffsetsEntry
@@ -15516,6 +15606,7 @@ al 83f4ff .PI_MagicRing1PlayerItemTableEntry
 al 83f4ff .PI_MagicRing1PlayerItemTableEntry:Item
 al 8e877c .EventChapter02ChulainnRecruitmentMackilyPointer
 al 87f2a6 .aVillageDestroyedPattern4State5Tiles
+al 91ae49 .aUnknown91AE49
 al 8d93fd .dialogueCharacterNameNanna
 al 83eaa2 .BrokenStaffCItemDataOffsetsEntry
 al 8384dd .EthlynLoverIDFemaleLoveDataIDsEntry
@@ -15537,9 +15628,12 @@ al 9dd14d .dialogueEpilogue_Shannan
 al 839b43 .MackilyFireMageNameCharacterNameOffsetsEntry
 al 90b3ce .dialogueChapter01SandimaBattleQuote
 al 81868c .rsActiveSpriteCommand1D
+al 9df0d0 .dialogueEpilogueLover_Seliph_JuliaAlive_All
 al 82ee9c .rlUnknown82EE9C
 al 81886a .rsActiveSpriteCommand1A
+al 839c91 .BloomCh07NameCharacterNameOffsetsEntry
 al 9dc58a .aEventChapter05ReptorBetrayalResponse
+al 86e6d0 .aFactionGroup1CAI1
 al 87f493 .aUnknown87F493
 al 89e3f8 .aDebugCombatLUCKGainText
 al 87f49d .aUnknown87F49D
@@ -15570,11 +15664,10 @@ al 8feeef .EventChapter10SeliphLeneTalkEventPointersEntry
 al 8d91a1 .dialogueCastleNameAed
 al 86e510 .Chapter05DataPointer
 al 8ee004 .dialogueDeathQuoteGen2PlayerJulia
-al 839c91 .BloomCh07NameCharacterNameOffsetsEntry
+al 818566 .rsActiveSpriteCommand16
 al 839c5d .RotenritterCh05MageKnightNameCharacterNameOffsetsEntry
 al 8b9ab4 .PortraitEdainPortraitDataIDsEntry
 al 818513 .rsActiveSpriteCommand13
-al 81883c .rsActiveSpriteCommand10
 al 838acb .RangerClassNameClassNameOffsetsEntry
 al b0de30 .dialogueChapter07ArthurAmid_TineLindaBattleQuote
 al 8b8796 .WMM_ConnachtWorldMapMarkerSpritesEntry
@@ -15837,8 +15930,8 @@ al b0bac4 .dialogueChapter05TravantBattleQuote
 al 91f1d0 .aSaveFemaleCharacterLoverData
 al 83b083 .MeathCivilianFemaleCharacterDataOffsetsEntry
 al 7e5025 .wAITargetCounter
-al 8d93e3 .dialogueCharacterNameLarcei
 al 8b9c8c .PortraitRotenritterCh05MageKnightPortraitDataIDsEntry
+al 9d .bBufferCOLDATA_1
 al 838300 .aCivilianMapSpriteAssignment
 al 8382ce .aBardMapSpriteAssignment
 al 83e37c .TornadoDescriptionItemDescriptionOffsetsEntry
@@ -15853,6 +15946,7 @@ al 84a915 .rlActionStructInflictDamage:_CLC
 al 91cd10 .rsEventCommand57
 al b1dc7c .EventChapter09Village1Pointer
 al 8ab808 .PortraitPalette0DPortraitPalettePointersEntry
+al 87f00f .aCastle1BannerTileIndexes
 al b2989c .rlASMCEpilogueSilesseExit
 al 84a7ba .rlGetEnemyClassDefGrowth
 al 82c1fc .rsHDMACodeHalt
@@ -15860,7 +15954,6 @@ al 8d97cf .dialogueItemNameValkyrieStaff
 al 839abb .ScathachNameCharacterNameOffsetsEntry
 al b2c55f .dialogueEpilogue_HerminaFee
 al b1d9cd .EventChapter09ThraciaSpawnPointer
-al c632e2 .g4bppcGreatBallisticianMapMovementSprite
 al 91a737 .rlClearAllFadeOutProcs
 al 91a768 .rlClearAllFadeOutProcs:_Proc3
 al 91a750 .rlClearAllFadeOutProcs:_Proc2
@@ -15913,6 +16006,7 @@ al b1ab93 .aFactionGroup3DAI4
 al b1ab91 .aFactionGroup3DAI3
 al b1ab8c .aFactionGroup3DAI2
 al b1ab81 .aFactionGroup3DAI1
+al b1e583 .rlASMCChapterFinalNagaObtainShine
 al 91cb7a .rsEventCommand4B
 al 91cba2 .rsEventCommand4C
 al 91cb5e .rsEventCommand4A
@@ -16007,6 +16101,7 @@ al 84a38d .rlGetSelectedUnitGenerationID:_End
 al 84a38e .rlGetSelectedUnitGenerationID:_Enemy
 al b2b03b .dialogueChapterFinalThraciaSpawn
 al 839b25 .ElliotSquadCh02BowKnightNameCharacterNameOffsetsEntry
+al 8ffd74 .aEventChapterFinalArthurTineTalk
 al 83dc40 .ArmorslayerNameItemNameOffsetsEntry
 al 8ffc5b .EventChapterFinalNannaAresTalkPointer
 al c5173a .g4bppcKnightLordSigurdMapMovementSprite
@@ -16220,7 +16315,6 @@ al 8ab53b .PortraitGraphic16PortraitGraphicPointersEntry
 al 84cc11 .rlDeployedUnitSetDefeated
 al 91f45a .aSaveChapterEventData
 al 8b9bb8 .PortraitMadinoMageWoodsPortraitDataIDsEntry
-al 8fea3f .EventChapter03OrgahilSpawnEventPointersEntry
 al 8b9e70 .PortraitGellerPortraitDataIDsEntry
 al 8ab9cd .PortraitPaletteA4PortraitPalettePointersEntry
 al 91d5d7 .aEventChapter06IsaachArmyTalk
@@ -16231,6 +16325,7 @@ al 8b9c1a .PortraitPamelaSquadPegasusKnightPortraitDataIDsEntry
 al 82fd41 .EDID_SeliphPointer
 al 8d92f9 .dialogueCharacterNameAyra
 al 91a7a8 .rlUnknown91A7A8
+al 8e832b .EventChapter02WaltzChargePointer
 al 81c06c .UNITGroupChapterFinalVelthomerUNITGroupPointersEntry
 al 86dc98 .Ch04_Village6Chapter04LocationDataEntry
 al 85a991 .rsDialogueBoxHDMAGetCyclesYOffset
@@ -16239,6 +16334,7 @@ al 85a9ad .rsDialogueBoxHDMAGetCyclesYOffset:_End
 al 82fd19 .rsEpilogueDialogueIDFemaleCheckIfMarriedAndPriority
 al 82fd2b .rsEpilogueDialogueIDFemaleCheckIfMarriedAndPriority:_End
 al 8b8760 .WMM_TofaWorldMapMarkerSpritesEntry
+al 91a0fd .aDialogueCustomWidth43
 al 839cb3 .UlsterUnusedCommanderGeneralNameCharacterNameOffsetsEntry
 al d13193 .aSilesseMapHighlightTilemap
 al 9dd473 .dialogueEpilogue_Scathach_ShannanAlive
@@ -16496,6 +16592,7 @@ al 86d18f .aChapter02InfiniCastle
 al 82fd74 .rsGetHannibalEpilogueDialogueID
 al 82fd8e .rsGetHannibalEpilogueDialogueID:_End
 al 8b9de8 .PortraitRodanSquadHighPriestFortifyPortraitDataIDsEntry
+al 8ba04c .ClassPortraitHunterClassPortraitDataIDsEntry
 al 838f87 .WarriorClassDataOffsetsEntry
 al 8fc79d .dialogueChapter08OvoCharge
 al aeacec .dialogueChapter03MidirBrigidTalk
@@ -16529,6 +16626,7 @@ al b1f6ce .dialogueEpilogue_ClaudsSon_WithLover
 al b0cb5a .aEventChapter03LexAyraTalk
 al 839a79 .EthlynNameCharacterNameOffsetsEntry
 al 81c052 .UNITGroupChapter09StartUNITGroupPointersEntry
+al 8ab7ed .PortraitPalette04PortraitPalettePointersEntry
 al 838337 .aDarkPrinceMapSpriteAssignment
 al 8d92a3 .dialogueCharacterNameFinn
 al 8feeb9 .EventChapter08Seliph_TineLindaTalkEventPointersEntry
@@ -16574,7 +16672,6 @@ al 87bc5c .rsUnknown87BC5C
 al 87bcc4 .rsUnknown87BC5C:_CLC
 al b0b117 .dialogueChapter05Ending3
 al 8df0a2 .dialogueChapterEpilogueWorldMap_Grannvale_Piece_Velthomer_AzellesChildren
-al b0ac0b .dialogueChapter05Ending1
 al b08000 .Chapter10Pointer
 al 2131 .CGADSUB
 al 849768 .rlGetSelectedUnitStatus
@@ -16601,7 +16698,6 @@ al 839ced .CoulterNameCharacterNameOffsetsEntry
 al 83b1cd .HeltsokCharacterDataOffsetsEntry
 al 8b9e8c .PortraitAtlasCh04PortraitDataIDsEntry
 al b2ed67 .dialogueChapter08Village3Asaello
-al 86d660 .aChapter03ClearTalksIfMarriedTable
 al 91a1a3 .aDialogueCustomWidth79
 al 83b13f .RobertoSquadRangerCharacterDataOffsetsEntry
 al 83f4f8 .PI_RestoreStaffPlayerItemTableEntry
@@ -16654,7 +16750,6 @@ al 87f4a7 .aCastleDestroyedTileData
 al 8b9f84 .PortraitDialogueYoungOifeyPortraitDataIDsEntry
 al 8fee14 .EventChapter04ErinysLewynTalkEventPointersEntry
 al 838f9b .PriestClassDataOffsetsEntry
-al 83b139 .DarkMageCh10FenrirCharacterDataOffsetsEntry
 al 83ea66 .ForsetiItemDataOffsetsEntry
 al 8ab6f4 .PortraitGraphicA9PortraitGraphicPointersEntry
 al 83f48d .PI_IronSword5PlayerItemTableEntry
@@ -16688,13 +16783,6 @@ al 8282d1 .aProcFadeOutCode
 al 8ff765 .aEventChapter10OifeySeliphTalk
 al 83af59 .GrauenritterCh03GreatKnightCharacterDataOffsetsEntry
 al 8d97ff .dialogueItemNameBrokenStaff
-al 9d87a5 .aEventChapter03MadinoSeized
-al 9d8925 .aEventChapter03MadinoSeized:_ScriptedMovementDummy
-al 9d8905 .aEventChapter03MadinoSeized:_ScriptedMovementDeirdre
-al 9d88fc .aEventChapter03MadinoSeized:_ScriptedMovementClaudTailtiuLeave
-al 9d88ef .aEventChapter03MadinoSeized:_ScriptedMovementClaudAppear
-al 9d891a .aEventChapter03MadinoSeized:_ScriptedMovementManfroy
-al 9d88ed .aEventChapter03MadinoSeized:_ScriptedMovementTailtiuAppear
 al b0d09b .dialogueChapter01AzelleMunnirBattleQuote
 al 84e99e .rsActionStructStaffEffectFortify
 al 100 .aBGPaletteBuffer
@@ -16723,6 +16811,7 @@ al 839d2b .ThraciaCh09DragonriderMeathChargeNameCharacterNameOffsetsEntry
 al 84a7f3 .rlSetEnemyClassMoney
 al 86c76c .Chapter04DataChapterEventDataPointersEntry
 al 8b9f2e .PortraitDialogueBloomPortraitDataIDsEntry
+al 91d29e .aEventChapter06SchmidtSpawn
 al 89cdb8 .aUnknown89CDB8
 al 89cdb0 .aUnknown89CDB0
 al 84c54c .rlReviveFactionsUnitsOfAISetting
@@ -16756,13 +16845,13 @@ al 86c83e .FG_FinalFriegeFactionGroupPointersEntry
 al 89cde6 .aDebugUnitType
 al b0baac .dialogueChapter05QuanBattleQuoteEthlynDead
 al b0e1e8 .dialogueChapter08SeliphBloomBattleQuote
+al 8282c3 .rlProcFadeOutCycle
 al 919134 .rlUnknown919134
 al b0833a .Ch10_PerulukeChapter10LocationDataEntry
 al 839c97 .IshtoreNameCharacterNameOffsetsEntry
 al 81c022 .UNITGroupChapter03DozelFriegeUNITGroupPointersEntry
 al 8d96fe .dialogueItemNameThoron
 al b2f850 .Event1A8Pointer
-al 8d9205 .dialogueCastleNameGrutia
 al b2d02d .FinnEpilogueIDEpiloguePointersEntry
 al b1a1f1 .dialogueChapterPrologueArvisSigurdTalkAzelleDead
 al 7e2016 .wAIUnknown7E2016
@@ -16773,7 +16862,6 @@ al 87e2ea .BrokenWeaponWindBrokenWeaponOffsetsEntry
 al 839c01 .LamiaNameCharacterNameOffsetsEntry
 al 8d9b3a .dialogueClassNameBallistician
 al 9d937f .Event095Pointer
-al b19067 .dialogueChapterPrologueMunnirHurryUp
 al 8ff2eb .aEventChapter07TristanJeanneTalk
 al 83e310 .MystletainnDescriptionItemDescriptionOffsetsEntry
 al 86f8b0 .aChapter09ThraciaCastle
@@ -16989,7 +17077,6 @@ al 86cb63 .aChapter01LocationData
 al 86cb64 .aChapter01LocationData:_Entries
 al 8ddfa2 .dialogueChapterEpilogueWorldMapNewThracia
 al b1f178 .dialogueEpilogue_LindaTine_BrotherAlive
-al 86821e .rlUnknown86821E
 al 86d6b5 .aChapter03VillageWingclipper
 al 8aba2a .PortraitPaletteC3PortraitPalettePointersEntry
 al 8ba030 .ClassPortraitBaronClassPortraitDataIDsEntry
@@ -17000,6 +17087,7 @@ al b2d03b .LeneEpilogueIDEpiloguePointersEntry
 al 8b9cbc .PortraitUlsterThunderMageLeonsterChargePortraitDataIDsEntry
 al 84c910 .rlUnknown84C910
 al 83e31c .BrokenSwordBDescriptionItemDescriptionOffsetsEntry
+al 839ebb .MarilynChFinalNameCharacterNameOffsetsEntry
 al b1cdd0 .dialogueChapter07EriuTriangleAttack
 al 8b8917 .WMH_UnifiedThraciaWorldMapHighlightsEntry
 al 87a5c9 .rlGetClassHPGrowth
@@ -17090,8 +17178,8 @@ al 8b85c4 .rsWorldMapMarkerShadowLoadBluePalette
 al 8fe9f1 .EventChapter02Village1EventPointersEntry
 al 838f57 .FalconKnightClassDataOffsetsEntry
 al 839e4d .KemalNameCharacterNameOffsetsEntry
-al b0d17a .dialogueChapter01UnusedEdainJamkeBattleQuote
 al 83b085 .MeathCommanderDragonknightLeonsterChargeCharacterDataOffsetsEntry
+al 8ab8ad .PortraitPalette44PortraitPalettePointersEntry
 al b0b2c7 .dialogueChapter05Ending4SigurdAndParty
 al 8383a5 .Ruins2NameTerrainNameOffsetsEntry
 al 86e67e .aFactionGroupData21
@@ -17145,6 +17233,7 @@ al ec3 .wEventEngineArgument4
 al ec1 .wEventEngineArgument3
 al ebf .wEventEngineArgument2
 al ebd .wEventEngineArgument1
+al 838ad5 .FalconKnightClassNameClassNameOffsetsEntry
 al 83aeed .AgustiLanceArmorCharacterDataOffsetsEntry
 al 83f48f .PI_SteelSword1PlayerItemTableEntry
 al 83f48f .PI_SteelSword1PlayerItemTableEntry:Item
@@ -17206,6 +17295,8 @@ al 869738 .rsChapterEventConditionCommand6A:_End
 al 86971c .rsChapterEventConditionCommand6A:_TalkToFirst
 al 86972b .rsChapterEventConditionCommand6A:_TalkToSecond
 al 8b9f1c .PortraitDialogueAidaPortraitDataIDsEntry
+al 86973f .rsChapterEventConditionCommand6B
+al 869763 .rsChapterEventConditionCommand6B:_End
 al 83ae21 .EdainCharacterDataOffsetsEntry
 al 8fee9e .EventChapter07LeneLaylea_SeliphTalkEventPointersEntry
 al 86977a .rsChapterEventConditionCommand6C
@@ -17513,6 +17604,7 @@ al 81d5a4 .aUNITGroupDataChapter05Belhalla:ID_27UNITGroupDataChapter05BelhallaEn
 al 81d5a8 .aUNITGroupDataChapter05Belhalla:ID_27UNITGroupDataChapter05BelhallaEntry:GroupLeaderFlag
 al b2d1a5 .aNannaEpiloguePointers
 al 8fedff .EventChapter04SigurdClaudTalkEventPointersEntry
+al 83987d .Tier1MountedMovementMovementCostOffsetsEntry
 al 84c1a5 .rlSetFactionHostility
 al 8e85b7 .EventChapter02LewynErinysTalkPointer
 al 818059 .rlActiveSpriteEngineRenderAll
@@ -17527,6 +17619,7 @@ al 8ffa2b .aEventChapterFinalMuirneAsaelloTalk
 al b2905a .aEventChapter07Village2
 al b29068 .aEventChapter07Village3
 al b2904c .aEventChapter07Village1
+al 8ab694 .PortraitGraphic89PortraitGraphicPointersEntry
 al 8fed87 .EventChapterFinalSeliphJuliaTalkManfroyDeadEventPointersEntry
 al 7e200e .wAIGroupLeaderYPosition
 al 8b9bac .PortraitMadinoBowKnightPortraitDataIDsEntry
@@ -17567,7 +17660,6 @@ al 86d7f4 .aFactionGroup12AI7
 al 86d7e6 .aFactionGroup12AI6
 al 86d7d8 .aFactionGroup12AI5
 al b0ce8c .EventChapter05ErinysNaoiseTalkPointer
-al 8b9ede .PortraitRivaPortraitDataIDsEntry
 al 8fe997 .EventChapter02LewynSilviaSpawnEventPointersEntry
 al 8d8d73 .aEventChapter10Village4
 al 84a1ba .rlSaveCharacterROMDataToBuffer
@@ -17608,6 +17700,7 @@ al 839c13 .SlayderNameCharacterNameOffsetsEntry
 al 86c5ff .rsSetChapterMapChangeActive
 al 8b9dda .PortraitBoycePortraitDataIDsEntry
 al 8feef2 .EventChapter10SeliphFeeTalkEventPointersEntry
+al b0ac0b .dialogueChapter05Ending1
 al 8ab727 .PortraitGraphicBAPortraitGraphicPointersEntry
 al 8feedd .EventChapter10ShannanSeliphTalkEventPointersEntry
 al 87f15c .aVillageDestroyedPattern2State2Tiles
@@ -17737,6 +17830,7 @@ al b3b4bb .dialogueChapter10RiddellLeisurelyCharge
 al b29076 .aEventChapter07VillageShieldRing
 al 868079 .rlInitiateChapterEventRAMData
 al 839d9d .DarkMageCh10FenrirNameCharacterNameOffsetsEntry
+al 9dd789 .dialogueEpilogue_Dalvin_ShannanDead
 al 8d9ae4 .dialogueClassNameWindMage
 al 8ab61f .PortraitGraphic62PortraitGraphicPointersEntry
 al 82fbb8 .EPrio_Main_NoPriority1Pointer
@@ -17750,7 +17844,6 @@ al 86cb8c .aChapter01MarphaCastle
 al 84baa1 .rlLoadChildUnit
 al 84bb16 .rlLoadChildUnit:_End
 al 89d887 .aDebugSkillVantage
-al 86cc48 .FG_Ch01HeirheinPointer
 al 9de3f9 .dialogueEpilogue_Piece_Altena_LeifDead
 al c44410 .g4bppcPegasusRiderMapMovementSprite
 al b2d4b5 .dialogueChapter06CreidneIucharbaAdjacent
@@ -17798,9 +17891,9 @@ al 84b457 .rlGiveItemToUnitCheckEncumbered
 al 839e47 .KellerNameCharacterNameOffsetsEntry
 al 83ae93 .MarphaHunterCharacterDataOffsetsEntry
 al 83dcc8 .PhysicStaffNameItemNameOffsetsEntry
+al 8fee74 .EventChapter06DeimneMuirneTalkEventPointersEntry
 al 91d541 .EventChapter06Village5Pointer
 al 8d .wBufferBG4VOFS
-al 838f55 .PegasusKnightClassDataOffsetsEntry
 al 9de786 .dialogueEpilogue_Piece_Finn
 al 83e32c .SlimLanceDescriptionItemDescriptionOffsetsEntry
 al 8b9e16 .PortraitBovisPortraitDataIDsEntry
@@ -17839,11 +17932,10 @@ al 83af67 .TofaGuardWindMageCharacterDataOffsetsEntry
 al 87bd12 .aSiblingCritEntry2
 al 2101 .OBSEL
 al 8b977d .WMM_EvansToYngviPointer
-al 82e53f .rlUnknown82E53F
-al b1859b .Event00APointer
 al 89e3e6 .aDebugCombatDEFGainText
 al 89e764 .aDebugSoundMenuText
 al 86f92d .aUnknown86F92D
+al 89cb9c .aDebugSpeedText
 al 8b9e4e .PortraitHoodPortraitDataIDsEntry
 al 86c7fc .FG_Ch07SeliphFactionGroupPointersEntry
 al 908a81 .EventChapter01Village1Pointer
@@ -17860,7 +17952,6 @@ al 86c74e .Chapter07ChapterEventPointersEntry
 al 8ab83e .PortraitPalette1FPortraitPalettePointersEntry
 al 86f2f2 .Ch08_LeonsterChapter08LocationDataEntry
 al 91f4c8 .rsLoadChapterEventData
-al 83ea36 .SilverBowItemDataOffsetsEntry
 al 172a .wEventUnitSlot2XCoordinate
 al 9dd2f5 .dialogueEpilogue_Piece_Shannan_WithLover_Unused
 al 8b9b36 .PortraitElliotCh01PortraitDataIDsEntry
@@ -18108,6 +18199,7 @@ al 81e9d0 .aUNITGroupDataChapterFinalFriege:ID_24UNITGroupDataChapterFinalFriege
 al b2bb68 .dialogueChapterFinalJuliaBattleQuote
 al 839db5 .RodanSquadBishopBoltingNameCharacterNameOffsetsEntry
 al c113ac .g4bppcJuniorLordMapMovementSprite
+al 86c79c .FG_Ch01NordionFactionGroupPointersEntry
 al 84e0be .aCombatSkillsFlags
 al 8feaf6 .EventChapter05BelhallaConversationEventPointersEntry
 al b1c22c .dialogueChapter07AresRecruitment1
@@ -18407,7 +18499,6 @@ al 81c201 .aUNITGroupDataPrologueEvans:ID_15UNITGroupDataPrologueEvansEntry:AI
 al 81c203 .aUNITGroupDataPrologueEvans:ID_15UNITGroupDataPrologueEvansEntry:FormationID
 al 81c1fc .aUNITGroupDataPrologueEvans:ID_15UNITGroupDataPrologueEvansEntry:CharacterID
 al 81c200 .aUNITGroupDataPrologueEvans:ID_15UNITGroupDataPrologueEvansEntry:GroupLeaderFlag
-al d13977 .aMiletosMapHighlightTilemap
 al 8e945d .aEventChapter04AnnandSpawn
 al b1d648 .EventChapter09LeifAltenaTalkPointer
 al 8d9349 .dialogueCharacterNameHawk
@@ -18547,7 +18638,6 @@ al 86d1fd .aChapter02MapChangeRightRampart
 al 8b9f00 .PortraitDialogueCoulterPortraitDataIDsEntry
 al 8b9b5a .PortraitInfiniCommanderDukeKnightPortraitDataIDsEntry
 al 87e31d .rlGetItemDataROMPointer
-al c157b7 .g4bppcPrincessMapMovementSprite
 al 838f5f .ArcherClassDataOffsetsEntry
 al 8ab98e .PortraitPalette8FPortraitPalettePointersEntry
 al 82ee5c .rlRemoveRAMAreaEntry
@@ -18596,17 +18686,17 @@ al 8ab502 .PortraitGraphic03PortraitGraphicPointersEntry
 al 8fea39 .EventChapter03SylvaleSeizedEventPointersEntry
 al 83ae5b .CoirpreCharacterDataOffsetsEntry
 al 8fd86e .dialogueChapter08Seliph_CedHawkTalk
-al b1dcec .EventChapter09CharlotHannibalAdjacentPointer
 al 87a529 .rlGetClassMagic
 al 9081a8 .aFactionGroup02AI2
 al 8ab5e3 .PortraitGraphic4EPortraitGraphicPointersEntry
+al 8b9af2 .PortraitDiarmuidPortraitDataIDsEntry
 al 838f37 .LanceKnightClassDataOffsetsEntry
 al 7fa54a .aUnitMap
 al 8dc64d .rlASMCEpilogueWorldMapGrannvalePieceDozelRulersLover
 al 8dc65f .rlASMCEpilogueWorldMapGrannvalePieceDozelRulersLover:_Dialogue
 al 8dc677 .rlASMCEpilogueWorldMapGrannvalePieceDozelRulersLover:_End
-al 89d8d3 .aDebugSkillEscape
 al 838f8b .PirateClassDataOffsetsEntry
+al 8d93e3 .dialogueCharacterNameLarcei
 al 83e346 .BrokenAxeBDescriptionItemDescriptionOffsetsEntry
 al 838fbd .IronBallisticianClassDataOffsetsEntry
 al 8b9b66 .PortraitInfiniBowArmorPortraitDataIDsEntry
@@ -18618,6 +18708,7 @@ al 8b878c .WMM_MelgenWorldMapMarkerSpritesEntry
 al 89d4d6 .aDebugEnemyResistanceText
 al 809da3 .rlHardwareResetScreenRegisters
 al 8681e8 .aDefaultChapterRAMData
+al 91edaa .aSaveDataBitmasks
 al 83b161 .FisherSquadAxeKnightHandAxeCharacterDataOffsetsEntry
 al 70 .bBufferINIDISP
 al 8ab9df .PortraitPaletteAAPortraitPalettePointersEntry
@@ -18637,7 +18728,6 @@ al 8e86e2 .EventChapter02Village2Pointer
 al aeb9f0 .dialogueChapter04EdainAzelleTalk
 al 8b9c54 .PortraitLubeckIronBallisticianPortraitDataIDsEntry
 al 8fef2e .EventChapterFinalNannaLeifTalkEventPointersEntry
-al 8ab670 .PortraitGraphic7DPortraitGraphicPointersEntry
 al 8d97e5 .dialogueItemNameSleepStaff
 al 90bf2d .dialogueChapter01UnusedJamkeEdainBattleQuote
 al 82fbbd .EPrio_Son_LoverPointer
@@ -18658,6 +18748,7 @@ al 82fd8f .rsGetLewynsSonEpilogueDialogueID
 al 82fda5 .rsGetLewynsSonEpilogueDialogueID:_End
 al 84b1b8 .rlAssignUnitToNewFactionSlot
 al 83875c .PattyLoveGrowthLoveGrowthOffsetsEntry
+al 83ea0e .JavelinItemDataOffsetsEntry
 al 9de163 .dialogueEpilogue_Piece_Leif_Start
 al 86c7d5 .FG_Ch05LubeckFactionGroupPointersEntry
 al 839a73 .LexNameCharacterNameOffsetsEntry
@@ -18671,7 +18762,6 @@ al 84fb98 .rlGetEnemyMaxHP
 al 87e5fd .aWeaponEffectivenessNoneText
 al 81c042 .UNITGroupChapter07StartUNITGroupPointersEntry
 al 8dea87 .dialogueChapterEpilogueWorldMap_Agustria_Piece_DiarmuidTristansLover
-al 83b045 .JavarroCharacterDataOffsetsEntry
 al 8b9e32 .PortraitMengPortraitDataIDsEntry
 al 868266 .rlGetChapterEventRAMEntryPointerByID
 al 86828f .rlGetChapterEventRAMEntryPointerByID:_SEC
@@ -18744,7 +18834,6 @@ al 8dbac5 .rlASMCEpilogueWorldMapNewThraciaPieceAsaellosLover:_End
 al 8ab5d7 .PortraitGraphic4APortraitGraphicPointersEntry
 al 8edb6d .dialogueDeathQuoteGen1PlayerDeirdreReturn
 al 8b8345 .rlLoadWorldMapPortraitIntoSlot
-al 83dc28 .SilenceSwordNameItemNameOffsetsEntry
 al 8ab766 .PortraitGraphicCFPortraitGraphicPointersEntry
 al 838fa1 .ThunderMageClassDataOffsetsEntry
 al 8fbba7 .rlUnknown8FBBA7
@@ -19008,6 +19097,7 @@ al 83ae15 .EthlynCharacterDataOffsetsEntry
 al b2f6c3 .dialogueChapter02ArdenPursuitRing
 al 83ea70 .NagaItemDataOffsetsEntry
 al 7e4ea9 .aScriptedUnitMapAction
+al 84f939 .rlEquipFirstWeaponInInventory
 al b0f1f1 .dialogueEpilogueLover_JamkesSon_Noble
 al 84a40d .rlGetSelectedUnitMotherID
 al 84a435 .rlGetSelectedUnitMotherID:_Child
@@ -19016,7 +19106,6 @@ al 919302 .rsUnknown919302
 al 87a659 .rlGetClassResGrowth
 al 4e .wR35
 al 86c772 .Chapter06DataChapterEventDataPointersEntry
-al 48 .wR32
 al 86f90f .aChapter09MapChangeGrutiaTopRampart
 al 4a .wR33
 al 44 .wR30
@@ -19405,7 +19494,6 @@ al 8ab72a .PortraitGraphicBBPortraitGraphicPointersEntry
 al 839a91 .LeifNameCharacterNameOffsetsEntry
 al 8fea90 .EventChapter04PamelaSpawnEventPointersEntry
 al 84c996 .rlUnknown84C996
-al 839c2d .VajaNameCharacterNameOffsetsEntry
 al 83f4ad .PI_LightBrandPlayerItemTableEntry
 al 83f4ad .PI_LightBrandPlayerItemTableEntry:Item
 al b3cfdf .dialogueEpilogue_Friege
@@ -19480,7 +19568,6 @@ al 83b25b .JacksonChFinalCharacterDataOffsetsEntry
 al 84c1dd .aSetFactionHostilitySettings
 al 8b9e04 .PortraitHildaChFinalPortraitDataIDsEntry
 al 83aee9 .ChagallCh02CharacterDataOffsetsEntry
-al b2d01d .ScathachEpilogueIDEpiloguePointersEntry
 al b0ce0a .EventChapter05TailtiuAzelleTalkPointer
 al 86ebd4 .aChapter07EventData
 al 84bb9a .rlInitiateFactionRAMData
@@ -19501,6 +19588,7 @@ al 8fedde .EventChapter02BeowulfLachesisTalkEventPointersEntry
 al 8b85f0 .rsWorldMapMarkerClearShadow
 al 89d73e .aUnknown89D73E
 al b2d1fc .aArthurEpiloguePointers
+al 82c187 .aHDMAChannelTable
 al 8feafc .EventChapter05PhinoraSpawnEventPointersEntry
 al b1d3d6 .EventChapter09OpeningPointer
 al 8b9f46 .PortraitDialogueTravantPortraitDataIDsEntry
@@ -19538,6 +19626,7 @@ al 838b15 .QueenClassNameClassNameOffsetsEntry
 al 838738 .aLoveGrowthOffsets
 al 839dc9 .BrianSquadGreatKnightNameCharacterNameOffsetsEntry
 al 81c002 .UNITGroupPrologueEvansUNITGroupPointersEntry
+al 86f2f4 .Ch08_ConnachtChapter08LocationDataEntry
 al b2d06b .OifeyEpilogueIDEpiloguePointersEntry
 al 8ab763 .PortraitGraphicCEPortraitGraphicPointersEntry
 al 8fc660 .dialogueChapter08Opening4
@@ -19574,6 +19663,7 @@ al 9de4ff .dialogueEpilogue_Piece_Altena_ArionAlive
 al 8ab95b .PortraitPalette7EPortraitPalettePointersEntry
 al 8febb0 .Event0FBEventPointersEntry
 al 8d9822 .dialogueItemNameMiracleBand
+al 8ab670 .PortraitGraphic7DPortraitGraphicPointersEntry
 al 87a32c .rlDebugGetSkillList
 al 8fec10 .Event11BEventPointersEntry
 al 8ffbcd .EventChapterFinalPattyDaisy_ShannanTalkPointer
@@ -19593,7 +19683,6 @@ al 83dc14 .SteelSwordNameItemNameOffsetsEntry
 al 91f1b6 .rsLoadStaticDynamicCharacterInventoryData
 al 839dff .ArionSquadChFinalDragonknightNameCharacterNameOffsetsEntry
 al 8ab91c .PortraitPalette69PortraitPalettePointersEntry
-al b08340 .Ch10_MiletosChapter10LocationDataEntry
 al 8ee77f .dialogueDeathQuoteGen1EnemyNPCDaccar
 al 8d88a6 .aEventChapter10RadosSeized
 al 8d88c1 .aEventChapter10RadosSeized:_ChronosSeized
@@ -19636,7 +19725,6 @@ al 86879d .rsUnknown86879D
 al 89d6cc .aUnknown89D6CC
 al b2d079 .EpilogueRegionBelhallaEndEpilogueRegionEndDialoguePointersEntry
 al 91d551 .EventChapter06CreidneIucharbaAdjacentPointer
-al 83b25d .ThorntonChFinalCharacterDataOffsetsEntry
 al 83f4b4 .PI_Wingclipper2PlayerItemTableEntry
 al 83f4b4 .PI_Wingclipper2PlayerItemTableEntry:Item
 al 87e2de .BrokenWeaponLanceBrokenWeaponOffsetsEntry
@@ -19659,6 +19747,7 @@ al 8ffc87 .EventChapterFinalNannaLeifTalkPointer
 al 83dcec .MiracleBandNameItemNameOffsetsEntry
 al 84a073 .rlGetSelectedUnitClassNamePointer
 al b1f5d5 .dialogueEpilogue_Iucharba_WithLover
+al 8b8782 .WMM_GaneishireWorldMapMarkerSpritesEntry
 al 8d92fe .dialogueCharacterNameErinys
 al 839cab .JavarroSquadFreeKnightNameCharacterNameOffsetsEntry
 al b2fd85 .dialogueEpilogueLover_Asaello_DaisyDead_CreidneLarcei
@@ -19685,6 +19774,7 @@ al 8fdbe2 .dialogueChapter08Village2
 al 83d906 .FactionConnachtFactionNameOffsetsEntry
 al 8384e3 .ErinysLoverIDFemaleLoveDataIDsEntry
 al 8384e3 .ErinysLoverIDFemaleLoveDataIDsEntry:UnitID
+al 83e39e .PhysicStaffDescriptionItemDescriptionOffsetsEntry
 al 91ad54 .aDeathQuotePointers
 al 9190e2 .rsDialogueGetOptionsTextSpeed
 al 83b24f .NotheCharacterDataOffsetsEntry
@@ -19832,6 +19922,7 @@ al 8ab937 .PortraitPalette72PortraitPalettePointersEntry
 al 8ed863 .dialogueDeathQuoteGen1PlayerArden
 al 83b201 .GeeseCharacterDataOffsetsEntry
 al b3eaa4 .dialogueEpilogueLover_Asaello_DaisyAlive_LindaTine
+al 8edddf .dialogueDeathQuoteGen2PlayerShannan
 al 8b9f94 .PortraitDialogueRodinPortraitDataIDsEntry
 al 839b81 .MadinoLanceArmorRightNameCharacterNameOffsetsEntry
 al 838766 .LeneLoveGrowthLoveGrowthOffsetsEntry
@@ -19851,7 +19942,6 @@ al 6d .lR48
 al 8b9e82 .PortraitSenghorPortraitDataIDsEntry
 al 838fbf .KillerBallisticianClassDataOffsetsEntry
 al 839b87 .MadinoCommanderFireMageWoodsNameCharacterNameOffsetsEntry
-al 86f2f4 .Ch08_ConnachtChapter08LocationDataEntry
 al 8b9fcc .PortraitDialogueBlueMacBeth2PortraitDataIDsEntry
 al 869c95 .rsEventUnifyGen2CharacterIds
 al 8fbeb7 .EventChapter08PattyDaisy_FebailAsaelloTalkPointer
@@ -19879,7 +19969,6 @@ al 839e83 .FeteNameCharacterNameOffsetsEntry
 al 8fea6f .Event090EventPointersEntry
 al 8383a9 .ShrineNameTerrainNameOffsetsEntry
 al 8484f6 .rlGetCharacterNamePointer
-al b38b6e .dialogueChapter09Opening7LeifFinn
 al 8b9aa8 .PortraitEthlynPortraitDataIDsEntry
 al b283ba .aFactionGroupData26
 al b283c7 .aFactionGroupData26:_GroupAI
@@ -19898,6 +19987,7 @@ al 86ed6f .aFactionGroupData2A
 al 86ed7c .aFactionGroupData2A:_GroupAI
 al 86ed78 .aFactionGroupData2A:_Locations
 al 83affb .ArvisChPrologueCharacterDataOffsetsEntry
+al 839bd1 .CuvuliNameCharacterNameOffsetsEntry
 al 8d95b3 .dialogueItemNameLightBrand
 al 86eda2 .aFactionGroupData2C
 al 86edaf .aFactionGroupData2C:_GroupAI
@@ -19925,7 +20015,6 @@ al b2bfab .dialogueEpilogue_AzellesDaughter_BrotherAlive
 al 8b9e7e .PortraitKaledinPortraitDataIDsEntry
 al 86dcc6 .aChapter04Village2
 al 84d271 .rlChangeFactionSlotOfFieldedSelectedUnit
-al 8180a1 .rlActiveSpriteEngineCreateSpriteLowestSlot
 al 84f495 .rlGetItemDurabilityOfInventorySlot
 al 81b494 .rlGetChapterLocationDataPointer
 al b0c76b .dialogueEpilogue_Jeanne_TristanAlive
@@ -19963,7 +20052,6 @@ al 83b261 .CanaanChFinalCharacterDataOffsetsEntry
 al 8edf94 .dialogueDeathQuoteGen2PlayerDaisy
 al 8feeda .EventChapter10LeifAltenaTalkEventPointersEntry
 al 8383ab .BragiTowerNameTerrainNameOffsetsEntry
-al 83dcf0 .RecoverRingNameItemNameOffsetsEntry
 al 9190f7 .rlDialogueSetTextSound
 al 9dea83 .dialogueEpilogue_Piece_CharlotCoirpre_HannibalAlive
 al 8b9c68 .PortraitMagornSquadDragonknightPortraitDataIDsEntry
@@ -20135,7 +20223,6 @@ al 91bc86 .rlASMCEpilogueAresLoverCall
 al 839a69 .ChulainnNameCharacterNameOffsetsEntry
 al 838515 .AyraLoveBaseLoveBaseOffsetsEntry
 al 8ee3af .dialogueDeathQuoteGen1EnemyNPCGerrard
-al 8ab628 .PortraitGraphic65PortraitGraphicPointersEntry
 al 838fc1 .GreatBallisticianClassDataOffsetsEntry
 al 839e3f .TrevilleNameCharacterNameOffsetsEntry
 al 8d955c .dialogueItemNameBerserkSword
@@ -20671,7 +20758,6 @@ al 8db707 .rlASMCEpilogueWorldMapSilessePieceStart:_End
 al 8abac0 .PortraitPaletteF5PortraitPalettePointersEntry
 al 8ba006 .ClassPortraitDukeKnightClassPortraitDataIDsEntry
 al 82834c .procFadeOutByScreenFadingTimer
-al 8b9e74 .PortraitDomaPortraitDataIDsEntry
 al 4211 .TIMEUP
 al 80a637 .rlAppendDecompList
 al 8edccc .dialogueDeathQuoteLoverTailtiu
@@ -20679,7 +20765,6 @@ al 908046 .aChapterPrologueMapEvents
 al 8feaf0 .EventChapter05SigurdByronTalkEventPointersEntry
 al 89e0e8 .aDebugCombatUnknown1Text
 al 8df117 .dialogueChapterEpilogueWorldMap_Grannvale_Piece_Edda_Ruler
-al 839c0d .LombardCh05NameCharacterNameOffsetsEntry
 al 82fa0f .EPrio_Main_NoPriority1EpiloguePriorityRoutinesEntry
 al 83afa7 .LamiaSquadThunderMageCharacterDataOffsetsEntry
 al 84b301 .rlUnknown84B301
@@ -20757,6 +20842,7 @@ al 8b99c9 .aWorldMapSprite15
 al 8b98e7 .aWorldMapSprite12
 al 8b9907 .aWorldMapSprite13
 al 8b98ac .aWorldMapSprite10
+al 8b98d1 .aWorldMapSprite11
 al 839aa3 .AmidNameCharacterNameOffsetsEntry
 al 8fe95e .EventChapter01Village2EventPointersEntry
 al 84a704 .rlGetEnemyUnitCharacterID
@@ -20793,7 +20879,6 @@ al 838238 .aPirateMapSpriteAssignment
 al 87a280 .aValidItemSkillTable
 al 1730 .wUnknown001730
 al 1732 .wUnknown001732
-al 91d29e .aEventChapter06SchmidtSpawn
 al 83e9ec .SafeguardItemDataOffsetsEntry
 al 87a4bc .rlGetClassNamePointer
 al 87e063 .rlGetEffectiveItemIDByItemRAMStructEntry
@@ -20863,6 +20948,7 @@ al 8eddb7 .aGen1PlayerDeathQuotes:Unknown3DeathQuoteDeathQuotePointer
 al 8ed99c .aGen1PlayerDeathQuotes:LewynDeathQuoteDeathQuotePointer
 al 8ef232 .aGen1PlayerDeathQuotes:EdainDeathQuoteGen1PlayerDeathQuoteTableEntry
 al 8edcec .aGen1PlayerDeathQuotes:TailtiuDeathQuoteDeathQuotePointer
+al 4016 .JOYWR
 al 8b9df6 .PortraitBrianPortraitDataIDsEntry
 al 83afe7 .FriegeCh05ThunderMageMaleCharacterDataOffsetsEntry
 al 87ac43 .rlGetSelectedUnitLoverData
@@ -20872,6 +20958,7 @@ al 212f .TSW
 al 8d92d1 .dialogueCharacterNameBeowulf
 al 8ab730 .PortraitGraphicBDPortraitGraphicPointersEntry
 al 83af65 .TofaLanceArmorCharacterDataOffsetsEntry
+al c157b7 .g4bppcPrincessMapMovementSprite
 al 83af37 .SylvaleLanceArmorCharacterDataOffsetsEntry
 al 86899f .rsChapterEventConditionCommand06
 al 8689a6 .rsChapterEventConditionCommand07
@@ -21126,6 +21213,7 @@ al 81c6e1 .aUNITGroupDataChapter02Infini:ID_22UNITGroupDataChapter02InfiniEntry:
 al 81c6e3 .aUNITGroupDataChapter02Infini:ID_22UNITGroupDataChapter02InfiniEntry:FormationID
 al 81c6dc .aUNITGroupDataChapter02Infini:ID_22UNITGroupDataChapter02InfiniEntry:CharacterID
 al 81c6e0 .aUNITGroupDataChapter02Infini:ID_22UNITGroupDataChapter02InfiniEntry:GroupLeaderFlag
+al b1dcec .EventChapter09CharlotHannibalAdjacentPointer
 al 33f .wScreenFadingProcInput
 al 8e9377 .EventChapter04LowerBridgePointer
 al 91eebb .rsSetSaveSlotChecksum
@@ -21387,10 +21475,6 @@ al 86ed37 .aUnknown86ED37
 al 839ddd .FriegeChFinalDarkMageNameCharacterNameOffsetsEntry
 al 54 .lR38
 al 87f104 .aVillageDestroyedPattern1State6Tiles
-al 91ae49 .aUnknown91AE49
-al 86c575 .rlUpdateMapChangeEvents
-al 86c5d3 .rlUpdateMapChangeEvents:_End
-al 86c590 .rlUpdateMapChangeEvents:_Loop
 al 83af5d .GelbenritterCh03MageKnightCharacterDataOffsetsEntry
 al 83dc64 .SteelAxeNameItemNameOffsetsEntry
 al 83f49f .PI_BarrierBladePlayerItemTableEntry
@@ -21412,6 +21496,7 @@ al 83f4bc .PI_SteelLance3PlayerItemTableEntry
 al 83f4bc .PI_SteelLance3PlayerItemTableEntry:Item
 al 8b9eae .PortraitWolfenPortraitDataIDsEntry
 al 83ead2 .BrokenWindTomeAItemDataOffsetsEntry
+al 8b9ea2 .PortraitBottsmanPortraitDataIDsEntry
 al 8ee61a .dialogueDeathQuoteGen1EnemyNPCEldiganCh03
 al b28f51 .aEventChapter07_102
 al 8ba038 .ClassPortraitBowSoldierClassPortraitDataIDsEntry
@@ -21420,7 +21505,6 @@ al 84f987 .rlUnknown84F987
 al 86f4c9 .aChapter09EventHeader
 al 83d8e6 .aUnknown83D8E6
 al 98 .bBufferTMW
-al 839c0b .LamiaSquadThunderMageNameCharacterNameOffsetsEntry
 al 848353 .ID_LoadFemaleChildUnitRoutine
 al 83848d .aMaleLoveDataIDs
 al b3dcce .dialogueChapter08CedSeliphTalk
@@ -21437,6 +21521,7 @@ al 83f4e8 .PI_AuraPlayerItemTableEntry:Item
 al 8b9e06 .PortraitHildaSquadChFinalBaronThoronPortraitDataIDsEntry
 al 83e3f2 .BrokenLightTomeADescriptionItemDescriptionOffsetsEntry
 al 828136 .rlProcEngineFreeProc
+al 8b9b1e .PortraitGenoaGuardFighterPortraitDataIDsEntry
 al 8ab673 .PortraitGraphic7EPortraitGraphicPointersEntry
 al 838ad9 .DragonKnightClassNameClassNameOffsetsEntry
 al 8fedf3 .EventChapter03ClaudSigurdTalkEventPointersEntry
@@ -21452,8 +21537,8 @@ al 8b9ad4 .PortraitOifeyPortraitDataIDsEntry
 al 8de792 .dialogueChapterEpilogueWorldMap_Isaach_Piece_Muirne
 al 8eaadc .dialogueChapter04CuvuliBattleQuote
 al 838f93 .PrincessClassDataOffsetsEntry
+al b1f46d .dialogueEpilogue_Piece_Iuchar
 al b0d7b0 .dialogueChapter04LewynPamelaBattleQuote
-al 8b9db8 .PortraitRotenritterCh10LanceArmorPortraitDataIDsEntry
 al 8b874a .WMM_ZaxonToBelhallaWorldMapMarkerSpritesEntry
 al 83e9f4 .WindSwordItemDataOffsetsEntry
 al 8b9d6a .PortraitMusarSquadRangerPortraitDataIDsEntry
@@ -21563,8 +21648,8 @@ al 8ab682 .PortraitGraphic83PortraitGraphicPointersEntry
 al 9daa70 .dialogueChapter03TravantLeave
 al 83f51d .AgustiNameCastleNameOffsetsEntry
 al 8b9e1c .PortraitDracoPortraitDataIDsEntry
+al 8ab628 .PortraitGraphic65PortraitGraphicPointersEntry
 al 83dcce .WarpStaffNameItemNameOffsetsEntry
-al 84e364 .rsActionStructCheckIfDoubling
 al b2adbd .dialogueChapterFinalBelhallaSpawn1
 al 83e9d6 .IronBladeItemDataOffsetsEntry
 al aedf1e .dialogueChapter05BrigidMidirTalk
@@ -21583,7 +21668,7 @@ al 8feaf3 .EventChapter05AndreyChargeEventPointersEntry
 al 83eaaa .MiracleBandItemDataOffsetsEntry
 al 8b9b64 .PortraitMacBethPortraitDataIDsEntry
 al eab .lEventPointer
-al 82fb7f .rsEpilogueStartRegionPriorityIfSonExists
+al 8ab98b .PortraitPalette8EPortraitPalettePointersEntry
 al 8fee32 .EventChapter05TailtiuLexTalkEventPointersEntry
 al 839c81 .AedDarkMageLv7NameCharacterNameOffsetsEntry
 al 83f4d1 .PI_SteelBow1PlayerItemTableEntry
@@ -21905,7 +21990,7 @@ al 81d9ec .aUNITGroupDataChapter07Opening:ID_37UNITGroupDataChapter07OpeningEntr
 al 81d9f0 .aUNITGroupDataChapter07Opening:ID_37UNITGroupDataChapter07OpeningEntry:GroupLeaderFlag
 al 8b9bc2 .PortraitSylvaleBlockadeLanceArmorPortraitDataIDsEntry
 al 87f27c .aVillageDestroyedPattern4State2Tiles
-al b2876c .dialogueChapter01WorldMapUnused
+al 91f188 .rsLoadDynamicCharacterROMData
 al 8b9c30 .PortraitLamiaPortraitDataIDsEntry
 al b1aaea .FG_FinalEddaPointer
 al 8d92e1 .dialogueCharacterNameDew
@@ -21941,12 +22026,10 @@ al 8e871c .aEventChapter02_05C
 al 8fe8ef .Event010EventPointersEntry
 al aea838 .dialogueChapter03SigurdBrigidTalk
 al 8b9ed6 .PortraitGrantsPortraitDataIDsEntry
-al 83b1af .KutuzovFenrirCharacterDataOffsetsEntry
 al 83b00b .IsaachGuardAxeKnightCharacterDataOffsetsEntry
 al 839d03 .KapathogiaLanceArmorNameCharacterNameOffsetsEntry
 al 86c802 .FG_Ch07DahnaFactionGroupPointersEntry
 al 8b9f98 .PortraitDialogueEmptyPortraitDataIDsEntry
-al 8d90bc .dialogueCastleNameSylvale
 al 1724 .wEventUnitSlot2ID
 al 8ab532 .PortraitGraphic13PortraitGraphicPointersEntry
 al 83eabc .ShieldRingItemDataOffsetsEntry
@@ -22359,6 +22442,7 @@ al 83dc24 .BerserkSwordNameItemNameOffsetsEntry
 al 83b0f7 .SniperCh10CharacterDataOffsetsEntry
 al 7feab2 .aDialogueBoxHDMAIndirectTableOdd
 al 918cdb .rsDialogueCommand3D
+al b08340 .Ch10_MiletosChapter10LocationDataEntry
 al 8ffb18 .aEventChapterFinalLarceiCreidne_IucharTalk
 al 84f42a .rlCheckIfWeaponEquipped
 al 8ed24f .dialogueChapter06WorldMap5
@@ -22432,11 +22516,11 @@ al 8dea1b .dialogueChapterEpilogueWorldMap_Agustria_Piece_RulerNoLover
 al 91a16d .aDialogueCustomWidth65
 al 91a166 .aDialogueCustomWidth62
 al 91a168 .aDialogueCustomWidth63
-al 83b179 .FriegeChFinalDarkMageCharacterDataOffsetsEntry
+al 91a160 .aDialogueCustomWidth60
 al 91a162 .aDialogueCustomWidth61
-al 91f5a1 .rsSaveGeneralSaveData
 al 91a175 .aDialogueCustomWidth68
 al 8fe9fa .EventChapter02EthlynDiedEventPointersEntry
+al 8de381 .dialogueChapterEpilogueWorldMap_Piece_NewThracia_EndNoInheritors
 al 81858d .rsUnknown81858D
 al 83833c .aPromotionTable
 al 838377 .aPromotionTable:Fee
@@ -22832,7 +22916,6 @@ al 8f8b5a .dialogueChapter02InfiniBrigandsSpawn
 al 83dd04 .SkillRingNameItemNameOffsetsEntry
 al 83f54d .SofalaNameCastleNameOffsetsEntry
 al 8e9b5d .Event0B9Pointer
-al 8fee23 .EventChapter05LexAzelleTalkEventPointersEntry
 al 8dc955 .rlASMCUnknown8DC955
 al 8dc963 .rlASMCUnknown8DC955:_End
 al 8381a7 .aMyrmidonMapSpriteAssignment
@@ -22877,7 +22960,8 @@ al 8690c2 .rsChapterEventConditionCommand47
 al 869115 .rsChapterEventConditionCommand47:_End
 al 86910d .rsChapterEventConditionCommand47:_NoChildren
 al 869036 .rsChapterEventConditionCommand44
-al 91edaa .aSaveDataBitmasks
+al 86904d .rsChapterEventConditionCommand45
+al 869091 .rsChapterEventConditionCommand45:_End
 al 86911c .rsChapterEventConditionCommand48
 al 869133 .rsChapterEventConditionCommand49
 al 8ab93a .PortraitPalette73PortraitPalettePointersEntry
@@ -22904,7 +22988,6 @@ al 8384d1 .CedLoverIDMaleLoveDataIDsEntry:UnitID
 al 9def37 .EpilogueRegionNewThraciaEndMultipleEnding
 al 839cc1 .UlsterUnusedFireMageNameCharacterNameOffsetsEntry
 al 8d96bb .dialogueItemNameGreatBallista
-al 8b9d08 .PortraitConnachtThunderMageBridgePortraitDataIDsEntry
 al 8fe9f7 .EventChapter02QuanDiedEventPointersEntry
 al b296bf .rlASMCEpilogueNewThraciaExit
 al 213c .OPHCT
@@ -22922,95 +23005,6 @@ al 9d8c1d .Event07CPointer
 al 83aee3 .MackilyArcherCharacterDataOffsetsEntry
 al aec7d6 .dialogueChapter05AlecNaoiseTalk
 al 9197dc .rsUnknown9197DC
-al 81dfcc .aUNITGroupDataChapter09Travant
-al 81e00c .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry
-al 81e012 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81e00e .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:DestinationX
-al 81e00f .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:DestinationY
-al 81e011 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:AI
-al 81e013 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:FormationID
-al 81e00c .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:CharacterID
-al 81e010 .aUNITGroupDataChapter09Travant:ID_09UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81dfd4 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry
-al 81dfda .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81dfd6 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:DestinationX
-al 81dfd7 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:DestinationY
-al 81dfd9 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:AI
-al 81dfdb .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:FormationID
-al 81dfd4 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:CharacterID
-al 81dfd8 .aUNITGroupDataChapter09Travant:ID_02UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81dffc .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry
-al 81e002 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81dffe .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:DestinationX
-al 81dfff .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:DestinationY
-al 81e001 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:AI
-al 81e003 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:FormationID
-al 81dffc .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:CharacterID
-al 81e000 .aUNITGroupDataChapter09Travant:ID_07UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81dfcc .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry
-al 81dfd2 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81dfce .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:DestinationX
-al 81dfcf .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:DestinationY
-al 81dfd1 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:AI
-al 81dfd3 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:FormationID
-al 81dfcc .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:CharacterID
-al 81dfd0 .aUNITGroupDataChapter09Travant:ID_01UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81e004 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry
-al 81e00a .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81e006 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:DestinationX
-al 81e007 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:DestinationY
-al 81e009 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:AI
-al 81e00b .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:FormationID
-al 81e004 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:CharacterID
-al 81e008 .aUNITGroupDataChapter09Travant:ID_08UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81e014 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry
-al 81e01a .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81e016 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:DestinationX
-al 81e017 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:DestinationY
-al 81e019 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:AI
-al 81e01b .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:FormationID
-al 81e014 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:CharacterID
-al 81e018 .aUNITGroupDataChapter09Travant:ID_10UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81e01c .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry
-al 81e022 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81e01e .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:DestinationX
-al 81e01f .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:DestinationY
-al 81e021 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:AI
-al 81e023 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:FormationID
-al 81e01c .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:CharacterID
-al 81e020 .aUNITGroupDataChapter09Travant:ID_11UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81dfdc .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry
-al 81dfe2 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81dfde .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:DestinationX
-al 81dfdf .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:DestinationY
-al 81dfe1 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:AI
-al 81dfe3 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:FormationID
-al 81dfdc .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:CharacterID
-al 81dfe0 .aUNITGroupDataChapter09Travant:ID_03UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81dfec .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry
-al 81dff2 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81dfee .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:DestinationX
-al 81dfef .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:DestinationY
-al 81dff1 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:AI
-al 81dff3 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:FormationID
-al 81dfec .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:CharacterID
-al 81dff0 .aUNITGroupDataChapter09Travant:ID_05UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81dff4 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry
-al 81dffa .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81dff6 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:DestinationX
-al 81dff7 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:DestinationY
-al 81dff9 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:AI
-al 81dffb .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:FormationID
-al 81dff4 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:CharacterID
-al 81dff8 .aUNITGroupDataChapter09Travant:ID_06UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
-al 81dfe4 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry
-al 81dfea .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:FactionSlot
-al 81dfe6 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:DestinationX
-al 81dfe7 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:DestinationY
-al 81dfe9 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:AI
-al 81dfeb .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:FormationID
-al 81dfe4 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:CharacterID
-al 81dfe8 .aUNITGroupDataChapter09Travant:ID_04UNITGroupDataChapter09TravantEntry:GroupLeaderFlag
 al 9dd484 .dialogueEpilogue_Piece_Scathach_ShannanDead
 al 86f2f6 .Ch08_MunsterChapter08LocationDataEntry
 al 83b0f5 .HeroCh10CharacterDataOffsetsEntry
@@ -23031,7 +23025,6 @@ al b2be19 .dialogueEpilogue_AzellesSon_WithLover
 al b0b76e .dialogueChapter05EdainAndreyBattleQuote
 al 839af5 .MarphaChargeBarbarianNameCharacterNameOffsetsEntry
 al 8ab88c .PortraitPalette39PortraitPalettePointersEntry
-al 868864 .rsEventCheckChildTalk
 al 8185c2 .rsUnknown8185C2
 al 81c04a .UNITGroupChapter08StartUNITGroupPointersEntry
 al 849622 .rlGetSelectedUnitLoveDataID
@@ -23059,6 +23052,7 @@ al 8fe93a .EventChapter01VerdaneSpawnEventPointersEntry
 al 83e3a8 .CharmStaffDescriptionItemDescriptionOffsetsEntry
 al 86c7a2 .FG_Ch02SigurdFactionGroupPointersEntry
 al 91bec6 .aUnknown91BEC6
+al b0cc53 .aEventChapter04SigurdClaudTalk
 al 85aa2f .aDialogueBoxHDMATopDataValue
 al 83dc6e .BrokenAxeANameItemNameOffsetsEntry
 al 83ea00 .WingclipperItemDataOffsetsEntry
@@ -23066,6 +23060,7 @@ al 83ae2f .IucharCharacterDataOffsetsEntry
 al 83853d .LeneLoveBaseLoveBaseOffsetsEntry
 al b2b7e3 .dialogueChapterFinalJuliusDiedJuliaRecruitment
 al b0cfde .rlASMCHolyWeaponObtainShine
+al 83e384 .NosferatuDescriptionItemDescriptionOffsetsEntry
 al 8680ee .aSetPermanentEventFlagMask
 al 7eccd6 .wBattleAttackerIndex
 al 8b9c04 .PortraitTofaCommanderWarMagePortraitDataIDsEntry
@@ -23548,12 +23543,14 @@ al ebc .bEventActionIdentifier
 al 8d8c57 .rlASMCChapter10WarpAway
 al 9d933d .aEventChapter03DewBragiTower
 al 8d8a04 .EventChapter10MiletosSeizedPointer
+al 9ddcff .dialogueEpilogue_Piece_Deimne_MuirneDead_WithLover_Unused
 al 83aff3 .RotenritterCh05CommanderGeneralCharacterDataOffsetsEntry
 al c26edd .g4bppcAxeSoldierMapMovementSprite
 al b1e0a0 .aEventChapterFinalDozelSeized
 al 86ec91 .aChapter07MapChangeAedPassage
 al 839c61 .RotenritterUnusedCommanderFireMageNameCharacterNameOffsetsEntry
 al 83af15 .MadinoAxeArmorCenterCharacterDataOffsetsEntry
+al b2876c .dialogueChapter01WorldMapUnused
 al 91bf46 .rsEventCommand10
 al 91bf77 .rsEventCommand13
 al 8ab595 .PortraitGraphic34PortraitGraphicPointersEntry
@@ -23608,12 +23605,11 @@ al 83ae03 .LewynCharacterDataOffsetsEntry
 al 9def8f .dialogueEpilogue_Piece_NewThraciaEnd_End
 al 85ab0c .rlCheckDialogueBoxHDMAFinished
 al 8feb86 .Event0EDEventPointersEntry
-al 848331 .aLoadChildUnitRoutines
 al 83e39a .MendStaffDescriptionItemDescriptionOffsetsEntry
 al 8b9fde .PortraitDialogueCivilianOldWomanPortraitDataIDsEntry
 al 8ab679 .PortraitGraphic80PortraitGraphicPointersEntry
 al 86f8a8 .aChapter09GrutiaCastle
-al 83d8ee .FactionAgustiFactionNameOffsetsEntry
+al 899feb .aUnknown899FEB
 al 86d668 .Chapter03DataPointer
 al 91bf57 .rsEventCommand11
 al 91bf68 .rsEventCommand12
@@ -23649,6 +23645,7 @@ al 9dca56 .aEventChapter05Village3
 al 91ba9c .rlASMCSetBelhallaEpilogue
 al 8b9e58 .PortraitMahatmaPortraitDataIDsEntry
 al 83b233 .ApostoleCharacterDataOffsetsEntry
+al 838fb5 .RogueClassDataOffsetsEntry
 al 90bb5a .dialogueChapter01Village1
 al 91a863 .rlRunDialogueEventCommand
 al 90bbfa .dialogueChapter01Village2
@@ -23665,11 +23662,11 @@ al 86c84a .FG_FinalYngviFactionGroupPointersEntry
 al 8b9cae .PortraitKutuzovPortraitDataIDsEntry
 al 908212 .aChapterPrologueVillage1
 al 87e2e6 .BrokenWeaponFireBrokenWeaponOffsetsEntry
-al 839b4b .MackilyBallisticianNameCharacterNameOffsetsEntry
 al 8aba4e .PortraitPaletteCFPortraitPalettePointersEntry
 al 839be5 .AnnandNameCharacterNameOffsetsEntry
 al 83e2f4 .MiracleSwordDescriptionItemDescriptionOffsetsEntry
 al 84a464 .rlGetSelectedUnitTotalHPGrowth
+al 8fea8d .EventChapter04LowerBridgeEventPointersEntry
 al 8b8798 .WMM_MunsterWorldMapMarkerSpritesEntry
 al b38a1e .dialogueChapter09Opening6OifeyAlive
 al 8b9ac2 .PortraitIucharPortraitDataIDsEntry
@@ -23761,7 +23758,6 @@ al 8b9cea .PortraitFotlaCh07PortraitDataIDsEntry
 al 8e8a8f .aEventChapter02MountainArmorTalk
 al 8fbf4f .EventChapter08VillagePowerRingPointer
 al 83aec7 .InfiniCommanderDukeKnightCharacterDataOffsetsEntry
-al b284fb .dialogueChapter01WorldMap1
 al 83af57 .LombardCh03CharacterDataOffsetsEntry
 al b28543 .dialogueChapter01WorldMap3
 al 8fe8f2 .Event011EventPointersEntry
@@ -24310,7 +24306,7 @@ al 8382bf .aSageMapSpriteAssignment
 al 8feadb .Event0B4EventPointersEntry
 al 8ffcb3 .aEventChapterFinalFeeHermina_SeliphTalk
 al 8fe988 .Event043EventPointersEntry
-al 8b9e46 .PortraitGazackPortraitDataIDsEntry
+al 83dd00 .BarrierRingNameItemNameOffsetsEntry
 al b3c673 .dialogueChapter10SeliphPalmarchTalk
 al 839c09 .LamiaSquadPriestNameCharacterNameOffsetsEntry
 al b3ef62 .aEpilogueLoverPointersJeanneNanna
@@ -24380,6 +24376,7 @@ al 8ab9b2 .PortraitPalette9BPortraitPalettePointersEntry
 al 84a78d .rlGetEnemyClassHPGrowth
 al 839b19 .PhilipSquadBallisticianNameCharacterNameOffsetsEntry
 al 84f2c6 .rlUnknown84F2C6
+al 8edf2c .dialogueDeathQuoteGen2PlayerAres
 al 8382ba .aBishopMapSpriteAssignment
 al b0e7f7 .dialogueChapterFinalIucharba_BrianBattleQuote
 al 8ab886 .PortraitPalette37PortraitPalettePointersEntry
@@ -24413,7 +24410,6 @@ al 91a16b .aDialogueCustomWidth64
 al 839c93 .UlsterGuardGeneralNameCharacterNameOffsetsEntry
 al 8b9e10 .PortraitVelthomerDarkMagePortraitDataIDsEntry
 al 8fae41 .dialogueChapter02LewynErinysBattleQuote
-al 91a160 .aDialogueCustomWidth60
 al 8ab7ae .PortraitGraphicE7PortraitGraphicPointersEntry
 al 84eeb1 .rsUnknown84EEB1
 al 83e9d4 .SilverSwordItemDataOffsetsEntry
@@ -24428,6 +24424,7 @@ al b186ab .aEventPrologueEthlynDied
 al b1870f .aEventPrologueEthlynDied:_ScriptedMovementEthlyn
 al b18701 .aEventPrologueEthlynDied:_ScriptedMovementQuan
 al 909132 .dialogueChapter01EdainGroupSpawn1
+al 90938a .dialogueChapter01EdainGroupSpawn3
 al 8fc035 .EventChapter08CivilianRescued4Pointer
 al 83824c .aPrincessMapSpriteAssignment
 al 89cf20 .aDebugRingMagicText
@@ -24436,6 +24433,7 @@ al 4200 .NMITIMEN
 al 8e9518 .aEventChapter04AndreySpawn
 al 89dcd7 .aDebugCombatWeaponText
 al 9081ec .ChP_YngviChapterPrologueLocationDataEntry
+al b2d497 .dialogueChapter06CreidneIucharAdjacent
 al 8383a7 .ChurchNameTerrainNameOffsetsEntry
 al 8e8921 .EventChapter02Village3Pointer
 al 83f565 .ChronosNameCastleNameOffsetsEntry
@@ -24460,7 +24458,6 @@ al 4202 .WRMPYA
 al 4203 .WRMPYB
 al 839da9 .RobertoSquadTroubadourNameCharacterNameOffsetsEntry
 al 89dc95 .aDebugCombatUnitText
-al 83ea0e .JavelinItemDataOffsetsEntry
 al 84dc1c .rlUnknown84DC1C
 al 838ae7 .GeneralClassNameClassNameOffsetsEntry
 al 90e7e2 .dialogueChapter06HaroldBattleQuote
@@ -24479,6 +24476,7 @@ al 83f514 .PI_CircletPlayerItemTableEntry:Item
 al 828279 .rsProcCodeUnknown828179
 al 839a21 .aTerrainAvoidOffsets
 al 8b9d6c .PortraitMusarSquadPaladinFPortraitDataIDsEntry
+al b19067 .dialogueChapterPrologueMunnirHurryUp
 al b2d045 .JeanneEpilogueIDEpiloguePointersEntry
 al 81c006 .UNITGroupChapter01MarphaUNITGroupPointersEntry
 al 8e870c .EventChapter02Village7Pointer
@@ -24493,7 +24491,6 @@ al 8fec85 .EventChapter08Village3AsaelloEventPointersEntry
 al b3c0ab .dialogueChapter10ChalphySpawn1
 al b3c5d9 .dialogueChapter10ChalphySpawn2
 al 8debae .dialogueChapterEpilogueWorldMap_Verdane_NoInheritors
-al b1e583 .rlASMCChapterFinalNagaObtainShine
 al 83b1c3 .ZeroCharacterDataOffsetsEntry
 al 8b9c9a .PortraitBrigandCh06PortraitDataIDsEntry
 al 8ff861 .aEventChapter10FebailAsaello_LanaMuirneTalk
@@ -24519,6 +24516,7 @@ al b1876b .aEventPrologue01D
 al b1876d .aEventPrologue01E
 al 91cd79 .rsEventCommand59
 al 91cd35 .rsEventCommand58
+al 84f4a5 .rlGetFirstEquippableWeaponInInventory
 al 87f216 .aVillageDestroyedPattern3State5Tiles
 al 91cc31 .rsEventCommand50
 al 91cc59 .rsEventCommand50:_End
@@ -24679,6 +24677,7 @@ al 86cc36 .FG_Ch01NordionPointer
 al 83b087 .MeathDragonriderLeonsterChargeCharacterDataOffsetsEntry
 al c54a6b .g4bppcGreatKnightMapMovementSprite
 al 83e33c .SilverAxeDescriptionItemDescriptionOffsetsEntry
+al 8fe99d .EventChapter02WaltzChargeEventPointersEntry
 al 87dfda .rlUnknown87DFDA
 al 83b159 .DarkMageChFinalFenrirCharacterDataOffsetsEntry
 al b2d214 .aLindaEpiloguePointers
@@ -24694,6 +24693,7 @@ al 839d3f .RiddellNameCharacterNameOffsetsEntry
 al 86d6c9 .aChapter03VillageDefense
 al 8b9b10 .PortraitEvansChargeBarbarianPortraitDataIDsEntry
 al 83aeb9 .PhilipSquadAxeArmorCharacterDataOffsetsEntry
+al 8de28f .dialogueChapterEpilogueWorldMap_Piece_NewThracia_Start
 al b1876b .Event01DPointer
 al 839bf1 .SilesseCivilianMaleNameCharacterNameOffsetsEntry
 al 83ea2a .HandAxeItemDataOffsetsEntry
@@ -24707,7 +24707,6 @@ al 213f .STAT78
 al 8fea78 .EventChapter03SylvaleCommanderTalkEventPointersEntry
 al 8b9ba8 .PortraitMadinoAxeArmorCenterPortraitDataIDsEntry
 al 213e .STAT77
-al 8de28f .dialogueChapterEpilogueWorldMap_Piece_NewThracia_Start
 al 8ab5ad .PortraitGraphic3CPortraitGraphicPointersEntry
 al 839dab .BoyceNameCharacterNameOffsetsEntry
 al 83ea24 .SilverAxeItemDataOffsetsEntry
@@ -24750,6 +24749,7 @@ al 839e75 .KrugerNameCharacterNameOffsetsEntry
 al 838ad1 .PegasusRiderClassNameClassNameOffsetsEntry
 al b0fdb0 .dialogueEpilogueLover_ClaudsSon_LindaTine
 al 83f571 .GrutiaNameCastleNameOffsetsEntry
+al b38b6e .dialogueChapter09Opening7LeifFinn
 al 83b1cf .ChacofCharacterDataOffsetsEntry
 al 91f2e1 .rsLoadItemRAMData
 al 91f321 .rsLoadItemRAMData:_F321
@@ -24759,15 +24759,14 @@ al b2d041 .TristanEpilogueIDEpiloguePointersEntry
 al b28ca3 .aEventChapter07UlsterSpawn
 al b0e906 .dialogueChapterFinalArthur_HildaBattleQuote
 al 8ab643 .PortraitGraphic6EPortraitGraphicPointersEntry
+al 8b9bbe .PortraitPirateCh03PortraitDataIDsEntry
 al 8ff9a7 .EventChapterFinalTineLinda_LeifTalkPointer
-al 83dd00 .BarrierRingNameItemNameOffsetsEntry
 al 91f693 .rsLoadChapterTurncountsLow
 al aeca23 .dialogueChapter05SigurdAyraTalk
 al 91d4b1 .EventChapter06BrotherRecruitedDanannResponsePointer
 al 83f563 .PerlucosNameCastleNameOffsetsEntry
 al 91bed6 .rsEventCommand0B
 al 8aba2d .PortraitPaletteC4PortraitPalettePointersEntry
-al b28c62 .aEventChapter07AresThreatensBramsel
 al 8fed0c .EventChapter10CivilianRescued4EventPointersEntry
 al 8ffaec .EventChapterFinalLarceiCreidne_SeliphTalkPointer
 al b0ce58 .EventChapter05ErinysLewynTalkPointer
@@ -24780,8 +24779,8 @@ al 839b29 .ElliotSquadCh02LanceKnightNameCharacterNameOffsetsEntry
 al 91ec92 .rsSaveLastUsedOptions
 al 8ab8ef .PortraitPalette5APortraitPalettePointersEntry
 al 8ab69a .PortraitGraphic8BPortraitGraphicPointersEntry
+al 8180a1 .rlActiveSpriteEngineCreateSpriteLowestSlot
 al 8b9e00 .PortraitScipioSquadArchKnightPortraitDataIDsEntry
-al 84e4d7 .rsCheckIfBattleDistanceInWeaponRange
 al 8b9c24 .PortraitDonovanPortraitDataIDsEntry
 al 8fd254 .dialogueChapter08CoulterCharge
 al 86c835 .FG_Ch10ChalphyFactionGroupPointersEntry
@@ -24801,6 +24800,7 @@ al 908a7b .aEventChapter01_031
 al 908a7d .aEventChapter01_032
 al 908a7f .aEventChapter01_033
 al 839bb7 .OrgahilPiratePillagerNameCharacterNameOffsetsEntry
+al 86d660 .aChapter03ClearTalksIfMarriedTable
 al 86d144 .aChapter02ClearTalksIfMarriedTable
 al 87f2b4 .aVillageDestroyedPattern4State6Tiles
 al 82fcad .rsGetEpilogueCharactersSupport
@@ -24837,7 +24837,6 @@ al 84dc82 .rsUnknown84DC82
 al 87f0a4 .aVillageDestroyedPatterns
 al 89e774 .rsDebugDrawCursorSpriteAndCoordinates
 al 8ab6dc .PortraitGraphicA1PortraitGraphicPointersEntry
-al 83e384 .NosferatuDescriptionItemDescriptionOffsetsEntry
 al b2d124 .aAltenaEpiloguePointers
 al 839b0d .CrossKnightCh01CavalierNameCharacterNameOffsetsEntry
 al 8b981e .WMM_EddaPointer
@@ -24845,7 +24844,6 @@ al 9df737 .dialogueEpilogueLover_Deimne_MuirneDead_Peppy
 al 2124 .W34SEL
 al 868ad9 .rsChapterEventConditionCommand1A
 al 83dd0a .BrokenHolyBowNameItemNameOffsetsEntry
-al 9db4ed .dialogueChapter03DuvallBattleQuote
 al 83b1dd .GellerCharacterDataOffsetsEntry
 al 1728 .wEventUnitSlot1YCoordinate
 al 84a02d .rlGetSelectedUnitClassID
@@ -24903,6 +24901,7 @@ al 918435 .rsDialogueIncrementVRAMTileOffset:_CheckWrap
 al 82f028 .rsUnknown82F028
 al b3cfc9 .dialogueEpilogue_Verdane
 al 8d8cab .EventChapter10JuliusDiedPointer
+al 839887 .SoldierMovementMovementCostOffsetsEntry
 al 908482 .Event021Pointer
 al b1e7c0 .aEventChapterFinalVillage2
 al 84dc8d .rsUnknown84DC8D
@@ -24910,7 +24909,6 @@ al 8d936c .dialogueCharacterNameAmid
 al 8b898d .rsDecompressIsaachMapHighlight
 al 8ba008 .ClassPortraitMasterKnightClassPortraitDataIDsEntry
 al 8fe92b .EventChapter01SigurdAyraTalkEventPointersEntry
-al 8dfd3c .aEventChapter02WorldMap
 al b28311 .Ch06_Village2Chapter06LocationDataEntry
 al 8feab4 .EventChapter04LewynSilesseVisitEventPointersEntry
 al b1dc98 .EventChapter09Village3Pointer
@@ -25037,9 +25035,9 @@ al 83b04b .BramselCharacterDataOffsetsEntry
 al 8d969a .dialogueItemNameBrokenBow
 al 83f4a5 .PI_SlimSword2PlayerItemTableEntry
 al 83f4a5 .PI_SlimSword2PlayerItemTableEntry:Item
+al b0d17a .dialogueChapter01UnusedEdainJamkeBattleQuote
 al 8b98d1 .WMM_SilesseCastlesPointer
 al 82efe1 .rsFreeRAMAreaEntryHeader
-al b2d160 .aAsaelloEpiloguePointers
 al 839ab5 .LayleaNameCharacterNameOffsetsEntry
 al 8ab745 .PortraitGraphicC4PortraitGraphicPointersEntry
 al 8fef22 .EventChapterFinalPattyDaisy_ShannanTalkEventPointersEntry
@@ -25050,7 +25048,6 @@ al 84aec0 .rlUnknown84AEC0
 al b2d130 .aFinnEpiloguePointers
 al 82fd07 .rsEpilogueDialogueIDFemaleCheckIfMarriedAndTargetAlive
 al 82fd0c .rsEpilogueDialogueIDFemaleCheckIfMarriedAndTargetAlive:_CheckMarriedStateAndTarget
-al 839887 .SoldierMovementMovementCostOffsetsEntry
 al 82e41b .rlBuildRAMStructHeader
 al 82e45b .rlBuildRAMStructHeader:_End
 al 9d9189 .EventChapter03Village3Pointer
@@ -25064,7 +25061,6 @@ al 83af27 .MadinoCommanderIronBallisticianCharacterDataOffsetsEntry
 al 8ab5a4 .PortraitGraphic39PortraitGraphicPointersEntry
 al 839dbb .JuphielNameCharacterNameOffsetsEntry
 al 83afcd .PhinoraGuardPriestCharacterDataOffsetsEntry
-al b1aa7d .aChapter10MapChangeBelhallaRightPath
 al 9d8b03 .aEventChapter03LachesisEldiganTalk
 al 9086ea .EventChapter01HeirheinSpawnPointer
 al b2b5e6 .dialogueChapterFinalJuliaVelthomerVisit
@@ -25076,6 +25072,7 @@ al 9d916e .aEventChapter03Village4
 al 9d917f .aEventChapter03Village4:_SylvaleSeized
 al 8495f5 .rlSetSelectedUnitStates
 al 9df9fc .dialogueEpilogueLover_Deimne_MuirneAlive_LindaTine
+al 2120 .M7Y
 al 89dccf .aDebugCombatGenderText
 al 211f .M7X
 al 83f52f .ChalphyNameCastleNameOffsetsEntry
@@ -25144,7 +25141,6 @@ al 8ee935 .dialogueDeathQuoteGen2EnemyNPCHarold
 al 8ab59b .PortraitGraphic36PortraitGraphicPointersEntry
 al 86e6fd .aFactionGroup22AI2
 al 839d11 .DistlerNameCharacterNameOffsetsEntry
-al 9ddb14 .dialogueEpilogue_CreidneLarcei_ShannanAlive_BrotherAlive
 al 87e25d .rlUnknown87E25D
 al 919464 .rlDialogueSetFont3
 al 91945f .rlDialogueSetFont2
@@ -25183,6 +25179,7 @@ al 8e9982 .aEventChapter04SilesseSeizedDaccarResponse:_End
 al 8e9967 .aEventChapter04SilesseSeizedDaccarResponse:_PamelaAliveLamiaDead
 al 8e997d .aEventChapter04SilesseSeizedDaccarResponse:_PamelaDeadLamiaDead
 al e8c .wAIUnknown000E8C
+al 8fea3f .EventChapter03OrgahilSpawnEventPointersEntry
 al e8e .wAIUnknown000E8E
 al b0ce8c .aEventChapter05ErinysNaoiseTalk
 al 8b9b82 .PortraitAgustiCommanderPaladinPortraitDataIDsEntry
@@ -25218,11 +25215,7 @@ al 8b9f0e .PortraitDialogueLombardPortraitDataIDsEntry
 al 8ab59e .PortraitGraphic37PortraitGraphicPointersEntry
 al 89cf3e .aDebugRingResistanceText
 al 87e613 .aWeaponEffectivenessDragonText
-al 8dc48a .rlASMCEpilogueWorldMapGrannvalePieceFriegeRuler
-al 8dc4d7 .rlASMCEpilogueWorldMapGrannvalePieceFriegeRuler:_Dialogue
-al 8dc4ef .rlASMCEpilogueWorldMapGrannvalePieceFriegeRuler:_End
 al 81c014 .UNITGroupChapter02InfiniUNITGroupPointersEntry
-al 8ab8e3 .PortraitPalette56PortraitPalettePointersEntry
 al 86dd15 .aUnknown86DD15
 al 82f9d3 .rsEvaluateEpiloguePriorities
 al 82fa00 .rsEvaluateEpiloguePriorities:_End
@@ -25247,11 +25240,9 @@ al 8ab838 .PortraitPalette1DPortraitPalettePointersEntry
 al b1f7e8 .dialogueEpilogue_Piece_ClaudsDaughter_End
 al 8b9d7c .PortraitRadosDarkMagePortraitDataIDsEntry
 al 84a191 .rlSetSelectedUnitClass
-al 8ab694 .PortraitGraphic89PortraitGraphicPointersEntry
 al 91d4f6 .EventChapter06Village1Pointer
 al 8d928b .dialogueCharacterNameSigurd
 al 8d9660 .dialogueItemNameHandAxe
-al 83af3d .PapilioSquadDragonriderCharacterDataOffsetsEntry
 al 82e7b2 .rlUnknown82E7B2
 al 8ebb4a .dialogueChapter04Piece_LamiaChargeOrder
 al 83afaf .SlayderCharacterDataOffsetsEntry
@@ -25340,7 +25331,7 @@ al 8e8a63 .aEventChapter02FinnDied:_ScriptedMovementFinn
 al b08412 .aFactionGroupData39
 al b0841f .aFactionGroupData39:_GroupAI
 al b0841b .aFactionGroupData39:_Locations
-al 8ab9b8 .PortraitPalette9DPortraitPalettePointersEntry
+al 839ad5 .NannaNameCharacterNameOffsetsEntry
 al 8ff441 .EventChapter08NannaAresTalkPointer
 al 91b05b .rlUnknown91B05B
 al 91b081 .rlUnknown91B05B:_SEC
@@ -25362,7 +25353,6 @@ al 84eb23 .rsUnknown84EAD9:_End
 al 9d932b .Event091Pointer
 al b2903e .EventChapter07VillageBarrierBladeAnyonePointer
 al 91b054 .rlUnknown91B054
-al 8ba004 .ClassPortraitKnightLordClassPortraitDataIDsEntry
 al 83d914 .FactionZaxonFactionNameOffsetsEntry
 al 87eee4 .rlSetVillageOpen
 al 839cb5 .UlsterUnusedSwordArmorNameCharacterNameOffsetsEntry
@@ -34560,7 +34550,6 @@ al 83ccc2 .aCharacterData:DarkMageCh10HelCharacterDataEntry:Equipment1
 al 83ccc0 .aCharacterData:DarkMageCh10HelCharacterDataEntry:LeadershipStars
 al 83ccb8 .aCharacterData:DarkMageCh10HelCharacterDataEntry:Type
 al 83ccbd .aCharacterData:DarkMageCh10HelCharacterDataEntry:Class
-al 90938a .dialogueChapter01EdainGroupSpawn3
 al 86d395 .aChapter03EventHeader
 al 84862c .rlGetCharacterEquipSlotItemROMPointer
 al 84868d .rlGetCharacterEquipSlotItemROMPointer:_End
@@ -34634,7 +34623,6 @@ al b1ebca .dialogueEpilogue_Lester_BrigidsChildrenAlive
 al 8ab68e .PortraitGraphic87PortraitGraphicPointersEntry
 al 8fec01 .EventChapter07LeonsterSeizedEventPointersEntry
 al 91bc72 .rlASMCEpilogueCharlotCoirpreLoverCallHannibalDead
-al aeec0d .dialogueChapter06DalvinCreidneTalk
 al 89d80b .aDebugSkillCanto
 al 762 .wMapYOffset
 al 8ee6e9 .dialogueDeathQuoteGen1EnemyNPCDithorba
@@ -34676,7 +34664,6 @@ al 84cbeb .rlDeployedUnitSetAliveUnsetHidden
 al 8ab65b .PortraitGraphic76PortraitGraphicPointersEntry
 al 8ddca7 .dialogueChapterEpilogueWorldMapSilesse
 al 839d79 .RotenritterCh10GuardFireMage1NameCharacterNameOffsetsEntry
-al b1ef75 .dialogueEpilogue_AmidArthur
 al afa5e7 .dialogueChapterFinalDaisyDeimneTalk
 al 83b081 .MeathCivilianMaleCharacterDataOffsetsEntry
 al 83825b .aDancerMapSpriteAssignment
@@ -34690,7 +34677,7 @@ al 8fd69c .dialogueChapter08EndingAltena
 al 8b9c9e .PortraitIsaachGuardAxeKnightPortraitDataIDsEntry
 al 86dc8c .Ch04_Village1Chapter04LocationDataEntry
 al 868729 .rsUnknown868729
-al 8fef25 .EventChapterFinalPattyLesterTalkEventPointersEntry
+al 8b9f70 .PortraitDialogueBaran2PortraitDataIDsEntry
 al 839b3d .WaltzNameCharacterNameOffsetsEntry
 al b29159 .EventChapter07DaisyShannanAdjacentPointer
 al 91a69d .rsUnknown91A69D
@@ -34729,6 +34716,7 @@ al 8ab6ac .PortraitGraphic91PortraitGraphicPointersEntry
 al 8ee295 .dialogueDeathQuoteGen2PlayerLarcei
 al 8ab74b .PortraitGraphicC6PortraitGraphicPointersEntry
 al b3b78a .dialogueChapter10RadosSeized
+al 83d944 .FactionVelthomer2FactionNameOffsetsEntry
 al b29159 .aEventChapter07DaisyShannanAdjacent
 al 839ddf .ManfroyNameCharacterNameOffsetsEntry
 al 90beff .dialogueChapter01JamkeBattleQuote
@@ -34793,25 +34781,22 @@ al 83ea40 .BrokenBowBItemDataOffsetsEntry
 al 86dc79 .aChapter04EventData
 al c62e4a .g4bppcBallisticianMapMovementSprite
 al 2109 .BG3SC
-al c21641 .g4bppcSwordmasterMapMovementSprite
 al 83f537 .MunsterNameCastleNameOffsetsEntry
 al 84f288 .rsUpdateEquippedWeaponBitfieldIfSlotChanged
 al 84f2bb .rsUpdateEquippedWeaponBitfieldIfSlotChanged:_End
 al 84f2be .rsUpdateEquippedWeaponBitfieldIfSlotChanged:_EquippedWeaponBitfield
-al 84f4a5 .rlGetFirstEquippableWeaponInInventory
+al 908a7d .Event032Pointer
 al b1ab65 .FG_FinalYngviPointer
 al 83f509 .PI_LegRingPlayerItemTableEntry
 al 83f509 .PI_LegRingPlayerItemTableEntry:Item
-al 84f2eb .rlGetSelectedUnitFirstInventoryItem
 al 8ee1b4 .dialogueDeathQuoteGen2PlayerCoirpre
 al 8feabd .EventChapter04CivilianRescuedBEventPointersEntry
 al 918110 .rlUnknown918110
 al 918114 .rlUnknown918114
 al 81c00c .UNITGroupChapter01VerdaneUNITGroupPointersEntry
-al 8b9f76 .PortraitDialogueJuphielPortraitDataIDsEntry
 al 8ab859 .PortraitPalette28PortraitPalettePointersEntry
-al 87a4f9 .rlGetClassBaseHP
 al 839c19 .LubeckThunderMageRightNameCharacterNameOffsetsEntry
+al b08903 .dialogueChapter05SigurdByronTalk
 al 83af1b .MadinoCommanderGeneralRightCharacterDataOffsetsEntry
 al b0834c .Ch10_Village4Chapter10LocationDataEntry
 al 8ab7ba .PortraitGraphicEBPortraitGraphicPointersEntry
@@ -34830,7 +34815,6 @@ al 89d74a .rsDebugMenuTab1Page8Effect
 al 89d799 .rsDebugMenuTab1Page8Effect:_End
 al 82c1d6 .rlHDMAEngineFreeEntryByOffset
 al 87e294 .rlUnknown87E294
-al 91d3de .EventChapter06LarceiCreidne_IucharTalkPointer
 al 8eee24 .dialogueDeathQuoteGen2EnemyNPCMorrigan
 al 83d946 .FactionFriege2FactionNameOffsetsEntry
 al 86d668 .aChapter03EventData
@@ -34850,11 +34834,11 @@ al 8fe8d1 .EventPrologueEvansSpawnEventPointersEntry
 al 83f4ca .PI_SteelAxe2PlayerItemTableEntry
 al 83f4ca .PI_SteelAxe2PlayerItemTableEntry:Item
 al 919186 .rlUnknown919186
-al 86c7f9 .FG_Ch06RibautFactionGroupPointersEntry
 al 908008 .aChapterPrologueOpeningEvent
 al 83dcea .ThiefBandNameItemNameOffsetsEntry
 al 9de0b3 .dialogueEpilogue_Piece_Region_Start
 al 838b37 .ChildClassNameClassNameOffsetsEntry
+al e9e .wAITemp000E9E
 al 8feec5 .EventChapter09FebailPattyTalkEventPointersEntry
 al e9a .wAITemp000E9A
 al e9c .wAITemp000E9C
@@ -34892,6 +34876,7 @@ al 83ea84 .RecoverStaffItemDataOffsetsEntry
 al 86e565 .aChapter05Village3
 al 86e560 .aChapter05Village2
 al 86e55b .aChapter05Village1
+al 8ab6b2 .PortraitGraphic93PortraitGraphicPointersEntry
 al 8ab841 .PortraitPalette20PortraitPalettePointersEntry
 al 86edc9 .FG_Ch07LeifPointer
 al 91a0b1 .aDialogueCustomWidth2F
@@ -34903,6 +34888,7 @@ al 91a087 .aDialogueCustomWidth28
 al 8b9d40 .PortraitDistlerPortraitDataIDsEntry
 al 83e3f8 .BrokenHolyStaffDescriptionItemDescriptionOffsetsEntry
 al 83b011 .SchmidtCharacterDataOffsetsEntry
+al 87be7c .rlUnknown87BE7C
 al 83dc2a .SleepSwordNameItemNameOffsetsEntry
 al 8ebb38 .dialogueChapter04DaccarResponsePamelaAliveLamiaAlive
 al b294a2 .aEpilogueEddaUnitPositions
@@ -35043,7 +35029,6 @@ al 84b407 .rlChangeFactionSlotOfSelectedUnit
 al 83dcd8 .SilenceStaffNameItemNameOffsetsEntry
 al 84f142 .rlGivePlayerItemIDToSelectedUnit
 al 839b85 .MadinoLanceKnightNameCharacterNameOffsetsEntry
-al 818566 .rsActiveSpriteCommand16
 al 818561 .rsActiveSpriteCommand15
 al 818520 .rsActiveSpriteCommand14
 al 8184ff .rsActiveSpriteCommand12
@@ -35511,13 +35496,11 @@ al 8ab7b1 .PortraitGraphicE8PortraitGraphicPointersEntry
 al 86f2e5 .Chapter08DataPointer
 al 8b9f42 .PortraitDialogueMuhammadPortraitDataIDsEntry
 al b083c3 .aUnknownB083C3
-al 83aeeb .AgustiBallisticianCharacterDataOffsetsEntry
 al 839d17 .LutheciaHeroFNameCharacterNameOffsetsEntry
 al 9de391 .dialogueEpilogue_Altena_LeifAlive_ArionDead
 al 86fa9a .ChapterEpiloguePointer
 al 87f2ec .rsDestroyEventLocation
 al 83eac2 .SkillRingItemDataOffsetsEntry
-al 9ddcff .dialogueEpilogue_Piece_Deimne_MuirneDead_WithLover_Unused
 al 83b027 .UlsterSwordArmorLeonsterChargeCharacterDataOffsetsEntry
 al 8b9c98 .PortraitGaneishireFighterPortraitDataIDsEntry
 al 82826c .rsProcCodeJumpIfBitsSet
@@ -35569,6 +35552,7 @@ al 8fea24 .EventChapter03SigurdApproachesEldiganEventPointersEntry
 al 8fecd3 .EventChapter09Village2EventPointersEntry
 al 8b9bfc .PortraitTofaCommanderWindMagePortraitDataIDsEntry
 al 89d4b4 .aDebugEnemyMagicText
+al 83f489 .aPlayerItemTable
 al 8280f8 .rlUnknown8280F8
 al 87a559 .rlGetClassSpeed
 al 8fed90 .EventChapterFinalJuliaVelthomerVisitEventPointersEntry
@@ -35803,6 +35787,7 @@ al 91eac9 .rlSetSaveSlotCompletionFlag
 al 91eace .rlSetSaveSlotCompletionFlag:_Loop
 al 91eb02 .rlSetSaveSlotCompletionFlag:_Next
 al 8fedea .EventChapter03LexAyraTalkEventPointersEntry
+al 83b139 .DarkMageCh10FenrirCharacterDataOffsetsEntry
 al 839bd7 .TofaWindMageRightNameCharacterNameOffsetsEntry
 al 839db7 .RodanSquadHighPriestSleepStaffNameCharacterNameOffsetsEntry
 al b1d7da .EventChapter09HannibalNotRecruitedPointer
@@ -35836,6 +35821,7 @@ al b283e4 .FG_Ch06RibautPointer
 al 7e5319 .wUnknown7E5319
 al 87a5e1 .rlGetClassStrGrowth
 al 8de90c .dialogueChapterEpilogueWorldMap_Agustria_Inherited
+al aeec0d .dialogueChapter06DalvinCreidneTalk
 al 7e4e75 .aDeadPlayerCharacterList
 al 8eb2dd .dialogueChapter04AnnandDeathLewynResponse
 al 8d8dc4 .dialogueChapter10WorldMap1
@@ -35846,10 +35832,10 @@ al 839c0f .ChildOifeyNameCharacterNameOffsetsEntry
 al 8fed99 .EventChapterFinalVillage2EventPointersEntry
 al 8ec81e .dialogueChapter04Village1BridgeLowered
 al b3a5e9 .dialogueChapter09ArionDied
-al 8b9c90 .PortraitRotenritterUnusedCommanderFireMagePortraitDataIDsEntry
 al 8fee26 .EventChapter05SigurdAyraTalkEventPointersEntry
 al 869440 .rsChapterEventConditionCommand5D
 al 86948f .rsChapterEventConditionCommand5D:_End
+al 81883c .rsActiveSpriteCommand10
 al 8ffb44 .aEventChapterFinalLarceiCreidne_IucharbaTalk
 al 839a59 .SigurdNameCharacterNameOffsetsEntry
 al 8385c8 .aGen2LoveBases
@@ -36242,6 +36228,7 @@ al 83ea6c .NosferatuItemDataOffsetsEntry
 al 8d95ac .dialogueItemNameWindSword
 al 9dbb4a .dialogueChapter03VillageWingclipper
 al 839e2f .MilletNameCharacterNameOffsetsEntry
+al 8b9e74 .PortraitDomaPortraitDataIDsEntry
 al 83f4bf .PI_Javelin1PlayerItemTableEntry
 al 83f4bf .PI_Javelin1PlayerItemTableEntry:Item
 al 839bdd .DithorbaSquadPegasusKnightNameCharacterNameOffsetsEntry
@@ -36572,6 +36559,7 @@ al 86e659 .aFactionGroupData1E:_Locations
 al 86e662 .aFactionGroupData1F
 al 86e66b .aFactionGroupData1F:_GroupAI
 al 8e9396 .aEventChapter04PamelaSpawn
+al 83dc3c .TyrfingNameItemNameOffsetsEntry
 al 869c1d .rsEventCheck4Parameters
 al 869c53 .rsEventCheck4Parameters:_CLC
 al 86e553 .aChapter05BelhallaCastle
@@ -36606,6 +36594,7 @@ al 91d381 .aEventChapter06LarceiCreidne_IucharbaTalk
 al 91d3d3 .aEventChapter06LarceiCreidne_IucharbaTalk:_IucharDead
 al 8d8a6b .aEventChapter10ChalphySpawn
 al 899119 .rlClearTilemapRect
+al 89c968 .aDebugFactionRelationOther
 al 8693bd .rsChapterEventConditionCommand59
 al 869c55 .rsEventCheckUnitInArea
 al 869c91 .rsEventCheckUnitInArea:_CLC
@@ -36621,6 +36610,7 @@ al 9ded84 .dialogueEpilogue_Piece_DaisyPatty_LoverDead
 al 83b1eb .KaledinCharacterDataOffsetsEntry
 al 8ff026 .EventChapter06LanaMuirne_JuliaTalkPointer
 al 83ea8a .ReturnStaffItemDataOffsetsEntry
+al 8b9d08 .PortraitConnachtThunderMageBridgePortraitDataIDsEntry
 al 83dd08 .BrokenHolyLanceNameItemNameOffsetsEntry
 al 81c6fc .aUNITGroupDataChapter02Mackily
 al 81c83c .aUNITGroupDataChapter02Mackily:ID_41UNITGroupDataChapter02MackilyEntry
@@ -36969,6 +36959,7 @@ al 2123 .W12SEL
 al 8ab7ff .PortraitPalette0APortraitPalettePointersEntry
 al 8edabe .dialogueDeathQuoteGen1PlayerBeowulf
 al b3cfbe .dialogueEpilogue_Agustria
+al 84e4d7 .rsCheckIfBattleDistanceInWeaponRange
 al 8b9c9c .PortraitSofalaGuardFighterPortraitDataIDsEntry
 al 8b9fc8 .PortraitDialogueAzmur2PortraitDataIDsEntry
 al 8fee2f .EventChapter05TailtiuClaudTalkEventPointersEntry
@@ -36987,6 +36978,7 @@ al 8380ee .aCavalierMapSpriteAssignment
 al 838535 .LarceiLoveBaseLoveBaseOffsetsEntry
 al 8fed5a .EventChapter10SeliphAtSeaEventPointersEntry
 al 86f884 .Ch09_Village1Chapter09LocationDataEntry
+al 8ba004 .ClassPortraitKnightLordClassPortraitDataIDsEntry
 al 8db82a .rlASMCEpilogueWorldMapSilessePieceCedHawksLover
 al 8db852 .rlASMCEpilogueWorldMapSilessePieceCedHawksLover:_End
 al 8d96aa .dialogueItemNameIronBallista
@@ -37061,7 +37053,7 @@ al 83f4ee .PI_MendStaff2PlayerItemTableEntry
 al 83f4ee .PI_MendStaff2PlayerItemTableEntry:Item
 al 86ee16 .aFactionGroup2AAI1
 al 86ee23 .aFactionGroup2AAI3
-al 8fec5e .EventChapter08Village2EventPointersEntry
+al 86ee18 .aFactionGroup2AAI2
 al 86ee27 .aFactionGroup2AAI5
 al 8feaed .EventChapter05OpeningEventPointersEntry
 al 839b13 .HeirheinGuardLanceArmorNameCharacterNameOffsetsEntry
@@ -37554,9 +37546,9 @@ al e7e .wAIActiveFaction
 al 84be3d .rlGetFactionSlotLocationID
 al 8d9128 .dialogueCastleNameConnacht
 al 8b9bec .PortraitGrauenritterCh03GreatKnightPortraitDataIDsEntry
+al 8fb728 .dialogueChapter02Village3
 al 8fb59b .dialogueChapter02Village6
 al 839ec9 .ZeusNameCharacterNameOffsetsEntry
-al 8fb40d .dialogueChapter02Village5
 al b1ab73 .FG_FinalThraciaPointer
 al 8d8d81 .aEventChapter10Village5
 al 89d72e .aUnknown89D72E
@@ -37638,7 +37630,6 @@ al 9ddc2a .dialogueEpilogue_Deimne_MuirneAlive_WithLover
 al 8b9c40 .PortraitLubeckGuardGeneralPortraitDataIDsEntry
 al 8ab976 .PortraitPalette87PortraitPalettePointersEntry
 al 8d97be .dialogueItemNameCharmStaff
-al 84f939 .rlEquipFirstWeaponInInventory
 al 4 .wR2
 al 7f5599 .aPortraitSlotsPaletteBuffer
 al 8dc459 .rlASMCEpilogueWorldMapGrannvalePieceVelthomerAzellesChildren
@@ -37681,6 +37672,10 @@ al b2d01b .ShannanEpilogueIDEpiloguePointersEntry
 al 8b9c50 .PortraitLubeckThunderMageLeftPortraitDataIDsEntry
 al 89d71e .aUnknown89D71E
 al 8ee209 .dialogueDeathQuoteGen2PlayerDiarmuid
+al 91931d .rlUnknown91931D
+al 919355 .rlUnknown91931D:_9355
+al 919361 .rlUnknown91931D:_End
+al 919362 .rlUnknown91931D:_9362
 al 839a8b .ShannaNameCharacterNameOffsetsEntry
 al b2d053 .ArthurEpilogueIDEpiloguePointersEntry
 al 8281d4 .rlProcEngineStub
@@ -37688,8 +37683,8 @@ al 83eacc .BrokenThunderTomeBItemDataOffsetsEntry
 al b2be13 .dialogueEpilogue_AzellesSon
 al 838399 .BridgeNameTerrainNameOffsetsEntry
 al 8b9b7c .PortraitChagallCh02PortraitDataIDsEntry
-al 8ba04c .ClassPortraitHunterClassPortraitDataIDsEntry
 al 808223 .rlEnableVBlank
+al 8fba90 .EventChapter08IshtarSpawnPointer
 al 8ab718 .PortraitGraphicB5PortraitGraphicPointersEntry
 al 8b9abc .PortraitDalvinPortraitDataIDsEntry
 al 8b9f9a .PortraitDialogueMunnirPortraitDataIDsEntry
@@ -38085,7 +38080,6 @@ al 8d9a83 .dialogueClassNamePirate
 al b1e8d7 .Event1A2Pointer
 al 91eeeb .rsSaveSaveFileBody
 al 8e871a .aEventChapter02_05B
-al 83987d .Tier1MountedMovementMovementCostOffsetsEntry
 al 8d8c60 .aEventChapter10IshtarKilledUnit
 al 8b98ac .WMM_OrgahilToSailanePointer
 al 86dc84 .Ch04_SailaneChapter04LocationDataEntry
@@ -38237,7 +38231,7 @@ al c24c1b .g4bppcSwordmasterFemaleMapMovementSprite
 al 83e318 .WingclipperDescriptionItemDescriptionOffsetsEntry
 al 839e1f .HoodNameCharacterNameOffsetsEntry
 al 83837f .CliffNameTerrainNameOffsetsEntry
-al 8df08d .dialogueChapterEpilogueWorldMap_Grannvale_Piece_Velthomer_AzellesSonLover
+al 8b9e2c .PortraitArionChFinalPortraitDataIDsEntry
 al 81c000 .aUNITGroupPointers
 al b29637 .aProcEpilogueUnitMovementCode
 al 89e708 .aDebugCombatFlagsTitleText3
@@ -40591,6 +40585,7 @@ al 8d956e .dialogueItemNameSilenceSword
 al 89d8f1 .rsDebugMenuTab3Page1
 al c62346 .g4bppcRangerMapMovementSprite
 al b1d864 .aEventChapter09CoirpreCharlot_HannibalTalk
+al 838f55 .PegasusKnightClassDataOffsetsEntry
 al aea74a .dialogueChapter03ChulainnAyraTalk
 al b2912c .aEventChapter07DahnaArmyTalk
 al 8febe6 .EventChapter07VillageShieldRingEventPointersEntry
@@ -40617,6 +40612,7 @@ al 8dea9c .dialogueChapterEpilogueWorldMap_Agustria_Piece_NannaJeanne
 al 8d967c .dialogueItemNameSilverBow
 al 8d9860 .dialogueItemNameMagicRing
 al 86ed11 .aChapter07MapChangeUlsterRemoveLeftRampart
+al 83e3e6 .BrokenThunderTomeCDescriptionItemDescriptionOffsetsEntry
 al 87e2e2 .BrokenWeaponBowBrokenWeaponOffsetsEntry
 al 83f49e .PI_ThiefSwordPlayerItemTableEntry
 al 83f49e .PI_ThiefSwordPlayerItemTableEntry:Item
@@ -40698,7 +40694,6 @@ al 87a97e .aValidInheritableSkills:Asaello
 al 87a98a .aValidInheritableSkills:Hawk
 al 87a984 .aValidInheritableSkills:Iuchar
 al 87a9ba .aValidInheritableSkills:Jeanne
-al 86e5d3 .aChapter05TalkEvents
 al 8381ed .aBaronMapSpriteAssignment
 al 86c826 .FG_Ch10SeliphFactionGroupPointersEntry
 al 839e37 .MarilynCh02NameCharacterNameOffsetsEntry
@@ -40726,7 +40721,6 @@ al c50c8c .g4bppcTroubadourMapMovementSprite
 al 83b1ed .KeithCharacterDataOffsetsEntry
 al 83b1d3 .MarilynCh02CharacterDataOffsetsEntry
 al 83b111 .IshtarCh10CharacterDataOffsetsEntry
-al 83f489 .aPlayerItemTable
 al 86c7ff .FG_Ch07AedFactionGroupPointersEntry
 al 55c .lStructPointer2
 al 838b11 .PrincessClassNameClassNameOffsetsEntry
@@ -40884,7 +40878,6 @@ al 81c863 .aUNITGroupDataChapter02Agusti:ID_04UNITGroupDataChapter02AgustiEntry:
 al 81c85c .aUNITGroupDataChapter02Agusti:ID_04UNITGroupDataChapter02AgustiEntry:CharacterID
 al 81c860 .aUNITGroupDataChapter02Agusti:ID_04UNITGroupDataChapter02AgustiEntry:GroupLeaderFlag
 al 8ab5c8 .PortraitGraphic45PortraitGraphicPointersEntry
-al 86c769 .Chapter03DataChapterEventDataPointersEntry
 al 8685ad .rsUnknown8685AD
 al 8ba062 .ClassPortraitFireMageClassPortraitDataIDsEntry
 al 8ecd41 .dialogueChapter05WorldMap
@@ -41070,14 +41063,14 @@ al 81e3ab .aUNITGroupDataChapter10Opening2:ID_16UNITGroupDataChapter10Opening2En
 al 81e3a4 .aUNITGroupDataChapter10Opening2:ID_16UNITGroupDataChapter10Opening2Entry:CharacterID
 al 81e3a8 .aUNITGroupDataChapter10Opening2:ID_16UNITGroupDataChapter10Opening2Entry:GroupLeaderFlag
 al 8d976d .dialogueItemNameBrokenTome
-al 83dc3c .TyrfingNameItemNameOffsetsEntry
 al 8ffd74 .EventChapterFinalArthurTineTalkPointer
 al 86c796 .FG_Ch01MarphaFactionGroupPointersEntry
 al 918d25 .rsDialogueCommand40
 al 8b898d .WMH_IsaachPointer
+al 8b9c48 .PortraitLubeckThunderMageRightPortraitDataIDsEntry
 al 84e5ed .rsActionStructRoundTryProcPavise
 al 84e629 .rsActionStructRoundTryProcPavise:_SEC
-al 839a9b .AdultFinnNameCharacterNameOffsetsEntry
+al 8ab82f .PortraitPalette1APortraitPalettePointersEntry
 al 83e368 .BolganoneDescriptionItemDescriptionOffsetsEntry
 al 8b865f .aWorldMapMarkerShadowVOFS
 al 8dfe0e .aEventChapter05WorldMap
@@ -41119,8 +41112,7 @@ al 8fedba .Event1A9EventPointersEntry
 al 86c739 .ChapterPrologueChapterEventPointersEntry
 al 82907b .aProcEventFadeInByTimerCode
 al 86d77a .FG_Ch03DozelFriegePointer
-al 869bc3 .rsEventCheck1Parameter
-al 869bd0 .rsEventCheck1Parameter:_SEC
+al 8feead .EventChapter08HerminaHawkTalkEventPointersEntry
 al b0bf2c .dialogueEpilogue_Diarmuid_AresAlive
 al afb03e .dialogueChapterFinalPattyDaisy_SeliphTalk
 al 7e4eb0 .wDeathQuotePointer
@@ -41274,7 +41266,7 @@ al 91eaae .rlGetHighestCompletionCount
 al 86d365 .aFactionGroup0FAI1
 al 8aba57 .PortraitPaletteD2PortraitPalettePointersEntry
 al 839e23 .EmirNameCharacterNameOffsetsEntry
-al 9de138 .dialogueEpilogue_Leif_AltenaAlive_WithLover
+al 89d8d3 .aDebugSkillEscape
 al 84a4d6 .rlGetSelectedUnitTotalSklGrowth
 al 83ae0d .BeowulfCharacterDataOffsetsEntry
 al 9192ae .rsUnknown9192AE
@@ -41341,6 +41333,7 @@ al 8e9a27 .EventChapter04Village3Pointer
 al b1ebbf .dialogueEpilogue_Lester_BrigidsChildrenDead_WithLover
 al 839e6f .SifNameCharacterNameOffsetsEntry
 al 8d9b02 .dialogueClassNameBard
+al 91f5a1 .rsSaveGeneralSaveData
 al 83f4c5 .PI_SlimLance2PlayerItemTableEntry
 al 83f4c5 .PI_SlimLance2PlayerItemTableEntry:Item
 al 178d .wEventProcBanks
@@ -41682,6 +41675,7 @@ al 8fec13 .Event11CEventPointersEntry
 al 8fea51 .EventChapter03VillageWingclipperEventPointersEntry
 al 839d3d .MusarSquadPaladinFNameCharacterNameOffsetsEntry
 al 8b9db2 .PortraitChalphyChildMalePortraitDataIDsEntry
+al 918b5f .rsUnknown918B5F
 al 91d43b .aEventChapter06IsaachSeized
 al 91d456 .aEventChapter06IsaachSeized:_DanannDead
 al b28319 .Ch06_Village5Chapter06LocationDataEntry
@@ -41706,7 +41700,6 @@ al 84b94a .rlActionStructHandleUnitDeath:_Escape
 al 84b981 .rlActionStructHandleUnitDeath:_B981
 al 84b944 .rlActionStructHandleUnitDeath:_Regular
 al 839d07 .KapathogiaSwordArmorNameCharacterNameOffsetsEntry
-al 86d875 .aChapter04MapEvents
 al 91bb0f .EpilogueRegionYngviEpilogueRegionsEntry
 al 8d958b .dialogueItemNameSafeguard
 al b0cdee .EventChapter05SigurdAyraTalkPointer
@@ -41725,6 +41718,7 @@ al 87ef38 .aVillageOpenedTileData
 al 8b9a09 .WMM_ThraciaToPerulukePointer
 al b2d023 .CreidneEpilogueIDEpiloguePointersEntry
 al 57e .wSelectedInventorySlot
+al 83af3d .PapilioSquadDragonriderCharacterDataOffsetsEntry
 al 8d96f3 .dialogueItemNameElthunder
 al 89e3ce .aDebugCombatMAGGainText
 al 8fe8f8 .EventPrologueSigurdArvisTalkEventPointersEntry
@@ -41938,7 +41932,6 @@ al 81c028 .UNITGroupChapter04PamelaUNITGroupPointersEntry
 al 8fe9c1 .EventChapter02Village5EventPointersEntry
 al b0b5fc .dialogueChapter05Village6
 al 83b0eb .PirateCh10CharacterDataOffsetsEntry
-al 8de381 .dialogueChapterEpilogueWorldMap_Piece_NewThracia_EndNoInheritors
 al 8f975a .dialogueChapter02InfiniSeized
 al 849063 .rsCreateHolyUnitRAMData
 al 86c760 .ChapterPrologueDataChapterEventDataPointersEntry
@@ -42054,7 +42047,6 @@ al 83f506 .PI_ShieldRing2PlayerItemTableEntry:Item
 al af853b .dialogueChapter09HannibalAltenaTalk
 al b29089 .Event10EPointer
 al 8aba63 .PortraitPaletteD6PortraitPalettePointersEntry
-al 83d944 .FactionVelthomer2FactionNameOffsetsEntry
 al 86c793 .FG_Ch01GenoaFactionGroupPointersEntry
 al 8fec82 .Event141EventPointersEntry
 al 87bd72 .rsActionStructCheckForTriangleAttack
@@ -42091,6 +42083,7 @@ al b1c4f2 .dialogueChapter07BanbaDialogue
 al b0ce08 .Event1CEPointer
 al 86e52d .Ch05_Village5Chapter05LocationDataEntry
 al 86ee7b .aChapter08OpeningEvent
+al 9db4ed .dialogueChapter03DuvallBattleQuote
 al b2912a .Event119Pointer
 al 8de3c7 .dialogueChapterEpilogueWorldMapIsaach
 al b183d5 .aEventPrologueEvansSpawn
@@ -42179,6 +42172,7 @@ al 8b9eb8 .PortraitHesterPortraitDataIDsEntry
 al 83adfb .ArdenCharacterDataOffsetsEntry
 al 8fbe38 .aEventChapter08MunsterSavedMaykovReaction
 al 8d9291 .dialogueCharacterNameNaoise
+al 86c769 .Chapter03DataChapterEventDataPointersEntry
 al 89d646 .aDebugDashText
 al 83af39 .SylvaleBowArmorCharacterDataOffsetsEntry
 al b28f51 .Event102Pointer
@@ -42195,6 +42189,7 @@ al 91c5f9 .rsEventCommand2C:_Loop
 al 91c65d .rsEventCommand2D
 al 91c68a .rsEventCommand2E
 al 91c6a6 .rsEventCommand2F
+al 91bf35 .rsEventCommand0F
 al 8b981e .WMM_LeonsterCh08Pointer
 al 82c046 .rlHDMAEngineCreateEntry
 al 82c076 .rlHDMAEngineCreateEntry:_AddEntry
@@ -42233,7 +42228,6 @@ al 90967e .dialogueChapter01AyraBattleQuote
 al 839be1 .SilesseBlockadeWindMageNameCharacterNameOffsetsEntry
 al 87f096 .aVillageClosedTiles
 al 9198ab .aUnknown9198AB
-al 84faff .rlGetWeaponTriangleBonus
 al 8ab574 .PortraitGraphic29PortraitGraphicPointersEntry
 al 83b191 .SimiaCharacterDataOffsetsEntry
 al 839a7d .AyraNameCharacterNameOffsetsEntry
@@ -42247,6 +42241,7 @@ al 8e9599 .EventChapter04AnnandDeathAndreyResponsePointer
 al 4206 .WRDIVB
 al 4204 .WRDIVA
 al 8d9b0e .dialogueClassNameDarkMage
+al 82e53f .rlUnknown82E53F
 al 8384f7 .HerminaLoverIDFemaleLoveDataIDsEntry
 al 8384f7 .HerminaLoverIDFemaleLoveDataIDsEntry:UnitID
 al 8dfc56 .aWorldMapEvents
@@ -42325,6 +42320,7 @@ al 8ab949 .PortraitPalette78PortraitPalettePointersEntry
 al 82fa0b .EPrio_FollowUp2EpiloguePriorityRoutinesEntry
 al 83dd16 .BrokenWindTomeBNameItemNameOffsetsEntry
 al 83afa9 .LombardCh05CharacterDataOffsetsEntry
+al 83aeeb .AgustiBallisticianCharacterDataOffsetsEntry
 al 83ae27 .ShannanCharacterDataOffsetsEntry
 al 83f547 .LubeckNameCastleNameOffsetsEntry
 al 83dd10 .BrokenThunderTomeCNameItemNameOffsetsEntry
@@ -42354,6 +42350,7 @@ al 83848f .NaoiseLoverIDMaleLoveDataIDsEntry:UnitID
 al 83b1f5 .KraffCharacterDataOffsetsEntry
 al b0cc6d .EventChapter04TailtiuAzelleTalkPointer
 al 81c038 .UNITGroupChapter05BelhallaUNITGroupPointersEntry
+al d13977 .aMiletosMapHighlightTilemap
 al 8ab811 .PortraitPalette10PortraitPalettePointersEntry
 al 8aba72 .PortraitPaletteDBPortraitPalettePointersEntry
 al 8aba6c .PortraitPaletteD9PortraitPalettePointersEntry
@@ -42370,6 +42367,7 @@ al 869320 .rsChapterEventConditionCommand53:_End
 al 86926a .rsChapterEventConditionCommand52
 al 8b9eec .PortraitXenonChFinalPortraitDataIDsEntry
 al 869388 .rsChapterEventConditionCommand58
+al 8dfd3c .aEventChapter02WorldMap
 al 8dead6 .dialogueChapterEpilogueWorldMapVerdane
 al 8ffd48 .aEventChapter09AsaelloDaisyTalk
 al 84d91e .rlApplyWeaponTriangleBonus
@@ -42390,10 +42388,12 @@ al 8b9cde .PortraitBramselPortraitDataIDsEntry
 al 89e3c0 .aDebugCombatHPGainText
 al 83d8f0 .FactionHeirheinFactionNameOffsetsEntry
 al 8b9bca .PortraitSylvaleLanceArmorPortraitDataIDsEntry
+al 839be7 .AnnandSquadPegasusKnightNameCharacterNameOffsetsEntry
 al 8fe958 .Event033EventPointersEntry
 al 8b9fd0 .PortraitDialogueSoldier2PortraitDataIDsEntry
 al 8fee6b .EventChapter06LanaMuirne_JuliaTalkEventPointersEntry
 al 83e340 .HelswathDescriptionItemDescriptionOffsetsEntry
+al 839c4b .FriegeCh05ThunderMageMaleNameCharacterNameOffsetsEntry
 al 86c85c .aChapter01EventHeader
 al 839c57 .RotenritterCh05CommanderGeneralNameCharacterNameOffsetsEntry
 al 8d91dc .dialogueCastleNameChronos
@@ -42416,6 +42416,7 @@ al 8b9c74 .PortraitFriegeCh05HighPriestPortraitDataIDsEntry
 al 9096ac .dialogueChapter01CimbaethBattleQuote
 al 83b0c5 .ThraciaCh09CommanderDragonriderMeathChargeCharacterDataOffsetsEntry
 al 8b9f68 .PortraitDialogueIshtarPortraitDataIDsEntry
+al b1860b .EventPrologueVillage4Pointer
 al 8b8774 .WMM_UnusedThraciaCastlesWorldMapMarkerSpritesEntry
 al 918b0b .rsDialogueSetDefaultPauseTimer
 al 8b9f92 .PortraitDialoguePalmarchPortraitDataIDsEntry
@@ -42470,7 +42471,6 @@ al 83873e .AyraLoveGrowthLoveGrowthOffsetsEntry
 al 8ab78d .PortraitGraphicDCPortraitGraphicPointersEntry
 al 838aed .SoldierClassNameClassNameOffsetsEntry
 al 919117 .rlDialogueSetClearTileIndex
-al 86d1cf .aChapter02Village8
 al 86d1bb .aChapter02Village4
 al 86d1c5 .aChapter02Village6
 al 86d1ca .aChapter02Village7
@@ -42548,7 +42548,6 @@ al 9dc0c2 .aEventChapter05Opening:_ScriptedMovementSlayder
 al 9dc0a0 .aEventChapter05Opening:_C0A0
 al 9dc0b0 .aEventChapter05Opening:_ScriptedMovementByron
 al 91d5d7 .EventChapter06IsaachArmyTalkPointer
-al 83e3e6 .BrokenThunderTomeCDescriptionItemDescriptionOffsetsEntry
 al 839e27 .ZeroNameCharacterNameOffsetsEntry
 al 8ba06c .ClassPortraitSageClassPortraitDataIDsEntry
 al 8feceb .Event164EventPointersEntry
@@ -42562,6 +42561,7 @@ al 84cbfe .rlDeployedUnitSetHiddenUnsetAlive
 al 839cc7 .MuhammadSquadThunderMageNameCharacterNameOffsetsEntry
 al 8feb68 .EventChapter06EndingEventPointersEntry
 al 9dca8e .Event0D2Pointer
+al 83b179 .FriegeChFinalDarkMageCharacterDataOffsetsEntry
 al b0ce0a .aEventChapter05TailtiuAzelleTalk
 al 83dc36 .WindSwordNameItemNameOffsetsEntry
 al 8480ec .rlUnknown8480EC

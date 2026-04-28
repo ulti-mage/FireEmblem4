@@ -18,7 +18,7 @@
         phk
         plb
         phx
-        lda $8F8004
+        lda aUnknown8F8000+4
         beq _CLC
 
           lda #0
@@ -32,7 +32,7 @@
             cpx #$8E2D
             bcc -
 
-          cmp $8F8000
+          cmp aUnknown8F8000
           bne _SEC
 
           lda #0
@@ -46,17 +46,17 @@
             cpx #$80AA
             bcc -
 
-          cmp $8F8002
+          cmp aUnknown8F8000+2
           bne _SEC
 
-          lda $8F8000
+          lda aUnknown8F8000
           cmp $888000
           bne _SEC
 
           cmp $878008
           bne _SEC
 
-          lda $8F8002
+          lda aUnknown8F8000+2
           cmp $888002
           bne _SEC
 

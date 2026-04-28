@@ -4287,8 +4287,8 @@
         plb
 
         phx
-        ldx $0583,b
-        lda $0003,b,x
+        ldx wCurrentItemDataROMPointer,b
+        lda structWeaponStaffROMEntry.Cost,b,x
         plx
 
         plp

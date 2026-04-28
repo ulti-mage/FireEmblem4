@@ -28088,3 +28088,196 @@ FD DF 85 01 01 81 40 83 41 83 6A 83 81 00 00 ; anime
 
 
 
+      bRNGUnknown1 .byte ? ; $0004A4
+      bRNGUnknown2 .byte ? ; $0004A5
+
+
+
+
+      rlUnknown80A773 ; 80/A773
+
+        .al
+        .autsiz
+        .databank ?
+
+        php
+        phb
+        phk
+        plb
+
+        stz wRNIndex,b
+        sep #$30
+
+        lda bFrameCounterByOnes,b
+        and #$3F
+        sta bRNGUnknown1,b
+        sta aRNArray + size(aRNArray) - 1,b
+
+        lda #1
+        sta bRNGUnknown2,b
+        ldy #20
+        ldx #$36
+
+          _Loop
+          lda bRNGUnknown2,b
+          sta aRNArray,b,y
+
+          lda bRNGUnknown1,b
+          sec
+          sbc bRNGUnknown2,b
+          bge +
+
+            clc
+            adc #100
+
+          +
+          sta bRNGUnknown2,b
+
+          lda aRNArray,b,y
+          sta bRNGUnknown1,b
+
+          tya
+          clc
+          adc #21
+          cmp #size(aRNArray)
+          blt +
+
+            sbc #size(aRNArray)
+
+          +
+          tay
+          dec x
+          bne _Loop
+
+        jsr rsShuffleRNTable
+        jsr rsShuffleRNTable
+        jsr rsShuffleRNTable
+
+        plb
+        plp
+        rtl
+
+        .databank 0
+
+      rsShuffleRNTable ; 80/A7C5
+
+        .as
+        .autsiz
+        .databank ?
+
+        ldy #0
+
+          _Loop
+          tya
+          sta bRNGUnknown1,b
+          cmp #24
+          bge +
+
+          adc #$1F
+          blt ++
+
+          +
+          sbc #24
+
+          +
+          tay
+          lda aRNArray,b,y
+          sta bRNGUnknown2,b
+
+          ldy bRNGUnknown1,b
+          lda aRNArray,b,y
+          sec
+          sbc bRNGUnknown2,b
+          bge +
+
+            adc #100
+
+          +
+          sta aRNArray,b,y
+          inc y
+          cpy #$37
+          bne _Loop
+
+        rts
+
+        .databank 0
+
+      rsUnknown80A7F3 ; 80/A7F3
+
+        .as
+        .autsiz
+        .databank ?
+
+        rep #$30
+        jsl $91EBC9
+        lsr a
+        lsr a
+        sta $04A4,b
+
+        txa
+        asl a
+        asl a
+        asl a
+        asl a
+        clc
+        adc $04A4,b
+        sec
+        sbc #80
+        bcc +
+
+        cmp #100
+        bcc ++
+
+        lda #100
+        bra ++
+
+        +
+        lda #0
+
+        +
+        sta $04A4,b
+        sep #$30
+        ldy #0
+        tyx
+
+          _Loop
+          lda aRNArray,b,xy
+          cmp $04A4,b
+          bcs +
+
+            txa
+            sta aRNArray,b,y
+
+          +
+          inc y
+          cpy #$37
+          bne _Loop
+
+        rep #$30
+        rts
+
+        .databank 0
+
+        ; 80/A836
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

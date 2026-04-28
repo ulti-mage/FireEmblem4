@@ -822,13 +822,13 @@
 
         lda wRNIndex,b
         cmp #size(aRNArray)
-        bcc ++
+        blt ++
 
-          jsr $80A7C5
+          jsr $80A7C5 ; rsShuffleRNTable
           rep #$30
 
           jsl $8F8006
-          bcc +
+          blt +
 
             jsr $80A7F3
 
